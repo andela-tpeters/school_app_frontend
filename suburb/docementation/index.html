@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head lang="en">
+	<meta http-equiv="content-type" content="text/html;charset=utf-8">
+	<title>Suburb HTML Documentation Template</title>
+	<!-- Framework CSS -->
+	<link rel="stylesheet" href="assets/blueprint-css/screen.css" type="text/css" media="screen, projection">
+	<link rel="stylesheet" href="assets/blueprint-css/print.css" type="text/css" media="print">
+	<!--[if lt IE 8]><link rel="stylesheet" href="assets/blueprint-css/ie.css" type="text/css" media="screen, projection"><![endif]-->
+	<link rel="stylesheet" href="assets/blueprint-css/plugins/fancy-type/screen.css" type="text/css" media="screen, projection">
+	<style type="text/css" media="screen">
+		table, hr, .box { margin-bottom:25px; }
+        p { margin: 5px 0 5px 0;}
+		.box p { margin-bottom:10px; }
+        pre { background-color: #F7F8F6; padding: 20px 0px 0px 0px; }
+        img {border: 1px solid #BCBEC0;}
+	</style>
+</head>
+
+
+<body>
+	<div class="container">
+		<h3 class="center alt">&ldquo;Suburb&rdquo; Documentation by &ldquo;Fruitful code&rdquo; v1.0.0</h3>
+		<hr>
+		<h1 class="center">&ldquo;Suburb HTML Template&rdquo;</h1>
+		
+		<div class="borderTop">
+			<div class="span-6 colborder info prepend-1">
+				<p class="prepend-top">
+					<strong>
+					Created: 21/12/2015<br>
+					By: Fruitful code<br>
+					Email: <a href="mailto:mail@fruitfulcode.com">mail@fruitfulcode.com</a>
+					</strong>
+				</p>
+			</div><!-- end div .span-6 -->		
+	
+			<div class="span-12 last">
+				<p class="prepend-top append-0">Thank you for purchasing our theme. If you have any questions that are beyond the scope of this help file, please feel free to email via my user page contact form <a href="http://themeforest.net/user/fruitfulcode" target="blank">here</a>. Thanks so much!</p>
+			</div>
+		</div><!-- end div .borderTop -->
+		
+		<hr>
+		
+		<h2 id="toc" class="alt">Table of Contents</h2>
+		<ol class="alpha">
+            <li><a href="#about">About Suburb</a></li>
+			<li><a href="#installation">Installation</a></li>
+            <li><a href="#structure">Folder Structure</a></li>
+			<li><a href="#elements">Main Elements</a>
+                <ul>
+                    <li><a href="#map">Google map</a>
+                        <ul>
+                            <li><a href="#simple-marker">Map with text marker</a></li>
+                            <li><a href="#custom-marker">Map with info-box</a></li>
+                            <li><a href="#autocomplete">Autocomplete</a></li>
+                            <li><a href="#latlong">Lat Long Position</a></li>
+                            <li><a href="#locations">Locations</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#change">Header, footer and modal blocks</a></li>
+                    <li><a href="#colors">Theme colors</a></li>
+                    <li><a href="#scss">Editing source SCSS Files</a></li>
+                    <li><a href="#selectize">Selectize</a></li>
+                    <li><a href="#owlcarousel">Owl carousel</a></li>
+                    <li><a href="#multigallery">Multiple galleries at one page</a></li>
+                    <li><a href="#checkbox">Checkboxes</a></li>
+                    <li><a href="#tabs">Tabs</a></li>
+                    <li><a href="#mansory">Mansory grid</a></li>
+                    <li><a href="#audio">Audio player</a></li>
+                    <li><a href="#twitter">Twitter single post</a></li>
+                    <li><a href="#video">Video player</a></li>
+                    <li><a href="#range-slider">Range slider</a></li>
+                    <li><a href="#calendar">Calendar (date picker)</a></li>
+                    <li><a href="#user-rating">User rating</a></li>
+                    <li><a href="#breadcrumbs">Breadcrumbs</a></li>
+                    <li><a href="#rtl-style">RTL</a></li>
+                </ul>
+            </li>
+            <li><a href="#sources-and-credits">Sources and Credits</a></li>
+		</ol>
+        
+        <hr>
+        <h3 id="about"><strong>About Suburb</strong></h2>
+        <br>
+        <p>Suburb – new unique, modern, fully responsive HTML theme, based on Bootstrap 3.0 created using HTML and SCSS. <br>
+        Can be used for real estate agency, estate agents.</p>
+        <hr>
+        <h3 id="installation"><strong>Installation</strong></h2>
+        <br>
+        <div style="padding: 30px; background: red;"><h3 style="color: #fff">Important!</h3></div>
+        <br>
+        <p>In order to get JS loading data you need to install <strong>localhost server</strong>. You can use <a href="http://www.wampserver.com" target="blank">WAMP</a>.
+        Then you need to:</p>
+        <ul>
+            <li>Copy your files into <code>*wamp/www</code></li>
+            <li>Run <strong>WAMP</strong>. This will start your localhost server.</li>
+            <li>Open <strong>browser</strong> and in URL type <code>localhost/suburb</code> (or other path)</li>
+        </ul>
+
+        <hr>
+        <h3 id="structure"><strong>Folder Structure</strong></h2>
+        <ul>
+            <li>Suburb
+                <ul>
+                    <li>HTML Files</li>
+                    <li><strong>assets</strong>
+                        <ul>
+                            <li><strong>audio</strong> - Audio sample for media player element</li>
+                            <li><strong>bootstrap</strong> - Bootstrap source files</li>
+                            <li><strong>css</strong> - CSS style sheets</li>
+                            <li><strong>external</strong> - external HTML and JS file loaded by the template</li>
+                            <li><strong>fonts</strong> - Font Awesome font</li>
+                            <li><strong>img</strong> - Images</li>
+                            <li><strong>js</strong> - JS script files</li>
+                            <li><strong>scss</strong> - Source SCSS files</li>
+                        </ul>
+                    </li>
+                    <li><strong>documentation</strong> - This documentation</li>
+                </ul>
+            </li>
+        </ul>
+
+        <hr>
+        <h3 id="map"><strong>Google map</strong> - <a class="back2top" href="#top">top</a></h3>
+        <br>
+        <h6 id="simple-marker">Map with text marker</h6>
+        <img src="assets/images/map-simple.png">
+        <h6>HTML:</h6> 
+    <pre>
+        &lt;div id="<strong>map</strong>" class="map"&gt;&lt;/div&gt;
+    </pre>
+        <h6>Before &lt;/body&gt; tag ends:</h6>
+<pre style="font-size:12px;">
+    &lt;script&gt;
+    $(document).ready(function() {
+        function initialize() {
+            var latlng = {lat: 40.733355, lng: -73.982327};
+            var mapOptions = {
+                center: latlng,
+                zoom: 14
+            };
+            var map = new google.maps.Map(document.getElementById('<strong>map</strong>'),
+                mapOptions);
+            var marker = new MarkerWithLabel({
+                position: latlng,
+                map: map,
+                labelContent:   '&lt;div class="marker-loaded"&gt;&lt;
+                                div class="map-marker"&gt;&lt;img src="assets/img/f.png" alt=""/&gt;&lt;/div&gt;&lt;/div&gt;',
+                labelClass: "marker-style"
+            });
+            var contentString =     
+                '&lt;div id="mapinfo"&gt;'+
+                '&lt;h4 class="firstHeading"&gt;Company Name&lt;/h4&gt;'+
+                '&lt;h6&gt;525 W 28th St, New York, NY 10001&lt;/h6&gt;' +
+                '&lt;div&gt;&lt;i class="fa fa-phone"&gt;&lt;/i&gt;&lt;a href="tel:+4819228383746"&gt;+4819228383746&lt;/a&gt;&lt;/div&gt;' +
+                '&lt;div&gt;&lt;i class="fa fa-mobile"&gt;&lt;/i&gt;&lt;a href="tel:+4819228383746"&gt;+4819228383746&lt;/a&gt;&lt;/div&gt;' +
+                '&lt;p id="at"&gt;@&lt;/p&gt;'+
+                '&lt;div class="contactblock"&gt;&lt;a href="mailto:info@suburb.com"&gt;info@suburb.com&lt;/a&gt;&lt;/div&gt;' +
+                '&lt;/div&gt;';
+
+            var infowindow = new google.maps.InfoWindow({
+                content: contentString
+            });
+            marker.addListener('click', function() {
+                infowindow.open(map, marker);
+            });
+        }
+        google.maps.event.addDomListener(window, 'load', initialize);  
+    });
+    &lt;/script&gt;
+
+    &lt;script src="https://maps.googleapis.com/maps/api/js?v=3&libraries=places"&gt;&lt;/script&gt;
+    &lt;script type="text/javascript" src="assets/js/markerwithlabel_packed.js"&gt;&lt;/script&gt;
+
+</pre>
+        <br>
+        <h6 id="custom-marker">Map with info-box</h6>
+        <p>All settings of this map type occur in a separate custom-map.js file</p>
+        <img src="assets/images/map-custom.png">
+        <h6>HTML:</h6> 
+    <pre>
+        &lt;div id="<strong>map</strong>" class="map"&gt;&lt;/div&gt;
+    </pre>
+        <h6>Before &lt;/body&gt; tag ends:</h6>
+    <pre>
+        &lt;script src="https://maps.googleapis.com/maps/api/js?v=3&libraries=places"&gt;&lt;/script&gt;
+        &lt;script type="text/javascript" src="assets/js/infobox.js"&gt;&lt;/script&gt;
+        &lt;script type="text/javascript" src="assets/js/custom-map.js"&gt;&lt;/script&gt;
+        &lt;script type="text/javascript" src="assets/js/markerwithlabel_packed.js"&gt;&lt;/script&gt;
+        &lt;script&gt;
+            _latitude = 40.719457;
+            _longitude = -73.989642;
+            createHomepageGoogleMap(_latitude,_longitude);
+        &lt;/script&gt;
+
+    </pre>
+
+        <hr>
+        <h3 id="autocomplete"><strong>Autocomplete</strong> - <a class="back2top" href="#top">top</a></h3> 
+        <p>Autocomplete for Addresses and Search Terms</p>
+        <img src="assets/images/autocomplete.png">
+        <h6>HTML:</h6> 
+    <pre>
+        &lt;input type="text" class="form-control" id="<strong>address-map</strong>" name="address"&gt;
+    </pre>
+        <h6>Before &lt;/body&gt; tag ends:</h6>
+    <pre>
+        &lt;script src="https://maps.googleapis.com/maps/api/js?v=3&libraries=places"&gt;&lt;/script&gt;
+        &lt;script&gt;
+            var input = ( document.getElementById('<strong>address-map</strong>') );
+            var autocomplete = new google.maps.places.Autocomplete(input);
+            autocomplete.bindTo('bounds', map);
+            google.maps.event.addListener(autocomplete, 'place_changed', function() {
+                var place = autocomplete.getPlace();
+                if (!place.geometry) {
+                    return;
+                }
+                if (place.geometry.viewport) {
+                    map.fitBounds(place.geometry.viewport);
+                } else {
+                    map.setCenter(place.geometry.location);
+                    map.setZoom(15);
+                }
+                marker.setPosition(place.geometry.location);
+                marker.setVisible(true);
+                $('#latitude').val( marker.getPosition().lat() );
+                $('#longitude').val( marker.getPosition().lng() );
+                var address = '';
+                if (place.address_components) {
+                    address = [
+                    (place.address_components[0] && place.address_components[0].short_name || ''),
+                    (place.address_components[1] && place.address_components[1].short_name || ''),
+                    (place.address_components[2] && place.address_components[2].short_name || '')
+                    ].join(' ');
+                }
+            });
+        &lt;/script&gt;
+    </pre>
+
+        <hr>
+        <h3 id="latlong"><strong>Lat Long Position</strong> - <a class="back2top" href="#top">top</a></h3>
+        <p></p>
+        <img src="assets/images/latlong.png">
+        <h6>HTML:</h6> 
+    <pre style="font-size:12px;">
+        &lt;input type="text" class="form-control" placeholder="Latitude" id="latitude" readonly&gt;
+        &lt;input type="text" class="form-control" placeholder="Longitude" id="longitude" readonly&gt;
+    </pre>
+        <h6>Before &lt;/body&gt; tag ends:</h6>
+    <pre>
+        &lt;script src="https://maps.googleapis.com/maps/api/js?v=3&libraries=places"&gt;&lt;/script&gt;
+        &lt;script&gt;
+            function success(position) {
+                initSubmitMap(position.coords.latitude, position.coords.longitude);
+                $('#latitude').val( position.coords.latitude );
+                $('#longitude').val( position.coords.longitude );
+            }
+        &lt;/script&gt;
+    </pre>
+
+        <hr>
+        <h3 id="locations"><strong>Locations</strong> - <a class="back2top" href="#top">top</a></h3>
+        <p>Suburb loads properties data from locations.js file as default. It contains array with properties parameters.</p>
+    <pre>
+        Example:
+
+        [
+            "Prism at Park Avenue South Apar", // Title
+            "525 W 28th St, New York, NY 10001", // Locations
+            "$5,000,000", // Price
+            40.716408, // Latitude
+            -73.990524, // Longitude
+            "property_page.html", // Link to the property detail page
+            "assets/img/home_7.jpgg", // Property thumbnail image
+            "assets/img/f.png" // Property type icon
+        ],
+    </pre>
+
+        <hr>
+        <h3 id="change"><strong>Header, footer and modal blocks</strong> - <a class="back2top" href="#top">top</a></h3>
+        <p>For ease of editing all modal units, header and footer are connected from individual html file</p>
+        <h6>Example for footer:</h6>
+    <h6>HTML:</h6> 
+    <pre style="">
+        &lt;div id="footer"&gt;&lt;/div&gt;
+    </pre>
+        <h6>Js</h6>
+    <pre>
+        $.get("footer.html", function(data){
+          $('#footer').append(data);
+        });
+
+        $('#modal-login label, #modal-register label').on('click', function(){
+            $(this).next().focus();
+        });
+    </pre>
+        <p>For header there is additional initialization of js elements that are present in it structure:</p>
+    <pre>
+        $.get("header_page.html", function(data){
+          $('#header').append(data);
+          $('.selection').selectize({sortField: 'text'});
+        });
+    </pre>
+
+        <hr>
+        <h3 id="colors"><strong>Theme colors</strong> - <a class="back2top" href="#top">top</a></h3>
+        <p>To edit colors, you can open SCSS file located at <em>assets/scss/<strong>_variables.scss</strong></em>. But you need mentioned SCSS compiler. Otherwise you can replace all occurrences of
+        the same color in CSS file located at <em>assets/css/<strong>style.css</strong></em></p>
+        <p><strong>For example:</strong> main and default color of theme is <span style="color:#3a7de3;">#3a7de3</span> and it's created as a variable <strong>$color-switched</strong>.</p> 
+        <img src="assets/images/color-schemes-default.png">
+        <p>If we give the variable another value <strong>$color-switched</strong>:<span style="color:#adc816;">#adc816;</span></p>
+        <img src="assets/images/color-schemes.png">
+        <p>Just changing one parameter - you change the color scheme of all pages</p>
+
+        <hr>
+        <h3 id="scss"><strong>Editing source SCSS Files</strong> - <a class="back2top" href="#top">top</a></h3>
+        <p>
+            Suburb uses an SCSS files for styling. If you want to edit source SCSS files, you need to use an SCSS Compiler.
+            Or you can edit regular CSS files located in <strong><em>assets/css</em></strong>
+        </p>
+
+        <hr>
+        <h3 id="selectize"><strong>Selectize</strong> - <a class="back2top" href="#top">top</a></h3>
+        <br>
+        <img src="assets/images/selectize.png">
+        <h6>HTML head</h6>
+    <pre>
+        &lt;link rel="stylesheet" href="assets/css/selectize.css" type="text/css"&gt;
+    </pre>
+        <h6>HTML:</h6> 
+    <pre>
+        &lt;select class="<strong>selection</strong>"&gt;
+            &lt;option&gt;Type&lt;/option&gt;
+            &lt;option&gt;For Sale&lt;/option&gt;
+            &lt;option&gt;For Rent&lt;/option&gt;
+        &lt;/select&gt;
+    </pre>
+        <h6>Before &lt;/body&gt; tag ends:</h6>
+    <pre>
+        &lt;script type="text/javascript" src="assets/js/selectize.min.js"&gt;&lt;/script&gt;
+    </pre>
+        <h6>Js</h6>
+    <pre>
+        $('.selection').selectize({sortField: 'text'});
+    </pre>
+
+        <hr>
+        <h3 id="owlcarousel"><strong>Owl carousel</strong> - <a class="back2top" href="#top">top</a></h3>
+        <br>
+        <img src="assets/images/owl-carousel.png">
+        <h6>HTML head</h6>
+    <pre>
+        &lt;link rel="stylesheet" href="assets/css/owl.carousel.css" type="text/css"&gt;
+    </pre>
+        <h6>HTML:</h6> 
+    <pre>
+        &lt;div id="<strong>owl-demo</strong>" class="<strong>owl-carousel owl-theme</strong>"&gt;
+            &lt;div class="item" ...&gt;&lt;/div&gt;
+            &lt;div class="item" ...&gt;&lt;/div&gt;
+            &lt;div class="item" ...&gt;&lt;/div&gt;
+        &lt;/div&gt;
+    </pre>
+        <h6>Before &lt;/body&gt; tag ends:</h6>
+    <pre>
+        &lt;script type="text/javascript" src="assets/js/owl.carousel.min.js"&gt;&lt;/script&gt;
+    </pre>
+        <h6>Js</h6>
+    <pre>
+        $("#owl-demo").owlCarousel({
+            items : 4,
+            itemsDesktop: [1024,3],
+        });
+    </pre>
+        <p>Owl-carousel settings can be found  <a href="http://owlgraphic.com/owlcarousel" target="blank">here</a></p>
+
+       <hr>
+        <h3 id="multigallery"><strong>Multiple galleries at one page</strong> - <a class="back2top" href="#top">top</a></h3>
+        <p>If you need to create  different galleries for each item:</p>
+        <p>1. Create a copy of "custom-galery" and rename id of input and label. For example <strong>id="op2"</strong>;</p>
+        <p>2. Rename id of button "browse photos" on item, where you need different gallery. Title of id must be the same! <strong>id="op2"</strong>;</p>
+        <p>3. Paste new images inside gallery.</p>
+        <br>
+        <h6>HTML:</h6> 
+    <pre style="font-size:12px;">
+        1. 
+        &lt;div class="custom-galery"&gt;
+            &lt;input type="checkbox" class="gal" id="<strong>op2</strong>"&gt;
+            &lt;div class="lower"&gt;&lt;/div&gt;
+            &lt;div class="overlay overlay-hugeinc"&gt;
+                &lt;label for="<strong>op2</strong>"&gt;&lt;/label&gt;
+                &lt;nav&gt;
+                    &lt;div class="owl-carousel owl-theme carousel-full-width owl-demo-3"&gt;
+                        &lt;div class="item" style="background-image: url(http://placehold.it/950X800);"&gt;&lt;/div&gt;
+                        &lt;div class="item" style="background-image: url(http://placehold.it/800X650);"&gt;&lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/nav&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        <br>
+        2. 
+        &lt;span class="ffs-bs"&gt;&lt;label for="<strong>op2</strong>" class="btn btn-small btn-primary"&gt;browse photos&lt;/label&gt;&lt;/span&gt;
+        <br>
+        3.
+        &lt;div class="item" style="background-image: url(....);"&gt;&lt;/div&gt;
+    </pre>
+
+        <hr>
+        <h3 id="checkbox"><strong>Checkboxes</strong> - <a class="back2top" href="#top">top</a></h3>
+        <br>
+        <img src="assets/images/checkbox.png">
+        <h6>HTML:</h6> 
+    <pre style="font-size:12px;">
+        &lt;div class="checkbox"&gt;&lt;label&gt;&lt;input type="checkbox" checked="checked"&gt;Air conditioning&lt;/label&gt;&lt;/div&gt;
+        &lt;div class="checkbox"&gt;&lt;label&gt;&lt;input type="checkbox"&gt;Hi-Fi&lt;/label&gt;&lt;/div&gt;
+    </pre>
+        <h6>Before &lt;/body&gt; tag ends:</h6>
+    <pre>
+        &lt;script type="text/javascript" src="assets/js/icheck.min.js"&gt;&lt;/script&gt;
+    </pre>
+        <h6>Js</h6>
+    <pre>
+        if ($('.checkbox').length > 0) {
+            $('input').iCheck();
+        }
+    </pre>
+
+        <hr>
+        <h3 id="tabs"><strong>Tabs</strong> - <a class="back2top" href="#top">top</a></h3>
+        <br>
+        <img src="assets/images/tabs.png">
+        <h6>HTML:</h6> 
+    <pre>
+        &lt;ul id="<strong>tabs</strong>" class="nav nav-tabs" data-tabs="tabs"&gt;
+            &lt;li&gt;&lt;a href="#profile" data-toggle="tab"&gt;...&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#messages" data-toggle="tab"&gt;...&lt;/a&gt;&lt;/li&gt;
+            &lt;li class="active"&gt;&lt;a href="#packages" data-toggle="tab"&gt;...&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+        &lt;div class="<strong>tab-content</strong>"&gt;
+            &lt;div id="profile" class="tab-pane"&gt;...&lt;/div&gt;
+            &lt;div id="messages" class="tab-pane"&gt;...&lt;/div&gt;
+            &lt;div id="packages" class="tab-pane active"&gt;...&lt;/div&gt;
+        &lt;/div&gt;
+    </pre>
+        <h6>Js</h6>
+    <pre>
+        $('.tabs .tab-links a').on('click', function(e)  {
+            var currentAttrValue = $(this).attr('href');
+            var priceSlider = $('.jslider').detach();
+            $('.tabs ' + currentAttrValue).slideDown(400).siblings().slideUp(400);
+            $(this).parent('li').addClass('active').siblings().removeClass('active');
+    </pre>
+            <p>In order for range-slider to save its values when switching between tabs:</p>
+    <pre>
+            priceSlider.appendTo($('.tabs ' + currentAttrValue).find('.price-range-wrapper'));
+            priceSlider = null;
+            e.preventDefault();
+        });
+    </pre>
+
+        <hr>
+        <h3 id="mansory"><strong>Masonry grid</strong> - <a class="back2top" href="#top">top</a></h3>
+        <h6>HTML:</h6> 
+    <pre>
+        &lt;div class="grid"&gt;
+            &lt;div class="grid-item"&gt;...&lt;/div&gt;
+            &lt;div class="grid-item"&gt;...&lt;/div&gt;
+            &lt;div class="grid-item"&gt;...&lt;/div&gt;
+        &lt;/div&gt;
+    </pre>
+        <h6>Before &lt;/body&gt; tag ends:</h6>
+    <pre>
+        &lt;script type="text/javascript" src="assets/js/masonry.pkgd.min.js"&gt;&lt;/script&gt;
+    </pre>
+        <h6>Js</h6>
+    <pre>
+        function triggerMasonry() {
+            if ( !$grid ) { return; }
+            $grid.masonry({
+                itemSelector: '.grid-item'
+            });
+        }
+        
+        $grid = $('.grid');
+        triggerMasonry();
+    </pre>
+
+
+        <hr>
+        <h3 id="audio"><strong>Audio player</strong> - <a class="back2top" href="#top">top</a></h3>
+        <br>
+        <img src="assets/images/audio.png">
+        <h6>HTML head</h6>
+    <pre>
+        &lt;link rel="stylesheet" href="assets/css/mediaelementplayer.css" type="text/css"&gt;
+    </pre>
+        <h6>HTML:</h6> 
+    <pre style="font-size:12px;">
+        &lt;div class="audio-pl"&gt;
+            &lt;audio id="player2" src="assets/audio/silence_is_golden.mp3" controls="controls"&gt;&lt;/audio&gt;
+        &lt;/div&gt;
+    </pre>
+        <h6>Before &lt;/body&gt; tag ends:</h6>
+    <pre>
+        &lt;script type="text/javascript" src="assets/js/mediaelement-and-player.min.js"&gt;&lt;/script&gt;
+    </pre>
+        <h6>Js</h6>
+    <pre>
+        $('audio').mediaelementplayer();
+    </pre>
+
+        <hr>
+        <h3 id="twitter"><strong>Twitter single post</strong> - <a class="back2top" href="#top">top</a></h3>
+        <br>
+        <img src="assets/images/twitter.png">
+        <p>It’s enough to "post a twit" to tweet from twitter and post <strong>html</strong> and <strong>script</strong> in your code to make it appear on the page</p>
+        <img src="assets/images/twitter-get-code.png">
+        <img src="assets/images/twitter-get-code-2.png">
+
+        <hr>
+        <h3 id="video"><strong>Video player</strong> - <a class="back2top" href="#top">top</a></h3>
+        <h6>HTML:</h6> 
+    <pre style="font-size:12px;">
+        &lt;iframe src="https://player.vimeo.com/video/136761532" width="1000" height="562" 
+        allowfullscreen&gt;&lt;/iframe&gt;
+    </pre>
+        <h6>Js</h6>
+    <pre>
+        $('embed, iframe').wrap("&lt;div class='video-container'&gt;&lt;/div&gt;");
+    </pre>
+
+        <hr>
+        <h3 id="range-slider"><strong>Range slider</strong> - <a class="back2top" href="#top">top</a></h3>
+        <br>
+        <img src="assets/images/range-slider.png">
+        <h6>HTML:</h6> 
+    <pre>
+        &lt;div class="price-range price-range-wrapper"&gt;
+            &lt;input class="price-input" type="text" name="price" value="0;5000000"&gt;
+        &lt;/div&gt;
+    </pre>
+        <h6>Before &lt;/body&gt; tag ends:</h6>
+    <pre>
+        &lt;script type="text/javascript" src="assets/js/tmpl.js"&gt;&lt;/script&gt;
+        &lt;script type="text/javascript" src="assets/js/draggable-0.1.js"&gt;&lt;/script&gt;
+        &lt;script type="text/javascript" src="assets/js/jquery.slider.js"&gt;&lt;/script&gt;
+    </pre>
+        <h6>Js</h6>
+    <pre>
+        if( $(".price-input").length > 0) {
+            $(".price-input").each(function() {
+                var vSLider = $(this).slider({
+                    from: 0,
+                    to: 9000000,
+                    smooth: true, 
+                    round: 0,       
+                    dimension: ',00&nbsp;$',
+                }); 
+            });
+        }
+    </pre>
+
+        <hr>
+        <h3 id="calendar"><strong>Calendar (date picker)</strong> - <a class="back2top" href="#top">top</a></h3>
+        <br>
+        <img src="assets/images/date.png">
+        <h6>HTML head</h6>
+    <pre style="font-size:12px;">
+        &lt;link rel='stylesheet' type='text/css'href='http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css'/&gt;
+    </pre>
+        <h6>HTML:</h6> 
+    <pre>
+        &lt;input id="date-from" placeholder="From"&gt;
+    </pre>
+        <h6>Before &lt;/body&gt; tag ends:</h6>
+    <pre style="font-size:12px;">
+        &lt;script type="text/javascript" src="assets/js/jquery-2.1.4.min.js"&gt;&lt;/script&gt;
+        &lt;script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"&gt;&lt;/script&gt;
+    </pre>
+        <h6>Js</h6>
+    <pre>
+        $(document).ready(function() {
+            $("#date-from").datepicker({
+                showOtherMonths: true,
+                selectOtherMonths: true
+            });
+            $("#date-to").datepicker({
+                showOtherMonths: true,
+                selectOtherMonths: true
+            });
+        });
+    </pre>
+
+        <hr>
+        <h3 id="user-rating"><strong>User rating</strong> - <a class="back2top" href="#top">top</a></h3>
+        <br>
+        <img src="assets/images/rating.png">
+        <h6>HTML:</h6> 
+    <pre>
+        &lt;div class="rating rating-user"&gt;
+            &lt;div class="inner"&gt;&lt;/div&gt;
+        &lt;/div&gt;
+    </pre>
+        <h6>Before &lt;/body&gt; tag ends:</h6>
+    <pre style="font-size:12px;">
+        &lt;script type="text/javascript" src="assets/js/jquery-2.1.4.min.js"&gt;&lt;/script&gt;
+        &lt;script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"&gt;&lt;/script&gt;
+    </pre>
+        <h6>Js</h6>
+    <pre>
+        var ratingUser = $('.rating-user');
+        if (ratingUser.length > 0) {
+            $('.rating-user .inner').raty({
+                path: 'assets/img',
+                starOff : 'big-star-off.png',
+                starOn  : 'big-star-on.png',
+                width: 150,
+                targetType : 'number',
+                targetFormat : 'Rating: {score}',
+            });
+        }
+    </pre>
+
+        <hr>
+        <h3 id="breadcrumbs"><strong>Breadcrumbs</strong> - <a class="back2top" href="#top">top</a></h3>
+        <br>
+        <p>
+            <img src="assets/images/breadcrumbs.png">
+        </p>
+    <pre>
+    &lt;ol class="<strong>breadcrumb</strong>"&gt;
+      &lt;li&gt;&lt;a href="index_v_1.html"&gt;Home&lt;/a&gt;&lt;/li&gt;
+      &lt;li class="<strong>active</strong>"&gt;About Us&lt;/li&gt;
+    &lt;/ol&gt;
+    </pre>
+
+        <hr>
+        <h3 id="rtl-style"><strong>RTL</strong> - <a class="back2top" href="#top">top</a></h3>
+        <p>All Suburb pages support RTL text, to initialize it at the desired page, add:</p>
+        <h6>HTML head</h6>
+    <pre style="font-size:12px;">
+       &lt;link rel="stylesheet" href="assets/bootstrap/css/bootstrap-rtl.min.css" type="text/css"&gt;
+       &lt;link rel="stylesheet" href="assets/css/rtl.css" type="text/css"&gt;
+    </pre>
+        <hr>
+	
+	<h3 id="sources-and-credits"><strong>Sources and Credits</strong> - <a class="back2top" href="#top">top</a></h3>
+        <br>
+		<ul>
+            <li>Web design - <a href="http://themeforest.net/item/suburb-real-estate-psd-theme/12407645/">Fruitful code</a></li>
+			<li>Bootstrap Framework – <a href="http://getbootstrap.com/">http://getbootstrap.com</a></li>
+            <li>jQuery FlexSlider - <a href="https://github.com/woothemes/FlexSlider/">https://github.com/woothemes/FlexSlider</a></li>
+            <li>jQuery OwlCarousel - <a href="https://github.com/OwlFonk/OwlCarousel">https://github.com/OwlFonk/OwlCarousel</a></li>
+            <li>Masonry grid - <a href="http://masonry.desandro.com">http://masonry.desandro.com</a></li>
+            <li>html5.js - <a href="https://github.com/aFarkas/html5shiv">https://github.com/aFarkas/html5shiv</a></li>
+            <li>Respond.js - <a href="https://github.com/scottjehl/Respond">https://github.com/scottjehl/Respond</a></li>
+            <li>Classie.js - <a href="https://github.com/ded/bonzo">https://github.com/ded/bonzo</a></li>
+            <li>fileinput.js - <a href="http://plugins.krajee.com">http://plugins.krajee.com</a></li>
+            <li>Modernizr - <a href="http://modernizr.com/">http://modernizr.com</a></li>
+             <li>jQuery Validation Plugin - <a href="https://github.com/jzaefferer/jquery-validation">https://github.com/jzaefferer/jquery-validation</a></li>
+            <li>Retina.js - <a href="https://github.com/imulus/retinajs">https://github.com/imulus/retinajs</a></li>
+            <li>jQuery Waypoints <a href="https://github.com/imakewebthings/jquery-waypoints">https://github.com/imakewebthings/jquery-waypoints</a></li>
+            <li>Bootstrap Select - <a href="http://silviomoreto.github.io/bootstrap-select/">http://silviomoreto.github.io/bootstrap-select/</a></li>
+            <li>Google fonts <a href="https://www.google.com/fonts">https://www.google.com/fonts</a></li>
+            <li>Icons <a href="http://fortawesome.github.io/Font-Awesome/" target="blank">Font Awesome</a></li>
+		</ul>
+
+
+       
+		
+		<p class="append-bottom alt large"><strong>Fruitful code</strong></p>
+		<p><a href="#toc">Go To Table of Contents</a></p>
+		
+		<hr class="space">
+	</div><!-- end div .container -->
+</body>
+</html>

@@ -1,0 +1,498 @@
+<div class="page-content_home">
+  <div class="home_1" [ngStyle]="{'background-image': 'url('+homepageImage+')'}">
+    <div class="header_title">
+      <h1>The simplest way to find a School</h1>
+      <h4>Find {{pageTitle}}</h4>
+    </div>
+      <form id="form-submit" class="form-submit" action="search_result.html">
+        <div class="search">
+          <div class="selector col-md-3  col-sm-3">
+            <select class="selection" id="rent-sale">
+              <option>Creche</option>
+              <option>Nur/Pry</option>
+              <option>Secondary/High School</option>
+              <option>College</option>
+              <option>University</option>
+              <option>Polythecnic</option>
+              <option>Business School</option>
+              <option>Music School</option>
+              <option>Sport</option>
+            </select>
+          </div>
+          <div id="email-label" class="col-md-7 col-sm-7">
+            <i class="fa fa-location-arrow"></i>
+            <input type="text" id="search_field" class="form-control" placeholder="State">
+          </div>
+          <span class="ffs-bs col-md-2 col-sm-2"><button type="submit" class="btn btn-small btn-primary">Search</button></span>
+        </div>
+      </form>
+  </div>
+  <div class="container">
+    <div class="explore">
+      <h2>Explore Schools in Your Area</h2>
+      <h5>&nbsp;
+        <!-- <i class="fa fa-map-marker"></i>Warsaw, Poland <span class="team-color">Change location</span> -->
+      </h5>
+    </div>
+    <div class="row">
+      <div class="col-md-4 col-sm-6">
+        <a routerLink="/search" class="exp-img" [ngStyle]="{'background-image':'url(' + countries[0].image + ')','background-position': 'center','background-size': 'cover'}">
+          <span class="filter"></span>
+          <div class="img-info">
+            <h3>{{countries[0].name}}</h3>
+            <h6>{{countries[0].schools}} schools</h6>
+            <span class="ffs-bs btn btn-small btn-primary">explore more</span>
+          </div>
+        </a>
+      </div>
+      <div class="col-md-4 col-sm-6">
+        <a routerLink="/search" class="exp-img" [ngStyle]="{'background-image':'url(' + countries[1].image + ')','background-position': 'center','background-size': 'cover'}">
+          <span class="filter"></span>
+          <div class="img-info">
+            <h3>{{countries[1].name}}</h3>
+            <h6>{{countries[1].schools}} schools</h6>
+            <span class="ffs-bs btn btn-small btn-primary">explore more</span>
+          </div>
+        </a>
+      </div>
+      <div class="col-md-4 col-sm-6">
+        <a routerLink="/search" class="exp-img" [ngStyle]="{'background-image':'url(' + countries[2].image + ')','background-position': 'center','background-size': 'cover'}">
+          <span class="filter"></span>
+          <div class="img-info">
+            <h3>{{countries[2].name}}</h3>
+            <h6>{{countries[2].schools}} schools</h6>
+            <span class="ffs-bs btn btn-small btn-primary">explore more</span>
+          </div>
+        </a>
+      </div>
+      <div class="col-md-4 col-sm-6">
+        <a routerLink="/search" class="exp-img" [ngStyle]="{'background-image':'url(' + countries[3].image + ')','background-position': 'center','background-size': 'cover'}">
+          <span class="filter"></span>
+          <div class="img-info">
+            <h3>{{countries[3].name}}</h3>
+            <h6>{{countries[3].schools}} schools</h6>
+            <span class="ffs-bs btn btn-small btn-primary">explore more</span>
+          </div>
+        </a>
+      </div>
+      <div class="col-md-8">
+        <a routerLink="/search" class="exp-img" [ngStyle]="{'background-image':'url(' + countries[4].image + ')','background-position': 'center','background-size': 'cover'}">
+          <span class="filter"></span>
+          <div class="img-info">
+            <h3>{{countries[4].name}}</h3>
+            <h6>{{countries[4].schools}} schools</h6>
+            <span class="ffs-bs btn btn-small btn-primary">explore more</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="wide-2">
+    <div class="container">
+      <div class="explore">
+        <h2>Featured Schools</h2>
+        <h5 class="team-color">Lorem Ipsum is simply dummy text of the printing and typesetting industry. <br>Lorem Ipsum has been the industry's standard dummy text ever since</h5>
+      </div>
+      <div class="row">
+        <div class="col-md-3 col-sm-3 col-xs-6 prop" *ngFor="let school of schools" style="margin-bottom: 20px">
+          <div class="wht-cont">
+            <!-- <div class="exp-img-2" style="background:url({{school.image}}) center;background-size: cover;"> -->
+            <div class="exp-img-2" [ngStyle]="{'background-image':'url(' + school.image + ')','background-position': 'center','background-size': 'cover'}">
+              <span class="filter"></span>
+              <span class="ffs-bs"><label for="op" class="btn btn-small btn-primary">Details</label></span>
+              <div class="overlay">
+                <div class="img-counter">&nbsp;</div>
+              </div>
+            </div>
+            <div class="item-title">
+              <h4><a href="property_page.html">{{school.name}}</a></h4>
+              <p class="team-color">{{school.address}}</p>
+              <div class="col-md-7 col-sm-7 col-xs-7">
+                <p>{{school.classrooms}} classrooms</p>
+              </div>
+              <!-- <div class="col-md-5 col-sm-5 col-xs-5">
+                <p>86 m<span class="rank">2</span></p>
+              </div> -->
+              <!-- <div class="col-md-7 col-sm-7 col-xs-7 lft-brd"></div>
+              <div class="col-md-5 col-sm-5 col-xs-5 lft-brd"></div> -->
+            </div>
+            <!-- <hr> -->
+            <div class="item-title btm-part">
+              <div class="row">
+                <div class="col-md-8 col-sm-8 col-xs-8">
+                  <p>&nbsp;</p>
+                </div>
+                <!-- <div class="col-md-4 col-sm-4 col-xs-4 favorite">
+                  <div class="bookmark" data-bookmark-state="empty">
+                    <span class="title-add">Add to bookmark</span>
+                  </div>
+                  <div class="compare" data-compare-state="empty">
+                    <span class="plus-add">Add to compare</span>
+                  </div>
+                </div> -->
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--<div class="col-md-3 col-sm-3 col-xs-6 prop">
+          <div class="wht-cont">
+            <div class="exp-img-2" style="background:url(http://placehold.it/255X200) center;background-size: cover;">
+              <span class="filter"></span>
+              <span class="ffs-bs"><label for="op" class="btn btn-small btn-primary">browse photos</label></span>
+              <div class="overlay">
+                <div class="img-counter">23 Photo</div>
+              </div>
+            </div>
+            <div class="item-title">
+              <h4><a href="property_page.html">Prism at Park Avenue South Apar</a></h4>
+              <p class="team-color">525 W 28th St, New York, NY 10001</p>
+              <div class="col-md-7 col-sm-7 col-xs-7">
+                <p>Studio - 2 bd</p>
+              </div>
+              <div class="col-md-5 col-sm-5 col-xs-5">
+                <p>86 m<span class="rank">2</span></p>
+              </div>
+              <div class="col-md-7 col-sm-7 col-xs-7 lft-brd"></div>
+              <div class="col-md-5 col-sm-5 col-xs-5 lft-brd"></div>
+            </div>
+            <hr>
+            <div class="item-title btm-part">
+              <div class="row">
+                <div class="col-md-8 col-sm-8 col-xs-8">
+                  <p>$5,000,000</p>
+                  <p class="team-color">FOR SALE</p>
+                </div>
+                <div class="col-md-4 col-sm-4 col-xs-4 favorite">
+                  <div class="bookmark" data-bookmark-state="empty">
+                    <span class="title-add">Add to bookmark</span>
+                  </div>
+                  <div class="compare" data-compare-state="empty">
+                    <span class="plus-add">Add to compare</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 col-sm-3 col-xs-6 prop">
+          <div class="wht-cont">
+            <div class="exp-img-2" style="background:url(http://placehold.it/255X200) center;background-size: cover;">
+              <span class="filter"></span>
+              <span class="ffs-bs"><label for="op" class="btn btn-small btn-primary">browse photos</label></span>
+              <div class="overlay">
+                <div class="img-counter">23 Photo</div>
+              </div>
+            </div>
+            <div class="item-title">
+              <h4><a href="property_page.html">Avalon Morningside Park Apartment</a></h4>
+              <p class="team-color">525 W 28th St, New York, NY 10001</p>
+              <div class="col-md-7 col-sm-7 col-xs-7">
+                <p>Studio - 2 bd</p>
+              </div>
+              <div class="col-md-5 col-sm-5 col-xs-5">
+                <p>86 m<span class="rank">2</span></p>
+              </div>
+              <div class="col-md-7 col-sm-7 col-xs-7 lft-brd"></div>
+              <div class="col-md-5 col-sm-5 col-xs-5 lft-brd"></div>
+            </div>
+            <hr>
+            <div class="item-title btm-part">
+              <div class="row">
+                <div class="col-md-8 col-sm-8 col-xs-8">
+                  <p>$5,000,000</p>
+                  <p class="team-color">FOR SALE</p>
+                </div>
+                <div class="col-md-4 col-sm-4 col-xs-4 favorite">
+                  <div class="bookmark" data-bookmark-state="empty">
+                    <span class="title-add">Add to bookmark</span>
+                  </div>
+                  <div class="compare" data-compare-state="empty">
+                    <span class="plus-add">Add to compare</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 col-sm-3 col-xs-6 prop">
+          <div class="wht-cont">
+            <div class="exp-img-2" style="background:url(http://placehold.it/255X200) center;background-size: cover;">
+              <span class="filter"></span>
+              <span class="ffs-bs"><label for="op" class="btn btn-small btn-primary">browse photos</label></span>
+              <div class="overlay">
+                <div class="img-counter">23 Photo</div>
+              </div>
+            </div>
+            <div class="item-title">
+              <h4><a href="property_page.html">Prism at Park Avenue South Apar</a></h4>
+              <p class="team-color">525 W 28th St, New York, NY 10001</p>
+              <div class="col-md-7 col-sm-7 col-xs-7">
+                <p>Studio - 2 bd</p>
+              </div>
+              <div class="col-md-5 col-sm-5 col-xs-5">
+                <p>86 m<span class="rank">2</span></p>
+              </div>
+              <div class="col-md-7 col-sm-7 col-xs-7 lft-brd"></div>
+              <div class="col-md-5 col-sm-5 col-xs-5 lft-brd"></div>
+            </div>
+            <hr>
+            <div class="item-title btm-part">
+              <div class="row">
+                <div class="col-md-8 col-sm-8 col-xs-8">
+                  <p>$5,000,000</p>
+                  <p class="team-color">FOR SALE</p>
+                </div>
+                <div class="col-md-4 col-sm-4 col-xs-4 favorite">
+                  <div class="bookmark" data-bookmark-state="empty">
+                    <span class="title-add">Add to bookmark</span>
+                  </div>
+                  <div class="compare" data-compare-state="empty">
+                    <span class="plus-add">Add to compare</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      -->
+      </div>
+      <!--<div class="row">
+        &nbsp;
+      </div>
+      <div class="row">
+        <div class="col-md-3 col-sm-3 col-xs-6 prop">
+          <div class="wht-cont">
+            <div class="exp-img-2" style="background:url(http://placehold.it/255X200) center;background-size: cover;">
+              <span class="filter"></span>
+              <span class="ffs-bs"><label for="op" class="btn btn-small btn-primary">browse photos</label></span>
+              <div class="overlay">
+                <div class="img-counter">23 Photo</div>
+              </div>
+            </div>
+            <div class="item-title">
+              <h4><a href="property_page.html">AVA High Line 89 - 916 Apartments</a></h4>
+              <p class="team-color">525 W 28th St, New York, NY 10001</p>
+              <div class="col-md-7 col-sm-7 col-xs-7">
+                <p>Studio - 2 bd</p>
+              </div>
+              <div class="col-md-5 col-sm-5 col-xs-5">
+                <p>86 m<span class="rank">2</span></p>
+              </div>
+              <div class="col-md-7 col-sm-7 col-xs-7 lft-brd"></div>
+              <div class="col-md-5 col-sm-5 col-xs-5 lft-brd"></div>
+            </div>
+            <hr>
+            <div class="item-title btm-part">
+              <div class="row">
+                <div class="col-md-8 col-sm-8 col-xs-8">
+                  <p>$5,000,000</p>
+                  <p class="team-color">FOR SALE</p>
+                </div>
+                <div class="col-md-4 col-sm-4 col-xs-4 favorite">
+                  <div class="bookmark" data-bookmark-state="empty">
+                    <span class="title-add">Add to bookmark</span>
+                  </div>
+                  <div class="compare" data-compare-state="empty">
+                    <span class="plus-add">Add to compare</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 col-sm-3 col-xs-6 prop">
+          <div class="wht-cont">
+            <div class="exp-img-2" style="background:url(http://placehold.it/255X200) center;background-size: cover;">
+              <span class="filter"></span>
+              <span class="ffs-bs"><label for="op" class="btn btn-small btn-primary">browse photos</label></span>
+              <div class="overlay">
+                <div class="img-counter">23 Photo</div>
+              </div>
+            </div>
+            <div class="item-title">
+              <h4><a href="property_page.html">Prism at Park Avenue South Apar</a></h4>
+              <p class="team-color">525 W 28th St, New York, NY 10001</p>
+              <div class="col-md-7 col-sm-7 col-xs-7">
+                <p>Studio - 2 bd</p>
+              </div>
+              <div class="col-md-5 col-sm-5 col-xs-5">
+                <p>86 m<span class="rank">2</span></p>
+              </div>
+              <div class="col-md-7 col-sm-7 col-xs-7 lft-brd"></div>
+              <div class="col-md-5 col-sm-5 col-xs-5 lft-brd"></div>
+            </div>
+            <hr>
+            <div class="item-title btm-part">
+              <div class="row">
+                <div class="col-md-8 col-sm-8 col-xs-8">
+                  <p>$5,000,000</p>
+                  <p class="team-color">FOR SALE</p>
+                </div>
+                <div class="col-md-4 col-sm-4 col-xs-4 favorite">
+                  <div class="bookmark" data-bookmark-state="empty">
+                    <span class="title-add">Add to bookmark</span>
+                  </div>
+                  <div class="compare" data-compare-state="empty">
+                    <span class="plus-add">Add to compare</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 col-sm-3 col-xs-6 prop">
+          <div class="wht-cont">
+            <div class="exp-img-2" style="background:url(http://placehold.it/255X200) center;background-size: cover;">
+              <span class="filter"></span>
+              <span class="ffs-bs"><label for="op" class="btn btn-small btn-primary">browse photos</label></span>
+              <div class="overlay">
+                <div class="img-counter">23 Photo</div>
+              </div>
+            </div>
+            <div class="item-title">
+              <h4><a href="property_page.html">Avalon Morningside Park Apartment</a></h4>
+              <p class="team-color">525 W 28th St, New York, NY 10001</p>
+              <div class="col-md-7 col-sm-7 col-xs-7">
+                <p>Studio - 2 bd</p>
+              </div>
+              <div class="col-md-5 col-sm-5 col-xs-5">
+                <p>86 m<span class="rank">2</span></p>
+              </div>
+              <div class="col-md-7 col-sm-7 col-xs-7 lft-brd"></div>
+              <div class="col-md-5 col-sm-5 col-xs-5 lft-brd"></div>
+            </div>
+            <hr>
+            <div class="item-title btm-part">
+              <div class="row">
+                <div class="col-md-8 col-sm-8 col-xs-8">
+                  <p>$5,000,000</p>
+                  <p class="team-color">FOR SALE</p>
+                </div>
+                <div class="col-md-4 col-sm-4 col-xs-4 favorite">
+                  <div class="bookmark" data-bookmark-state="empty">
+                    <span class="title-add">Add to bookmark</span>
+                  </div>
+                  <div class="compare" data-compare-state="empty">
+                    <span class="plus-add">Add to compare</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 col-sm-3 col-xs-6 prop">
+          <div class="wht-cont">
+            <div class="exp-img-2" style="background:url(http://placehold.it/255X200) center;background-size: cover;">
+              <span class="filter"></span>
+              <span class="ffs-bs"><label for="op" class="btn btn-small btn-primary">browse photos</label></span>
+              <div class="overlay">
+                <div class="img-counter">23 Photo</div>
+              </div>
+            </div>
+            <div class="item-title">
+              <h4><a href="property_page.html">Prism at Park Avenue South Apar</a></h4>
+              <p class="team-color">525 W 28th St, New York, NY 10001</p>
+              <div class="col-md-7 col-sm-7 col-xs-7">
+                <p>Studio - 2 bd</p>
+              </div>
+              <div class="col-md-5 col-sm-5 col-xs-5">
+                <p>86 m<span class="rank">2</span></p>
+              </div>
+              <div class="col-md-7 col-sm-7 col-xs-7 lft-brd"></div>
+              <div class="col-md-5 col-sm-5 col-xs-5 lft-brd"></div>
+            </div>
+            <hr>
+            <div class="item-title btm-part">
+              <div class="row">
+                <div class="col-md-8 col-sm-8 col-xs-8">
+                  <p>$5,000,000</p>
+                  <p class="team-color">FOR SALE</p>
+                </div>
+                <div class="col-md-4 col-sm-4 col-xs-4 favorite">
+                  <div class="bookmark" data-bookmark-state="empty">
+                    <span class="title-add">Add to bookmark</span>
+                  </div>
+                  <div class="compare" data-compare-state="empty">
+                    <span class="plus-add">Add to compare</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    -->
+    </div>
+    <span class="ffs-bs bottom"><a href="property_page.html" class="btn btn-default btn-large">explore property</a></span>
+  </div>
+  <!-- end wide-2 -->
+
+  <!-- end wide-3 carousel-full-width -->
+  <div class="container">
+    <section class="block testimonials">
+      <header class="center">
+        <h2 class="no-border">We love Schoolmaps</h2>
+      </header>
+      <div class="owl-carousel testimonials-carousel">
+        <blockquote class="item">
+          <aside class="cite">
+            <p class="team-color">"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled"</p>
+          </aside>
+          <figure>
+            <div class="image">
+              <img src="http://placehold.it/55X55" alt="">
+            </div>
+            <p>Johan Nordquist</p>
+            <p class="team-color">Someone From Company</p>
+          </figure>
+        </blockquote>
+        <blockquote class="item">
+          <aside class="cite">
+            <p class="team-color">"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled"</p>
+          </aside>
+          <figure>
+            <div class="image">
+              <img src="http://placehold.it/55X55" alt="">
+            </div>
+            <p>Sara Genergy</p>
+            <p class="team-color">Someone From Company</p>
+          </figure>
+        </blockquote>
+        <blockquote class="item">
+          <aside class="cite">
+            <p class="team-color">"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled"</p>
+          </aside>
+          <figure>
+            <div class="image">
+              <img src="http://placehold.it/55X55" alt="">
+            </div>
+            <p>Sara Strawberry</p>
+            <p class="team-color">Someone From Company</p>
+          </figure>
+        </blockquote>
+      </div>
+    </section>
+  </div>
+  <!-- end container -->
+  <!-- <div class="wide-3">
+    <div class="container">
+    <div class="logo-cont">
+      <div class="logos" style="background:url(http://placehold.it/190X80) center no-repeat"></div>
+    </div>
+    <div class="logo-cont">
+      <div class="logos" style="background:url(http://placehold.it/190X80) center no-repeat"></div>
+    </div>
+    <div class="logo-cont">
+      <div class="logos" style="background:url(http://placehold.it/190X80) center no-repeat"></div>
+    </div>
+    <div class="logo-cont">
+      <div class="logos" style="background:url(http://placehold.it/190X80) center no-repeat"></div>
+    </div>
+    <div class="logo-cont">
+      <div class="logos" style="background:url(http://placehold.it/190X80) center no-repeat"></div>
+    </div>
+    </div>
+  </div> -->
+<!-- end wide-3 -->
+</div>

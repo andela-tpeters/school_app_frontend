@@ -1,0 +1,66 @@
+<div id="modal-register" class="modal fade in modal-open" tabindex="-1" role="dialog" aria-labelledby="createAccount">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h2 id="createAccount" class="modal-title">Create an Account</h2>
+        <!-- <span>It takes few minutes</span> -->
+      </div>
+      <form name="RegistrationForm" #RegistrationForm='ngForm' (ngSubmit)="onSubmit(RegistrationForm)" novalidate>
+        <div class="modal-body">
+          <div class="user-type-select">
+            <div>
+              <input type="radio" id="regular-user-radio" [value]='0' [(ngModel)]="user.user_type" name="user-type" checked="checked"/>
+              <label for="regular-user-radio"><span><span></span></span>Regular User</label>
+            </div>
+            <div>
+              <input type="radio" [value] = '1' id="agent-radio" [(ngModel)]="user.user_type" name="user-type" />
+              <label for="agent-radio"><span><span></span></span>Agent</label>
+            </div>
+          </div>
+          <div class="form-group">
+            <input type="text" name="firstname" [(ngModel)]="user.firstname" placeholder="First Name:" required #firstname='ngModel'>
+            <p *ngIf='firstname.invalid && firstname.touched' class="alert alert-danger">First Name is required</p>
+          </div>
+          <div class="form-group">
+            <input type="text" name="lastname" [(ngModel)]="user.lastname" placeholder="Last Name:" required #lastname="ngModel">
+            <p *ngIf="lastname.invalid && lastname.touched" class="alert alert-danger">
+              Last Name is required
+            </p>
+          </div>
+          <div class="form-group">
+            <input type="email" name="email" [(ngModel)]="user.email" placeholder="Email:" required #email="ngModel" pattern="[a-zA-Z]{3,}\d*_*@[a-z]{3,}\.[a-z]{2,}">
+            <p *ngIf="email.invalid  && email.touched" class="alert alert-danger">
+              Email not valid
+            </p>
+          </div>
+          <div class="form-group">
+            <input pattern="......+" type="password" [(ngModel)]="user.password" name="password" placeholder="Password:" required #password="ngModel">
+            {{ password.className }}
+            <p *ngIf="password.invalid && password.touched" class="alert alert-danger">
+              Password required
+            </p>
+          </div>
+          <div class="form-group">
+            <input type="password" [(ngModel)]="user.passwordConfirmation" (change)="checkPassword()" name="passwordConfirmation" placeholder="Password Confirmation:" required #passwordConfirmation='ngModel'>
+          </div>
+          <p *ngIf="passwordConfirmation.invalid && passwordConfirmation.touched" class="alert alert-danger">
+            Password Confirmation is required
+          </p>
+          <p class="alert alert-danger" *ngIf="passwordConfirmation.touched && !passwordConfirmed">
+            Password does not match
+          </p>
+        </div>
+        <div class="modal-footer">
+          <div class="form-group clearfix">
+            <button [disabled]="RegistrationForm.form.invalid && !passwordConfirmed" type="submit" class="btn btn-primary">Join</button>
+          </div>
+          <div>
+            <span class="terms">By clicking JOIN button you agree with our <br> <a href="terms_and_conditions.html" target="blank">Terms and conditions</a></span>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<simple-notifications [options]="options"></simple-notifications>

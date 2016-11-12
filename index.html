@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base href="/" target="_blank" />
+    <title>School Maps</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <link href="app/app.component.css" rel="stylesheet" />
+    <link href="/assets/fonts/font-awesome.css" rel="stylesheet" type="text/css">
+  	<link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.css" type="text/css">
+  	<link rel="stylesheet" href="/assets/css/bootstrap-select.min.css" type="text/css">
+  	<link rel="stylesheet" href="/assets/css/jquery.slider.min.css" type="text/css">
+  	<link rel="stylesheet" href="/assets/css/owl.carousel.css" type="text/css">
+  	<link rel="stylesheet" href="/assets/css/style.css" type="text/css">
+  	<link rel="stylesheet" href="/assets/css/selectize.css" type="text/css">
+    <link rel="stylesheet" href="/assets/css/school.css" type="text/css">
+    <script src="https://maps.googleapis.com/maps/api/js?v=3&libraries=places"></script>
+    <script src="node_modules/jquery/dist/jquery.js" charset="utf-8"></script>
+    <script type="text/javascript" src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="assets/js/markerwithlabel_packed.js"></script>
+    <script type="text/javascript" src="assets/js/fileinput.min.js"></script>
+
+    <!-- Polyfill(s) for older browsers -->
+    <script src="node_modules/core-js/client/shim.min.js"></script>
+
+    <script src="node_modules/zone.js/dist/zone.js"></script>
+    <script src="node_modules/reflect-metadata/Reflect.js"></script>
+    <script src="node_modules/systemjs/dist/system.src.js"></script>
+
+    <script src="systemjs.config.js"></script>
+    <script>
+      System.import('app').catch(function(err){ console.error(err); });
+    </script>
+  </head>
+
+  <body class="page-homepage page-property" id="page-top">
+    <!-- Preloader -->
+  <div id="page-preloader">
+    <div class="loader-ring"></div>
+    <div class="loader-ring2"></div>
+  </div>
+
+  <div class="wrapper">
+    <school-index>Loading App....</school-index>
+  </div>
+  <script type="text/javascript" src="assets/js/tmpl.js"></script>
+  <script type="text/javascript" src="assets/js/jquery.dependClass-0.1.js"></script>
+	<script type="text/javascript" src="assets/js/draggable-0.1.js"></script>
+  <script type="text/javascript" src="assets/js/jquery.slider.js"></script>
+  </body>
+</html>

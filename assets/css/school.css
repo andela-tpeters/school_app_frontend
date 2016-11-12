@@ -1,0 +1,18 @@
+.simple-notification-wrapper {
+  z-index: 9999 !important;
+}
+
+select {
+	height: 54px;
+    border: 2px solid #ececec;
+    border-radius: 0px;
+    padding: 15px;
+    display: block;
+    width: 100%;
+    background-color: white;
+    -webkit-appearance: inherit;
+}
+
+input[type="checkbox"] {
+	-webkit-appearance: checkbox;
+}
