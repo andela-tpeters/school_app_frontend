@@ -7,6 +7,7 @@ import 'icheck';
 import { CloudinaryUploader, CloudinaryOptions } from "ng2-cloudinary";
 import { NotificationsService, SimpleNotificationsComponent } from "angular2-notifications";
 import { TYPE, CURRENCY, OWNED_BY, CONDITION, PAYMENT_INTERVAL, STATES, PROPERTIES } from "../app.constants";
+import { PictureModel } from "../services/picture.model";
 
 @Component({
   templateUrl: "app/new_school/new.school.component.html"
@@ -26,7 +27,7 @@ export class NewSchoolComponent implements AfterViewInit {
   image_public_id: string;
   imageUploaded: boolean = false;
   notifyOptions = {maxStack: 1, showProgressBar: true};
-  newSchool: NewSchool = new NewSchool('LGA','FEE','23401','Surulere','School Name','Lagos','Nigeria','private','USD',0,0,0,'creche',[],'',0,0,'','',0,'');
+  newSchool: NewSchool = new NewSchool('','','','','','','','','',0,0,0,'',[],'',0,0,'','',0,'',[]);
   showOptions: CloudinaryOptions = new CloudinaryOptions({cloud_name: "peictt", width: 150, height: 150});
   cloudinaryOptions: CloudinaryOptions = new CloudinaryOptions({cloud_name: 'peictt', autoUpload: true, upload_preset: 'schoolMaps'});
 
@@ -37,6 +38,7 @@ export class NewSchoolComponent implements AfterViewInit {
 
   resetImage() {
     this.imageUploaded = false;
+    this.newSchool.pictures_attribute = [];
     this.cloudinaryImage = {};
     console.log("reseting Image");
   }
@@ -52,7 +54,6 @@ export class NewSchoolComponent implements AfterViewInit {
     for(let index in properties) {
       let property = properties[index];
       if((typeof property.checked !== "undefined") && (property.checked)) {
-        // console.log(property);
         this.newSchool.all_property.push(property.value);
       }
     }
@@ -75,7 +76,7 @@ export class NewSchoolComponent implements AfterViewInit {
       labelAnchor: new google.maps.Point(50, 0),
       draggable: true
     });
-  
+
     $('#submit-map').removeClass('fade-map');
     google.maps.event.addListener(marker, "mouseup", function (event: any) {
       let latitude = this.position.lat();
@@ -83,7 +84,7 @@ export class NewSchoolComponent implements AfterViewInit {
       $('#latitude').val( this.position.lat() );
       $('#longitude').val( this.position.lng() );
     });
-  
+
     //Autocomplete
     let input: any = /** @type {HTMLInputElement} ( document.getElementById('address-map') );
     let autocomplete = new google.maps.places.Autocomplete(input);
@@ -113,7 +114,7 @@ export class NewSchoolComponent implements AfterViewInit {
       }
     });
   }
-  
+
   success(position: any) {
 		this.initSubmitMap(position.coords.latitude, position.coords.longitude);
 		$('#latitude').val( position.coords.latitude );
@@ -134,26 +135,16 @@ export class NewSchoolComponent implements AfterViewInit {
 
     this.uploader.onSuccessItem = (item: any, response: string, status: number, headers: any) => {
       this.cloudinaryImage = JSON.parse(response);
-      this.newSchool.featured_image = this.image_public_id = this.cloudinaryImage.public_id;
-      this._notify.success("Success", "Upload successful", { timeOut: 2000 });
+      this.image_public_id = this.cloudinaryImage.public_id;
+      this.newSchool.pictures_attribute.push({url: this.cloudinaryImage.public_id, picture_type: "school_picture"});
       this.imageUploaded = true;
+      this._notify.success("Success", "Upload successful", { timeOut: 2000 });
       return { item, response, status, headers }
     };
 
     $('.selection').selectize({sortField: 'text'});
     $(".selectize-input input").attr('readonly','readonly');
-
-    //  iCheck
-    // if ($('.switch').length > 0) {
-    //     $('.switch input').iCheck();
-    // }
-    // if ($('.radio').length > 0) {
-    //     $('input').iCheck();
-    // }
-    // if ($('.checkbox').length > 0) {
-    //     $('input:not(.no-icheck)').iCheck();
-    // }
-
+    
 		// google.maps.event.addDomListener(window, 'load', this.initSubmitMap(this.latitude, this.longitude));
 
   }

@@ -29,13 +29,14 @@ var NewSchoolComponent = (function () {
         this.longitude = -73.989642;
         this.imageUploaded = false;
         this.notifyOptions = { maxStack: 1, showProgressBar: true };
-        this.newSchool = new new_school_model_1.NewSchool('LGA', 'FEE', '23401', 'Surulere', 'School Name', 'Lagos', 'Nigeria', 'private', 'USD', 0, 0, 0, 'creche', [], '', 0, 0, '', '', 0, '');
+        this.newSchool = new new_school_model_1.NewSchool('', '', '', '', '', '', '', '', '', 0, 0, 0, '', [], '', 0, 0, '', '', 0, '', []);
         this.showOptions = new ng2_cloudinary_1.CloudinaryOptions({ cloud_name: "peictt", width: 150, height: 150 });
         this.cloudinaryOptions = new ng2_cloudinary_1.CloudinaryOptions({ cloud_name: 'peictt', autoUpload: true, upload_preset: 'schoolMaps' });
         this.uploader = new ng2_cloudinary_1.CloudinaryUploader(this.cloudinaryOptions);
     }
     NewSchoolComponent.prototype.resetImage = function () {
         this.imageUploaded = false;
+        this.newSchool.pictures_attribute = [];
         this.cloudinaryImage = {};
         console.log("reseting Image");
     };
@@ -49,7 +50,6 @@ var NewSchoolComponent = (function () {
         for (var index in properties) {
             var property = properties[index];
             if ((typeof property.checked !== "undefined") && (property.checked)) {
-                // console.log(property);
                 this.newSchool.all_property.push(property.value);
             }
         }
@@ -71,7 +71,7 @@ var NewSchoolComponent = (function () {
         labelAnchor: new google.maps.Point(50, 0),
         draggable: true
       });
-    
+  
       $('#submit-map').removeClass('fade-map');
       google.maps.event.addListener(marker, "mouseup", function (event: any) {
         let latitude = this.position.lat();
@@ -79,7 +79,7 @@ var NewSchoolComponent = (function () {
         $('#latitude').val( this.position.lat() );
         $('#longitude').val( this.position.lng() );
       });
-    
+  
       //Autocomplete
       let input: any = /** @type {HTMLInputElement} ( document.getElementById('address-map') );
       let autocomplete = new google.maps.places.Autocomplete(input);
@@ -109,7 +109,7 @@ var NewSchoolComponent = (function () {
         }
       });
     }
-    
+  
     success(position: any) {
           this.initSubmitMap(position.coords.latitude, position.coords.longitude);
           $('#latitude').val( position.coords.latitude );
@@ -127,23 +127,14 @@ var NewSchoolComponent = (function () {
         };
         this.uploader.onSuccessItem = function (item, response, status, headers) {
             _this.cloudinaryImage = JSON.parse(response);
-            _this.newSchool.featured_image = _this.image_public_id = _this.cloudinaryImage.public_id;
-            _this._notify.success("Success", "Upload successful", { timeOut: 2000 });
+            _this.image_public_id = _this.cloudinaryImage.public_id;
+            _this.newSchool.pictures_attribute.push({ url: _this.cloudinaryImage.public_id, picture_type: "school_picture" });
             _this.imageUploaded = true;
+            _this._notify.success("Success", "Upload successful", { timeOut: 2000 });
             return { item: item, response: response, status: status, headers: headers };
         };
         $('.selection').selectize({ sortField: 'text' });
         $(".selectize-input input").attr('readonly', 'readonly');
-        //  iCheck
-        // if ($('.switch').length > 0) {
-        //     $('.switch input').iCheck();
-        // }
-        // if ($('.radio').length > 0) {
-        //     $('input').iCheck();
-        // }
-        // if ($('.checkbox').length > 0) {
-        //     $('input:not(.no-icheck)').iCheck();
-        // }
         // google.maps.event.addDomListener(window, 'load', this.initSubmitMap(this.latitude, this.longitude));
     };
     NewSchoolComponent = __decorate([

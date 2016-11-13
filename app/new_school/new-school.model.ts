@@ -1,3 +1,5 @@
+import { PictureModel } from "../services/picture.model";
+
 export class NewSchool {
 	constructor(
 		public lga: string,
@@ -20,6 +22,7 @@ export class NewSchool {
 		public payment_interval: string,
 		public school_condition: string,
 		public no_of_classrooms: number,
-		public featured_image?: string
+		public video_link?: string,
+		public pictures_attribute?: PictureModel[]
 	) {}
 }

@@ -1,6 +1,6 @@
 "use strict";
 var NewSchool = (function () {
-    function NewSchool(lga, fee, zip, city, name, state, country, owned_by, currency, latitude, no_of_bus, longitude, school_type, all_property, street_address, no_of_students, no_of_buildings, payment_interval, school_condition, no_of_classrooms, featured_image) {
+    function NewSchool(lga, fee, zip, city, name, state, country, owned_by, currency, latitude, no_of_bus, longitude, school_type, all_property, street_address, no_of_students, no_of_buildings, payment_interval, school_condition, no_of_classrooms, video_link, pictures_attribute) {
         this.lga = lga;
         this.fee = fee;
         this.zip = zip;
@@ -21,7 +21,8 @@ var NewSchool = (function () {
         this.payment_interval = payment_interval;
         this.school_condition = school_condition;
         this.no_of_classrooms = no_of_classrooms;
-        this.featured_image = featured_image;
+        this.video_link = video_link;
+        this.pictures_attribute = pictures_attribute;
     }
     return NewSchool;
 }());
