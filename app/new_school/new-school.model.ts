@@ -1,6 +1,6 @@
 import { PictureModel } from "../services/picture.model";
 
-export class NewSchool {
+export class NewSchoolModel {
 	constructor(
 		public lga: string,
 		public fee: string,
@@ -23,6 +23,7 @@ export class NewSchool {
 		public school_condition: string,
 		public no_of_classrooms: number,
 		public video_link?: string,
-		public pictures_attribute?: PictureModel[]
+		public pictures_attribute?: PictureModel[],
+		public school_size?: string
 	) {}
 }

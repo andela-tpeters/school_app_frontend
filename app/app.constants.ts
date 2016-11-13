@@ -78,19 +78,19 @@ export const STATES = [
 	];
 
 export const PROPERTIES = [
-	{name: "Air Conditioning", value:'air_conditioning'},
-	{name: 'Baseball', value: 'baseball'},
+	{name: "Air Conditioning", value:'air_condition'},
+	{name: 'Baseball', value: 'base_ball'},
 	{name: 'Basketball', value: 'basketball'},
 	{name: 'Cafeteria', value: 'cafeteria'},
 	{name: 'Creche', value: 'creche'},
 	{name: 'Football', value: 'football'},
 	{name: 'Hostel', value: 'hostel'},
 	{name: 'ICT Lab', value: 'ict_lab'},
-	{name: 'Internet/Wifi', value: 'internet/wifi'},
+	{name: 'Internet/Wifi', value: 'internet'},
 	{name: 'Lawn Tennis', value: 'lawn_tennis'},
 	{name: 'Library', value: 'library'},
 	{name: 'Media Classrooms', value: 'media_classrooms'},
 	{name: 'Music Room', value: 'music_room'},
 	{name: 'Swimming', value: 'swimming'},
-	{name: 'White Electronic Board', value: 'white_electronic_board'}
+	{name: 'White Electronic Board', value: 'white_electronic'}
 	];

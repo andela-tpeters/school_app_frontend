@@ -1,7 +1,7 @@
 import { Component, AfterViewInit } from "@angular/core";
 import { RouterLink } from '@angular/router';
 import { NgForm } from "@angular/forms";
-import { NewSchool } from "./new-school.model";
+import { NewSchoolModel } from "./new-school.model";
 import * as $ from "jquery";
 import 'icheck';
 import { CloudinaryUploader, CloudinaryOptions } from "ng2-cloudinary";
@@ -27,7 +27,7 @@ export class NewSchoolComponent implements AfterViewInit {
   image_public_id: string;
   imageUploaded: boolean = false;
   notifyOptions = {maxStack: 1, showProgressBar: true};
-  newSchool: NewSchool = new NewSchool('','','','','','','','','',0,0,0,'',[],'',0,0,'','',0,'',[]);
+  newSchool: NewSchoolModel = new NewSchoolModel('','','','','','','','','',0,0,0,'',[],'',0,0,'','',0,'',[]);
   showOptions: CloudinaryOptions = new CloudinaryOptions({cloud_name: "peictt", width: 150, height: 150});
   cloudinaryOptions: CloudinaryOptions = new CloudinaryOptions({cloud_name: 'peictt', autoUpload: true, upload_preset: 'schoolMaps'});
 
@@ -144,7 +144,7 @@ export class NewSchoolComponent implements AfterViewInit {
 
     $('.selection').selectize({sortField: 'text'});
     $(".selectize-input input").attr('readonly','readonly');
-    
+
 		// google.maps.event.addDomListener(window, 'load', this.initSubmitMap(this.latitude, this.longitude));
 
   }
