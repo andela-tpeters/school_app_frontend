@@ -1,6 +1,6 @@
 "use strict";
-// export const BaseUrl = "http://school-maps.herokuapp.com/api/v1/";
-exports.BaseUrl = "http://localhost:3001/api/v1/";
+exports.BaseUrl = "http://school-maps.herokuapp.com/api/v1/";
+// export const BaseUrl = "http://localhost:3001/api/v1/";
 exports.LoginUrl = exports.BaseUrl + "login";
 exports.RegistrationUrl = exports.BaseUrl + "users";
 exports.NewSchoolUrl = exports.BaseUrl + "schools";
@@ -88,6 +88,6 @@ exports.PROPERTIES = [
     { name: 'Media Classrooms', value: 'media_classrooms' },
     { name: 'Music Room', value: 'music_room' },
     { name: 'Swimming', value: 'swimming' },
-    { name: 'White Electronic Board', value: 'white_electronic' }
+    { name: 'White Electronic Board', value: 'white_electronic_board' }
 ];
 //# sourceMappingURL=app.constants.js.map

@@ -1,5 +1,5 @@
-// export const BaseUrl = "http://school-maps.herokuapp.com/api/v1/";
-export const BaseUrl = "http://localhost:3001/api/v1/";
+export const BaseUrl = "http://school-maps.herokuapp.com/api/v1/";
+// export const BaseUrl = "http://localhost:3001/api/v1/";
 export const LoginUrl = BaseUrl + "login";
 export const RegistrationUrl = BaseUrl + "users";
 export const NewSchoolUrl = BaseUrl + "schools";
@@ -94,5 +94,5 @@ export const PROPERTIES = [
 	{name: 'Media Classrooms', value: 'media_classrooms'},
 	{name: 'Music Room', value: 'music_room'},
 	{name: 'Swimming', value: 'swimming'},
-	{name: 'White Electronic Board', value: 'white_electronic'}
+	{name: 'White Electronic Board', value: 'white_electronic_board'}
 	];
