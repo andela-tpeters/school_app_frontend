@@ -1,6 +1,6 @@
 "use strict";
 var NewSchoolModel = (function () {
-    function NewSchoolModel(lga, fee, zip, city, name, state, country, owned_by, currency, latitude, no_of_bus, longitude, school_type, all_property, street_address, no_of_students, no_of_buildings, payment_interval, school_condition, no_of_classrooms, video_link, pictures_attribute, school_size) {
+    function NewSchoolModel(lga, fee, zip, city, name, state, country, owned_by, currency, latitude, no_of_bus, longitude, school_type, all_property, street_address, no_of_students, no_of_buildings, payment_interval, school_condition, no_of_classrooms, video_link, pictures_attributes, school_size) {
         this.lga = lga;
         this.fee = fee;
         this.zip = zip;
@@ -22,7 +22,7 @@ var NewSchoolModel = (function () {
         this.school_condition = school_condition;
         this.no_of_classrooms = no_of_classrooms;
         this.video_link = video_link;
-        this.pictures_attribute = pictures_attribute;
+        this.pictures_attributes = pictures_attributes;
         this.school_size = school_size;
     }
     return NewSchoolModel;

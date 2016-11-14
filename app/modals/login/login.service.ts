@@ -23,6 +23,10 @@ export class LoginService {
     window.sessionStorage.removeItem("token");
   }
 
+  getToken() {
+    return this.token;
+  }
+
   handleError(err: Response) {
     return Observable.throw(err.json() || "Status Error");
   }

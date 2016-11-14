@@ -15,9 +15,11 @@ require('icheck');
 var ng2_cloudinary_1 = require("ng2-cloudinary");
 var angular2_notifications_1 = require("angular2-notifications");
 var app_constants_1 = require("../app.constants");
+var new_school_service_1 = require("./new-school.service");
 var NewSchoolComponent = (function () {
-    function NewSchoolComponent(_notify) {
+    function NewSchoolComponent(_notify, newSchoolService) {
         this._notify = _notify;
+        this.newSchoolService = newSchoolService;
         this.states = app_constants_1.STATES;
         this.schoolType = app_constants_1.TYPE;
         this.owners = app_constants_1.OWNED_BY;
@@ -36,13 +38,24 @@ var NewSchoolComponent = (function () {
     }
     NewSchoolComponent.prototype.resetImage = function () {
         this.imageUploaded = false;
-        this.newSchool.pictures_attribute = [];
+        this.newSchool.pictures_attributes = [];
         this.cloudinaryImage = {};
         console.log("reseting Image");
     };
+    NewSchoolComponent.prototype.onSuccess = function (res) {
+        this._notify.success("Success", "Good");
+        console.log(res);
+    };
+    NewSchoolComponent.prototype.onError = function (err) {
+        this._notify.error("Error", "Bad");
+        console.log(err);
+    };
     NewSchoolComponent.prototype.registerSchool = function (form) {
+        var _this = this;
         this.storeChecked();
-        console.log(this.newSchool);
+        // console.log(this.newSchool);
+        this.newSchoolService.saveSchool(this.newSchool)
+            .subscribe(function (res) { return _this.onSuccess(res); }, function (err) { return _this.onError(err); });
     };
     NewSchoolComponent.prototype.storeChecked = function () {
         this.newSchool.all_property = [];
@@ -128,7 +141,7 @@ var NewSchoolComponent = (function () {
         this.uploader.onSuccessItem = function (item, response, status, headers) {
             _this.cloudinaryImage = JSON.parse(response);
             _this.image_public_id = _this.cloudinaryImage.public_id;
-            _this.newSchool.pictures_attribute.push({ url: _this.cloudinaryImage.public_id, picture_type: "school_picture" });
+            _this.newSchool.pictures_attributes.push({ url: _this.cloudinaryImage.public_id, picture_type: "school_picture" });
             _this.imageUploaded = true;
             _this._notify.success("Success", "Upload successful", { timeOut: 2000 });
             return { item: item, response: response, status: status, headers: headers };
@@ -139,9 +152,10 @@ var NewSchoolComponent = (function () {
     };
     NewSchoolComponent = __decorate([
         core_1.Component({
-            templateUrl: "app/new_school/new.school.component.html"
+            templateUrl: "app/new_school/new.school.component.html",
+            providers: [new_school_service_1.NewSchoolService]
         }), 
-        __metadata('design:paramtypes', [angular2_notifications_1.NotificationsService])
+        __metadata('design:paramtypes', [angular2_notifications_1.NotificationsService, new_school_service_1.NewSchoolService])
     ], NewSchoolComponent);
     return NewSchoolComponent;
 }());

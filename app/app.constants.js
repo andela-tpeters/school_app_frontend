@@ -1,7 +1,9 @@
 "use strict";
-exports.BaseUrl = "http://school-maps.herokuapp.com/api/v1/";
+// export const BaseUrl = "http://school-maps.herokuapp.com/api/v1/";
+exports.BaseUrl = "http://localhost:3001/api/v1/";
 exports.LoginUrl = exports.BaseUrl + "login";
 exports.RegistrationUrl = exports.BaseUrl + "users";
+exports.NewSchoolUrl = exports.BaseUrl + "schools";
 exports.CURRENCY = [
     { name: "USD", value: "USD" },
     { name: "EURO", value: "EUR" }

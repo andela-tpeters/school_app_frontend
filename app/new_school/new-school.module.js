@@ -16,6 +16,7 @@ var ng2_cloudinary_1 = require('ng2-cloudinary');
 var new_school_component_1 = require("./new.school.component");
 var new_school_routing_module_1 = require("./new-school.routing.module");
 var angular2_notifications_1 = require("angular2-notifications");
+var login_service_1 = require("../modals/login/login.service");
 var NewSchoolModule = (function () {
     function NewSchoolModule() {
     }
@@ -29,7 +30,8 @@ var NewSchoolModule = (function () {
                 ng2_cloudinary_1.Ng2CloudinaryModule,
                 angular2_notifications_1.SimpleNotificationsModule
             ],
-            declarations: [new_school_component_1.NewSchoolComponent]
+            declarations: [new_school_component_1.NewSchoolComponent],
+            providers: [login_service_1.LoginService]
         }), 
         __metadata('design:paramtypes', [])
     ], NewSchoolModule);

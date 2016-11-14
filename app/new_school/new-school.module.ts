@@ -6,9 +6,10 @@ import { Ng2CloudinaryModule } from 'ng2-cloudinary';
 import { NewSchoolComponent } from "./new.school.component";
 import { NewSchoolRoutingModule } from "./new-school.routing.module";
 import { SimpleNotificationsModule } from "angular2-notifications";
+import { LoginService } from "../modals/login/login.service";
 
 @NgModule({
-  imports: [ 
+  imports: [
   BrowserModule,
   FormsModule,
   CommonModule,
@@ -16,7 +17,8 @@ import { SimpleNotificationsModule } from "angular2-notifications";
   Ng2CloudinaryModule,
   SimpleNotificationsModule
   ],
-  declarations: [ NewSchoolComponent ]
+  declarations: [ NewSchoolComponent ],
+  providers: [LoginService]
 })
 
 export class NewSchoolModule {}

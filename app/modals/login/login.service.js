@@ -24,6 +24,9 @@ var LoginService = (function () {
     LoginService.prototype.logout = function () {
         window.sessionStorage.removeItem("token");
     };
+    LoginService.prototype.getToken = function () {
+        return this.token;
+    };
     LoginService.prototype.handleError = function (err) {
         return Observable_1.Observable.throw(err.json() || "Status Error");
     };

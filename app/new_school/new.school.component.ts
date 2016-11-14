@@ -8,9 +8,11 @@ import { CloudinaryUploader, CloudinaryOptions } from "ng2-cloudinary";
 import { NotificationsService, SimpleNotificationsComponent } from "angular2-notifications";
 import { TYPE, CURRENCY, OWNED_BY, CONDITION, PAYMENT_INTERVAL, STATES, PROPERTIES } from "../app.constants";
 import { PictureModel } from "../services/picture.model";
+import { NewSchoolService } from "./new-school.service";
 
 @Component({
-  templateUrl: "app/new_school/new.school.component.html"
+  templateUrl: "app/new_school/new.school.component.html",
+  providers: [NewSchoolService]
 })
 
 export class NewSchoolComponent implements AfterViewInit {
@@ -34,18 +36,33 @@ export class NewSchoolComponent implements AfterViewInit {
 
   uploader: CloudinaryUploader = new CloudinaryUploader(this.cloudinaryOptions);
 
-  constructor(private _notify: NotificationsService) {}
+  constructor(private _notify: NotificationsService, private newSchoolService: NewSchoolService) {}
 
   resetImage() {
     this.imageUploaded = false;
-    this.newSchool.pictures_attribute = [];
+    this.newSchool.pictures_attributes = [];
     this.cloudinaryImage = {};
     console.log("reseting Image");
   }
 
+  onSuccess(res: any) {
+    this._notify.success("Success", "Good");
+    console.log(res);
+  }
+
+  onError(err: any) {
+    this._notify.error("Error", "Bad");
+    console.log(err);
+  }
+
   registerSchool(form: NgForm) {
     this.storeChecked();
-    console.log(this.newSchool);
+    // console.log(this.newSchool);
+    this.newSchoolService.saveSchool(this.newSchool)
+    .subscribe(
+      (res) => this.onSuccess(res),
+      (err) => this.onError(err)
+    );
   }
 
   storeChecked() {
@@ -136,7 +153,7 @@ export class NewSchoolComponent implements AfterViewInit {
     this.uploader.onSuccessItem = (item: any, response: string, status: number, headers: any) => {
       this.cloudinaryImage = JSON.parse(response);
       this.image_public_id = this.cloudinaryImage.public_id;
-      this.newSchool.pictures_attribute.push({url: this.cloudinaryImage.public_id, picture_type: "school_picture"});
+      this.newSchool.pictures_attributes.push({url: this.cloudinaryImage.public_id, picture_type: "school_picture"});
       this.imageUploaded = true;
       this._notify.success("Success", "Upload successful", { timeOut: 2000 });
       return { item, response, status, headers }

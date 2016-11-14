@@ -23,7 +23,7 @@ export class NewSchoolModel {
 		public school_condition: string,
 		public no_of_classrooms: number,
 		public video_link?: string,
-		public pictures_attribute?: PictureModel[],
+		public pictures_attributes?: PictureModel[],
 		public school_size?: string
 	) {}
 }

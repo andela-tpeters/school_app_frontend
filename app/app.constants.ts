@@ -1,6 +1,8 @@
-export const BaseUrl = "http://school-maps.herokuapp.com/api/v1/";
+// export const BaseUrl = "http://school-maps.herokuapp.com/api/v1/";
+export const BaseUrl = "http://localhost:3001/api/v1/";
 export const LoginUrl = BaseUrl + "login";
 export const RegistrationUrl = BaseUrl + "users";
+export const NewSchoolUrl = BaseUrl + "schools";
 
 export const CURRENCY = [
 	{name: "USD", value: "USD"},
