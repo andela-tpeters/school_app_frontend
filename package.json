@@ -2,6 +2,10 @@
   "name": "school-frontend",
   "version": "1.0.0",
   "description": "This is an application for School Advertisements",
+  "engines": {
+    "npm": "^3.0.0",
+    "node": "^7.0.0"
+  },
   "scripts": {
     "start": "tsc && concurrently \"tsc -w\" \"lite-server\" ",
     "docker-build": "docker build -t ng2-quickstart .",
