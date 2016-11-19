@@ -2,12 +2,8 @@
   "name": "school-frontend",
   "version": "1.0.0",
   "description": "This is an application for School Advertisements",
-  "engines": {
-    "npm": "^3.0.0",
-    "node": "^7.0.0"
-  },
   "scripts": {
-    "start": "tsc && concurrently \"tsc -w\" \"lite-server\" ",
+    "start": "concurrently \"npm run tsc:w\" \"npm run lite\" ",
     "docker-build": "docker build -t ng2-quickstart .",
     "docker": "npm run docker-build && docker run -it --rm -p 3000:3000 -p 3001:3001 ng2-quickstart",
     "pree2e": "npm run webdriver:update",
@@ -68,7 +64,8 @@
     "selectize": "^0.12.4",
     "sifter": "^0.5.2",
     "systemjs": "0.19.39",
-    "zone.js": "^0.6.26"
+    "zone.js": "^0.6.26",
+    "typescript": ""
   },
   "devDependencies": {
     "@types/core-js": "^0.9.34",
