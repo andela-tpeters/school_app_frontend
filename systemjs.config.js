@@ -39,7 +39,7 @@
       'bootstrapslider': 'npm:bootstrap-slider',
       'ng2-pagination': 'npm:ng2-pagination',
       'angular2-notifications': 'npm:angular2-notifications',
-      'ng2-cloudinary': 'npm:ng2-cloudinary',
+      'ng2-cloudinary': 'npm:ng2-cloudinary-peictt',
       'ng2-file-upload': 'npm:ng2-file-upload'
     },
     // packages tells the System loader how to load when no filename and/or no extension
