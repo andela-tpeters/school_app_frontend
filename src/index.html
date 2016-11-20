@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base href="/" target="_blank" />
+    <title>School Maps</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    
+    <script src="https://maps.googleapis.com/maps/api/js?v=3&libraries=places"></script>
+  </head>
+
+  <body class="page-homepage page-property" id="page-top">
+    <!-- Preloader -->
+  <!-- <div id="page-preloader">
+    <div class="loader-ring"></div>
+    <div class="loader-ring2"></div>
+  </div> -->
+
+  <div class="wrapper">
+    <school-index>Loading App....</school-index>
+  </div>
+
+  <script type="text/javascript" src="../public/assets/js/jquery-2.1.4.min.js"></script>
+  <script type="text/javascript">
+    // $('.selection').selectize({sortField: 'text'});
+    // $(".selectize-input input").attr('readonly','readonly');
+    var $preloader = $('#page-preloader');
+    $preloader.fadeOut('slow');
+    var $spinner = $preloader.find('.gps_ring');
+    var $spinner2 = $preloader.find('.gps_ring2');
+    $spinner.fadeOut();
+    $spinner2.fadeOut();
+  </script>
+  </body>
+</html>
