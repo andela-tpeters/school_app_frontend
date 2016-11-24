@@ -13,7 +13,6 @@ import { LoginService } from "../modals/login/login.service";
 
 
 export class NewSchoolService {
-  // header: Headers = new Headers();
 
   constructor(private http: Http, private loginService: LoginService){}
 
@@ -25,19 +24,7 @@ export class NewSchoolService {
     return Observable.throw(err.json() || "Status Text");
   }
 
-  addToken() {
-    // this.header.append("Authorization", "Bearer " + this.loginService.getToken());
-  }
-
-  addJsonHeader() {
-    // this.header.append();
-  }
-
   saveSchool(newSchool: NewSchoolModel): Observable<any> {
-    this.addToken();
-    this.addJsonHeader();
-    console.log(this.header, "header");
-    console.log(this.http, "http");
     return this.http.post(NewSchoolUrl, newSchool, this.options).map(
       (response) => response.json()
     ).catch(

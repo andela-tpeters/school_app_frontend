@@ -16,3 +16,8 @@ select {
 input[type="checkbox"] {
 	-webkit-appearance: checkbox;
 }
+
+.logo {
+    width: unset;
+    margin-top: 15px !important;
+}

@@ -1,5 +1,5 @@
 import { Component, AfterViewInit } from "@angular/core";
-import { RouterLink } from '@angular/router';
+import { RouterLink, Router } from '@angular/router';
 import { NgForm } from "@angular/forms";
 import { NewSchoolModel } from "./new-school.model";
 import { CloudinaryUploader, CloudinaryOptions } from "ng2-cloudinary-peictt";
@@ -34,7 +34,7 @@ export class NewSchoolComponent implements AfterViewInit {
 
   uploader: CloudinaryUploader = new CloudinaryUploader(this.cloudinaryOptions);
 
-  constructor(private _notify: NotificationsService, private newSchoolService: NewSchoolService) {}
+  constructor(private _notify: NotificationsService, private newSchoolService: NewSchoolService, private router: Router) {}
 
   resetImage() {
     this.imageUploaded = false;
@@ -46,6 +46,7 @@ export class NewSchoolComponent implements AfterViewInit {
   onSuccess(res: any) {
     this._notify.success("Success", "Good");
     console.log(res);
+    this.router.navigate(['/school', res.id]);
   }
 
   onError(err: any) {
@@ -55,7 +56,6 @@ export class NewSchoolComponent implements AfterViewInit {
 
   registerSchool(form: NgForm) {
     this.storeChecked();
-    // console.log(this.newSchool);
     this.newSchoolService.saveSchool(this.newSchool)
     .subscribe(
       (res) => this.onSuccess(res),
@@ -73,70 +73,6 @@ export class NewSchoolComponent implements AfterViewInit {
       }
     }
   }
-
-  /*
-  initSubmitMap(latitude: number,longitude: number): any {
-    let mapCenter = new google.maps.LatLng(latitude,longitude);
-    let mapOptions = {
-      zoom: 14,
-      center: mapCenter,
-      disableDefaultUI: false
-    };
-    let mapElement = document.getElementById('submit-map');
-    let map = new google.maps.Map(mapElement, mapOptions);
-    let marker = new MarkerWithLabel({
-      position: mapCenter,
-      map: map,
-      icon: 'assets/img/marker-h.png',
-      labelAnchor: new google.maps.Point(50, 0),
-      draggable: true
-    });
-
-    $('#submit-map').removeClass('fade-map');
-    google.maps.event.addListener(marker, "mouseup", function (event: any) {
-      let latitude = this.position.lat();
-      let longitude = this.position.lng();
-      $('#latitude').val( this.position.lat() );
-      $('#longitude').val( this.position.lng() );
-    });
-
-    //Autocomplete
-    let input: any = /** @type {HTMLInputElement} ( document.getElementById('address-map') );
-    let autocomplete = new google.maps.places.Autocomplete(input);
-    autocomplete.bindTo('bounds', map);
-    google.maps.event.addListener(autocomplete, 'place_changed', function() {
-      let place = autocomplete.getPlace();
-      if (!place.geometry) {
-        return;
-      }
-      if (place.geometry.viewport) {
-        map.fitBounds(place.geometry.viewport);
-      } else {
-        map.setCenter(place.geometry.location);
-        map.setZoom(15);
-      }
-      marker.setPosition(place.geometry.location);
-      marker.setVisible(true);
-      $('#latitude').val( marker.getPosition().lat() );
-      $('#longitude').val( marker.getPosition().lng() );
-      let address = '';
-      if (place.address_components) {
-        address = [
-        (place.address_components[0] && place.address_components[0].short_name || ''),
-        (place.address_components[1] && place.address_components[1].short_name || ''),
-        (place.address_components[2] && place.address_components[2].short_name || '')
-        ].join(' ');
-      }
-    });
-  }
-
-  success(position: any) {
-		this.initSubmitMap(position.coords.latitude, position.coords.longitude);
-		$('#latitude').val( position.coords.latitude );
-		$('#longitude').val( position.coords.longitude );
-	}
-
-  */
 
   ngAfterViewInit() {
 
@@ -157,10 +93,6 @@ export class NewSchoolComponent implements AfterViewInit {
       return { item, response, status, headers }
     };
 
-    $('.selection').selectize({sortField: 'text'});
-    $(".selectize-input input").attr('readonly','readonly');
-
-		// google.maps.event.addDomListener(window, 'load', this.initSubmitMap(this.latitude, this.longitude));
 
   }
 

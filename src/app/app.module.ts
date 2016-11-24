@@ -1,4 +1,4 @@
-import { NgModule }      from '@angular/core';
+import { NgModule, AfterContentChecked }      from '@angular/core';
 import { CommonModule } from "@angular/common";
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from "./app-routing.module";
@@ -16,7 +16,10 @@ import { SearchModule } from './search/search.module';
 import { AboutModule } from './about/about.module';
 import { ContactModule } from './contact/contact.module';
 import { RegistrationService } from './modals/registration/registration.service';
+import { SingleSchoolModule } from "./single_school/single-school.module";
+import { NotFoundModule } from "./404/404.module";
 import { SimpleNotificationsModule } from "angular2-notifications";
+
 
 @NgModule({
   imports: [
@@ -31,11 +34,16 @@ import { SimpleNotificationsModule } from "angular2-notifications";
     AboutModule,
     ContactModule,
     HttpModule,
-    SimpleNotificationsModule
+    SimpleNotificationsModule,
+    SingleSchoolModule,
+    NotFoundModule
   ],
   declarations: [ AppComponent, HeaderComponent, LoginComponent, RegistrationComponent, FooterComponent ],
   providers: [RegistrationService],
   bootstrap: [ AppComponent ]
 })
 
-export class AppModule { }
+export class AppModule { 
+
+  
+}
