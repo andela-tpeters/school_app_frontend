@@ -1,12 +1,12 @@
-import { Component, AfterViewInit } from "@angular/core";
+import { Component, AfterViewInit, OnInit } from "@angular/core";
 import * as faker from "faker";
-import '../../../public/assets/css/selectize.css';
+import '../../../public/assets/css/jquery.slider.min.css';
 
 @Component({
   templateUrl: "./search.component.html"
 })
 
-export class SearchComponent implements AfterViewInit {
+export class SearchComponent implements AfterViewInit, OnInit {
   public schools: any[] = [];
 
   constructor() {
@@ -25,5 +25,14 @@ export class SearchComponent implements AfterViewInit {
   }
 
 
-  ngAfterViewInit() {}
+  ngAfterViewInit() {
+    require("imports?$=jquery!../../../public/assets/js/c.js");
+    require("./search_map.js");
+  }
+
+  ngOnInit() {
+    require("imports?$=jquery!../../../public/assets/js/jquery.slider.js");
+    require("imports?$=jquery!../../../public/assets/bootstrap/js/bootstrap.js");
+    require("imports?$=jquery!../../../public/assets/js/owl.carousel.js");
+  }
 }

@@ -22,7 +22,6 @@
 			};
 			var map = new google.maps.Map(document.getElementById('map4'),
 				mapOptions);
-			// console.log($(".map4"));
 			var marker = new MarkerWithLabel({
 				position: latlng,
 				map: map,

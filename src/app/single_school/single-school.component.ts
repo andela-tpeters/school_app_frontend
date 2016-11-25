@@ -42,7 +42,7 @@ export class SingleSchoolComponent implements OnInit, AfterContentInit {
 	ngAfterContentInit() {
 		require("imports?$=jquery!./picture_slider.js");
 		require("imports?$=jquery,markerwithlabel!./map.js");
-		require("imports?$=jquery!../../../public/assets/js/custom-map.js");
+		// require("imports?$=jquery!../../../public/assets/js/custom-map.js");
 		require("imports?$=jquery!../../../public/assets/js/c.js");
 	}
 

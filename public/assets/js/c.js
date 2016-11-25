@@ -211,13 +211,13 @@ $(document).ready(function($) {
 
     //  iCheck
     if ($('.switch').length > 0) {
-        $('.switch input').iCheck();
+        // $('.switch input').iCheck();
     }
     if ($('.radio').length > 0) {
-        $('input').iCheck();
+        // $('input').iCheck();
     }
     if ($('.checkbox').length > 0) {
-        $('input:not(.no-icheck)').iCheck();
+        // $('input:not(.no-icheck)').iCheck();
     }
 
     //  Smooth Navigation Scrolling

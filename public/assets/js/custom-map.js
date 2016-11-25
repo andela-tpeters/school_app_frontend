@@ -10,7 +10,7 @@ $.ajaxSetup({
 
 function createHomepageGoogleMap(_latitude,_longitude){
     if( document.getElementById('map') != null ){
-        $.getScript("assets/js/locations.js", function(){
+        $.getScript("public/assets/js/locations.js", function(){
             var map = new google.maps.Map(document.getElementById('map'),{
                 zoom: 15,
                 zoomControl: true,
