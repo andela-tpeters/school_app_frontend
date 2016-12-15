@@ -10,7 +10,7 @@
         $('.owl-carousel .property').css('pointer-events', 'auto');
     }
 
-    console.log($('.owl-carousel').length);
+
 
     if ($('.owl-carousel').length > 0) {
         if ($('.carousel-full-width').length > 0) {
@@ -21,7 +21,7 @@
         } else {
             t_f_test = true;
         }
-        console.log($(".testimonials-carousel"));
+
         $(".testimonials-carousel").owlCarousel({
             items: 1,
             responsiveBaseWidth: ".testimonial",

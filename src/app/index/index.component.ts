@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { SchoolService } from "../services/schools.service";
+
 import { DomSanitizer } from "@angular/platform-browser";
 import { STATES } from "../app.constants"
 import * as faker from "faker";
@@ -10,32 +11,41 @@ import * as faker from "faker";
 })
 
 export class IndexComponent implements OnInit {
-  pageTitle: string = "Index";
+  public pageTitle: string = "Index";
   public schools: any[];
-  homepageImage: any;
+  public homepageImage: any;
   public countries: any[];
   public states = STATES;
 
 
-  constructor(schoolService: SchoolService) {
-    this.countries = [];
-    this.homepageImage = faker.image.image();
-    this.schools = schoolService.get_schools();
-    this.getCountries();
-  }
+  constructor(private schoolService: SchoolService) {}
 
-  getCountries() {
-    for (let i = 0; i <= 5; i++) {
-        this.countries.push({
+  pruneCountries(objArr: any) {
+    let pruneData: any = [];
+    for (let i in objArr) {
+      if(!pruneData[i]) {
+        this.schools = this.schools.concat(objArr[i]);
+        pruneData.push({
           image: faker.image.image(),
-          name: faker.address.state(),
-          schools: faker.random.number()
+          name: i.replace(/(^[a-z])/, function(a) {
+            return a.toUpperCase();
+          }),
+          schools: objArr[i].length
         });
+      }
     }
+    console.log(this.schools);
+    this.countries = pruneData;
   }
 
   ngOnInit() {
-    // require("imports?$=jquery!./preloader.js");
+    this.countries = [];
+    this.schools = [];
+    this.homepageImage = faker.image.image();
+    this.schoolService.getSchoolsForIndex().subscribe(
+        (res) => this.pruneCountries(res),
+        err => console.log(err)
+      );
   }
 
 }

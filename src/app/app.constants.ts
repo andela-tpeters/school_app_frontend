@@ -4,6 +4,7 @@ export const LoginUrl = BaseUrl + "login";
 export const RegistrationUrl = BaseUrl + "users";
 export const NewSchoolUrl = BaseUrl + "schools";
 export const GetSchoolUrl = BaseUrl + "schools/";
+export const SchoolPropertiesUrl = GetSchoolUrl + "properties";
 
 export const CURRENCY = [
 	{name: "USD", value: "USD"},

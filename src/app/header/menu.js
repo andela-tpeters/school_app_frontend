@@ -1,4 +1,4 @@
- console.log("I am in the menu.js");
+
  // Menu Button
     $('.navbar a.drop-left, .navbar a.drop-close').on('click', function (e) {
         //pressing more first time

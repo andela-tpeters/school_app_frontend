@@ -4,28 +4,7 @@
       <h1>The simplest way to find a School</h1>
       <h4>Find {{pageTitle}}</h4>
     </div>
-      <form id="form-submit" class="form-submit" action="search_result.html">
-        <div class="search">
-          <div class="selector col-md-3  col-sm-3">
-            <select class="selection" id="rent-sale">
-              <option>Creche</option>
-              <option>Nur/Pry</option>
-              <option>Secondary/High School</option>
-              <option>College</option>
-              <option>University</option>
-              <option>Polythecnic</option>
-              <option>Business School</option>
-              <option>Music School</option>
-              <option>Sport</option>
-            </select>
-          </div>
-          <div id="email-label" class="col-md-7 col-sm-7">
-            <i class="fa fa-location-arrow"></i>
-            <input type="text" id="search_field" class="form-control" placeholder="State">
-          </div>
-          <span class="ffs-bs col-md-2 col-sm-2"><button type="submit" class="btn btn-small btn-primary">Search</button></span>
-        </div>
-      </form>
+      <!-- <search-directive></search-directive> -->
   </div>
   <div class="container">
     <div class="explore">
@@ -35,52 +14,52 @@
       </h5>
     </div>
     <div class="row">
-      <div class="col-md-4 col-sm-6">
+      <div class="col-md-4 col-sm-6" *ngIf='countries[0]'>
         <a routerLink="/search" class="exp-img" [ngStyle]="{'background-image':'url(' + countries[0].image + ')','background-position': 'center','background-size': 'cover'}">
           <span class="filter"></span>
           <div class="img-info">
             <h3>{{countries[0].name}}</h3>
-            <h6>{{countries[0].schools}} schools</h6>
+            <h6>{{countries[0].schools}} school(s)</h6>
             <span class="ffs-bs btn btn-small btn-primary">explore more</span>
           </div>
         </a>
       </div>
-      <div class="col-md-4 col-sm-6">
+      <div class="col-md-4 col-sm-6" *ngIf="countries[1]">
         <a routerLink="/search" class="exp-img" [ngStyle]="{'background-image':'url(' + countries[1].image + ')','background-position': 'center','background-size': 'cover'}">
           <span class="filter"></span>
           <div class="img-info">
             <h3>{{countries[1].name}}</h3>
-            <h6>{{countries[1].schools}} schools</h6>
+            <h6>{{countries[1].schools}} school(s)</h6>
             <span class="ffs-bs btn btn-small btn-primary">explore more</span>
           </div>
         </a>
       </div>
-      <div class="col-md-4 col-sm-6">
+      <div class="col-md-4 col-sm-6" *ngIf="countries[2]">
         <a routerLink="/search" class="exp-img" [ngStyle]="{'background-image':'url(' + countries[2].image + ')','background-position': 'center','background-size': 'cover'}">
           <span class="filter"></span>
           <div class="img-info">
             <h3>{{countries[2].name}}</h3>
-            <h6>{{countries[2].schools}} schools</h6>
+            <h6>{{countries[2].schools}} school(s)</h6>
             <span class="ffs-bs btn btn-small btn-primary">explore more</span>
           </div>
         </a>
       </div>
-      <div class="col-md-4 col-sm-6">
+      <div class="col-md-4 col-sm-6" *ngIf="countries[3]">
         <a routerLink="/search" class="exp-img" [ngStyle]="{'background-image':'url(' + countries[3].image + ')','background-position': 'center','background-size': 'cover'}">
           <span class="filter"></span>
           <div class="img-info">
             <h3>{{countries[3].name}}</h3>
-            <h6>{{countries[3].schools}} schools</h6>
+            <h6>{{countries[3].schools}} school(s)</h6>
             <span class="ffs-bs btn btn-small btn-primary">explore more</span>
           </div>
         </a>
       </div>
-      <div class="col-md-8">
+      <div class="col-md-8" *ngIf="countries[4]">
         <a routerLink="/search" class="exp-img" [ngStyle]="{'background-image':'url(' + countries[4].image + ')','background-position': 'center','background-size': 'cover'}">
           <span class="filter"></span>
           <div class="img-info">
             <h3>{{countries[4].name}}</h3>
-            <h6>{{countries[4].schools}} schools</h6>
+            <h6>{{countries[4].schools}} school(s)</h6>
             <span class="ffs-bs btn btn-small btn-primary">explore more</span>
           </div>
         </a>
@@ -106,13 +85,13 @@
               </div>
             </div>
             <div class="item-title">
-              <h4><a [routerLink]="['/school', school.classrooms]">{{school.name}}</a></h4>
-              <p class="team-color">{{school.address}}</p>
+              <h4><a [routerLink]="['/school', school.id]">{{school.name}}</a></h4>
+              <p class="team-color">{{school.street_address}}</p>
               <div class="col-md-7 col-sm-7 col-xs-7">
-                <p>{{school.classrooms}} classrooms</p>
+                <p>{{school.no_of_classrooms}} classrooms</p>
               </div>
               <div class="col-md-5 col-sm-5 col-xs-5">
-                <p>86 m<span class="rank">2</span></p>
+                <p>{{school.school_size}} m<span class="rank">2</span></p>
               </div>
               <div class="col-md-7 col-sm-7 col-xs-7 lft-brd"></div>
               <div class="col-md-5 col-sm-5 col-xs-5 lft-brd"></div>

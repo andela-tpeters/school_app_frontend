@@ -1,6 +1,5 @@
 import { Component, OnInit, AfterViewChecked, ElementRef } from "@angular/core";
-import 'owl.carousel/dist/assets/owl.carousel.css';
-import "owl.carousel";
+
 
 @Component({
 	selector: 'school-owl',
@@ -15,6 +14,9 @@ export class OwlCarouselDirective implements AfterViewChecked, OnInit {
 	}
 
 	ngOnInit() {
+		require("../../../../public/assets/css/owl.carousel.css");
+		// require("imports?$=jquery!owl.carousel");
+		// require('owl.carousel/dist/assets/owl.carousel.css');
 		require("imports?$=jquery!../../../../public/assets/js/owl.carousel.js");
 	}
 }

@@ -1,13 +1,22 @@
 import { Injectable } from "@angular/core";
+import { Http, Response, Headers, RequestOptions } from "@angular/http";
+import "rxjs/Rx";
 import { Observable } from "rxjs/Observable";
+import { SchoolPropertiesUrl } from '../app.constants';
 import * as faker from "faker";
+import {Utils} from "./utils";
 
 @Injectable()
 
 export class SchoolService {
+  private utils: Utils = new Utils();
   public schools: any[] = [];
 
-  constructor(){}
+  constructor(private http: Http){}
+
+  private header: Headers = this.utils.makeHeader(this.http);
+
+  private options = { headers: this.header }
 
   get_schools(): any[] {
     for(var i = 1; i <= 8; i++) {
@@ -19,5 +28,15 @@ export class SchoolService {
       })
     }
     return this.schools;
+  }
+
+  handleError(err: any) {
+    return Observable.throw(err.json() || "Error Status");
+  }
+
+  getSchoolsForIndex(): Observable<any> {
+    return this.http.get(SchoolPropertiesUrl, this.options)
+            .map((res) => res.json())
+            .catch((err) => this.handleError(err))
   }
 }
