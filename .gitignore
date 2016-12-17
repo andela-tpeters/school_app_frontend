@@ -1,6 +1,12 @@
 .idea
 node_modules
 jspm_packages
+src
+public/*
+index-old.html
+.babelrc
+suburb
+assets
 link-checker-results.txt
 **/*npm-debug.log.*
 # *.js

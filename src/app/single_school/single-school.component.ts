@@ -4,6 +4,7 @@ import { SingleSchoolService } from "./single-school.service";
 import { NewSchoolModel } from "../new_school/new-school.model";
 import { PROPERTIES } from "../app.constants";
 import { Utils } from "../services/utils";
+var initializeMap = require('./map.js');
 
 @Component({
 	templateUrl: "./single-school.component.html",
@@ -40,18 +41,11 @@ export class SingleSchoolComponent implements OnInit, AfterContentInit {
 	}
 
 	ngAfterContentInit() {
-		require("imports?$=jquery!./picture_slider.js");
-		require("imports?$=jquery,markerwithlabel!./map.js");
-		// require("imports?$=jquery!../../../public/assets/js/custom-map.js");
-		require("imports?$=jquery!../../../public/assets/js/c.js");
+		initializeMap();
 	}
 
 
 	ngOnInit() {
-		require("imports?$=jquery!../../../public/assets/bootstrap/js/bootstrap.js");
-		require("imports?$=jquery!../../../public/assets/js/jquery.raty.min.js");
-		require("imports?$=jquery!../../../public/assets/js/owl.carousel.js");
-
 		this.route.data.subscribe((data: { school: NewSchoolModel}) => {
 			this.school = data.school;
 			console.log(this.school);

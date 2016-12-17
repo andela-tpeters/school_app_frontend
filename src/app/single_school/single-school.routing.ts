@@ -1,11 +1,11 @@
-import { NgModule } from "@angular/core";
+import { NgModule, ModuleWithProviders } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 import { SingleSchoolComponent } from "./single-school.component";
 import { SchoolResolver } from './school-resolver';
 
-export const routes: Routes = [
+const routes: Routes = [
 	{ 
-		path: 'school/:id',
+		path: '',
 		component: SingleSchoolComponent,
 		resolve: {
 			school: SchoolResolver
@@ -13,11 +13,14 @@ export const routes: Routes = [
 	}
 ];
 
-@NgModule({
-	imports: [RouterModule.forChild(routes)],
-	exports: [RouterModule],
-	providers: [SchoolResolver]
-})
 
-export class SingleSchoolRoutingModule {}
+export const singleSchoolRouting: ModuleWithProviders = RouterModule.forChild(routes);
+
+// @NgModule({
+// 	imports: [RouterModule.forChild(routes)],
+// 	exports: [RouterModule],
+// 	providers: [SchoolResolver]
+// })
+
+// export class SingleSchoolRoutingModule {}
 

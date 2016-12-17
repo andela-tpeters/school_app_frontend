@@ -1,5 +1,4 @@
-// module.exports.owlFunction = function(el) {
-	// console.log($(el).find(".testimonial-carousel"));
+module.exports = function() {
 	// Owl Carousel
     // Disable click when dragging
     function disableClick(){
@@ -55,4 +54,5 @@
 	function setCarouselWidth(){
 	    $('.carousel-full-width').css('width', $(window).width());
 	}
-// }
+    
+}

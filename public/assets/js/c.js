@@ -418,7 +418,7 @@ $(window).load(function(){
     }
 
     $grid = $('.grid');
-    triggerMasonry();
+    // triggerMasonry();
     
     // Owl Carousel
     // Disable click when dragging

@@ -1,7 +1,7 @@
 <form #searchForm='ngForm' name="searchForm" (submit)='submit()'>
   <div class="search">
     <div class="selector col-md-3  col-sm-3">
-      <select class="selection" id="rent-sale" name="schoolType" [(ngModel)]="schoolModel.schoolType" >
+      <select class="selection" id="rent-sale" name="schoolType" [(ngModel)]="searchModel.schoolType" >
         <option>Creche</option>
         <option>Nur/Pry</option>
         <option>Secondary/High School</option>
@@ -15,7 +15,7 @@
     </div>
     <div id="" class="col-md-7 col-sm-7">
       <i class="fa fa-location-arrow"></i>
-      <select class="selection" name="schoolState" [(ngModel)]='schoolModel.schoolState'>
+      <select class="selection" name="schoolState" [(ngModel)]='searchModel.schoolState'>
         <option *ngFor="let state of states" value="{{state.value}}">{{state.name}}</option>
       </select>
       <!-- <input type="text" id="search_field" class="form-control" placeholder="State"> -->

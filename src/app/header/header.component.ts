@@ -24,13 +24,8 @@ export class HeaderComponent implements AfterViewInit, OnInit {
   }
 
   ngAfterViewInit() { 
-    require("imports?$=jquery!./menu.js");
   }
 
   ngOnInit() {
-    // require("imports?$=jquery!../../../public/assets/bootstrap/js/bootstrap.js");
-    // require("imports?$=jquery!../../../public/assets/js/owl.carousel.js");
-    // require("imports?$=jquery!../../../public/assets/js/jquery.raty.min.js");
-    // require("imports?$=jquery!../../../public/assets/js/masonry.pkgd.min.js");
   }
 }

@@ -1,5 +1,5 @@
 import { Component, AfterContentInit } from "@angular/core";
-import '../../../public/assets/js/custom-map.js';
+// import '../../../public/assets/js/custom-map.js';
 
 
 @Component({

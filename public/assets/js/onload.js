@@ -19,7 +19,7 @@
 
     $grid = $('.grid');
     // console.log($grid);
-    triggerMasonry();
+    // triggerMasonry();
     //Preloader
     var $preloader = $('#page-preloader');
     $preloader.fadeOut('slow');

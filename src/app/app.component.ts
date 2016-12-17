@@ -12,6 +12,6 @@ export class AppComponent implements AfterContentInit {
   options = {};
 
   ngAfterContentInit() {
-  	require("imports?$=jquery!./index/preloader.js");
+  	// require("imports?$=jquery!./index/preloader.js");
   }
 }

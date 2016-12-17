@@ -26,13 +26,13 @@ export class SearchComponent implements AfterViewInit, OnInit {
 
 
   ngAfterViewInit() {
-    require("imports?$=jquery!../../../public/assets/js/c.js");
-    require("./search_map.js");
+    // require("imports?$=jquery!../../../public/assets/js/c.js");
+    // require("./search_map.js");
   }
 
   ngOnInit() {
-    require("imports?$=jquery!../../../public/assets/js/jquery.slider.js");
-    require("imports?$=jquery!../../../public/assets/bootstrap/js/bootstrap.js");
-    require("imports?$=jquery!../../../public/assets/js/owl.carousel.js");
+    // require("imports?$=jquery!../../../public/assets/js/jquery.slider.js");
+    // require("imports?$=jquery!../../../public/assets/bootstrap/js/bootstrap.js");
+    // require("imports?$=jquery!../../../public/assets/js/owl.carousel.js");
   }
 }

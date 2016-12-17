@@ -1,6 +1,6 @@
 export class SearchModel {
 	constructor(
-		public schoolTpye: string,
+		public schoolType: string,
 		public schoolState: string
 	){}
 }

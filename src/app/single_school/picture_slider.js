@@ -1,4 +1,5 @@
-$("#owl-demo-2").owlCarousel({
+module.exports = function() {
+    $("#owl-demo-2").owlCarousel({
         items : 3,
         responsive:{
             0:{
@@ -22,3 +23,5 @@ $("#owl-demo-2").owlCarousel({
         "<i class='fa fa-chevron-right'></i>"
         ]
     });
+}
+

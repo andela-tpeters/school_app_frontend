@@ -1,5 +1,6 @@
-import { NgModule, AfterContentChecked }      from '@angular/core';
+import { NgModule, OnInit } from '@angular/core';
 import { CommonModule } from "@angular/common";
+import { LocationStrategy, HashLocationStrategy } from "@angular/common";
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from "./app-routing.module";
 import { FormsModule } from '@angular/forms';
@@ -39,11 +40,11 @@ import { SimpleNotificationsModule } from "angular2-notifications";
     NotFoundModule
   ],
   declarations: [ AppComponent, HeaderComponent, LoginComponent, RegistrationComponent, FooterComponent ],
-  providers: [RegistrationService],
+  providers: [RegistrationService, { provide: LocationStrategy, useClass: HashLocationStrategy }],
   bootstrap: [ AppComponent ]
 })
 
-export class AppModule { 
+export class AppModule implements OnInit { 
 
-  
+  ngOnInit() {}
 }

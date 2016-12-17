@@ -1,20 +1,6 @@
-//Date picker
- 	// $(document).ready(function() {
- 	// 	$("#date-from").datepicker({
- 	// 		showOtherMonths: true,
- 	// 		selectOtherMonths: true
- 	// 	});
- 	// 	$("#date-to").datepicker({
- 	// 		showOtherMonths: true,
- 	// 		selectOtherMonths: true
- 	// 	});
- 	// });
-
-	//Google map for property page
-
-	// $("#map4").html("<p>This is for the map</p>");
-	function initialize() {
+module.exports = function() {
 		$.getScript("public/assets/js/locations.js", function() {
+			var MarkerWithLabel = require('markerwithlabel')(google.maps);
 			var latlng = {lat: 51.512707, lng:  -0.130447};
 			var mapOptions = {
 				center: latlng,
@@ -44,7 +30,7 @@
 			});
 
 			// Use this code below only if you are using google street view
-			/*	var fenway = {lat: 42.345573, lng: -71.098326};
+				var fenway = {lat: 42.345573, lng: -71.098326};
 			var panorama = new google.maps.StreetViewPanorama(document.getElementById('tab3'), {
 					position: fenway,
 					pov: {
@@ -57,8 +43,8 @@
 				setTimeout(function() {
 					google.maps.event.trigger(panorama, 'resize');
 				}, 400 ); 
-			});*/
+			});
 
 		});
 	}
-	google.maps.event.addDomListener(window, 'load', initialize);  
+// google.maps.event.addDomListener(window, 'load', initialize); 
