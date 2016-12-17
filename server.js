@@ -1,6 +1,7 @@
 var express = require('express');
 var app = express();
 var root = require('path').resolve('build');
+var port = process.env.PORT || 3000;
 
 var morgan = require('morgan');
 
@@ -15,6 +16,6 @@ app.get('/', function(req, res) {
 
 
 
-app.listen(8080, function() {
+app.listen(port, function() {
 	console.log('App running at 8080');
 })
