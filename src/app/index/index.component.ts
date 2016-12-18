@@ -34,7 +34,10 @@ export class IndexComponent implements OnInit {
         });
       }
     }
-    console.log(this.schools);
+
+    for(let s in this.schools) {
+      this.schools[s].image = faker.image.image();
+    }
     this.countries = pruneData;
   }
 

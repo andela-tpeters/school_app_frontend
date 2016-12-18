@@ -2,7 +2,7 @@ import { Injectable } from "@angular/core";
 import { Http, Response, Headers, RequestOptions } from "@angular/http";
 import "rxjs/Rx";
 import { Observable } from "rxjs/Observable";
-import { SchoolPropertiesUrl } from '../app.constants';
+import { SchoolPropertiesUrl, GetSchoolUrl } from '../app.constants';
 import * as faker from "faker";
 import {Utils} from "./utils";
 
@@ -38,5 +38,9 @@ export class SchoolService {
     return this.http.get(SchoolPropertiesUrl, this.options)
             .map((res) => res.json())
             .catch((err) => this.handleError(err))
+  }
+
+  searchSchools(params: any): Observable<any> {
+    return this.http.get(GetSchoolUrl + "?" + params, this.options).map((res) => res.json()).catch((err) => this.handleError(err));
   }
 }

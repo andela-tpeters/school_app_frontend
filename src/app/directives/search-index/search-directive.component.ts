@@ -1,5 +1,7 @@
 import { Component, OnInit } from "@angular/core";
+import { Router } from "@angular/router";
 import { SearchModel } from "./search-model";
+import { TYPE, STATES } from  "../../app.constants";
 
 @Component({
 	selector: 'search-directive',
@@ -7,11 +9,16 @@ import { SearchModel } from "./search-model";
 })
 
 export class SearchDirective implements OnInit {
-	public searchModel: SearchModel;
-	submit() {}
+	public searchModel: SearchModel = new SearchModel('','');
+	public schoolType = TYPE;
+	public states = STATES;
+
+	constructor(private router: Router) {}
+
+	submit() {
+		this.router.navigate(['search', this.searchModel.q, this.searchModel.state]);
+	}
 
 	ngOnInit() {
-		this.searchModel = new SearchModel('creche','lagos');
-		console.log(this.searchModel);
 	}
 }

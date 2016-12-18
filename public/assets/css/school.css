@@ -21,3 +21,7 @@ input[type="checkbox"] {
     width: unset;
     margin-top: 15px !important;
 }
+
+.search .fa-location-arrow {
+    right: 10px;
+}

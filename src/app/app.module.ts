@@ -13,11 +13,9 @@ import { RegistrationComponent } from "./modals/registration/registration.compon
 import { FooterComponent } from "./footer/footer.component";
 import { NewSchoolModule } from "./new_school/new-school.module";
 import { AllSchoolModule } from './all_schools/all-school.module';
-import { SearchModule } from './search/search.module';
 import { AboutModule } from './about/about.module';
 import { ContactModule } from './contact/contact.module';
 import { RegistrationService } from './modals/registration/registration.service';
-import { SingleSchoolModule } from "./single_school/single-school.module";
 import { NotFoundModule } from "./404/404.module";
 import { SimpleNotificationsModule } from "angular2-notifications";
 
@@ -31,12 +29,10 @@ import { SimpleNotificationsModule } from "angular2-notifications";
     IndexModule,
     NewSchoolModule,
     AllSchoolModule,
-    SearchModule,
     AboutModule,
     ContactModule,
     HttpModule,
     SimpleNotificationsModule,
-    SingleSchoolModule,
     NotFoundModule
   ],
   declarations: [ AppComponent, HeaderComponent, LoginComponent, RegistrationComponent, FooterComponent ],

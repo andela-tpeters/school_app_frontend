@@ -49,7 +49,6 @@ export class SingleSchoolComponent implements OnInit, AfterContentInit {
 	ngOnInit() {
 		this.route.data.subscribe((data: { school: NewSchoolModel}) => {
 			this.school = data.school;
-			console.log(this.school);
 		})
 	}
 
