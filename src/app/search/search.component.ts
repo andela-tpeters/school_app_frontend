@@ -1,12 +1,16 @@
-import { Component, AfterViewInit, OnInit } from "@angular/core";
+import { Component, AfterContentInit, OnInit } from "@angular/core";
 import * as faker from "faker";
-import '../../../public/assets/css/jquery.slider.min.css';
+require('../../../public/assets/css/jquery.slider.min.css');
+var customMap = require('./createHomepageGoogleMap.js');
+
+var sliderpoint = require('./input-slider.js');
+
 
 @Component({
   templateUrl: "./search.component.html"
 })
 
-export class SearchComponent implements AfterViewInit, OnInit {
+export class SearchComponent implements AfterContentInit, OnInit {
   public schools: any[] = [];
 
   constructor() {
@@ -25,14 +29,18 @@ export class SearchComponent implements AfterViewInit, OnInit {
   }
 
 
-  ngAfterViewInit() {
-    // require("imports?$=jquery!../../../public/assets/js/c.js");
-    // require("./search_map.js");
+  ngAfterContentInit() {
+    var _latitude = 40.717857;
+    var _longitude = -73.995042;
+    customMap(_latitude,_longitude);
   }
 
   ngOnInit() {
-    // require("imports?$=jquery!../../../public/assets/js/jquery.slider.js");
-    // require("imports?$=jquery!../../../public/assets/bootstrap/js/bootstrap.js");
-    // require("imports?$=jquery!../../../public/assets/js/owl.carousel.js");
+    $('.jslider-pointer').addClass('firstpoint'); 
+    $('.jslider-pointer.jslider-pointer-to').removeClass('firstpoint'); 
+
+    $(".price-range-wrapper").mousemove(sliderpoint);
+
+    
   }
 }

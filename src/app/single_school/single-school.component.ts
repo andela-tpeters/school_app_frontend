@@ -42,6 +42,7 @@ export class SingleSchoolComponent implements OnInit, AfterContentInit {
 
 	ngAfterContentInit() {
 		initializeMap();
+		$( 'embed, iframe' ).wrap( "<div class='video-container'></div>" );
 	}
 
 

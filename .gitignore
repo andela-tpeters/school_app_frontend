@@ -2,7 +2,6 @@
 node_modules
 jspm_packages
 src
-public/*
 index-old.html
 .babelrc
 suburb

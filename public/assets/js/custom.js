@@ -35,21 +35,21 @@ $(document).ready(function($) {
     // });
 
     //Search page hidden content
-    $('#toggle-link').on('click',function(e) {
-        var $message = $('#hidden_content');
-        if ($message.css('display') != 'block') {
-            $message.show();
-            var firstClick = true;
-            $(document).bind('click.myEvent', function(e) {
-                if (!firstClick && $(e.target).closest('#hidden_content').length == 0) {
-                    $message.hide();
-                    $(document).unbind('click.myEvent');
-                }
-                firstClick = false;
-            });
-        }
-        e.preventDefault();
-    });
+    // $('#toggle-link').on('click',function(e) {
+    //     var $message = $('#hidden_content');
+    //     if ($message.css('display') != 'block') {
+    //         $message.show();
+    //         var firstClick = true;
+    //         $(document).bind('click.myEvent', function(e) {
+    //             if (!firstClick && $(e.target).closest('#hidden_content').length == 0) {
+    //                 $message.hide();
+    //                 $(document).unbind('click.myEvent');
+    //             }
+    //             firstClick = false;
+    //         });
+    //     }
+    //     e.preventDefault();
+    // });
 
     // Show rating form
     $(function showRatingForm() {
@@ -86,17 +86,17 @@ $(document).ready(function($) {
     });
 
     //  Price slider search page 
-    if( $(".price-input").length > 0) {
-        $(".price-input").each(function() {
-            var vSLider = $(this).slider({
-                from: 0,
-                to: 9000000,
-                smooth: true, 
-                round: 0,       
-                dimension: ',00&nbsp;$',
-            }); 
-        });
-    }
+    // if( $(".price-input").length > 0) {
+    //     $(".price-input").each(function() {
+    //         var vSLider = $(this).slider({
+    //             from: 0,
+    //             to: 9000000,
+    //             smooth: true, 
+    //             round: 0,       
+    //             dimension: ',00&nbsp;$',
+    //         }); 
+    //     });
+    // }
 
     //Magnific popup init
     if ($('.image-popup').length > 0 ) {
@@ -209,16 +209,16 @@ $(document).ready(function($) {
         ]
     });
 
-    //  iCheck
-    if ($('.switch').length > 0) {
-        $('.switch input').iCheck();
-    }
-    if ($('.radio').length > 0) {
-        $('input').iCheck();
-    }
-    if ($('.checkbox').length > 0) {
-        $('input:not(.no-icheck)').iCheck();
-    }
+    // //  iCheck
+    // if ($('.switch').length > 0) {
+    //     $('.switch input').iCheck();
+    // }
+    // if ($('.radio').length > 0) {
+    //     $('input').iCheck();
+    // }
+    // if ($('.checkbox').length > 0) {
+    //     $('input:not(.no-icheck)').iCheck();
+    // }
 
     //  Smooth Navigation Scrolling
     $('a[href^="#"].roll').on('click',function (e) {
@@ -314,7 +314,7 @@ $(document).ready(function($) {
     });
  
     // Video Wrapping with container preserves width and height
-    $( 'embed, iframe' ).wrap( "<div class='video-container'></div>" );
+    // $( 'embed, iframe' ).wrap( "<div class='video-container'></div>" );
     
     // Set Bookmark button attribute
     $( ".bookmark" ).each(function(index) {
@@ -364,22 +364,22 @@ $(document).ready(function($) {
         });
     });
 
-    function sliderpoint() {
-        var slider_width = parseInt($(".jslider").css('width'), 10);
-        var right_point = parseInt($(".jslider-pointer.jslider-pointer-to").css('left'), 10);
-        var left_point = parseInt($(".firstpoint").css('left'), 10);
-        left_point = 100*left_point/slider_width;
-        right_point = 100*right_point/slider_width;
-        if (right_point > 97) { $('.jslider-pointer.jslider-pointer-to').addClass('slide-right'); } 
-        if (right_point <= 97){ $('.jslider-pointer.jslider-pointer-to').removeClass('slide-right'); } 
-        if (left_point > 97) { $('.firstpoint').addClass('slide-right'); } 
-        if (left_point <= 97){ $('.firstpoint').removeClass('slide-right'); } 
-    }
+    // function sliderpoint() {
+    //     var slider_width = parseInt($(".jslider").css('width'), 10);
+    //     var right_point = parseInt($(".jslider-pointer.jslider-pointer-to").css('left'), 10);
+    //     var left_point = parseInt($(".firstpoint").css('left'), 10);
+    //     left_point = 100*left_point/slider_width;
+    //     right_point = 100*right_point/slider_width;
+    //     if (right_point > 97) { $('.jslider-pointer.jslider-pointer-to').addClass('slide-right'); } 
+    //     if (right_point <= 97){ $('.jslider-pointer.jslider-pointer-to').removeClass('slide-right'); } 
+    //     if (left_point > 97) { $('.firstpoint').addClass('slide-right'); } 
+    //     if (left_point <= 97){ $('.firstpoint').removeClass('slide-right'); } 
+    // }
 
-    $('.jslider-pointer').addClass('firstpoint'); 
-    $('.jslider-pointer.jslider-pointer-to').removeClass('firstpoint'); 
+    // $('.jslider-pointer').addClass('firstpoint'); 
+    // $('.jslider-pointer.jslider-pointer-to').removeClass('firstpoint'); 
 
-    $(".price-range-wrapper").mousemove(sliderpoint);
+    // $(".price-range-wrapper").mousemove(sliderpoint);
  
 });
 
