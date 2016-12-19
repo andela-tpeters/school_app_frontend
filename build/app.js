@@ -57,21 +57,21 @@ webpackJsonp([0],[
 	var common_2 = __webpack_require__(23);
 	var platform_browser_1 = __webpack_require__(22);
 	var app_routing_module_1 = __webpack_require__(25);
-	var forms_1 = __webpack_require__(1341);
+	var forms_1 = __webpack_require__(1370);
 	var http_1 = __webpack_require__(60);
-	var app_component_1 = __webpack_require__(1342);
-	var index_module_1 = __webpack_require__(1344);
-	var header_component_1 = __webpack_require__(1352);
-	var login_component_1 = __webpack_require__(1357);
-	var registration_component_1 = __webpack_require__(1369);
-	var footer_component_1 = __webpack_require__(1373);
-	var new_school_module_1 = __webpack_require__(1379);
-	var all_school_module_1 = __webpack_require__(1392);
-	var about_module_1 = __webpack_require__(1420);
-	var contact_module_1 = __webpack_require__(1424);
-	var registration_service_1 = __webpack_require__(1371);
-	var _404_module_1 = __webpack_require__(1428);
-	var angular2_notifications_1 = __webpack_require__(1358);
+	var app_component_1 = __webpack_require__(1371);
+	var index_module_1 = __webpack_require__(1373);
+	var header_component_1 = __webpack_require__(1381);
+	var login_component_1 = __webpack_require__(1386);
+	var registration_component_1 = __webpack_require__(1398);
+	var footer_component_1 = __webpack_require__(1402);
+	var new_school_module_1 = __webpack_require__(1408);
+	var all_school_module_1 = __webpack_require__(1421);
+	var about_module_1 = __webpack_require__(1425);
+	var contact_module_1 = __webpack_require__(1429);
+	var registration_service_1 = __webpack_require__(1400);
+	var _404_module_1 = __webpack_require__(1433);
+	var angular2_notifications_1 = __webpack_require__(1387);
 	var AppModule = (function () {
 	    function AppModule() {
 	    }
@@ -123,8 +123,8 @@ webpackJsonp([0],[
 	exports.routes = [
 	    { path: "", redirectTo: "index", pathMatch: "full" },
 	    { path: "index", component: index_component_1.IndexComponent },
-	    { path: 'school/:id', loadChildren: function () { return new Promise(function (resolve) { __webpack_require__.e/* nsure */(4, function (require) { resolve(__webpack_require__(1323)['SingleSchoolModule']); }); }); } },
-	    { path: 'search/:q/:state', loadChildren: function () { return new Promise(function (resolve) { __webpack_require__.e/* nsure */(5, function (require) { resolve(__webpack_require__(1396)['SearchModule']); }); }); } }
+	    { path: 'school/:id', loadChildren: function () { return new Promise(function (resolve) { __webpack_require__.e/* nsure */(1, function (require) { resolve(__webpack_require__(1323)['SingleSchoolModule']); }); }); } },
+	    { path: 'search/:q/:state', loadChildren: function () { return new Promise(function (resolve) { __webpack_require__.e/* nsure */(2, function (require) { resolve(__webpack_require__(1342)['SearchModule']); }); }); } }
 	];
 	var AppRoutingModule = (function () {
 	    function AppRoutingModule() {
@@ -70781,7 +70781,36 @@ webpackJsonp([0],[
 /* 1338 */,
 /* 1339 */,
 /* 1340 */,
-/* 1341 */
+/* 1341 */,
+/* 1342 */,
+/* 1343 */,
+/* 1344 */,
+/* 1345 */,
+/* 1346 */,
+/* 1347 */,
+/* 1348 */,
+/* 1349 */,
+/* 1350 */,
+/* 1351 */,
+/* 1352 */,
+/* 1353 */,
+/* 1354 */,
+/* 1355 */,
+/* 1356 */,
+/* 1357 */,
+/* 1358 */,
+/* 1359 */,
+/* 1360 */,
+/* 1361 */,
+/* 1362 */,
+/* 1363 */,
+/* 1364 */,
+/* 1365 */,
+/* 1366 */,
+/* 1367 */,
+/* 1368 */,
+/* 1369 */,
+/* 1370 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -75224,7 +75253,7 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 1342 */
+/* 1371 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -75251,7 +75280,7 @@ webpackJsonp([0],[
 	AppComponent = __decorate([
 	    core_1.Component({
 	        selector: 'school-index',
-	        template: __webpack_require__(1343)
+	        template: __webpack_require__(1372)
 	    }),
 	    __metadata("design:paramtypes", [])
 	], AppComponent);
@@ -75259,13 +75288,13 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 1343 */
+/* 1372 */
 /***/ function(module, exports) {
 
 	module.exports = "<sheader class=\"menu-wh\"></sheader>\n<router-outlet></router-outlet>\n<sm-footer></sm-footer>\n<sm-login-modal></sm-login-modal>\n<sm-register-modal></sm-register-modal>\n";
 
 /***/ },
-/* 1344 */
+/* 1373 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -75281,12 +75310,12 @@ webpackJsonp([0],[
 	var core_1 = __webpack_require__(4);
 	var common_1 = __webpack_require__(23);
 	var platform_browser_1 = __webpack_require__(22);
-	var forms_1 = __webpack_require__(1341);
-	var index_routing_module_1 = __webpack_require__(1345);
+	var forms_1 = __webpack_require__(1370);
+	var index_routing_module_1 = __webpack_require__(1374);
 	var index_component_1 = __webpack_require__(58);
 	var schools_service_1 = __webpack_require__(59);
-	var owl_carousel_index_1 = __webpack_require__(1346);
-	var search_directive_component_1 = __webpack_require__(1349);
+	var owl_carousel_index_1 = __webpack_require__(1375);
+	var search_directive_component_1 = __webpack_require__(1378);
 	var IndexModule = (function () {
 	    function IndexModule() {
 	    }
@@ -75304,7 +75333,7 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 1345 */
+/* 1374 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -75339,7 +75368,7 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 1346 */
+/* 1375 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -75353,7 +75382,7 @@ webpackJsonp([0],[
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var core_1 = __webpack_require__(4);
-	var carousel = __webpack_require__(1347);
+	var carousel = __webpack_require__(1376);
 	var OwlCarouselDirective = (function () {
 	    function OwlCarouselDirective(el) {
 	        this.el = el;
@@ -75367,7 +75396,7 @@ webpackJsonp([0],[
 	OwlCarouselDirective = __decorate([
 	    core_1.Component({
 	        selector: 'school-owl',
-	        template: __webpack_require__(1348)
+	        template: __webpack_require__(1377)
 	    }),
 	    __metadata("design:paramtypes", [core_1.ElementRef])
 	], OwlCarouselDirective);
@@ -75375,7 +75404,7 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 1347 */
+/* 1376 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function($) {module.exports = function() {
@@ -75436,16 +75465,16 @@ webpackJsonp([0],[
 		}
 	    
 	}
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1328)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1326)))
 
 /***/ },
-/* 1348 */
+/* 1377 */
 /***/ function(module, exports) {
 
 	module.exports = "<!-- end wide-3 carousel-full-width -->\n  <div class=\"container\">\n    <section class=\"block testimonials\">\n      <header class=\"center\">\n        <h2 class=\"no-border\">We love Schoolmaps</h2>\n      </header>\n      <div class=\"owl-carousel testimonials-carousel\">\n        <blockquote class=\"item\">\n          <aside class=\"cite\">\n            <p class=\"team-color\">\"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled\"</p>\n          </aside>\n          <figure>\n            <div class=\"image\">\n              <img src=\"http://placehold.it/55X55\" alt=\"\">\n            </div>\n            <p>Johan Nordquist</p>\n            <p class=\"team-color\">Someone From Company</p>\n          </figure>\n        </blockquote>\n        <blockquote class=\"item\">\n          <aside class=\"cite\">\n            <p class=\"team-color\">\"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled\"</p>\n          </aside>\n          <figure>\n            <div class=\"image\">\n              <img src=\"http://placehold.it/55X55\" alt=\"\">\n            </div>\n            <p>Sara Genergy</p>\n            <p class=\"team-color\">Someone From Company</p>\n          </figure>\n        </blockquote>\n        <blockquote class=\"item\">\n          <aside class=\"cite\">\n            <p class=\"team-color\">\"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled\"</p>\n          </aside>\n          <figure>\n            <div class=\"image\">\n              <img src=\"http://placehold.it/55X55\" alt=\"\">\n            </div>\n            <p>Sara Strawberry</p>\n            <p class=\"team-color\">Someone From Company</p>\n          </figure>\n        </blockquote>\n      </div>\n    </section>\n  </div>\n  <!-- end container -->";
 
 /***/ },
-/* 1349 */
+/* 1378 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -75460,7 +75489,7 @@ webpackJsonp([0],[
 	};
 	var core_1 = __webpack_require__(4);
 	var router_1 = __webpack_require__(26);
-	var search_model_1 = __webpack_require__(1350);
+	var search_model_1 = __webpack_require__(1379);
 	var app_constants_1 = __webpack_require__(357);
 	var SearchDirective = (function () {
 	    function SearchDirective(router) {
@@ -75479,7 +75508,7 @@ webpackJsonp([0],[
 	SearchDirective = __decorate([
 	    core_1.Component({
 	        selector: 'search-directive',
-	        template: __webpack_require__(1351)
+	        template: __webpack_require__(1380)
 	    }),
 	    __metadata("design:paramtypes", [router_1.Router])
 	], SearchDirective);
@@ -75487,7 +75516,7 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 1350 */
+/* 1379 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -75502,13 +75531,13 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 1351 */
+/* 1380 */
 /***/ function(module, exports) {
 
 	module.exports = "<form #searchForm='ngForm' name=\"searchForm\" (submit)='submit()'>\n  <div class=\"search\">\n    <div class=\"selector col-md-3  col-sm-3\">\n      <select class=\"selection\" id=\"rent-sale\" name=\"q\" [(ngModel)]=\"searchModel.q\" >\n        <option value=\"\" default>Type</option>\n        <option *ngFor=\"let type of schoolType\" value=\"{{type.value}}\"> {{type.name}}</option>\n      </select>\n    </div>\n    <div id=\"\" class=\"col-md-7 col-sm-7\">\n      <i class=\"fa fa-location-arrow\"></i>\n      <select class=\"selection\" name=\"state\" [(ngModel)]='searchModel.state'>\n        <option value=\"\" default>State</option>\n        <option *ngFor=\"let state of states\" value=\"{{state.value}}\">{{state.name.toUpperCase()}}</option>\n      </select>\n    </div>\n    <span class=\"ffs-bs col-md-2 col-sm-2\"><button type=\"submit\" class=\"btn btn-small btn-primary\">Search</button></span>\n  </div>\n</form>";
 
 /***/ },
-/* 1352 */
+/* 1381 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -75523,7 +75552,7 @@ webpackJsonp([0],[
 	};
 	var core_1 = __webpack_require__(4);
 	var login_service_1 = __webpack_require__(1321);
-	__webpack_require__(1353);
+	__webpack_require__(1382);
 	var HeaderComponent = (function () {
 	    function HeaderComponent(_loginService) {
 	        this._loginService = _loginService;
@@ -75542,7 +75571,7 @@ webpackJsonp([0],[
 	HeaderComponent = __decorate([
 	    core_1.Component({
 	        selector: "sheader",
-	        template: __webpack_require__(1356),
+	        template: __webpack_require__(1385),
 	        providers: [login_service_1.LoginService]
 	    }),
 	    __metadata("design:paramtypes", [login_service_1.LoginService])
@@ -75551,7 +75580,7 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 1353 */
+/* 1382 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -75575,7 +75604,7 @@ webpackJsonp([0],[
 
 	(function(root, factory) {
 		if (true) {
-			!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(1328),__webpack_require__(1354),__webpack_require__(1355)], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory), __WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ? (__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+			!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(1326),__webpack_require__(1383),__webpack_require__(1384)], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory), __WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ? (__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
 		} else if (typeof exports === 'object') {
 			module.exports = factory(require('jquery'), require('sifter'), require('microplugin'));
 		} else {
@@ -78749,7 +78778,7 @@ webpackJsonp([0],[
 	}));
 
 /***/ },
-/* 1354 */
+/* 1383 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/* WEBPACK VAR INJECTION */(function($) {/**
@@ -79251,10 +79280,10 @@ webpackJsonp([0],[
 	}));
 
 
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1328)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1326)))
 
 /***/ },
-/* 1355 */
+/* 1384 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -79394,13 +79423,13 @@ webpackJsonp([0],[
 	}));
 
 /***/ },
-/* 1356 */
+/* 1385 */
 /***/ function(module, exports) {
 
 	module.exports = "\t<div class=\"navigation\">\n\t\t<header class=\"navbar\" id=\"top\">\n\t\t\t<div class=\"container\">\n\t\t\t\t<div class=\"navbar-brand nav\">\n\t\t\t\t\t<!-- <a class=\"navbar-brand nav logo\" routerLink=\"/index\" title=\"\" rel=\"home\">\n\t\t\t\t\t\t<object class=\"master-logo\" type=\"image/svg+xml\"></object>&nbsp;\n\t\t\t\t\t</a> -->\n\t\t\t\t\t<a class=\"navbar-brand nav logo retina\" routerLink=\"/index\" title=\"\" rel=\"home\">\n\t\t\t\t\t\t<!-- <object class=\"master-logo\" type=\"image/svg+xml\"></object> --> SCHOOL-MAPS\n\t\t\t\t\t</a>\n\t\t\t\t</div>\n\t\t\t\t<nav class=\"secondary main-menu\">\n\t\t\t\t\t<a href=\"#\" data-toggle=\"dropdown\" class=\"pull-right drop-left\">More\n\t\t\t\t\t\t<div class=\"gamb-button\">\n\t\t\t\t\t\t\t<span class=\"icon-bar\"></span>\n\t\t\t\t\t\t\t<span class=\"icon-bar\"></span>\n\t\t\t\t\t\t\t<span class=\"icon-bar\"></span>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</a>\n\t\t\t\t\t<ul class=\"nav navbar-nav dropdown-menu pull-right slide-left\">\n\t\t\t\t\t\t<li class=\"active has-childn\"><a routerLink=\"/index\">Home</a>\n\t\t\t\t\t\t\t<!-- <ul class=\"child-navigation\">\n\t\t\t\t\t\t\t\t<li><a href=\"index_v_1.html\">Index V1</a></li>\n\t\t\t\t\t\t\t\t<li><a href=\"index_v_2.html\">Index V2</a></li>\n\t\t\t\t\t\t\t\t<li><a href=\"index_v_3.html\">Index V3</a></li>\n\t\t\t\t\t\t\t</ul> -->\n\t\t\t\t\t\t</li>\n\t\t\t\t\t\t<li class=\"has-childn\">\n\t\t\t\t\t\t\t<a routerLink=\"/admin\">Admin Profile</a>\n\t\t\t\t\t\t\t<!-- <a [routerLink]=\"['Index']\">Agents&nbsp;&amp;&nbsp;agencies</a>\n\t\t\t\t\t\t\t<ul class=\"child-navigation\">\n\t\t\t\t\t\t\t\t<li><a href=\"agency_profile.html\">Agency Profile</a></li>\n\t\t\t\t\t\t\t\t<li><a href=\"agent_profile.html\">Agents Profile</a></li>\n\t\t\t\t\t\t\t</ul> -->\n\t\t\t\t\t\t</li>\n\t\t\t\t\t\t<li class=\"has-childn\">\n\t\t\t\t\t\t\t<a routerLink=\"/all_schools\">All Schools</a>\n\t\t\t\t\t\t\t<!-- <a href=\"#\">All Properties</a>\n\t\t\t\t\t\t\t<ul class=\"child-navigation\">\n\t\t\t\t\t\t\t\t<li><a href=\"our_property.html\">For Rent</a></li>\n\t\t\t\t\t\t\t\t<li><a href=\"our_property_list_type.html\">For Sell</a></li>\n\t\t\t\t\t\t\t\t<li><a href=\"add_property.html\">Add Property</a></li>\n\t\t\t\t\t\t\t\t<li><a href=\"property_page.html\">Property Page</a></li>\n\t\t\t\t\t\t\t</ul> -->\n\t\t\t\t\t\t</li>\n\t\t\t\t\t\t<!-- <li class=\"has-child\"><a href=\"#\">Pages</a>\n\t\t\t\t\t\t\t<ul class=\"child-navigation\">\n\t\t\t\t\t\t\t\t<li><a href=\"404_page.html\">404 Page</a></li>\n\t\t\t\t\t\t\t\t<li><a href=\"pricing_page.html\">Pricing Page</a></li>\n\t\t\t\t\t\t\t\t<li><a href=\"compare_page.html\">Compare Page</a></li>\n\t\t\t\t\t\t\t\t<li><a href=\"shotcodes.html\">Shortcodes</a></li>\n\t\t\t\t\t\t\t\t<li><a href=\"search_result.html\">Search</a></li>\n\t\t\t\t\t\t\t\t<li><a href=\"user_profile_(horizontal).html\">user profile (horizontal)</a></li>\n\t\t\t\t\t\t\t\t<li><a href=\"user_profile_(vertical).html\">user profile (vertical)</a></li>\n\t\t\t\t\t\t\t</ul>\n\t\t\t\t\t\t</li> -->\n\t\t\t\t\t\t<!-- <li class=\"has-child\"><a href=\"#\">Blog</a>\n\t\t\t\t\t\t\t<ul class=\"child-navigation\">\n\t\t\t\t\t\t\t\t<li><a href=\"blog_list.html\">Blog List</a></li>\n\t\t\t\t\t\t\t\t<li><a href=\"blog_list_fullwidth.html\">Blog List Fullwidth</a></li>\n\t\t\t\t\t\t\t\t<li><a href=\"blog_article.html\">Blog Article</a></li>\n\t\t\t\t\t\t\t\t<li><a href=\"blog_text_article.html\">Blog Text Article</a></li>\n\t\t\t\t\t\t\t\t<li><a href=\"blog_article_styles.html\">Blog Article Styles</a></li>\n\t\t\t\t\t\t\t\t<li><a href=\"blog_video.html\">Blog Video</a></li>\n\t\t\t\t\t\t\t</ul>\n\t\t\t\t\t\t</li> -->\n\t\t\t\t\t\t<li><a routerLink=\"/about\">About Us</a></li>\n\t\t\t\t\t\t<li><a routerLink=\"/contact\">Contact us</a></li>\n\t\t\t\t\t\t<li>\n\t\t\t\t\t\t\t<a href=\"#\" data-toggle=\"dropdown\" class=\"pull-right drop-close\">Close\n\t\t\t\t\t\t\t\t<span class=\"cross\"></span>\n\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t</li>\n\t\t\t\t\t</ul>\n\t\t\t\t</nav><!-- /.navbar collapse-->\n\t\t\t\t<nav class=\"primary start main-menu\">\n\t\t\t\t\t<ul class=\"nav navbar-nav pull-right\">\n\t\t\t\t\t\t<li *ngIf=\"isLoggedIn\"><a routerLink=\"/new_school\">Add School</a></li>\n\t\t\t\t\t\t<!-- <li>\n\t\t\t\t\t\t\t<select class=\"selection\" id=\"menu-language\" onChange=\"window.location.href=this.value\">\n\t\t\t\t\t\t\t\t<option value=\"index_v_1.html\">Eng</option>\n\t\t\t\t\t\t\t\t<option value=\"rtl.html\">الأرابيسك</option>\n\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t</li> -->\n\t\t\t\t\t\t<li *ngIf=\"!isLoggedIn\"><a href=\"#\" data-toggle=\"modal\" data-target=\"#modal-login\">Log in<i class=\"fa fa-arrow-right\"></i></a></li>\n\t\t\t\t\t\t<li *ngIf=\"!isLoggedIn\"><a href=\"#\" data-toggle=\"modal\" data-target=\"#modal-register\">Registration</a></li>\n\t\t\t\t\t\t<li *ngIf=\"isLoggedIn\"><a routerLink=\"\" (click)=\"logout()\">Logout</a></li>\n\t\t\t\t\t</ul>\n\t\t\t\t</nav>\n\t\t\t</div>\n\t\t\t<div class=\"site-header\">\n\t\t\t\t<a href=\"#\" data-toggle=\"dropdown\" class=\"pull-right drop-left\">Menu\n\t\t\t\t\t<div class=\"gamb-button\">\n\t\t\t\t\t\t<span class=\"icon-bar\"></span>\n\t\t\t\t\t\t<span class=\"icon-bar\"></span>\n\t\t\t\t\t\t<span class=\"icon-bar\"></span>\n\t\t\t\t\t</div>\n\t\t\t\t</a>\n\t\t\t\t<div class=\"navbar-brand nav\">\n\t\t\t\t\t<a class=\"navbar-brand nav logo\" href=\"index_v_1.html\" title=\"\" rel=\"home\">\n\t\t\t\t\t\t<object class=\"master-logo\" type=\"image/svg+xml\"></object>\n\t\t\t\t\t</a>\n\t\t\t\t\t<a class=\"navbar-brand nav logo retina\" href=\"index_v_1.html\" title=\"\" rel=\"home\">\n\t\t\t\t\t\t<object class=\"master-logo\" type=\"image/svg+xml\"></object>\n\t\t\t\t\t</a>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"mob-menu drop-close hidden\">\n\t\t\t\t\t<a href=\"#\" data-toggle=\"dropdown\" class=\"pull-right drop-close hidden black-cross\">Close\n\t\t\t\t\t\t<span class=\"cross\"></span>\n\t\t\t\t\t</a>\n\t\t\t\t\t<nav class=\"secondary\">\n\t\t\t\t\t\t<ul class=\"nav navbar-nav\">\n\t\t\t\t\t\t\t<li><a href=\"#\" data-toggle=\"modal\" data-target=\"#modal-login\">Log in<i class=\"fa fa-arrow-right\"></i></a></li>\n\t\t\t\t\t\t\t<li><a href=\"#\" data-toggle=\"modal\" data-target=\"#modal-register\">Registration</a></li>\n\t\t\t\t\t\t\t<li class=\"active has-childn\">\n\t\t\t\t\t\t\t\t<a [routerLink]=\"['Index']\">Home</a>\n\t\t\t\t\t\t\t\t\t<!-- <ul class=\"child-navigation\">\n\t\t\t\t\t\t\t\t\t\t<li><a href=\"index_v_1.html\">Index V1</a></li>\n\t\t\t\t\t\t\t\t\t\t<li><a href=\"index_v_2.html\">Index V2</a></li>\n\t\t\t\t\t\t\t\t\t\t<li><a href=\"index_v_3.html\">Index V3</a></li>\n\t\t\t\t\t\t\t\t\t</ul> -->\n\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t<li class=\"has-childn\">\n\t\t\t\t\t\t\t\t<a [routerLink]=\"['Index']\">Admin Profile</a>\n\t\t\t\t\t\t\t\t<!-- <a [routerLink]=\"['Index']\">Agents&nbsp;&amp;&nbsp;agencies</a> -->\n\t\t\t\t\t\t\t\t<!-- <ul class=\"child-navigation\">\n\t\t\t\t\t\t\t\t\t<li><a href=\"agency_profile.html\">Agency Profile</a></li>\n\t\t\t\t\t\t\t\t\t<li><a href=\"agent_profile.html\">Agents Profile</a></li>\n\t\t\t\t\t\t\t\t</ul> -->\n\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t<li class=\"has-childn\">\n\t\t\t\t\t\t\t\t<a [routerLink]=\"['AllSchools']\">All Schools</a>\n\t\t\t\t\t\t\t\t<!-- <ul class=\"child-navigation\">\n\t\t\t\t\t\t\t\t\t<li><a href=\"our_property.html\">Our Property</a></li>\n\t\t\t\t\t\t\t\t\t<li><a href=\"our_property_list_type.html\">Our Property List</a></li>\n\t\t\t\t\t\t\t\t\t<li><a href=\"add_property.html\">Add Property</a></li>\n\t\t\t\t\t\t\t\t\t<li><a href=\"property_page.html\">Property Page</a></li>\n\t\t\t\t\t\t\t\t</ul> -->\n\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t<!-- <li class=\"has-child\"><a href=\"#\">Pages</a>\n\t\t\t\t\t\t\t\t<ul class=\"child-navigation\">\n\t\t\t\t\t\t\t\t\t<li><a href=\"404_page.html\">404 Page</a></li>\n\t\t\t\t\t\t\t\t\t<li><a href=\"pricing_page.html\">Pricing Page</a></li>\n\t\t\t\t\t\t\t\t\t<li><a href=\"compare_page.html\">Compare Page</a></li>\n\t\t\t\t\t\t\t\t\t<li><a href=\"shotcodes.html\">Shortcodes</a></li>\n\t\t\t\t\t\t\t\t\t<li><a href=\"search_result.html\">Search</a></li>\n\t\t\t\t\t\t\t\t\t<li><a href=\"user_profile_(horizontal).html\">user profile (horizontal)</a></li>\n\t\t\t\t\t\t\t\t\t<li><a href=\"user_profile_(vertical).html\">user profile (vertical)</a></li>\n\t\t\t\t\t\t\t\t</ul>\n\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t<li class=\"has-child\"><a href=\"#\">Blog</a>\n\t\t\t\t\t\t\t\t<ul class=\"child-navigation\">\n\t\t\t\t\t\t\t\t\t<li><a href=\"blog_list.html\">Blog List</a></li>\n\t\t\t\t\t\t\t\t\t<li><a href=\"blog_list_fullwidth.html\">Blog List Fullwidth</a></li>\n\t\t\t\t\t\t\t\t\t<li><a href=\"blog_article.html\">Blog Article</a></li>\n\t\t\t\t\t\t\t\t\t<li><a href=\"blog_text_article.html\">Blog Text Article</a></li>\n\t\t\t\t\t\t\t\t\t<li><a href=\"blog_article_styles.html\">Blog Article Styles</a></li>\n\t\t\t\t\t\t\t\t\t<li><a href=\"blog_video.html\">Blog Video</a></li>\n\t\t\t\t\t\t\t\t</ul>\n\t\t\t\t\t\t\t</li> -->\n\t\t\t\t\t\t\t<li><a href=\"about_us.html\">About Us</a></li>\n\t\t\t\t\t\t\t<li><a href=\"contact_us.html\">Contact us</a></li>\n\t\t\t\t\t\t\t<!-- <li>\n\t\t\t\t\t\t\t\t<select class=\"selection\" id=\"menu-language-2\" onChange=\"window.location.href=this.value\">\n\t\t\t\t\t\t\t\t\t<option value=\"index_v_1.html\">Eng</option>\n\t\t\t\t\t\t\t\t\t<option value=\"rtl.html\">الأرابيسك</option>\n\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t</li> -->\n\t\t\t\t\t\t</ul>\n\t\t\t\t\t</nav><!-- /.navbar collapse-->\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</header><!-- /.navbar -->\n\t</div>\n";
 
 /***/ },
-/* 1357 */
+/* 1386 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -79414,9 +79443,9 @@ webpackJsonp([0],[
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var core_1 = __webpack_require__(4);
-	var angular2_notifications_1 = __webpack_require__(1358);
+	var angular2_notifications_1 = __webpack_require__(1387);
 	var utils_1 = __webpack_require__(1320);
-	var login_model_1 = __webpack_require__(1367);
+	var login_model_1 = __webpack_require__(1396);
 	var login_service_1 = __webpack_require__(1321);
 	var LoginComponent = (function () {
 	    function LoginComponent(_utils, _notify, _loginService) {
@@ -79449,7 +79478,7 @@ webpackJsonp([0],[
 	LoginComponent = __decorate([
 	    core_1.Component({
 	        selector: "sm-login-modal",
-	        template: __webpack_require__(1368),
+	        template: __webpack_require__(1397),
 	        providers: [utils_1.Utils, angular2_notifications_1.NotificationsService, login_service_1.LoginService]
 	    }),
 	    __metadata("design:paramtypes", [utils_1.Utils,
@@ -79460,37 +79489,37 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 1358 */
+/* 1387 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var simple_notifications_module_1 = __webpack_require__(1359);
+	var simple_notifications_module_1 = __webpack_require__(1388);
 	exports.SimpleNotificationsModule = simple_notifications_module_1.SimpleNotificationsModule;
-	var simple_notifications_component_1 = __webpack_require__(1362);
+	var simple_notifications_component_1 = __webpack_require__(1391);
 	exports.SimpleNotificationsComponent = simple_notifications_component_1.SimpleNotificationsComponent;
-	var notification_component_1 = __webpack_require__(1363);
+	var notification_component_1 = __webpack_require__(1392);
 	exports.NotificationComponent = notification_component_1.NotificationComponent;
-	var notifications_service_1 = __webpack_require__(1360);
+	var notifications_service_1 = __webpack_require__(1389);
 	exports.NotificationsService = notifications_service_1.NotificationsService;
-	var max_pipe_1 = __webpack_require__(1364);
+	var max_pipe_1 = __webpack_require__(1393);
 	exports.MaxPipe = max_pipe_1.MaxPipe;
-	var push_notifications_module_1 = __webpack_require__(1365);
+	var push_notifications_module_1 = __webpack_require__(1394);
 	exports.PushNotificationsModule = push_notifications_module_1.PushNotificationsModule;
-	var push_notifications_service_1 = __webpack_require__(1366);
+	var push_notifications_service_1 = __webpack_require__(1395);
 	exports.PushNotificationsService = push_notifications_service_1.PushNotificationsService;
 	//# sourceMappingURL=components.js.map
 
 /***/ },
-/* 1359 */
+/* 1388 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	const core_1 = __webpack_require__(4);
 	const common_1 = __webpack_require__(23);
-	const notifications_service_1 = __webpack_require__(1360);
-	const simple_notifications_component_1 = __webpack_require__(1362);
-	const notification_component_1 = __webpack_require__(1363);
-	const max_pipe_1 = __webpack_require__(1364);
+	const notifications_service_1 = __webpack_require__(1389);
+	const simple_notifications_component_1 = __webpack_require__(1391);
+	const notification_component_1 = __webpack_require__(1392);
+	const max_pipe_1 = __webpack_require__(1393);
 	class SimpleNotificationsModule {
 	}
 	SimpleNotificationsModule.decorators = [
@@ -79506,13 +79535,13 @@ webpackJsonp([0],[
 	//# sourceMappingURL=simple-notifications.module.js.map
 
 /***/ },
-/* 1360 */
+/* 1389 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	const core_1 = __webpack_require__(4);
 	const Subject_1 = __webpack_require__(5);
-	const icons_1 = __webpack_require__(1361);
+	const icons_1 = __webpack_require__(1390);
 	class NotificationsService {
 	    constructor() {
 	        this.emitter = new Subject_1.Subject();
@@ -79570,7 +79599,7 @@ webpackJsonp([0],[
 	//# sourceMappingURL=notifications.service.js.map
 
 /***/ },
-/* 1361 */
+/* 1390 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -79602,12 +79631,12 @@ webpackJsonp([0],[
 	//# sourceMappingURL=icons.js.map
 
 /***/ },
-/* 1362 */
+/* 1391 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	const core_1 = __webpack_require__(4);
-	const notifications_service_1 = __webpack_require__(1360);
+	const notifications_service_1 = __webpack_require__(1389);
 	class SimpleNotificationsComponent {
 	    constructor(_service) {
 	        this._service = _service;
@@ -79811,13 +79840,13 @@ webpackJsonp([0],[
 	//# sourceMappingURL=simple-notifications.component.js.map
 
 /***/ },
-/* 1363 */
+/* 1392 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	const core_1 = __webpack_require__(4);
 	const platform_browser_1 = __webpack_require__(22);
-	const notifications_service_1 = __webpack_require__(1360);
+	const notifications_service_1 = __webpack_require__(1389);
 	class NotificationComponent {
 	    constructor(notificationService, domSanitizer, zone) {
 	        this.notificationService = notificationService;
@@ -80079,7 +80108,7 @@ webpackJsonp([0],[
 	//# sourceMappingURL=notification.component.js.map
 
 /***/ },
-/* 1364 */
+/* 1393 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -80103,12 +80132,12 @@ webpackJsonp([0],[
 	//# sourceMappingURL=max.pipe.js.map
 
 /***/ },
-/* 1365 */
+/* 1394 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	const core_1 = __webpack_require__(4);
-	const push_notifications_service_1 = __webpack_require__(1366);
+	const push_notifications_service_1 = __webpack_require__(1395);
 	class PushNotificationsModule {
 	}
 	PushNotificationsModule.decorators = [
@@ -80121,7 +80150,7 @@ webpackJsonp([0],[
 	//# sourceMappingURL=push-notifications.module.js.map
 
 /***/ },
-/* 1366 */
+/* 1395 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -80164,7 +80193,7 @@ webpackJsonp([0],[
 	//# sourceMappingURL=push-notifications.service.js.map
 
 /***/ },
-/* 1367 */
+/* 1396 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -80177,13 +80206,13 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 1368 */
+/* 1397 */
 /***/ function(module, exports) {
 
 	module.exports = "<div id=\"modal-login\" class=\"modal\" tabindex=\"-1\">\n  <div class=\"modal-dialog\">\n    <div class=\"modal-content\">\n      <div class=\"modal-header text-center\">\n        <button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>\n        <h2>Sign in to your account:</h2>\n        <span>Welcome to the home!</span>\n      </div>\n      <form #loginForm=\"ngForm\" novalidate (submit)=\"onSubmit(loginForm)\">\n        <div class=\"modal-body\">\n          <div class=\"form-group\">\n            <input type=\"email\" [(ngModel)]=\"user.email\" name=\"email\" placeholder=\"Email:\" required pattern=\"[a-zA-Z]{3,}\\d*_*@[a-z]{3,}\\.[a-z]{2,}\" #email=\"ngModel\">\n            <span class=\"fa fa-at\"></span>\n            <p *ngIf=\"email.invalid && email.touched\" class=\"alert alert-danger\">\n              Email not valid\n            </p>\n          </div>\n          <div class=\"form-group\">\n            <input type=\"password\" [(ngModel)]=\"user.password\" #password=\"ngModel\" name=\"password\" placeholder=\"Password:\" required>\n            <span class=\"fa fa-lock\"></span>\n            <p *ngIf=\"password.invalid && password.touched\" class=\"alert alert-danger\">\n              Password is required\n            </p>\n          </div>\n          <!-- <div class=\"form-group social-login clearfix\">\n            <a href=\"https://www.facebook.com\" class=\"col-md-6 fb-login\" target=\"blank\"><span class=\"fa fa-facebook-square\"></span>Facebook login</a>\n            <a href=\"https://plus.google.com\" class=\"col-md-6 google-login\" target=\"blank\"><span class=\"fa fa-google-plus-square\"></span>Google login</a>\n          </div> -->\n        </div>\n        <div class=\"modal-footer\">\n          <div class=\"form-group clearfix\">\n            <!-- <span>Don't have an account? <a href=\"#\">Sign Up</a></span>\n            <span>Forgot your password? <a href=\"#\">Restore</a></span> -->\n            <button type=\"submit\" class=\"btn btn-primary\" [disabled]=\"loginForm.invalid\">Login</button>\n          </div>\n        </div>\n      </form>\n    </div>\n  </div>\n</div>\n<simple-notifications [options]=\"options\"></simple-notifications>\n";
 
 /***/ },
-/* 1369 */
+/* 1398 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -80197,10 +80226,10 @@ webpackJsonp([0],[
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var core_1 = __webpack_require__(4);
-	var new_user_1 = __webpack_require__(1370);
-	var registration_service_1 = __webpack_require__(1371);
+	var new_user_1 = __webpack_require__(1399);
+	var registration_service_1 = __webpack_require__(1400);
 	var utils_1 = __webpack_require__(1320);
-	var angular2_notifications_1 = __webpack_require__(1358);
+	var angular2_notifications_1 = __webpack_require__(1387);
 	var RegistrationComponent = (function () {
 	    function RegistrationComponent(regService, utils, _notify) {
 	        this.regService = regService;
@@ -80234,7 +80263,7 @@ webpackJsonp([0],[
 	RegistrationComponent = __decorate([
 	    core_1.Component({
 	        selector: 'sm-register-modal',
-	        template: __webpack_require__(1372),
+	        template: __webpack_require__(1401),
 	        providers: [registration_service_1.RegistrationService, utils_1.Utils, angular2_notifications_1.NotificationsService]
 	    }),
 	    __metadata("design:paramtypes", [registration_service_1.RegistrationService,
@@ -80245,7 +80274,7 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 1370 */
+/* 1399 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -80264,7 +80293,7 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 1371 */
+/* 1400 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -80304,13 +80333,13 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 1372 */
+/* 1401 */
 /***/ function(module, exports) {
 
 	module.exports = "<div id=\"modal-register\" class=\"modal fade in modal-open\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"createAccount\">\n  <div class=\"modal-dialog\" role=\"document\">\n    <div class=\"modal-content\">\n      <div class=\"modal-header text-center\">\n        <button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>\n        <h2 id=\"createAccount\" class=\"modal-title\">Create an Account</h2>\n        <!-- <span>It takes few minutes</span> -->\n      </div>\n      <form name=\"RegistrationForm\" #RegistrationForm='ngForm' (ngSubmit)=\"onSubmit(RegistrationForm)\" novalidate>\n        <div class=\"modal-body\">\n          <div class=\"user-type-select\">\n            <div>\n              <input type=\"radio\" id=\"regular-user-radio\" [value]='0' [(ngModel)]=\"user.user_type\" name=\"user-type\" checked=\"checked\"/>\n              <label for=\"regular-user-radio\"><span><span></span></span>Regular User</label>\n            </div>\n            <div>\n              <input type=\"radio\" [value] = '1' id=\"agent-radio\" [(ngModel)]=\"user.user_type\" name=\"user-type\" />\n              <label for=\"agent-radio\"><span><span></span></span>Agent</label>\n            </div>\n          </div>\n          <div class=\"form-group\">\n            <input type=\"text\" name=\"firstname\" [(ngModel)]=\"user.firstname\" placeholder=\"First Name:\" required #firstname='ngModel'>\n            <p *ngIf='firstname.invalid && firstname.touched' class=\"alert alert-danger\">First Name is required</p>\n          </div>\n          <div class=\"form-group\">\n            <input type=\"text\" name=\"lastname\" [(ngModel)]=\"user.lastname\" placeholder=\"Last Name:\" required #lastname=\"ngModel\">\n            <p *ngIf=\"lastname.invalid && lastname.touched\" class=\"alert alert-danger\">\n              Last Name is required\n            </p>\n          </div>\n          <div class=\"form-group\">\n            <input type=\"email\" name=\"email\" [(ngModel)]=\"user.email\" placeholder=\"Email:\" required #email=\"ngModel\" pattern=\"[a-zA-Z]{3,}\\d*_*@[a-z]{3,}\\.[a-z]{2,}\">\n            <p *ngIf=\"email.invalid  && email.touched\" class=\"alert alert-danger\">\n              Email not valid\n            </p>\n          </div>\n          <div class=\"form-group\">\n            <input pattern=\"......+\" type=\"password\" [(ngModel)]=\"user.password\" name=\"password\" placeholder=\"Password:\" required #password=\"ngModel\">\n            {{ password.className }}\n            <p *ngIf=\"password.invalid && password.touched\" class=\"alert alert-danger\">\n              Password required\n            </p>\n          </div>\n          <div class=\"form-group\">\n            <input type=\"password\" [(ngModel)]=\"user.passwordConfirmation\" (change)=\"checkPassword()\" name=\"passwordConfirmation\" placeholder=\"Password Confirmation:\" required #passwordConfirmation='ngModel'>\n          </div>\n          <p *ngIf=\"passwordConfirmation.invalid && passwordConfirmation.touched\" class=\"alert alert-danger\">\n            Password Confirmation is required\n          </p>\n          <p class=\"alert alert-danger\" *ngIf=\"passwordConfirmation.touched && !passwordConfirmed\">\n            Password does not match\n          </p>\n        </div>\n        <div class=\"modal-footer\">\n          <div class=\"form-group clearfix\">\n            <button [disabled]=\"RegistrationForm.form.invalid && !passwordConfirmed\" type=\"submit\" class=\"btn btn-primary\">Join</button>\n          </div>\n          <div>\n            <span class=\"terms\">By clicking JOIN button you agree with our <br> <a href=\"terms_and_conditions.html\" target=\"blank\">Terms and conditions</a></span>\n          </div>\n        </div>\n      </form>\n    </div>\n  </div>\n</div>\n<simple-notifications [options]=\"options\"></simple-notifications>\n";
 
 /***/ },
-/* 1373 */
+/* 1402 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -80332,7 +80361,7 @@ webpackJsonp([0],[
 	FooterComponent = __decorate([
 	    core_1.Component({
 	        selector: "sm-footer",
-	        template: __webpack_require__(1374)
+	        template: __webpack_require__(1403)
 	    }),
 	    __metadata("design:paramtypes", [])
 	], FooterComponent);
@@ -80340,37 +80369,37 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 1374 */
+/* 1403 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = "\t<footer id=\"page-footer\">\n\t\t<div class=\"inner\">\n\t\t\t<section id=\"footer-main\">\n\t\t\t\t<div class=\"container\">\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-md-3 col-sm-3\">\n\t\t\t\t\t\t\t<article>\n\t\t\t\t\t\t\t\t<h3>About Us</h3>\n\t\t\t\t\t\t\t\t<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed\n\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t</article>\n\t\t\t\t\t\t</div><!-- /.col-sm-3 -->\n\t\t\t\t\t\t<div class=\"col-md-3 col-sm-3\">\n\t\t\t\t\t\t\t<article>\n\t\t\t\t\t\t\t\t<h3>Recent Properties For Sale</h3>\n\t\t\t\t\t\t\t\t<div class=\"property small\">\n\t\t\t\t\t\t\t\t\t<a href=\"property-detail.html\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"property-thumbnail\">\n\t\t\t\t\t\t\t\t\t\t\t<img alt=\"\" src=\"http://placehold.it/60X55\">\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t\t<div class=\"info\">\n\t\t\t\t\t\t\t\t\t\t<a href=\"property-detail.html\">2186 Rinehart Road</a>\n\t\t\t\t\t\t\t\t\t\t<figure>Doral, FL 33178 </figure>\n\t\t\t\t\t\t\t\t\t\t<div class=\"tag price\">$ 72,000</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div><!-- /.property -->\n\t\t\t\t\t\t\t\t<div class=\"property small\">\n\t\t\t\t\t\t\t\t\t<a href=\"property-detail.html\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"property-thumbnail\">\n\t\t\t\t\t\t\t\t\t\t\t<img alt=\"\" src=\"http://placehold.it/60X55\">\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t\t<div class=\"info\">\n\t\t\t\t\t\t\t\t\t\t<a href=\"property-detail.html\">2479 Murphy Court</a>\n\t\t\t\t\t\t\t\t\t\t<figure>Minneapolis, MN 55402</figure>\n\t\t\t\t\t\t\t\t\t\t<div class=\"tag price\">$ 36,000</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div><!-- /.property -->\n\t\t\t\t\t\t\t</article>\n\t\t\t\t\t\t</div><!-- /.col-sm-3 -->\n\t\t\t\t\t\t<div class=\"col-md-3 col-sm-3\">\n\t\t\t\t\t\t\t<article class=\"contact-us\">\n\t\t\t\t\t\t\t\t<h3>Contact Us</h3>\n\t\t\t\t\t\t\t\t<address>\n\t\t\t\t\t\t\t\t\tCompany Name<br>\n\t\t\t\t\t\t\t\t\t4877 Spruce Drive<br>\n\t\t\t\t\t\t\t\t\tWest Newton, PA 15089\n\t\t\t\t\t\t\t\t</address>\n\t\t\t\t\t\t\t\t+1 (734) 123-4567<br>\n\t\t\t\t\t\t\t\t<a href=\"mailto=hello@example.com\" class=\"mailto\">hello@example.com</a>\n\t\t\t\t\t\t\t</article>\n\t\t\t\t\t\t</div><!-- /.col-sm-3 -->\n\t\t\t\t\t\t<div class=\"col-md-3 col-sm-3\">\n\t\t\t\t\t\t\t<article>\n\t\t\t\t\t\t\t\t<h3>Useful Links</h3>\n\t\t\t\t\t\t\t\t<ul class=\"list-unstyled list-links\">\n\t\t\t\t\t\t\t\t\t<li><a href=\"our_property.html\">All Properties</a></li>\n\t\t\t\t\t\t\t\t\t<li><a href=\"#\">Privacy Policy</a></li>\n\t\t\t\t\t\t\t\t\t<li><a href=\"terms_and_conditions.html\">Terms and Conditions</a></li>\n\t\t\t\t\t\t\t\t</ul>\n\t\t\t\t\t\t\t</article>\n\t\t\t\t\t\t</div><!-- /.col-sm-3 -->\n\t\t\t\t\t\t<div class=\"col-md-12 col-sm-12\">\n\t\t\t\t\t\t\t<span class=\"pull-right\"><a href=\"#page-top\" class=\"roll\">Go to top</a></span>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div><!-- /.row -->\n\t\t\t\t</div><!-- /.container -->\n\t\t\t</section><!-- /#footer-main -->\n\t\t\t<section id=\"footer-thumbnails\" class=\"footer-thumbnails\"></section><!-- /#footer-thumbnails -->\n\t\t\t<section id=\"footer-copyright\">\n\t\t\t\t<div class=\"container\">\n\t\t\t\t\t<a href=\"http://fruitfulcode.com\" target=\"blank\">© Fruitful Code,</a>\n\t\t\t\t\t<span>Powered by</span>\n\t\t\t\t\t<a href=\"http://getbootstrap.com \" target=\"blank\">Bootstrap</a>\n\t\t\t\t\t<img class=\"pull-right bank-logo\" alt=\"\" src=\"" + __webpack_require__(1375) + "\">\n\t\t\t\t\t<img class=\"pull-right bank-logo\" alt=\"\" src=\"" + __webpack_require__(1376) + "\">\n\t\t\t\t\t<img class=\"pull-right bank-logo\" alt=\"\" src=\"" + __webpack_require__(1377) + "\">\n\t\t\t\t\t<img class=\"pull-right bank-logo\" alt=\"\" src=\"" + __webpack_require__(1378) + "\">\n\t\t\t\t\t<span class=\"pull-right\">We accept:</span>\n\t\t\t\t</div>\n\t\t\t</section>\n\t\t</div><!-- /.inner -->\n\t</footer>\n";
+	module.exports = "\t<footer id=\"page-footer\">\n\t\t<div class=\"inner\">\n\t\t\t<section id=\"footer-main\">\n\t\t\t\t<div class=\"container\">\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-md-3 col-sm-3\">\n\t\t\t\t\t\t\t<article>\n\t\t\t\t\t\t\t\t<h3>About Us</h3>\n\t\t\t\t\t\t\t\t<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed\n\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t</article>\n\t\t\t\t\t\t</div><!-- /.col-sm-3 -->\n\t\t\t\t\t\t<div class=\"col-md-3 col-sm-3\">\n\t\t\t\t\t\t\t<article>\n\t\t\t\t\t\t\t\t<h3>Recent Properties For Sale</h3>\n\t\t\t\t\t\t\t\t<div class=\"property small\">\n\t\t\t\t\t\t\t\t\t<a href=\"property-detail.html\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"property-thumbnail\">\n\t\t\t\t\t\t\t\t\t\t\t<img alt=\"\" src=\"http://placehold.it/60X55\">\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t\t<div class=\"info\">\n\t\t\t\t\t\t\t\t\t\t<a href=\"property-detail.html\">2186 Rinehart Road</a>\n\t\t\t\t\t\t\t\t\t\t<figure>Doral, FL 33178 </figure>\n\t\t\t\t\t\t\t\t\t\t<div class=\"tag price\">$ 72,000</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div><!-- /.property -->\n\t\t\t\t\t\t\t\t<div class=\"property small\">\n\t\t\t\t\t\t\t\t\t<a href=\"property-detail.html\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"property-thumbnail\">\n\t\t\t\t\t\t\t\t\t\t\t<img alt=\"\" src=\"http://placehold.it/60X55\">\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t\t<div class=\"info\">\n\t\t\t\t\t\t\t\t\t\t<a href=\"property-detail.html\">2479 Murphy Court</a>\n\t\t\t\t\t\t\t\t\t\t<figure>Minneapolis, MN 55402</figure>\n\t\t\t\t\t\t\t\t\t\t<div class=\"tag price\">$ 36,000</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div><!-- /.property -->\n\t\t\t\t\t\t\t</article>\n\t\t\t\t\t\t</div><!-- /.col-sm-3 -->\n\t\t\t\t\t\t<div class=\"col-md-3 col-sm-3\">\n\t\t\t\t\t\t\t<article class=\"contact-us\">\n\t\t\t\t\t\t\t\t<h3>Contact Us</h3>\n\t\t\t\t\t\t\t\t<address>\n\t\t\t\t\t\t\t\t\tCompany Name<br>\n\t\t\t\t\t\t\t\t\t4877 Spruce Drive<br>\n\t\t\t\t\t\t\t\t\tWest Newton, PA 15089\n\t\t\t\t\t\t\t\t</address>\n\t\t\t\t\t\t\t\t+1 (734) 123-4567<br>\n\t\t\t\t\t\t\t\t<a href=\"mailto=hello@example.com\" class=\"mailto\">hello@example.com</a>\n\t\t\t\t\t\t\t</article>\n\t\t\t\t\t\t</div><!-- /.col-sm-3 -->\n\t\t\t\t\t\t<div class=\"col-md-3 col-sm-3\">\n\t\t\t\t\t\t\t<article>\n\t\t\t\t\t\t\t\t<h3>Useful Links</h3>\n\t\t\t\t\t\t\t\t<ul class=\"list-unstyled list-links\">\n\t\t\t\t\t\t\t\t\t<li><a href=\"our_property.html\">All Properties</a></li>\n\t\t\t\t\t\t\t\t\t<li><a href=\"#\">Privacy Policy</a></li>\n\t\t\t\t\t\t\t\t\t<li><a href=\"terms_and_conditions.html\">Terms and Conditions</a></li>\n\t\t\t\t\t\t\t\t</ul>\n\t\t\t\t\t\t\t</article>\n\t\t\t\t\t\t</div><!-- /.col-sm-3 -->\n\t\t\t\t\t\t<div class=\"col-md-12 col-sm-12\">\n\t\t\t\t\t\t\t<span class=\"pull-right\"><a href=\"#page-top\" class=\"roll\">Go to top</a></span>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div><!-- /.row -->\n\t\t\t\t</div><!-- /.container -->\n\t\t\t</section><!-- /#footer-main -->\n\t\t\t<section id=\"footer-thumbnails\" class=\"footer-thumbnails\"></section><!-- /#footer-thumbnails -->\n\t\t\t<section id=\"footer-copyright\">\n\t\t\t\t<div class=\"container\">\n\t\t\t\t\t<a href=\"http://fruitfulcode.com\" target=\"blank\">© Fruitful Code,</a>\n\t\t\t\t\t<span>Powered by</span>\n\t\t\t\t\t<a href=\"http://getbootstrap.com \" target=\"blank\">Bootstrap</a>\n\t\t\t\t\t<img class=\"pull-right bank-logo\" alt=\"\" src=\"" + __webpack_require__(1404) + "\">\n\t\t\t\t\t<img class=\"pull-right bank-logo\" alt=\"\" src=\"" + __webpack_require__(1405) + "\">\n\t\t\t\t\t<img class=\"pull-right bank-logo\" alt=\"\" src=\"" + __webpack_require__(1406) + "\">\n\t\t\t\t\t<img class=\"pull-right bank-logo\" alt=\"\" src=\"" + __webpack_require__(1407) + "\">\n\t\t\t\t\t<span class=\"pull-right\">We accept:</span>\n\t\t\t\t</div>\n\t\t\t</section>\n\t\t</div><!-- /.inner -->\n\t</footer>\n";
 
 /***/ },
-/* 1375 */
+/* 1404 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "assets/master-card.8666418efed3e6839e2d657b33a7bfda.png";
 
 /***/ },
-/* 1376 */
+/* 1405 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "assets/visa.bdcf6841befe7f176c8f122872749227.png";
 
 /***/ },
-/* 1377 */
+/* 1406 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "assets/stripe.f8077e3d45a81e7ce510b0ae43b0ab09.png";
 
 /***/ },
-/* 1378 */
+/* 1407 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "assets/paypal.35179790ddd22e7f7ebde528a927567e.png";
 
 /***/ },
-/* 1379 */
+/* 1408 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -80386,11 +80415,11 @@ webpackJsonp([0],[
 	var core_1 = __webpack_require__(4);
 	var common_1 = __webpack_require__(23);
 	var platform_browser_1 = __webpack_require__(22);
-	var forms_1 = __webpack_require__(1341);
-	var ng2_cloudinary_peictt_1 = __webpack_require__(1380);
-	var new_school_component_1 = __webpack_require__(1381);
-	var new_school_routing_module_1 = __webpack_require__(1391);
-	var angular2_notifications_1 = __webpack_require__(1358);
+	var forms_1 = __webpack_require__(1370);
+	var ng2_cloudinary_peictt_1 = __webpack_require__(1409);
+	var new_school_component_1 = __webpack_require__(1410);
+	var new_school_routing_module_1 = __webpack_require__(1420);
+	var angular2_notifications_1 = __webpack_require__(1387);
 	var login_service_1 = __webpack_require__(1321);
 	var NewSchoolModule = (function () {
 	    function NewSchoolModule() {
@@ -80416,7 +80445,7 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 1380 */
+/* 1409 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports =
@@ -82036,7 +82065,7 @@ webpackJsonp([0],[
 	//# sourceMappingURL=ng2-cloudinary.js.map
 
 /***/ },
-/* 1381 */
+/* 1410 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function($) {"use strict";
@@ -82051,11 +82080,11 @@ webpackJsonp([0],[
 	};
 	var core_1 = __webpack_require__(4);
 	var router_1 = __webpack_require__(26);
-	var new_school_model_1 = __webpack_require__(1382);
-	var ng2_cloudinary_peictt_1 = __webpack_require__(1380);
-	var angular2_notifications_1 = __webpack_require__(1358);
+	var new_school_model_1 = __webpack_require__(1411);
+	var ng2_cloudinary_peictt_1 = __webpack_require__(1409);
+	var angular2_notifications_1 = __webpack_require__(1387);
 	var app_constants_1 = __webpack_require__(357);
-	var new_school_service_1 = __webpack_require__(1383);
+	var new_school_service_1 = __webpack_require__(1412);
 	var NewSchoolComponent = (function () {
 	    function NewSchoolComponent(_notify, newSchoolService, router) {
 	        this._notify = _notify;
@@ -82129,17 +82158,17 @@ webpackJsonp([0],[
 	}());
 	NewSchoolComponent = __decorate([
 	    core_1.Component({
-	        template: __webpack_require__(1384),
+	        template: __webpack_require__(1413),
 	        providers: [new_school_service_1.NewSchoolService]
 	    }),
 	    __metadata("design:paramtypes", [angular2_notifications_1.NotificationsService, new_school_service_1.NewSchoolService, router_1.Router])
 	], NewSchoolComponent);
 	exports.NewSchoolComponent = NewSchoolComponent;
 
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1328)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1326)))
 
 /***/ },
-/* 1382 */
+/* 1411 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -82175,7 +82204,7 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 1383 */
+/* 1412 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -82217,49 +82246,49 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 1384 */
+/* 1413 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = "<div id=\"page-content\">\n  <div class=\"wide-4\">\n    <div class=\"container\">\n      <ol class=\"breadcrumb\">\n        <li><a routerLink=\"/\">Home</a></li>\n        <li class=\"active\">Add School</li>\n      </ol>\n    </div>\n    <div class=\"container\">\n      <div class=\"explore\">\n        <h2>Create a new School</h2>\n        <h5 class=\"team-color\">It is easy and takes 15 min maximum</h5>\n      </div>\n      <form name=\"newSchoolForm\" #newSchoolForm=\"ngForm\" (submit)=\"registerSchool(newSchoolForm)\">\n        <div class=\"wide-3\">\n          <div class=\"explore\">\n            <div class=\"property-map-marker\"><img src=\"" + __webpack_require__(1385) + "\" alt=\"\" /><span class=\"marker-number\">1</span></div>\n            <div class=\"prt-cont\">\n              <div class=\"property-title\">\n                <h3>Main Information</h3>\n              </div>\n            </div>\n          </div>\n          <div class=\"prt-cont\">\n            <hr>\n            <div class=\"form-group\">\n              <label>School Name:</label>\n              <input type=\"text\" class=\"form-control\" placeholder=\"Enter your title (maximum 250 characters)\" required [(ngModel)]=\"newSchool.name\" name=\"name\" #name=\"ngModel\">\n            </div>\n            <div class=\"row\">\n              <div class=\"col-md-3 col-sm-3 col-xs-12\">\n                <div class=\"form-group\">\n                  <label>Currency</label>\n                  <select class=\"selectin\" name=\"currency\" [(ngModel)]=\"newSchool.currency\">\n                    <option default>None</option>\n                    <option *ngFor=\"let cur of currency\" value=\"{{cur.value}}\">{{cur.name}}</option>\n                  </select>\n                </div>\n              </div>\n              <div class=\"col-md-2 col-sm-2 col-xs-12\">\n                <div class=\"form-group\">\n                  <label>Fees:</label>\n                  <input type=\"text\" class=\"form-control\" placeholder=\"$\" name='fee' pattern=\"\\d*\" required [(ngModel)]='newSchool.fee'>\n                </div>\n              </div>\n              <div class=\"col-md-7 col-sm-7 col-xs-12\">\n                <div class=\"form-group\">\n                  <label>Owned By: </label>\n                  <select class=\"selectin\" name=\"owned_by\" [(ngModel)]=\"newSchool.owned_by\">\n                    <option default>None</option>\n                    <option *ngFor=\"let owner of owners\" value=\"{{owner.value}}\">{{owner.name}}</option>\n                  </select>\n                </div>\n              </div>\n              <div class=\"col-xs-12\">\n                <div class=\"form-group\">\n                  <label for=\"text-area-2\">Description:</label>\n                  <textarea id=\"text-area-2\" rows=\"6\" cols=\"45\" name=\"description\" class=\"form-control\" [(ngModel)]=\"newSchool.description\"></textarea>\n                </div>\n              </div>\n            </div>\n          </div>\n          <div class=\"explore\">\n            <div class=\"property-map-marker\"><img src=\"" + __webpack_require__(1385) + "\" alt=\"\" /><span class=\"marker-number\">2</span></div>\n            <div class=\"prt-cont\">\n              <div class=\"property-title\">\n                <h3>Summary</h3>\n              </div>\n            </div>\n          </div>\n          <div class=\"prt-cont\">\n            <hr>\n            <div class=\"row\">\n              <div class=\" col-md-8 col-sm-8\">\n                <div class=\"row\">\n                  <div class=\"col-md-6 col-sm-6 col-xs-12\">\n                    <div class=\"form-group\">\n                      <label>Conditions</label>\n                      <select class=\"selectin\" name=\"school_condition\" [(ngModel)]=\"newSchool.school_condition\">\n                        <option default>No Conditions</option>\n                        <option *ngFor=\"let condition of conditions\" value=\"{{condition.value}}\">{{condition.name}}</option>\n                      </select>\n                    </div>\n                  </div>\n                  <div class=\"col-md-6 col-sm-6 col-xs-12\">\n                    <div class=\"form-group\">\n                      <label>Interval payment for School Fees</label>\n                      <select class=\"selectin\" name=\"payment_interval\" [(ngModel)]=\"newSchool.payment_interval\">\n                        <option default>No Payment</option>\n                        <option *ngFor=\"let pay_interval of payment_intervals\" value=\"{{pay_interval.value}}\">{{pay_interval.name}}</option>\n                      </select>\n                    </div>\n                  </div>\n                  <div class=\"col-md-6 col-sm-6 col-xs-12\">\n                    <div class=\"form-group\">\n                      <label>School Type</label>\n                      <select class=\"selectin\" name=\"school_type\" [(ngModel)]=\"newSchool.school_type\">\n                        <option value=\"none\" selected>None</option>\n                        <option *ngFor=\"let type of schoolType\" value=\"{{type.value}}\" >{{type.name}}</option>\n                      </select>\n                    </div>\n                  </div>\n                </div>\n                    <hr>\n                <div class=\"row\">\n                  <div class=\"col-md-4 col-sm-4 col-xs-12\">\n                    <div class=\"form-group\">\n                      <label>Class Rooms</label>\n                      <input type=\"number\" class=\"form-control\" pattern=\"\\d*\" name=\"classrooms\" [(ngModel)]=\"newSchool.no_of_classrooms\">\n                    </div>\n                  </div>\n                  <div class=\"col-md-4 col-sm-4 col-xs-12\">\n                    <div class=\"form-group\">\n                      <label>School Bus</label>\n                      <input type=\"number\" class=\"form-control\" name=\"bus-no\" [(ngModel)]=\"newSchool.no_of_bus\">\n                    </div>\n                  </div>\n                  <div class=\"col-md-4 col-sm-4 col-xs-12\">\n                    <div class=\"form-group\">\n                      <label>Student/class</label>\n                      <input type=\"number\" class=\"form-control\" name=\"per-class\" [(ngModel)]=\"newSchool.no_of_students\">\n                  </div>\n                </div>\n                    <hr>\n                <div class=\"row\">\n                  <div class=\"col-md-4 col-sm-4 col-xs-12\">\n                    <div class=\"form-group\">\n                      <label>Buildings</label>\n                      <input type=\"number\" class=\"form-control\" name=\"buildings\" [(ngModel)]=\"newSchool.no_of_buildings\">\n                    </div>\n                  </div>\n                  <div class=\"col-md-4 col-sm-4 col-xs-12\">\n                    <div class=\"form-group\">\n                      <label>Area size of School:</label>\n                      <input type=\"text\" class=\"form-control\" placeholder=\"Enter your area\" name=\"school_size\" [(ngModel)]=\"newSchool.school_size\">\n                    </div>\n                  </div>\n                </div>\n              </div>\n              </div>\n              <div class=\" col-md-4 col-sm-4 summary-image\">\n                <label>Featured Photo</label>\n                <div class=\"featured-image-block\" *ngIf=\"!imageUploaded && !uploader.isUploading\">\n                  <img src=\"" + __webpack_require__(1386) + "\" alt=\"\" class=\"property-icon camera\">\n                  <h3> Add Featured Photo</h3>\n                  <h5 class=\"team-color\">Lorem Ipsum is simply dummy text of the printing and</h5>\n                  <input type=\"file\" class=\"file\" ng2FileSelect [uploader]=\"uploader\">\n                </div>\n                <div *ngIf=\"uploader.isUploading\">\n                  Uploading......\n                </div>\n                <div *ngIf='imageUploaded'>\n                  <cl-image public-id=\"{{image_public_id}}\" [options]='showOptions'></cl-image>\n                  <hr>\n                  <button type=\"button\" class=\"btn btn-small btn-danger\" (click)=\"resetImage()\">Reset Image</button>\n                </div>\n              </div>\n          </div>\n          </div>\n          <div class=\"explore\">\n            <div class=\"property-map-marker\"><img src=\"" + __webpack_require__(1385) + "\" alt=\"\" /><span class=\"marker-number\">3</span></div>\n            <div class=\"prt-cont\">\n              <div class=\"property-title\">\n                <h3>Location Information</h3>\n              </div>\n            </div>\n          </div>\n          <div class=\"prt-cont\">\n            <hr>\n            <div class=\"row\">\n              <div class=\"location-info col-md-6 col-sm-6 col-xs-12\">\n                <div class=\"form-group\">\n                  <label>Country</label>\n                  <input type=\"text\" name=\"country\" class=\"form-control\" [(ngModel)]=\"newSchool.country\" required>\n                </div>\n                <div class=\"form-group\">\n                  <label class=\"\">State</label>\n                  <select class=\"selectin\" name=\"state\" [(ngModel)]=\"newSchool.state\" required>\n                    <option *ngFor=\"let state of states\" value=\"{{state.value}}\">{{state.name}}</option>\n                  </select>\n                </div>\n                <div class=\"input-group\">\n                  <label>Address</label>\n                  <input type=\"text\" class=\"form-control\" name=\"address\" [(ngModel)]=\"newSchool.street_address\" placeholder=\"Enter property address\" required>\n                </div>\n                <div class=\"row\">\n                  <div class=\"col-md-6 col-sm-6 col-xs-12\">\n                    <div class=\"form-group\">\n                      <label>Town/City:</label>\n                      <input type=\"text\" class=\"form-control\" name=\"city\" [(ngModel)]=\"newSchool.city\"  required>\n                    </div>\n                  </div>\n                  <div class=\"col-md-6 col-sm-6 col-xs-12\">\n                    <div class=\"form-group\">\n                      <label>Local Government Area:</label>\n                      <input type=\"text\" class=\"form-control\" name=\"lga\" [(ngModel)]=\"newSchool.lga\"  required>\n                    </div>\n                  </div>\n                  <div class=\"col-md-6 col-sm-6 col-xs-12\">\n                    <div class=\"form-group\">\n                      <label>Post/ZIP Code:</label>\n                      <input type=\"text\" class=\"form-control\" name=\"zip\" [(ngModel)]=\"newSchool.zip\" placeholder=\"_ _ - _ _ _\">\n                    </div>\n                  </div>\n                </div>\n              </div>\n              <div class=\"location-map col-md-6 col-sm-6 col-xs-12\">\n                <!-- <div class=\"input-group\">\n                  <label for=\"address-map\">Place on map</label>\n                  <input type=\"text\" class=\"form-control\" id=\"address-map\" name=\"address\">\n                  <i class=\"fa fa-search\"></i>\n                </div> -->\n                <!-- <div id=\"submit-map\"></div> -->\n                <div class=\"row\">\n                  <div class=\"col-md-6 col-sm-6 col-xs-12\">\n                    <div class=\"form-group\">\n                      <label for=\"latitude\">Coordinates</label>\n                      <input type=\"text\" class=\"form-control\" placeholder=\"Latitude\" id=\"latitude\" name=\"latitude\" [(ngModel)]=\"newSchool.latitude\" pattern=\"\\d*\">\n                    </div>\n                  </div>\n                  <div class=\"col-md-6 col-sm-6 col-xs-12\">\n                    <div class=\"form-group\">\n                      <label for=\"longitude\">&nbsp;</label>\n                      <input type=\"text\" class=\"form-control\" placeholder=\"Longitude\" id=\"longitude\" name=\"longitude\" [(ngModel)]=\"newSchool.longitude\" pattern=\"\\d*\">\n                    </div>\n                  </div>\n                </div>\n              </div>\n            </div>\n          </div>\n          <div class=\"explore\">\n            <div class=\"property-map-marker\"><img src=\"" + __webpack_require__(1385) + "\" alt=\"\" /><span class=\"marker-number\">4</span></div>\n            <div class=\"prt-cont\">\n              <div class=\"property-title\">\n                <h3>Media Files</h3>\n              </div>\n            </div>\n          </div>\n          <div class=\"prt-cont media\">\n            <hr>\n            <!-- <div class=\"row\">\n              <div class=\"col-md-4 col-sm-4 col-xs-12\">\n                <div class=\"featured-image-block\">\n                  <img src=\"" + __webpack_require__(1387) + "\" alt=\"\" class=\"property-icon files\">\n                  <h3> Add Files</h3>\n                  <h5 class=\"team-color\">Lorem Ipsum is simply dummy text of the printing and</h5>\n                  <input id=\"file-upload-2\" type=\"file\" class=\"file\" required multiple data-show-upload=\"false\" data-show-caption=\"false\" data-show-remove=\"false\" accept=\"doc/txt,doc/doc\" data-browse-class=\"btn btn-default\" data-browse-label=\"Add Files\">\n                  <label for=\"file-upload-2\">\n                    <img src=\"" + __webpack_require__(1388) + "\" alt=\"\" class=\"image-upload-icon\">Add Files\n                  </label>\n                </div>\n              </div>\n              <div class=\"col-md-4 col-sm-4 col-xs-12\">\n                <div class=\"featured-image-block\">\n                  <img src=\"" + __webpack_require__(1389) + "\" alt=\"\" class=\"property-icon gallery\">\n                  <h3> Photo Gallery</h3>\n                  <h5 class=\"team-color\">Lorem Ipsum is simply dummy text of the printing and</h5>\n                  <input id=\"file-upload-3\" type=\"file\" class=\"file\" required multiple data-show-upload=\"false\" data-show-caption=\"false\" data-show-remove=\"false\" accept=\"image/jpeg,image/png\" data-browse-class=\"btn btn-default\" data-browse-label=\"Add Files\">\n                  <label for=\"file-upload-3\">\n                    <img src=\"" + __webpack_require__(1388) + "\" alt=\"\" class=\"image-upload-icon\">Add Files\n                  </label>\n                </div>\n              </div>\n              <div class=\"col-md-4 col-sm-4 col-xs-12\">\n                <div class=\"featured-image-block\">\n                  <img src=\"" + __webpack_require__(1390) + "\" alt=\"\" class=\"property-icon plan\">\n                  <h3> Floor Plans</h3>\n                  <h5 class=\"team-color\">Lorem Ipsum is simply dummy text of the printing and</h5>\n                  <input id=\"file-upload-4\" type=\"file\" class=\"file\" required multiple data-show-upload=\"false\" data-show-caption=\"false\" data-show-remove=\"false\" accept=\"image/jpeg,image/png\" data-browse-class=\"btn btn-default\" data-browse-label=\"Add Files\">\n                  <label for=\"file-upload-4\">\n                    <img src=\"" + __webpack_require__(1388) + "\" alt=\"\" class=\"image-upload-icon\">Add Files\n                  </label>\n                </div>\n              </div>\n            </div> -->\n            <div class=\"input-group\">\n              <label>Video Presentation:</label>\n              <input type=\"text\" class=\"form-control\" name=\"video_link\" [(ngModel)]=\"newSchool.video_link\" pattern=\"^(http|https):\\/\\/([a-z]+\\.|)[a-zA-Z]+\\.(com|co|org|ru|net)\" placeholder=\"Add link to your \">\n            </div>\n            <!-- <span class=\"ffs-bs\"><a href=\"#\" class=\"btn btn-small btn-primary\">Add Video</a></span> -->\n          </div>\n          <div class=\"explore\">\n            <div class=\"property-map-marker\"><img src=\"" + __webpack_require__(1385) + "\" alt=\"\" /><span class=\"marker-number\">5</span></div>\n            <div class=\"prt-cont\">\n              <div class=\"property-title\">\n                <h3>Property Features</h3>\n              </div>\n            </div>\n          </div>\n          <div class=\"prt-cont features\">\n            <hr>\n            <div class=\"row\">\n              <div id=\"property-features\" class=\"block\">\n                <div class=\"row\">\n                  <ul class=\"submit-features\">\n                    <li class=\"col-md-4 col-sm-4 col-xs-6\" *ngFor=\"let property of properties\">\n                      <div class=\"checkbox\">\n                        <label>\n                          <input type=\"checkbox\" name=\"{{property.value}}\" class=\"properties\" value=\"{{property.value}}\">{{property.name}}\n                        </label>\n                      </div>\n                    </li>\n                  </ul>\n                </div>\n                <hr>\n              </div>\n              <span class=\"ffs-bs\"><button type=\"submit\" class=\"btn btn-large btn-primary\">create school</button></span>\n            </div>\n          </div>\n        </div>\n      </form>\n    </div>\n  </div>\n</div>\n<simple-notifications [options]=\"notifyOptions\"></simple-notifications>\n";
+	module.exports = "<div id=\"page-content\">\n  <div class=\"wide-4\">\n    <div class=\"container\">\n      <ol class=\"breadcrumb\">\n        <li><a routerLink=\"/\">Home</a></li>\n        <li class=\"active\">Add School</li>\n      </ol>\n    </div>\n    <div class=\"container\">\n      <div class=\"explore\">\n        <h2>Create a new School</h2>\n        <h5 class=\"team-color\">It is easy and takes 15 min maximum</h5>\n      </div>\n      <form name=\"newSchoolForm\" #newSchoolForm=\"ngForm\" (submit)=\"registerSchool(newSchoolForm)\">\n        <div class=\"wide-3\">\n          <div class=\"explore\">\n            <div class=\"property-map-marker\"><img src=\"" + __webpack_require__(1414) + "\" alt=\"\" /><span class=\"marker-number\">1</span></div>\n            <div class=\"prt-cont\">\n              <div class=\"property-title\">\n                <h3>Main Information</h3>\n              </div>\n            </div>\n          </div>\n          <div class=\"prt-cont\">\n            <hr>\n            <div class=\"form-group\">\n              <label>School Name:</label>\n              <input type=\"text\" class=\"form-control\" placeholder=\"Enter your title (maximum 250 characters)\" required [(ngModel)]=\"newSchool.name\" name=\"name\" #name=\"ngModel\">\n            </div>\n            <div class=\"row\">\n              <div class=\"col-md-3 col-sm-3 col-xs-12\">\n                <div class=\"form-group\">\n                  <label>Currency</label>\n                  <select class=\"selectin\" name=\"currency\" [(ngModel)]=\"newSchool.currency\">\n                    <option default>None</option>\n                    <option *ngFor=\"let cur of currency\" value=\"{{cur.value}}\">{{cur.name}}</option>\n                  </select>\n                </div>\n              </div>\n              <div class=\"col-md-2 col-sm-2 col-xs-12\">\n                <div class=\"form-group\">\n                  <label>Fees:</label>\n                  <input type=\"text\" class=\"form-control\" placeholder=\"$\" name='fee' pattern=\"\\d*\" required [(ngModel)]='newSchool.fee'>\n                </div>\n              </div>\n              <div class=\"col-md-7 col-sm-7 col-xs-12\">\n                <div class=\"form-group\">\n                  <label>Owned By: </label>\n                  <select class=\"selectin\" name=\"owned_by\" [(ngModel)]=\"newSchool.owned_by\">\n                    <option default>None</option>\n                    <option *ngFor=\"let owner of owners\" value=\"{{owner.value}}\">{{owner.name}}</option>\n                  </select>\n                </div>\n              </div>\n              <div class=\"col-xs-12\">\n                <div class=\"form-group\">\n                  <label for=\"text-area-2\">Description:</label>\n                  <textarea id=\"text-area-2\" rows=\"6\" cols=\"45\" name=\"description\" class=\"form-control\" [(ngModel)]=\"newSchool.description\"></textarea>\n                </div>\n              </div>\n            </div>\n          </div>\n          <div class=\"explore\">\n            <div class=\"property-map-marker\"><img src=\"" + __webpack_require__(1414) + "\" alt=\"\" /><span class=\"marker-number\">2</span></div>\n            <div class=\"prt-cont\">\n              <div class=\"property-title\">\n                <h3>Summary</h3>\n              </div>\n            </div>\n          </div>\n          <div class=\"prt-cont\">\n            <hr>\n            <div class=\"row\">\n              <div class=\" col-md-8 col-sm-8\">\n                <div class=\"row\">\n                  <div class=\"col-md-6 col-sm-6 col-xs-12\">\n                    <div class=\"form-group\">\n                      <label>Conditions</label>\n                      <select class=\"selectin\" name=\"school_condition\" [(ngModel)]=\"newSchool.school_condition\">\n                        <option default>No Conditions</option>\n                        <option *ngFor=\"let condition of conditions\" value=\"{{condition.value}}\">{{condition.name}}</option>\n                      </select>\n                    </div>\n                  </div>\n                  <div class=\"col-md-6 col-sm-6 col-xs-12\">\n                    <div class=\"form-group\">\n                      <label>Interval payment for School Fees</label>\n                      <select class=\"selectin\" name=\"payment_interval\" [(ngModel)]=\"newSchool.payment_interval\">\n                        <option default>No Payment</option>\n                        <option *ngFor=\"let pay_interval of payment_intervals\" value=\"{{pay_interval.value}}\">{{pay_interval.name}}</option>\n                      </select>\n                    </div>\n                  </div>\n                  <div class=\"col-md-6 col-sm-6 col-xs-12\">\n                    <div class=\"form-group\">\n                      <label>School Type</label>\n                      <select class=\"selectin\" name=\"school_type\" [(ngModel)]=\"newSchool.school_type\">\n                        <option value=\"none\" selected>None</option>\n                        <option *ngFor=\"let type of schoolType\" value=\"{{type.value}}\" >{{type.name}}</option>\n                      </select>\n                    </div>\n                  </div>\n                </div>\n                    <hr>\n                <div class=\"row\">\n                  <div class=\"col-md-4 col-sm-4 col-xs-12\">\n                    <div class=\"form-group\">\n                      <label>Class Rooms</label>\n                      <input type=\"number\" class=\"form-control\" pattern=\"\\d*\" name=\"classrooms\" [(ngModel)]=\"newSchool.no_of_classrooms\">\n                    </div>\n                  </div>\n                  <div class=\"col-md-4 col-sm-4 col-xs-12\">\n                    <div class=\"form-group\">\n                      <label>School Bus</label>\n                      <input type=\"number\" class=\"form-control\" name=\"bus-no\" [(ngModel)]=\"newSchool.no_of_bus\">\n                    </div>\n                  </div>\n                  <div class=\"col-md-4 col-sm-4 col-xs-12\">\n                    <div class=\"form-group\">\n                      <label>Student/class</label>\n                      <input type=\"number\" class=\"form-control\" name=\"per-class\" [(ngModel)]=\"newSchool.no_of_students\">\n                  </div>\n                </div>\n                    <hr>\n                <div class=\"row\">\n                  <div class=\"col-md-4 col-sm-4 col-xs-12\">\n                    <div class=\"form-group\">\n                      <label>Buildings</label>\n                      <input type=\"number\" class=\"form-control\" name=\"buildings\" [(ngModel)]=\"newSchool.no_of_buildings\">\n                    </div>\n                  </div>\n                  <div class=\"col-md-4 col-sm-4 col-xs-12\">\n                    <div class=\"form-group\">\n                      <label>Area size of School:</label>\n                      <input type=\"text\" class=\"form-control\" placeholder=\"Enter your area\" name=\"school_size\" [(ngModel)]=\"newSchool.school_size\">\n                    </div>\n                  </div>\n                </div>\n              </div>\n              </div>\n              <div class=\" col-md-4 col-sm-4 summary-image\">\n                <label>Featured Photo</label>\n                <div class=\"featured-image-block\" *ngIf=\"!imageUploaded && !uploader.isUploading\">\n                  <img src=\"" + __webpack_require__(1415) + "\" alt=\"\" class=\"property-icon camera\">\n                  <h3> Add Featured Photo</h3>\n                  <h5 class=\"team-color\">Lorem Ipsum is simply dummy text of the printing and</h5>\n                  <input type=\"file\" class=\"file\" ng2FileSelect [uploader]=\"uploader\">\n                </div>\n                <div *ngIf=\"uploader.isUploading\">\n                  Uploading......\n                </div>\n                <div *ngIf='imageUploaded'>\n                  <cl-image public-id=\"{{image_public_id}}\" [options]='showOptions'></cl-image>\n                  <hr>\n                  <button type=\"button\" class=\"btn btn-small btn-danger\" (click)=\"resetImage()\">Reset Image</button>\n                </div>\n              </div>\n          </div>\n          </div>\n          <div class=\"explore\">\n            <div class=\"property-map-marker\"><img src=\"" + __webpack_require__(1414) + "\" alt=\"\" /><span class=\"marker-number\">3</span></div>\n            <div class=\"prt-cont\">\n              <div class=\"property-title\">\n                <h3>Location Information</h3>\n              </div>\n            </div>\n          </div>\n          <div class=\"prt-cont\">\n            <hr>\n            <div class=\"row\">\n              <div class=\"location-info col-md-6 col-sm-6 col-xs-12\">\n                <div class=\"form-group\">\n                  <label>Country</label>\n                  <input type=\"text\" name=\"country\" class=\"form-control\" [(ngModel)]=\"newSchool.country\" required>\n                </div>\n                <div class=\"form-group\">\n                  <label class=\"\">State</label>\n                  <select class=\"selectin\" name=\"state\" [(ngModel)]=\"newSchool.state\" required>\n                    <option *ngFor=\"let state of states\" value=\"{{state.value}}\">{{state.name}}</option>\n                  </select>\n                </div>\n                <div class=\"input-group\">\n                  <label>Address</label>\n                  <input type=\"text\" class=\"form-control\" name=\"address\" [(ngModel)]=\"newSchool.street_address\" placeholder=\"Enter property address\" required>\n                </div>\n                <div class=\"row\">\n                  <div class=\"col-md-6 col-sm-6 col-xs-12\">\n                    <div class=\"form-group\">\n                      <label>Town/City:</label>\n                      <input type=\"text\" class=\"form-control\" name=\"city\" [(ngModel)]=\"newSchool.city\"  required>\n                    </div>\n                  </div>\n                  <div class=\"col-md-6 col-sm-6 col-xs-12\">\n                    <div class=\"form-group\">\n                      <label>Local Government Area:</label>\n                      <input type=\"text\" class=\"form-control\" name=\"lga\" [(ngModel)]=\"newSchool.lga\"  required>\n                    </div>\n                  </div>\n                  <div class=\"col-md-6 col-sm-6 col-xs-12\">\n                    <div class=\"form-group\">\n                      <label>Post/ZIP Code:</label>\n                      <input type=\"text\" class=\"form-control\" name=\"zip\" [(ngModel)]=\"newSchool.zip\" placeholder=\"_ _ - _ _ _\">\n                    </div>\n                  </div>\n                </div>\n              </div>\n              <div class=\"location-map col-md-6 col-sm-6 col-xs-12\">\n                <!-- <div class=\"input-group\">\n                  <label for=\"address-map\">Place on map</label>\n                  <input type=\"text\" class=\"form-control\" id=\"address-map\" name=\"address\">\n                  <i class=\"fa fa-search\"></i>\n                </div> -->\n                <!-- <div id=\"submit-map\"></div> -->\n                <div class=\"row\">\n                  <div class=\"col-md-6 col-sm-6 col-xs-12\">\n                    <div class=\"form-group\">\n                      <label for=\"latitude\">Coordinates</label>\n                      <input type=\"text\" class=\"form-control\" placeholder=\"Latitude\" id=\"latitude\" name=\"latitude\" [(ngModel)]=\"newSchool.latitude\" pattern=\"\\d*\">\n                    </div>\n                  </div>\n                  <div class=\"col-md-6 col-sm-6 col-xs-12\">\n                    <div class=\"form-group\">\n                      <label for=\"longitude\">&nbsp;</label>\n                      <input type=\"text\" class=\"form-control\" placeholder=\"Longitude\" id=\"longitude\" name=\"longitude\" [(ngModel)]=\"newSchool.longitude\" pattern=\"\\d*\">\n                    </div>\n                  </div>\n                </div>\n              </div>\n            </div>\n          </div>\n          <div class=\"explore\">\n            <div class=\"property-map-marker\"><img src=\"" + __webpack_require__(1414) + "\" alt=\"\" /><span class=\"marker-number\">4</span></div>\n            <div class=\"prt-cont\">\n              <div class=\"property-title\">\n                <h3>Media Files</h3>\n              </div>\n            </div>\n          </div>\n          <div class=\"prt-cont media\">\n            <hr>\n            <!-- <div class=\"row\">\n              <div class=\"col-md-4 col-sm-4 col-xs-12\">\n                <div class=\"featured-image-block\">\n                  <img src=\"" + __webpack_require__(1416) + "\" alt=\"\" class=\"property-icon files\">\n                  <h3> Add Files</h3>\n                  <h5 class=\"team-color\">Lorem Ipsum is simply dummy text of the printing and</h5>\n                  <input id=\"file-upload-2\" type=\"file\" class=\"file\" required multiple data-show-upload=\"false\" data-show-caption=\"false\" data-show-remove=\"false\" accept=\"doc/txt,doc/doc\" data-browse-class=\"btn btn-default\" data-browse-label=\"Add Files\">\n                  <label for=\"file-upload-2\">\n                    <img src=\"" + __webpack_require__(1417) + "\" alt=\"\" class=\"image-upload-icon\">Add Files\n                  </label>\n                </div>\n              </div>\n              <div class=\"col-md-4 col-sm-4 col-xs-12\">\n                <div class=\"featured-image-block\">\n                  <img src=\"" + __webpack_require__(1418) + "\" alt=\"\" class=\"property-icon gallery\">\n                  <h3> Photo Gallery</h3>\n                  <h5 class=\"team-color\">Lorem Ipsum is simply dummy text of the printing and</h5>\n                  <input id=\"file-upload-3\" type=\"file\" class=\"file\" required multiple data-show-upload=\"false\" data-show-caption=\"false\" data-show-remove=\"false\" accept=\"image/jpeg,image/png\" data-browse-class=\"btn btn-default\" data-browse-label=\"Add Files\">\n                  <label for=\"file-upload-3\">\n                    <img src=\"" + __webpack_require__(1417) + "\" alt=\"\" class=\"image-upload-icon\">Add Files\n                  </label>\n                </div>\n              </div>\n              <div class=\"col-md-4 col-sm-4 col-xs-12\">\n                <div class=\"featured-image-block\">\n                  <img src=\"" + __webpack_require__(1419) + "\" alt=\"\" class=\"property-icon plan\">\n                  <h3> Floor Plans</h3>\n                  <h5 class=\"team-color\">Lorem Ipsum is simply dummy text of the printing and</h5>\n                  <input id=\"file-upload-4\" type=\"file\" class=\"file\" required multiple data-show-upload=\"false\" data-show-caption=\"false\" data-show-remove=\"false\" accept=\"image/jpeg,image/png\" data-browse-class=\"btn btn-default\" data-browse-label=\"Add Files\">\n                  <label for=\"file-upload-4\">\n                    <img src=\"" + __webpack_require__(1417) + "\" alt=\"\" class=\"image-upload-icon\">Add Files\n                  </label>\n                </div>\n              </div>\n            </div> -->\n            <div class=\"input-group\">\n              <label>Video Presentation:</label>\n              <input type=\"text\" class=\"form-control\" name=\"video_link\" [(ngModel)]=\"newSchool.video_link\" pattern=\"^(http|https):\\/\\/([a-z]+\\.|)[a-zA-Z]+\\.(com|co|org|ru|net)\" placeholder=\"Add link to your \">\n            </div>\n            <!-- <span class=\"ffs-bs\"><a href=\"#\" class=\"btn btn-small btn-primary\">Add Video</a></span> -->\n          </div>\n          <div class=\"explore\">\n            <div class=\"property-map-marker\"><img src=\"" + __webpack_require__(1414) + "\" alt=\"\" /><span class=\"marker-number\">5</span></div>\n            <div class=\"prt-cont\">\n              <div class=\"property-title\">\n                <h3>Property Features</h3>\n              </div>\n            </div>\n          </div>\n          <div class=\"prt-cont features\">\n            <hr>\n            <div class=\"row\">\n              <div id=\"property-features\" class=\"block\">\n                <div class=\"row\">\n                  <ul class=\"submit-features\">\n                    <li class=\"col-md-4 col-sm-4 col-xs-6\" *ngFor=\"let property of properties\">\n                      <div class=\"checkbox\">\n                        <label>\n                          <input type=\"checkbox\" name=\"{{property.value}}\" class=\"properties\" value=\"{{property.value}}\">{{property.name}}\n                        </label>\n                      </div>\n                    </li>\n                  </ul>\n                </div>\n                <hr>\n              </div>\n              <span class=\"ffs-bs\"><button type=\"submit\" class=\"btn btn-large btn-primary\">create school</button></span>\n            </div>\n          </div>\n        </div>\n      </form>\n    </div>\n  </div>\n</div>\n<simple-notifications [options]=\"notifyOptions\"></simple-notifications>\n";
 
 /***/ },
-/* 1385 */
+/* 1414 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "assets/marker-full.dcb47c4d3b0eef8ebaf728a7958fcf74.png";
 
 /***/ },
-/* 1386 */
+/* 1415 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "assets/camera.7ac768b997edfadf39e1aea775481b95.png";
 
 /***/ },
-/* 1387 */
+/* 1416 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "assets/files.fa009da317d5796d79bf4fa6c7e9faa1.png";
 
 /***/ },
-/* 1388 */
+/* 1417 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "assets/upload.e7ba440ad7c90123600ff7ecf7987599.png";
 
 /***/ },
-/* 1389 */
+/* 1418 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "assets/gallery.45d8adf9a02a4e900bcf5876f1bffaa8.png";
 
 /***/ },
-/* 1390 */
+/* 1419 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "assets/plan.0bd1b6edbf2ebe49c711cbf8dfcaf189.png";
 
 /***/ },
-/* 1391 */
+/* 1420 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -82274,7 +82303,7 @@ webpackJsonp([0],[
 	};
 	var core_1 = __webpack_require__(4);
 	var router_1 = __webpack_require__(26);
-	var new_school_component_1 = __webpack_require__(1381);
+	var new_school_component_1 = __webpack_require__(1410);
 	exports.routes = [
 	    { path: 'new_school', component: new_school_component_1.NewSchoolComponent }
 	];
@@ -82294,7 +82323,7 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 1392 */
+/* 1421 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -82309,8 +82338,8 @@ webpackJsonp([0],[
 	};
 	var core_1 = __webpack_require__(4);
 	var common_1 = __webpack_require__(23);
-	var all_schools_routing_module_1 = __webpack_require__(1393);
-	var all_schools_component_1 = __webpack_require__(1394);
+	var all_schools_routing_module_1 = __webpack_require__(1422);
+	var all_schools_component_1 = __webpack_require__(1423);
 	var AllSchoolModule = (function () {
 	    function AllSchoolModule() {
 	    }
@@ -82327,7 +82356,7 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 1393 */
+/* 1422 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -82342,7 +82371,7 @@ webpackJsonp([0],[
 	};
 	var core_1 = __webpack_require__(4);
 	var router_1 = __webpack_require__(26);
-	var all_schools_component_1 = __webpack_require__(1394);
+	var all_schools_component_1 = __webpack_require__(1423);
 	exports.routes = [
 	    { path: "all_schools", component: all_schools_component_1.AllSchoolsComponent }
 	];
@@ -82362,7 +82391,7 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 1394 */
+/* 1423 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -82385,7 +82414,7 @@ webpackJsonp([0],[
 	}());
 	AllSchoolsComponent = __decorate([
 	    core_1.Component({
-	        template: __webpack_require__(1395)
+	        template: __webpack_require__(1424)
 	    }),
 	    __metadata("design:paramtypes", [])
 	], AllSchoolsComponent);
@@ -82393,37 +82422,13 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 1395 */
+/* 1424 */
 /***/ function(module, exports) {
 
 	module.exports = "<div id=\"page-content-search\">\n  <div class=\"container\">\n    <div class=\"wide_container_2\">\n      <div id=\"tab1\" class=\"tab\">\n        <div class=\"col-xs-12 content_2\">\n          <div class=\"col-md-10 col-md-offset-1\">\n            <!-- Range slider -->\n            <div class=\"explore_grid\">\n              <div class=\"row\">\n                <div class=\"explore col-xs-12\">\n                  <h2>Properties for rent</h2>\n                  <h5 class=\"team-color col-sm-offset-3 col-sm-6 col-xs-offset-1 col-xs-10\">Lorem Ipsum is simply dummy text of the printing and Lorem Ipsum has been the industry's standard </h5>\n                </div>\n                <form method=\"post\">\n                  <div class=\"col-md-2 col-sm-3\">\n                    <div class=\"form-inline\">\n                      <label class=\"price-range\">Price Range:</label>\n                    </div>\n                  </div>\n                  <div class=\"col-md-8 col-sm-7\">\n                    <div class=\"form-group\">\n                      <div class=\"price-range\">\n                        <input class=\"price-input\" type=\"text\" name=\"price\" value=\"0;5000000\">\n                      </div>\n                    </div>\n                  </div>\n                  <div class=\"select-block no-border pull-right col-sm-2 col-xs-12\">\n                    <select class=\"selection\">\n                      <option>Sort By:</option>\n                      <option>Date</option>\n                      <option>Price</option>\n                      <option>Type</option>\n                    </select>\n                  </div>\t<!-- select-block -->\n                </form>\n              </div><!-- row -->\n            </div>\n            <!-- End Range slider -->\n            <div class=\"wide-2\">\n              <div class=\"container\">\n                <div class=\"row\">\n                  <div class=\"col-md-3 col-sm-3 col-xs-6 prop\">\n                    <div class=\"wht-cont\">\n                      <div class=\"exp-img-2\" style=\"background:url(http://placehold.it/255x200) center;background-size: cover;\">\n                        <span class=\"filter\"></span>\n                        <span class=\"ffs-bs\"><label for=\"op\" class=\"btn btn-small btn-primary\">browse photos</label></span>\n                        <div class=\"overlay\">\n                          <div class=\"img-counter\">23 Photo</div>\n                        </div>\n                      </div>\n                      <div class=\"item-title\">\n                        <h4><a href=\"property_page.html\">AVA High Line 89 - 916 Apartments</a></h4>\n                        <p class=\"team-color\">525 W 28th St, New York, NY 10001</p>\n                        <div class=\"col-md-7 col-sm-7 col-xs-7\">\n                          <p>Studio - 2 bd</p>\n                        </div>\n                        <div class=\"col-md-5 col-sm-5 col-xs-5\">\n                          <p>86 m<span class=\"rank\">2</span></p>\n                        </div>\n                        <div class=\"col-md-7 col-sm-7 col-xs-7 lft-brd\"></div>\n                        <div class=\"col-md-5 col-sm-5 col-xs-5 lft-brd\"></div>\n                      </div>\n                      <hr>\n                      <div class=\"item-title btm-part\">\n                        <div class=\"row\">\n                          <div class=\"col-md-8 col-sm-8 col-xs-8\">\n                            <p>$5,000,000</p>\n                            <p class=\"team-color\">FOR SALE</p>\n                          </div>\n                          <div class=\"col-md-4 col-sm-4 col-xs-4 favorite\">\n                            <div class=\"bookmark\" data-bookmark-state=\"empty\">\n                              <span class=\"title-add\">Add to bookmark</span>\n                            </div>\n                            <div class=\"compare\" data-compare-state=\"empty\">\n                              <span class=\"plus-add\">Add to compare</span>\n                            </div>\n                          </div>\n                        </div>\n                      </div>\n                    </div>\n                  </div>\n                  <div class=\"col-md-3 col-sm-3 col-xs-6 prop\">\n                    <div class=\"wht-cont\">\n                      <div class=\"exp-img-2\" style=\"background:url(http://placehold.it/255x200) center;background-size: cover;\">\n                        <span class=\"filter\"></span>\n                        <span class=\"ffs-bs\"><label for=\"op\" class=\"btn btn-small btn-primary\">browse photos</label></span>\n                        <div class=\"overlay\">\n                          <div class=\"img-counter\">23 Photo</div>\n                        </div>\n                      </div>\n                      <div class=\"item-title\">\n                        <h4><a href=\"property_page.html\">Prism at Park Avenue South Apar</a></h4>\n                        <p class=\"team-color\">525 W 28th St, New York, NY 10001</p>\n                        <div class=\"col-md-7 col-sm-7 col-xs-7\">\n                          <p>Studio - 2 bd</p>\n                        </div>\n                        <div class=\"col-md-5 col-sm-5 col-xs-5\">\n                          <p>86 m<span class=\"rank\">2</span></p>\n                        </div>\n                        <div class=\"col-md-7 col-sm-7 col-xs-7 lft-brd\"></div>\n                        <div class=\"col-md-5 col-sm-5 col-xs-5 lft-brd\"></div>\n                      </div>\n                      <hr>\n                      <div class=\"item-title btm-part\">\n                        <div class=\"row\">\n                          <div class=\"col-md-8 col-sm-8 col-xs-8\">\n                            <p>$5,000,000</p>\n                            <p class=\"team-color\">FOR SALE</p>\n                          </div>\n                          <div class=\"col-md-4 col-sm-4 col-xs-4 favorite\">\n                            <div class=\"bookmark\" data-bookmark-state=\"empty\">\n                              <span class=\"title-add\">Add to bookmark</span>\n                            </div>\n                            <div class=\"compare\" data-compare-state=\"empty\">\n                              <span class=\"plus-add\">Add to compare</span>\n                            </div>\n                          </div>\n                        </div>\n                      </div>\n                    </div>\n                  </div>\n                  <div class=\"col-md-3 col-sm-3 col-xs-6 prop\">\n                    <div class=\"wht-cont\">\n                      <div class=\"exp-img-2\" style=\"background:url(http://placehold.it/255x200) center;background-size: cover;\">\n                        <span class=\"filter\"></span>\n                        <span class=\"ffs-bs\"><label for=\"op\" class=\"btn btn-small btn-primary\">browse photos</label></span>\n                        <div class=\"overlay\">\n                          <div class=\"img-counter\">23 Photo</div>\n                        </div>\n                      </div>\n                      <div class=\"item-title\">\n                        <h4><a href=\"property_page.html\">Avalon Morningside Park Apartment</a></h4>\n                        <p class=\"team-color\">525 W 28th St, New York, NY 10001</p>\n                        <div class=\"col-md-7 col-sm-7 col-xs-7\">\n                          <p>Studio - 2 bd</p>\n                        </div>\n                        <div class=\"col-md-5 col-sm-5 col-xs-5\">\n                          <p>86 m<span class=\"rank\">2</span></p>\n                        </div>\n                        <div class=\"col-md-7 col-sm-7 col-xs-7 lft-brd\"></div>\n                        <div class=\"col-md-5 col-sm-5 col-xs-5 lft-brd\"></div>\n                      </div>\n                      <hr>\n                      <div class=\"item-title btm-part\">\n                        <div class=\"row\">\n                          <div class=\"col-md-8 col-sm-8 col-xs-8\">\n                            <p>$5,000,000</p>\n                            <p class=\"team-color\">FOR SALE</p>\n                          </div>\n                          <div class=\"col-md-4 col-sm-4 col-xs-4 favorite\">\n                            <div class=\"bookmark\" data-bookmark-state=\"empty\">\n                              <span class=\"title-add\">Add to bookmark</span>\n                            </div>\n                            <div class=\"compare\" data-compare-state=\"empty\">\n                              <span class=\"plus-add\">Add to compare</span>\n                            </div>\n                          </div>\n                        </div>\n                      </div>\n                    </div>\n                  </div>\n                  <div class=\"col-md-3 col-sm-3 col-xs-6 prop\">\n                    <div class=\"wht-cont\">\n                      <div class=\"exp-img-2\" style=\"background:url(http://placehold.it/255x200) center;background-size: cover;\">\n                        <span class=\"filter\"></span>\n                        <span class=\"ffs-bs\"><label for=\"op\" class=\"btn btn-small btn-primary\">browse photos</label></span>\n                        <div class=\"overlay\">\n                          <div class=\"img-counter\">23 Photo</div>\n                        </div>\n                      </div>\n                      <div class=\"item-title\">\n                        <h4><a href=\"property_page.html\">Prism at Park Avenue South Apar</a></h4>\n                        <p class=\"team-color\">525 W 28th St, New York, NY 10001</p>\n                        <div class=\"col-md-7 col-sm-7 col-xs-7\">\n                          <p>Studio - 2 bd</p>\n                        </div>\n                        <div class=\"col-md-5 col-sm-5 col-xs-5\">\n                          <p>86 m<span class=\"rank\">2</span></p>\n                        </div>\n                        <div class=\"col-md-7 col-sm-7 col-xs-7 lft-brd\"></div>\n                        <div class=\"col-md-5 col-sm-5 col-xs-5 lft-brd\"></div>\n                      </div>\n                      <hr>\n                      <div class=\"item-title btm-part\">\n                        <div class=\"row\">\n                          <div class=\"col-md-8 col-sm-8 col-xs-8\">\n                            <p>$5,000,000</p>\n                            <p class=\"team-color\">FOR SALE</p>\n                          </div>\n                          <div class=\"col-md-4 col-sm-4 col-xs-4 favorite\">\n                            <div class=\"bookmark\" data-bookmark-state=\"empty\">\n                              <span class=\"title-add\">Add to bookmark</span>\n                            </div>\n                            <div class=\"compare\" data-compare-state=\"empty\">\n                              <span class=\"plus-add\">Add to compare</span>\n                            </div>\n                          </div>\n                        </div>\n                      </div>\n                    </div>\n                  </div>\n                </div>\n                <div class=\"row\">\n                  <div class=\"col-md-3 col-sm-3 col-xs-6 prop\">\n                    <div class=\"wht-cont\">\n                      <div class=\"exp-img-2\" style=\"background:url(http://placehold.it/255x200) center;background-size: cover;\">\n                        <span class=\"filter\"></span>\n                        <span class=\"ffs-bs\"><label for=\"op\" class=\"btn btn-small btn-primary\">browse photos</label></span>\n                        <div class=\"overlay\">\n                          <div class=\"img-counter\">23 Photo</div>\n                        </div>\n                      </div>\n                      <div class=\"item-title\">\n                        <h4><a href=\"property_page.html\">AVA High Line 89 - 916 Apartments</a></h4>\n                        <p class=\"team-color\">525 W 28th St, New York, NY 10001</p>\n                        <div class=\"col-md-7 col-sm-7 col-xs-7\">\n                          <p>Studio - 2 bd</p>\n                        </div>\n                        <div class=\"col-md-5 col-sm-5 col-xs-5\">\n                          <p>86 m<span class=\"rank\">2</span></p>\n                        </div>\n                        <div class=\"col-md-7 col-sm-7 col-xs-7 lft-brd\"></div>\n                        <div class=\"col-md-5 col-sm-5 col-xs-5 lft-brd\"></div>\n                      </div>\n                      <hr>\n                      <div class=\"item-title btm-part\">\n                        <div class=\"row\">\n                          <div class=\"col-md-8 col-sm-8 col-xs-8\">\n                            <p>$5,000,000</p>\n                            <p class=\"team-color\">FOR SALE</p>\n                          </div>\n                          <div class=\"col-md-4 col-sm-4 col-xs-4 favorite\">\n                            <div class=\"bookmark\" data-bookmark-state=\"empty\">\n                              <span class=\"title-add\">Add to bookmark</span>\n                            </div>\n                            <div class=\"compare\" data-compare-state=\"empty\">\n                              <span class=\"plus-add\">Add to compare</span>\n                            </div>\n                          </div>\n                        </div>\n                      </div>\n                    </div>\n                  </div>\n                  <div class=\"col-md-3 col-sm-3 col-xs-6 prop\">\n                    <div class=\"wht-cont\">\n                      <div class=\"exp-img-2\" style=\"background:url(http://placehold.it/255x200) center;background-size: cover;\">\n                        <span class=\"filter\"></span>\n                        <span class=\"ffs-bs\"><label for=\"op\" class=\"btn btn-small btn-primary\">browse photos</label></span>\n                        <div class=\"overlay\">\n                          <div class=\"img-counter\">23 Photo</div>\n                        </div>\n                      </div>\n                      <div class=\"item-title\">\n                        <h4><a href=\"property_page.html\">Prism at Park Avenue South Apar</a></h4>\n                        <p class=\"team-color\">525 W 28th St, New York, NY 10001</p>\n                        <div class=\"col-md-7 col-sm-7 col-xs-7\">\n                          <p>Studio - 2 bd</p>\n                        </div>\n                        <div class=\"col-md-5 col-sm-5 col-xs-5\">\n                          <p>86 m<span class=\"rank\">2</span></p>\n                        </div>\n                        <div class=\"col-md-7 col-sm-7 col-xs-7 lft-brd\"></div>\n                        <div class=\"col-md-5 col-sm-5 col-xs-5 lft-brd\"></div>\n                      </div>\n                      <hr>\n                      <div class=\"item-title btm-part\">\n                        <div class=\"row\">\n                          <div class=\"col-md-8 col-sm-8 col-xs-8\">\n                            <p>$5,000,000</p>\n                            <p class=\"team-color\">FOR SALE</p>\n                          </div>\n                          <div class=\"col-md-4 col-sm-4 col-xs-4 favorite\">\n                            <div class=\"bookmark\" data-bookmark-state=\"empty\">\n                              <span class=\"title-add\">Add to bookmark</span>\n                            </div>\n                            <div class=\"compare\" data-compare-state=\"empty\">\n                              <span class=\"plus-add\">Add to compare</span>\n                            </div>\n                          </div>\n                        </div>\n                      </div>\n                    </div>\n                  </div>\n                  <div class=\"col-md-3 col-sm-3 col-xs-6 prop\">\n                    <div class=\"wht-cont\">\n                      <div class=\"exp-img-2\" style=\"background:url(http://placehold.it/255x200) center;background-size: cover;\">\n                        <span class=\"filter\"></span>\n                        <span class=\"ffs-bs\"><label for=\"op\" class=\"btn btn-small btn-primary\">browse photos</label></span>\n                        <div class=\"overlay\">\n                          <div class=\"img-counter\">23 Photo</div>\n                        </div>\n                      </div>\n                      <div class=\"item-title\">\n                        <h4><a href=\"property_page.html\">Avalon Morningside Park Apartment</a></h4>\n                        <p class=\"team-color\">525 W 28th St, New York, NY 10001</p>\n                        <div class=\"col-md-7 col-sm-7 col-xs-7\">\n                          <p>Studio - 2 bd</p>\n                        </div>\n                        <div class=\"col-md-5 col-sm-5 col-xs-5\">\n                          <p>86 m<span class=\"rank\">2</span></p>\n                        </div>\n                        <div class=\"col-md-7 col-sm-7 col-xs-7 lft-brd\"></div>\n                        <div class=\"col-md-5 col-sm-5 col-xs-5 lft-brd\"></div>\n                      </div>\n                      <hr>\n                      <div class=\"item-title btm-part\">\n                        <div class=\"row\">\n                          <div class=\"col-md-8 col-sm-8 col-xs-8\">\n                            <p>$5,000,000</p>\n                            <p class=\"team-color\">FOR SALE</p>\n                          </div>\n                          <div class=\"col-md-4 col-sm-4 col-xs-4 favorite\">\n                            <div class=\"bookmark\" data-bookmark-state=\"empty\">\n                              <span class=\"title-add\">Add to bookmark</span>\n                            </div>\n                            <div class=\"compare\" data-compare-state=\"empty\">\n                              <span class=\"plus-add\">Add to compare</span>\n                            </div>\n                          </div>\n                        </div>\n                      </div>\n                    </div>\n                  </div>\n                  <div class=\"col-md-3 col-sm-3 col-xs-6 prop\">\n                    <div class=\"wht-cont\">\n                      <div class=\"exp-img-2\" style=\"background:url(http://placehold.it/255x200) center;background-size: cover;\">\n                        <span class=\"filter\"></span>\n                        <span class=\"ffs-bs\"><label for=\"op\" class=\"btn btn-small btn-primary\">browse photos</label></span>\n                        <div class=\"overlay\">\n                          <div class=\"img-counter\">23 Photo</div>\n                        </div>\n                      </div>\n                      <div class=\"item-title\">\n                        <h4><a href=\"property_page.html\">Prism at Park Avenue South Apar</a></h4>\n                        <p class=\"team-color\">525 W 28th St, New York, NY 10001</p>\n                        <div class=\"col-md-7 col-sm-7 col-xs-7\">\n                          <p>Studio - 2 bd</p>\n                        </div>\n                        <div class=\"col-md-5 col-sm-5 col-xs-5\">\n                          <p>86 m<span class=\"rank\">2</span></p>\n                        </div>\n                        <div class=\"col-md-7 col-sm-7 col-xs-7 lft-brd\"></div>\n                        <div class=\"col-md-5 col-sm-5 col-xs-5 lft-brd\"></div>\n                      </div>\n                      <hr>\n                      <div class=\"item-title btm-part\">\n                        <div class=\"row\">\n                          <div class=\"col-md-8 col-sm-8 col-xs-8\">\n                            <p>$5,000,000</p>\n                            <p class=\"team-color\">FOR SALE</p>\n                          </div>\n                          <div class=\"col-md-4 col-sm-4 col-xs-4 favorite\">\n                            <div class=\"bookmark\" data-bookmark-state=\"empty\">\n                              <span class=\"title-add\">Add to bookmark</span>\n                            </div>\n                            <div class=\"compare\" data-compare-state=\"empty\">\n                              <span class=\"plus-add\">Add to compare</span>\n                            </div>\n                          </div>\n                        </div>\n                      </div>\n                    </div>\n                  </div>\n                </div>\n              </div>\n              <!-- end wide-2 -->\n            </div>\n            <!-- content_2 -->\n          </div>\n        </div>\n        <div class=\"col-xs-12\">\n          <div class=\"col-md-10 col-md-offset-1 col-xs-12\">\n            <nav id=\"nav-below\" class=\"site-navigation paging-navigation navbar\">\n              <div class=\"nav-previous\"><a href=\"#\">PREV PAGE</a></div>\n              <ul class=\"pagination pagination-lg\">\n                <li><a href=\"#\">1</a></li>\n                <li><span class=\"active\">2</span></li>\n                <li><a href=\"#\">3</a></li>\n                <li><span class=\"nav-dots\">...</span></li>\n                <li><a href=\"#\">5</a></li>\n              </ul>\n              <div class=\"nav-next\"><a href=\"#\">NEXT PAGE</a></div>\n            </nav>\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n<!-- </div> -->\n";
 
 /***/ },
-/* 1396 */,
-/* 1397 */,
-/* 1398 */,
-/* 1399 */,
-/* 1400 */,
-/* 1401 */,
-/* 1402 */,
-/* 1403 */,
-/* 1404 */,
-/* 1405 */,
-/* 1406 */,
-/* 1407 */,
-/* 1408 */,
-/* 1409 */,
-/* 1410 */,
-/* 1411 */,
-/* 1412 */,
-/* 1413 */,
-/* 1414 */,
-/* 1415 */,
-/* 1416 */,
-/* 1417 */,
-/* 1418 */,
-/* 1419 */,
-/* 1420 */
+/* 1425 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -82437,8 +82442,8 @@ webpackJsonp([0],[
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var core_1 = __webpack_require__(4);
-	var about_routing_module_1 = __webpack_require__(1421);
-	var about_component_1 = __webpack_require__(1422);
+	var about_routing_module_1 = __webpack_require__(1426);
+	var about_component_1 = __webpack_require__(1427);
 	var AboutModule = (function () {
 	    function AboutModule() {
 	    }
@@ -82455,7 +82460,7 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 1421 */
+/* 1426 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -82470,7 +82475,7 @@ webpackJsonp([0],[
 	};
 	var core_1 = __webpack_require__(4);
 	var router_1 = __webpack_require__(26);
-	var about_component_1 = __webpack_require__(1422);
+	var about_component_1 = __webpack_require__(1427);
 	exports.routes = [
 	    { path: 'about', component: about_component_1.AboutComponent }
 	];
@@ -82490,7 +82495,7 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 1422 */
+/* 1427 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -82511,7 +82516,7 @@ webpackJsonp([0],[
 	}());
 	AboutComponent = __decorate([
 	    core_1.Component({
-	        template: __webpack_require__(1423)
+	        template: __webpack_require__(1428)
 	    }),
 	    __metadata("design:paramtypes", [])
 	], AboutComponent);
@@ -82519,13 +82524,13 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 1423 */
+/* 1428 */
 /***/ function(module, exports) {
 
 	module.exports = "<!-- Page Content -->\n<div id=\"page-content\" class=\"contact-us\">\n  <div class=\"container\">\n    <ol class=\"breadcrumb\">\n      <li><a href=\"index_v_1.html\">Home</a></li>\n      <li class=\"active\">About Us</li>\n    </ol>\n    <h2>We Are Suburb Real Estate</h2>\n    <p>Aenean quis sem nisi. Aliquam vehicula gravida orci, nec pretium mi ultricies in. Donec fermentum pulvinar mauris sed gravida. Pellentesque neque justo, commodo sed varius at, sagittis ut neque. In luctus pellentesque hendrerit. Vivamus congue laoreet urna, sed cursus odio scelerisque id. Curabitur volutpat pretium laoreet. Cras pulvinar vulputate porttitor. Ut sed lorem purus. Morbi posuere mauris odio, quis venenatis nisi viverra eu. Phasellus suscipit sem sapien. Phasellus risus purus, accumsan vel molestie vitae, sagittis sed massa. Sed elementum nisl tellus, at pharetra odio pharetra vel.</p>\n    <div class=\"row\">\n      <div class=\"col-xs-6 txt-block\">\n        <h4>Lorem Ipsum Dolor</h4>\n        <p>Aenean quis sem nisi. Aliquam vehicula gravida orci, nec pretium mi ultricies in. Donec fermentum pulvinar mauris sed gravida. Pellentesque neque justo, commodo sed varius at, sagittis ut neque. In luctus pellentesque hendrerit. Vivamus congue laoreet urna, sed cursus odio scelerisque id. </p>\n      </div>\n      <div class=\"col-xs-6 txt-block\">\n        <h4>Dolor Lorem Ipsum</h4>\n        <p>Aenean quis sem nisi. Aliquam vehicula gravida orci, nec pretium mi ultricies in. Donec fermentum pulvinar mauris sed gravida. Pellentesque neque justo, commodo sed varius at, sagittis ut neque. In luctus pellentesque hendrerit. Vivamus congue laoreet urna, sed cursus odio scelerisque id. </p>\n      </div>\n    </div>\n    <h3>Our Team</h3>\n    <p class=\"team-color\">Lorem Ipsum is simply dummy text of the printing and</p>\n    <div class=\"row\">\n      <div class=\"col-xs-6 txt-block\">\n        <div class=\"circle\">\n          <a href=\"agent_profile.html\">\n            <img src=\"http://placehold.it/162x162\" alt=\"\">\n          </a>\n        </div>\n        <div class=\"team-info col-sm-6 col-xs-12\">\n          <h3>Sara Strawberry</h3>\n          <p class=\"team-color\">4 Property</p>\n          <hr class=\"separate\">\n          <p id=\"phone\"><i class=\"fa fa-phone\"></i><a href=\"tel:+4819228383746\">+48 192 28383746</a></p>\n          <p><i class=\"fa fa-skype\"></i><a href=\"skype:SkypeUser\">sara_straw</a></p>\n        </div>\n      </div>\n      <div class=\"col-xs-6 txt-block\">\n        <div class=\"circle\">\n          <a href=\"agent_profile.html\">\n            <img src=\"http://placehold.it/162x162\" alt=\"\">\n          </a>\n        </div>\n        <div class=\"team-info col-sm-6 col-xs-12\">\n          <h3>Sara Genergy</h3>\n          <p class=\"team-color\">4 Property</p>\n          <hr class=\"separate\">\n          <p id=\"phone2\"><i class=\"fa fa-phone\"></i><a href=\"tel:+4819228383746\">+48 192 28383746</a></p>\n          <p><i class=\"fa fa-skype\"></i><a href=\"skype:SkypeUser\">s_genergy</a></p>\n        </div>\n      </div>\n    </div>\n  </div>\n  <div id=\"fun-facts\" class=\"block counting-numbers\">\n    <div class=\"container\">\n      <div class=\"row\">\n        <div class=\"fun-facts col-md-12\">\n          <div class=\"col-sm-3  underline\">\n            <div class=\"number-wrapper col-sm-12\">\n              <div class=\"number\" data-from=\"1\" data-to=\"136\">136</div>\n              <figure>Properties Listed</figure>\n            </div><!-- /.number-wrapper -->\n          </div><!-- /.col-md-3 col-sm-3 underline -->\n          <div class=\"col-md-3 col-sm-3 underline\">\n            <div class=\"number-wrapper col-sm-12\">\n              <div class=\"number\" data-from=\"1\" data-to=\"2145\">2145</div>\n              <figure>Satisfied Clients</figure>\n            </div><!-- /.number-wrapper -->\n          </div><!-- /.col-md-3 col-sm-3 underline -->\n          <div class=\"col-md-3 col-sm-3 underline\">\n            <div class=\"number-wrapper col-sm-12\">\n              <div class=\"number\" data-from=\"1\" data-to=\"468\">468</div>\n              <figure>Properties Sold</figure>\n            </div><!-- /.number-wrapper -->\n          </div><!-- /.col-md-3 col-sm-3 underline -->\n          <div class=\"col-md-3 col-sm-3 underline\">\n            <div class=\"number-wrapper col-sm-12\">\n              <div class=\"number\" data-from=\"1\" data-to=\"5475\">5475</div>\n              <figure>Day we are here</figure>\n            </div><!-- /.number-wrapper -->\n          </div><!-- /.col-md-3 col-sm-3 underline -->\n        </div><!-- /.fun-facts -->\n      </div><!-- /.row -->\n    </div>\n  </div>\n  <div class=\"container\">\n    <section class=\"block testimonials\">\n      <header class=\"center\">\n        <h2 class=\"no-border\">We love Suburb Work!</h2>\n      </header>\n      <div class=\"owl-carousel testimonials-carousel\">\n        <blockquote class=\"item\">\n          <aside class=\"cite\">\n            <p class=\"team-color\">\"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled\"</p>\n          </aside>\n          <figure>\n            <div class=\"image\">\n              <img src=\"http://placehold.it/55X55\" alt=\"\">\n            </div>\n            <p>Johan Nordquist</p>\n            <p class=\"team-color\">Someone From Company</p>\n          </figure>\n        </blockquote>\n        <blockquote class=\"item\">\n          <aside class=\"cite\">\n            <p class=\"team-color\">\"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled\"</p>\n          </aside>\n          <figure>\n            <div class=\"image\">\n              <img src=\"http://placehold.it/55X55\" alt=\"\">\n            </div>\n            <p>Sara Genergy</p>\n            <p class=\"team-color\">Someone From Company</p>\n          </figure>\n        </blockquote>\n        <blockquote class=\"item\">\n          <aside class=\"cite\">\n            <p class=\"team-color\">\"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled\"</p>\n          </aside>\n          <figure>\n            <div class=\"image\">\n              <img src=\"http://placehold.it/55X55\" alt=\"\">\n            </div>\n            <p>Sara Strawberry</p>\n            <p class=\"team-color\">Someone From Company</p>\n          </figure>\n        </blockquote>\n      </div><!-- /.testimonials-carousel -->\n    </section><!-- /#testimonials -->\n  </div>\n</div>\n<!-- end Page Content -->\n";
 
 /***/ },
-/* 1424 */
+/* 1429 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -82539,8 +82544,8 @@ webpackJsonp([0],[
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var core_1 = __webpack_require__(4);
-	var contact_routing_module_1 = __webpack_require__(1425);
-	var contact_component_1 = __webpack_require__(1426);
+	var contact_routing_module_1 = __webpack_require__(1430);
+	var contact_component_1 = __webpack_require__(1431);
 	var ContactModule = (function () {
 	    function ContactModule() {
 	    }
@@ -82557,7 +82562,7 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 1425 */
+/* 1430 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -82572,7 +82577,7 @@ webpackJsonp([0],[
 	};
 	var core_1 = __webpack_require__(4);
 	var router_1 = __webpack_require__(26);
-	var contact_component_1 = __webpack_require__(1426);
+	var contact_component_1 = __webpack_require__(1431);
 	exports.routes = [
 	    { path: 'contact', component: contact_component_1.ContactComponent }
 	];
@@ -82592,7 +82597,7 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 1426 */
+/* 1431 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -82615,7 +82620,7 @@ webpackJsonp([0],[
 	}());
 	ContactComponent = __decorate([
 	    core_1.Component({
-	        template: __webpack_require__(1427)
+	        template: __webpack_require__(1432)
 	    }),
 	    __metadata("design:paramtypes", [])
 	], ContactComponent);
@@ -82623,13 +82628,13 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 1427 */
+/* 1432 */
 /***/ function(module, exports) {
 
 	module.exports = "<!-- Page Content -->\n<div id=\"page-content\">\n  <div id=\"map2\" class=\"map\"></div>\n  <div class=\"container\">\n    <div class=\"row\">\n      <div class=\"contact-form\">\n        <h2>We're here to help you.</h2>\n        <h6>Have a question? Write Us</h6>\n        <form id=\"form-submit\" class=\"form-submit\" action=\"thank_you_page.html\">\n          <div class=\"col-md-6\">\n            <div class=\"input-group\">\n              <label>Your Name:</label>\n              <input id=\"input-name\" type=\"text\" class=\"form-control\" placeholder=\"Enter your Name\" required>\n            </div>\n          </div>\n          <div class=\"col-md-6\">\n            <div class=\"input-group\">\n              <label>Your Email Address:</label>\n              <input id=\"input-email\" type=\"text\" class=\"form-control\" placeholder=\"Enter your Email\" required>\n            </div>\n          </div>\n          <div class=\"col-md-12\">\n            <div class=\"input-group\">\n              <label>Subject:</label>\n              <input id=\"input-subject\" type=\"text\" class=\"form-control\" placeholder=\"Example: Lorem Ipsum\" required>\n            </div>\n          </div>\n          <div class=\"col-md-12\">\n            <div class=\"input-group\">\n              <label>Your Message:</label>\n              <textarea id=\"text-area-contact\" rows=\"8\" cols=\"45\" class=\"form-control\"></textarea>\n            </div>\n          </div>\n          <div class=\"submit\">\n            <span class=\"ffs-bs\"><button type=\"submit\" class=\"btn btn-large btn-primary\" style=\"color:#fff;\">Send Message</button></span>\n          </div>\n        </form>\n      </div>\n    </div>\n  </div>\n</div>\n<!-- end Page Content -->\n";
 
 /***/ },
-/* 1428 */
+/* 1433 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -82643,8 +82648,8 @@ webpackJsonp([0],[
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var core_1 = __webpack_require__(4);
-	var _404_component_1 = __webpack_require__(1429);
-	var _404_routing_1 = __webpack_require__(1431);
+	var _404_component_1 = __webpack_require__(1434);
+	var _404_routing_1 = __webpack_require__(1436);
 	var NotFoundModule = (function () {
 	    function NotFoundModule() {
 	    }
@@ -82661,7 +82666,7 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 1429 */
+/* 1434 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -82682,7 +82687,7 @@ webpackJsonp([0],[
 	}());
 	NotFoundComponent = __decorate([
 	    core_1.Component({
-	        template: __webpack_require__(1430)
+	        template: __webpack_require__(1435)
 	    }),
 	    __metadata("design:paramtypes", [])
 	], NotFoundComponent);
@@ -82690,13 +82695,13 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 1430 */
+/* 1435 */
 /***/ function(module, exports) {
 
 	module.exports = "\t\t<div id=\"page-content\">\n\t\t\t<div class=\"container-404\">\n\t\t\t\t<div class=\"container\">\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-md-12 col-sm-12\">\n\t\t\t\t\t\t\t<div class=\"text-404\">\n\t\t\t\t\t\t\t\t<div class=\"col-lg-4 col-md-offset-2 col-md-5 col-sm-offset-0 col-sm-6\">\n\t\t\t\t\t\t\t\t\t<h1>404</h1>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-md-4 col-sm-6 no-page\">\n\t\t\t\t\t\t\t\t\t<span class=\"sorry\">Sorry, no page Found!</span>\n\t\t\t\t\t\t\t\t\t<p> <a routerLink='/'>main page</a>.</p>\n\t\t\t\t\t\t\t\t</div>\t\n\t\t\t\t\t\t\t</div>\t\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\t\n\t\t\t\t</div>\t\n\t\t\t</div> \n\t\t</div>\n\t\t<!-- end Page Content -->";
 
 /***/ },
-/* 1431 */
+/* 1436 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -82711,7 +82716,7 @@ webpackJsonp([0],[
 	};
 	var core_1 = __webpack_require__(4);
 	var router_1 = __webpack_require__(26);
-	var _404_component_1 = __webpack_require__(1429);
+	var _404_component_1 = __webpack_require__(1434);
 	exports.routes = [
 	    { path: '404', component: _404_component_1.NotFoundComponent }
 	];

@@ -115,7 +115,7 @@
                           </div>
                         </div>
                         <div class="item-title">
-                          <h4><a href="property_page.html">{{school.name}}</a></h4>
+                          <h4><a [routerLink]='["/school", school.id]'>{{school.name}}</a></h4>
                           <p class="team-color">{{school.address}}</p>
                           <div class="col-md-7 col-sm-7 col-xs-7">
                             <p>{{7}} classrooms</p>

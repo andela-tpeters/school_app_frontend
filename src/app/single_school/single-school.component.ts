@@ -5,6 +5,7 @@ import { NewSchoolModel } from "../new_school/new-school.model";
 import { PROPERTIES } from "../app.constants";
 import { Utils } from "../services/utils";
 var initializeMap = require('./map.js');
+var preLoader = require('../index/preloader.js');
 
 @Component({
 	templateUrl: "./single-school.component.html",
@@ -43,10 +44,12 @@ export class SingleSchoolComponent implements OnInit, AfterContentInit {
 	ngAfterContentInit() {
 		initializeMap();
 		$( 'embed, iframe' ).wrap( "<div class='video-container'></div>" );
+		preLoader.fade();
 	}
 
 
 	ngOnInit() {
+		preLoader.loader();
 		this.route.data.subscribe((data: { school: NewSchoolModel}) => {
 			this.school = data.school;
 		})
