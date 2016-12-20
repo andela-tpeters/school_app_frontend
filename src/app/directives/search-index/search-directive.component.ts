@@ -9,14 +9,16 @@ import { TYPE, STATES } from  "../../app.constants";
 })
 
 export class SearchDirective implements OnInit {
-	public searchModel: SearchModel = new SearchModel('','');
+	public searchModel: SearchModel = new SearchModel('','','');
 	public schoolType = TYPE;
 	public states = STATES;
+	public lgas = [{name: 'surulere', value: 'surulere'}]
 
 	constructor(private router: Router) {}
 
 	submit() {
-		this.router.navigate(['search', this.searchModel.q, this.searchModel.state]);
+		// console.log(this.searchModel);
+		this.router.navigate(['/search', this.searchModel.q, this.searchModel.state, this.searchModel.lga]);
 	}
 
 	ngOnInit() {

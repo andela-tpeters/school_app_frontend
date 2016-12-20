@@ -961,33 +961,35 @@ webpackJsonp([1],{
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function($) {module.exports = function() {
+
+	    // $.getScript('public/assets/js/owl.carousel.js', function() {
+
 	    $("#owl-demo-2").owlCarousel({
-	        items : 3,
-	        responsive:{
-	            0:{
-	                items:1
+	        items: 3,
+	        responsive: {
+	            0: {
+	                items: 1
 	            },
-	            600:{
-	                items:2
+	            600: {
+	                items: 2
 	            },
-	            1024:{
-	                items:3
+	            1024: {
+	                items: 3
 	            }
 	        },
 	        pagination: true,
 	        nav: true,
 	        slideSpeed: 700,
-	        itemsDesktop: [1024,3],
-	        itemsDesktop: [480,1],
-	        loop:true,
+	        itemsDesktop: [1024, 3],
+	        itemsDesktop: [480, 1],
+	        loop: true,
 	        navText: [
-	        "<i class='fa fa-chevron-left'></i>",
-	        "<i class='fa fa-chevron-right'></i>"
+	            "<i class='fa fa-chevron-left'></i>",
+	            "<i class='fa fa-chevron-right'></i>"
 	        ]
 	    });
+	    // })
 	}
-
-
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1326)))
 
 /***/ },
@@ -995,7 +997,7 @@ webpackJsonp([1],{
 /***/ 1337:
 /***/ function(module, exports) {
 
-	module.exports = "<!-- Owl carousel -->\n<div id=\"owl-demo-2\" class=\"owl-carousel owl-theme\">\n  <div class=\"item\" >\n    <div class=\"image\" [ngStyle]=\"{'background-image': 'url(https://res.cloudinary.com/peictt/image/upload/w_635,h_350/'+school.pictures[0].url+'.jpg)', 'background-position': 'center' } \"></div>\n  </div>\n  <div class=\"item\" >\n    <div class=\"image\" [ngStyle]=\"{'background-image': 'url(https://res.cloudinary.com/peictt/image/upload/w_635,h_350/'+school.pictures[0].url+'.jpg)', 'background-position': 'center' } \"></div>\n  </div>\n  <div class=\"item\" >\n    <div class=\"image\" [ngStyle]=\"{'background-image': 'url(https://res.cloudinary.com/peictt/image/upload/w_635,h_350/'+school.pictures[0].url+'.jpg)', 'background-position': 'center' } \"></div>\n  </div>\n  <!-- <div class=\"item\">\n    <div class=\"image\" style=\"background: url(http://placehold.it/635x350) center\"></div>\n  </div>\n  <div class=\"item\">\n    <div class=\"image\" style=\"background: url(http://placehold.it/635x350) center\"></div>\n  </div>\n  <div class=\"item\">\n    <div class=\"image\" style=\"background: url(http://placehold.it/635x350) center\"></div>\n  </div> -->\n</div>\n<!-- End Owl carousel -->";
+	module.exports = "<!-- Owl carousel -->\n<div id=\"owl-demo-2\" class=\"owl-carousel owl-theme\">\n  <div class=\"item\" >\n    <div class=\"image\" [ngStyle]=\"{'background-image': 'url(https://res.cloudinary.com/peictt/image/upload/w_635,h_350/'+school.pictures[0].url+'.jpg)', 'background-position': 'center' } \"></div>\n  </div>\n  <div class=\"item\" >\n    <div class=\"image\" [ngStyle]=\"{'background-image': 'url(https://res.cloudinary.com/peictt/image/upload/w_635,h_350/'+school.pictures[0].url+'.jpg)', 'background-position': 'center' } \"></div>\n  </div>\n  <div class=\"item\" >\n    <div class=\"image\" [ngStyle]=\"{'background-image': 'url(https://res.cloudinary.com/peictt/image/upload/w_635,h_350/'+school.pictures[0].url+'.jpg)', 'background-position': 'center' } \"></div>\n  </div>\n  <div class=\"item\">\n    <div class=\"image\" style=\"background: url(http://placehold.it/635x350) center\"></div>\n  </div>\n  <!-- <div class=\"item\">\n    <div class=\"image\" style=\"background: url(http://placehold.it/635x350) center\"></div>\n  </div>\n  <div class=\"item\">\n    <div class=\"image\" style=\"background: url(http://placehold.it/635x350) center\"></div>\n  </div> -->\n</div>\n<!-- End Owl carousel -->";
 
 /***/ },
 

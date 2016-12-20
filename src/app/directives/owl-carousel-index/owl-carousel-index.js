@@ -1,47 +1,48 @@
 module.exports = function() {
-	// Owl Carousel
+    // Owl Carousel
     // Disable click when dragging
-    function disableClick(){
+    function disableClick() {
         $('.owl-carousel .property').css('pointer-events', 'none');
     }
     // Enable click after dragging
-    function enableClick(){
+    function enableClick() {
         $('.owl-carousel .property').css('pointer-events', 'auto');
     }
 
 
 
-    if ($('.owl-carousel').length > 0) {
-        if ($('.carousel-full-width').length > 0) {
-            setCarouselWidth();
-        }
-        if ( parseInt( $('.testimonials-carousel').find('.item').length ) <= 1 ) {
-            t_f_test = false;
-        } else {
-            t_f_test = true;
-        }
+    // if ($('.owl-carousel').length > 0) {
+    //     if ($('.carousel-full-width').length > 0) {
+    //         setCarouselWidth();
+    //     }
+    //     if ( parseInt( $('.testimonials-carousel').find('.item').length ) <= 1 ) {
+    //         t_f_test = false;
+    //     } else {
+    //         t_f_test = true;
+    //     }
 
-        $(".testimonials-carousel").owlCarousel({
-            items: 1,
-            responsiveBaseWidth: ".testimonial",
-            pagination: true,
-            nav:t_f_test,
-            slideSpeed : 700,
-            loop:t_f_test,
-            touchDrag:t_f_test,
-            mouseDrag:t_f_test,
-            navText: [
+    $(".testimonials-carousel").owlCarousel({
+        items: 1,
+        responsiveBaseWidth: ".testimonial",
+        pagination: true,
+        nav: true,
+        slideSpeed: 700,
+        loop: true,
+        touchDrag: true,
+        mouseDrag: true,
+        navText: [
             "<i class='fa fa-chevron-left'></i>",
             "<i class='fa fa-chevron-right'></i>"
-            ],
-        });
-    }
-    function sliderLoaded(){
+        ],
+    });
+    // }
+    function sliderLoaded() {
         $('#slider').removeClass('loading');
         document.getElementById("loading-icon").remove();
         centerSlider();
     }
-    function animateDescription(){
+
+    function animateDescription() {
         var $description = $(".slide .overlay .info");
         $description.addClass('animate-description-out');
         $description.removeClass('animate-description-in');
@@ -51,8 +52,8 @@ module.exports = function() {
     }
 
     // Set Owl Carousel width
-	function setCarouselWidth(){
-	    $('.carousel-full-width').css('width', $(window).width());
-	}
-    
+    function setCarouselWidth() {
+        $('.carousel-full-width').css('width', $(window).width());
+    }
+
 }

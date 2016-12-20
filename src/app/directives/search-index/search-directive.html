@@ -1,18 +1,25 @@
 <form #searchForm='ngForm' name="searchForm" (submit)='submit()'>
   <div class="search">
-    <div class="selector col-md-3  col-sm-3">
+    <div class="selector col-md-3  col-sm-12">
       <select class="selection" id="rent-sale" name="q" [(ngModel)]="searchModel.q" >
         <option value="" default>Type</option>
         <option *ngFor="let type of schoolType" value="{{type.value}}"> {{type.name}}</option>
       </select>
     </div>
-    <div id="" class="col-md-7 col-sm-7">
-      <i class="fa fa-location-arrow"></i>
+    <div id="" class="col-md-3 col-sm-12">
+      <!-- <i class="fa fa-location-arrow"></i> -->
       <select class="selection" name="state" [(ngModel)]='searchModel.state'>
-        <option value="" default>State</option>
+        <option value="" default>STATE</option>
         <option *ngFor="let state of states" value="{{state.value}}">{{state.name.toUpperCase()}}</option>
       </select>
     </div>
-    <span class="ffs-bs col-md-2 col-sm-2"><button type="submit" class="btn btn-small btn-primary">Search</button></span>
+    <div id="" class="col-md-3 col-sm-12">
+      <!-- <i class="fa fa-location-arrow"></i> -->
+      <select class="selection" name="state" [(ngModel)]='searchModel.lga'>
+        <option value="" default>LGA</option>
+        <option *ngFor="let lga of lgas" value="{{lga.value}}">{{lga.name.toUpperCase()}}</option>
+      </select>
+    </div>
+    <span class="ffs-bs col-md-2 col-sm-12"><button type="submit" class="btn btn-small btn-primary">Search</button></span>
   </div>
 </form>

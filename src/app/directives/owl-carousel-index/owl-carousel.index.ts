@@ -1,5 +1,5 @@
 import { Component, OnInit, AfterViewChecked, ElementRef } from "@angular/core";
-var carousel = require('./owl-carousel-index');
+var carousel = require('./owl-carousel-index.js');
 
 @Component({
 	selector: 'school-owl',

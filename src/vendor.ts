@@ -13,9 +13,9 @@ import './app/app.component.css';
 import '../public/assets/bootstrap/css/bootstrap.css';
 import '../public/assets/css/bootstrap-select.min.css';
 import '../public/assets/css/jquery.slider.min.css';
-import '../public/assets/css/owl.carousel.css';
 import '../public/assets/css/selectize.css';
 import '../public/assets/css/style.css';
+import '../public/assets/css/owl.carousel.css';
 import '../public/assets/css/school.css';
 
 

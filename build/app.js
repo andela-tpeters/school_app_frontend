@@ -124,7 +124,7 @@ webpackJsonp([0],[
 	    { path: "", redirectTo: "index", pathMatch: "full" },
 	    { path: "index", component: index_component_1.IndexComponent },
 	    { path: 'school/:id', loadChildren: function () { return new Promise(function (resolve) { __webpack_require__.e/* nsure */(1, function (require) { resolve(__webpack_require__(1323)['SingleSchoolModule']); }); }); } },
-	    { path: 'search/:q/:state', loadChildren: function () { return new Promise(function (resolve) { __webpack_require__.e/* nsure */(2, function (require) { resolve(__webpack_require__(1342)['SearchModule']); }); }); } }
+	    { path: 'search/:q/:state/:lga', loadChildren: function () { return new Promise(function (resolve) { __webpack_require__.e/* nsure */(2, function (require) { resolve(__webpack_require__(1342)['SearchModule']); }); }); } }
 	];
 	var AppRoutingModule = (function () {
 	    function AppRoutingModule() {
@@ -286,7 +286,8 @@ webpackJsonp([0],[
 	    };
 	    SchoolService.prototype.searchSchools = function (params) {
 	        var _this = this;
-	        return this.http.get(app_constants_1.GetSchoolUrl + "?" + params, this.options).map(function (res) { return res.json(); }).catch(function (err) { return _this.handleError(err); });
+	        console.log('Searching!.....');
+	        return this.http.get(app_constants_1.GetSchoolUrl + "?" + params, this.options).map(function (res) { return console.log(res.json()); }).catch(function (err) { return _this.handleError(err); });
 	    };
 	    return SchoolService;
 	}());
@@ -75408,49 +75409,50 @@ webpackJsonp([0],[
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function($) {module.exports = function() {
-		// Owl Carousel
+	    // Owl Carousel
 	    // Disable click when dragging
-	    function disableClick(){
+	    function disableClick() {
 	        $('.owl-carousel .property').css('pointer-events', 'none');
 	    }
 	    // Enable click after dragging
-	    function enableClick(){
+	    function enableClick() {
 	        $('.owl-carousel .property').css('pointer-events', 'auto');
 	    }
 
 
 
-	    if ($('.owl-carousel').length > 0) {
-	        if ($('.carousel-full-width').length > 0) {
-	            setCarouselWidth();
-	        }
-	        if ( parseInt( $('.testimonials-carousel').find('.item').length ) <= 1 ) {
-	            t_f_test = false;
-	        } else {
-	            t_f_test = true;
-	        }
+	    // if ($('.owl-carousel').length > 0) {
+	    //     if ($('.carousel-full-width').length > 0) {
+	    //         setCarouselWidth();
+	    //     }
+	    //     if ( parseInt( $('.testimonials-carousel').find('.item').length ) <= 1 ) {
+	    //         t_f_test = false;
+	    //     } else {
+	    //         t_f_test = true;
+	    //     }
 
-	        $(".testimonials-carousel").owlCarousel({
-	            items: 1,
-	            responsiveBaseWidth: ".testimonial",
-	            pagination: true,
-	            nav:t_f_test,
-	            slideSpeed : 700,
-	            loop:t_f_test,
-	            touchDrag:t_f_test,
-	            mouseDrag:t_f_test,
-	            navText: [
+	    $(".testimonials-carousel").owlCarousel({
+	        items: 1,
+	        responsiveBaseWidth: ".testimonial",
+	        pagination: true,
+	        nav: true,
+	        slideSpeed: 700,
+	        loop: true,
+	        touchDrag: true,
+	        mouseDrag: true,
+	        navText: [
 	            "<i class='fa fa-chevron-left'></i>",
 	            "<i class='fa fa-chevron-right'></i>"
-	            ],
-	        });
-	    }
-	    function sliderLoaded(){
+	        ],
+	    });
+	    // }
+	    function sliderLoaded() {
 	        $('#slider').removeClass('loading');
 	        document.getElementById("loading-icon").remove();
 	        centerSlider();
 	    }
-	    function animateDescription(){
+
+	    function animateDescription() {
 	        var $description = $(".slide .overlay .info");
 	        $description.addClass('animate-description-out');
 	        $description.removeClass('animate-description-in');
@@ -75460,10 +75462,10 @@ webpackJsonp([0],[
 	    }
 
 	    // Set Owl Carousel width
-		function setCarouselWidth(){
-		    $('.carousel-full-width').css('width', $(window).width());
-		}
-	    
+	    function setCarouselWidth() {
+	        $('.carousel-full-width').css('width', $(window).width());
+	    }
+
 	}
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1326)))
 
@@ -75494,12 +75496,14 @@ webpackJsonp([0],[
 	var SearchDirective = (function () {
 	    function SearchDirective(router) {
 	        this.router = router;
-	        this.searchModel = new search_model_1.SearchModel('', '');
+	        this.searchModel = new search_model_1.SearchModel('', '', '');
 	        this.schoolType = app_constants_1.TYPE;
 	        this.states = app_constants_1.STATES;
+	        this.lgas = [{ name: 'surulere', value: 'surulere' }];
 	    }
 	    SearchDirective.prototype.submit = function () {
-	        this.router.navigate(['search', this.searchModel.q, this.searchModel.state]);
+	        // console.log(this.searchModel);
+	        this.router.navigate(['/search', this.searchModel.q, this.searchModel.state, this.searchModel.lga]);
 	    };
 	    SearchDirective.prototype.ngOnInit = function () {
 	    };
@@ -75521,9 +75525,10 @@ webpackJsonp([0],[
 
 	"use strict";
 	var SearchModel = (function () {
-	    function SearchModel(q, state) {
+	    function SearchModel(q, state, lga) {
 	        this.q = q;
 	        this.state = state;
+	        this.lga = lga;
 	    }
 	    return SearchModel;
 	}());
@@ -75534,7 +75539,7 @@ webpackJsonp([0],[
 /* 1380 */
 /***/ function(module, exports) {
 
-	module.exports = "<form #searchForm='ngForm' name=\"searchForm\" (submit)='submit()'>\n  <div class=\"search\">\n    <div class=\"selector col-md-3  col-sm-3\">\n      <select class=\"selection\" id=\"rent-sale\" name=\"q\" [(ngModel)]=\"searchModel.q\" >\n        <option value=\"\" default>Type</option>\n        <option *ngFor=\"let type of schoolType\" value=\"{{type.value}}\"> {{type.name}}</option>\n      </select>\n    </div>\n    <div id=\"\" class=\"col-md-7 col-sm-7\">\n      <i class=\"fa fa-location-arrow\"></i>\n      <select class=\"selection\" name=\"state\" [(ngModel)]='searchModel.state'>\n        <option value=\"\" default>State</option>\n        <option *ngFor=\"let state of states\" value=\"{{state.value}}\">{{state.name.toUpperCase()}}</option>\n      </select>\n    </div>\n    <span class=\"ffs-bs col-md-2 col-sm-2\"><button type=\"submit\" class=\"btn btn-small btn-primary\">Search</button></span>\n  </div>\n</form>";
+	module.exports = "<form #searchForm='ngForm' name=\"searchForm\" (submit)='submit()'>\n  <div class=\"search\">\n    <div class=\"selector col-md-3  col-sm-12\">\n      <select class=\"selection\" id=\"rent-sale\" name=\"q\" [(ngModel)]=\"searchModel.q\" >\n        <option value=\"\" default>Type</option>\n        <option *ngFor=\"let type of schoolType\" value=\"{{type.value}}\"> {{type.name}}</option>\n      </select>\n    </div>\n    <div id=\"\" class=\"col-md-3 col-sm-12\">\n      <!-- <i class=\"fa fa-location-arrow\"></i> -->\n      <select class=\"selection\" name=\"state\" [(ngModel)]='searchModel.state'>\n        <option value=\"\" default>STATE</option>\n        <option *ngFor=\"let state of states\" value=\"{{state.value}}\">{{state.name.toUpperCase()}}</option>\n      </select>\n    </div>\n    <div id=\"\" class=\"col-md-3 col-sm-12\">\n      <!-- <i class=\"fa fa-location-arrow\"></i> -->\n      <select class=\"selection\" name=\"state\" [(ngModel)]='searchModel.lga'>\n        <option value=\"\" default>LGA</option>\n        <option *ngFor=\"let lga of lgas\" value=\"{{lga.value}}\">{{lga.name.toUpperCase()}}</option>\n      </select>\n    </div>\n    <span class=\"ffs-bs col-md-2 col-sm-12\"><button type=\"submit\" class=\"btn btn-small btn-primary\">Search</button></span>\n  </div>\n</form>";
 
 /***/ },
 /* 1381 */

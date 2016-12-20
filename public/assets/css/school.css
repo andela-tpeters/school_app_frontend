@@ -25,3 +25,8 @@ input[type="checkbox"] {
 .search .fa-location-arrow {
     right: 10px;
 }
+
+.owl-carousel .owl-wrapper-outer {
+    position: relative;
+    overflow: hidden;
+}
