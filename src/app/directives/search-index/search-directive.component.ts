@@ -1,9 +1,10 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, AfterContentInit } from "@angular/core";
 import { Router } from "@angular/router";
 import { SearchModel } from "./search-model";
 import { TYPE, STATES } from  "../../app.constants";
 import { Utils } from "../../services/utils";
 import { NotificationsService } from "angular2-notifications";
+var preloader = require("../../index/preloader.js");
 
 @Component({
 	selector: 'search-directive',
@@ -11,7 +12,7 @@ import { NotificationsService } from "angular2-notifications";
 	providers: [Utils]
 })
 
-export class SearchDirective implements OnInit {
+export class SearchDirective implements OnInit, AfterContentInit {
 	public searchModel: SearchModel = new SearchModel('','','');
 	public schoolType = TYPE;
 	public states = STATES;
@@ -22,7 +23,7 @@ export class SearchDirective implements OnInit {
 
 	submit() {
 		let check = this.utils.validateSearchModel(this.searchModel);
-
+		preloader.show();
 		if(check.isCorrect) {
 			this.router.navigate(['/search', this.searchModel.q, this.searchModel.schtype, this.searchModel.lga]);
 		} else {
@@ -30,6 +31,7 @@ export class SearchDirective implements OnInit {
 		}
 	}
 
-	ngOnInit() {
-	}
+	ngAfterContentInit() {}
+
+	ngOnInit() {}
 }

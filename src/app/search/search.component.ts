@@ -1,4 +1,4 @@
-import { Component, AfterContentInit, OnInit } from "@angular/core";
+import { Component, AfterContentInit, OnInit, AfterContentChecked } from "@angular/core";
 import * as faker from "faker";
 import { Router, ActivatedRoute} from "@angular/router";
 import { NewSchoolModel } from "../new_school/new-school.model";
@@ -7,13 +7,14 @@ require('../../../public/assets/css/jquery.slider.min.css');
 var customMap = require('./createHomepageGoogleMap.js');
 
 var sliderpoint = require('./input-slider.js');
+var preloader = require('../index/preloader.js');
 
 
 @Component({
   templateUrl: "./search.component.html"
 })
 
-export class SearchComponent implements AfterContentInit, OnInit {
+export class SearchComponent implements AfterContentInit, OnInit, AfterContentChecked {
   public schools: any;
 
   constructor(private route: ActivatedRoute, private router: Router) {
@@ -33,12 +34,16 @@ export class SearchComponent implements AfterContentInit, OnInit {
     $('.jslider-pointer.jslider-pointer-to').removeClass('firstpoint'); 
 
     $(".price-range-wrapper").mousemove(sliderpoint);
+
+  }
+
+  ngAfterContentChecked() {
+    preloader.fade();
   }
 
   ngOnInit() {
 
     this.route.data.subscribe((data: { schools: NewSchoolModel[]}) => {
-      console.log(data);
       this.schools = data.schools;
     },(err) => { console.log(err)})
   }

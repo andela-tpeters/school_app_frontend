@@ -839,25 +839,6 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 1330:
-/***/ function(module, exports, __webpack_require__) {
-
-	/* WEBPACK VAR INJECTION */(function($) {module.exports = {
-	    loader: function() {
-	        var $preloader = $('#page-preloader');
-	        $preloader.fadeOut('slow');
-	        var $spinner = $preloader.find('.gps_ring');
-	        var $spinner2 = $preloader.find('.gps_ring2');
-	    },
-	    fade: function() {
-	        $spinner.fadeOut();
-	        $spinner2.fadeOut();
-	    }
-	}
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1326)))
-
-/***/ },
-
 /***/ 1331:
 /***/ function(module, exports, __webpack_require__) {
 

@@ -1279,6 +1279,7 @@ webpackJsonp([2],{
 	__webpack_require__(1352);
 	var customMap = __webpack_require__(1360);
 	var sliderpoint = __webpack_require__(1361);
+	var preloader = __webpack_require__(1330);
 	var SearchComponent = (function () {
 	    function SearchComponent(route, router) {
 	        this.route = route;
@@ -1294,10 +1295,12 @@ webpackJsonp([2],{
 	        $('.jslider-pointer.jslider-pointer-to').removeClass('firstpoint');
 	        $(".price-range-wrapper").mousemove(sliderpoint);
 	    };
+	    SearchComponent.prototype.ngAfterContentChecked = function () {
+	        preloader.fade();
+	    };
 	    SearchComponent.prototype.ngOnInit = function () {
 	        var _this = this;
 	        this.route.data.subscribe(function (data) {
-	            console.log(data);
 	            _this.schools = data.schools;
 	        }, function (err) { console.log(err); });
 	    };

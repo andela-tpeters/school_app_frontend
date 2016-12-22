@@ -70783,7 +70783,28 @@ webpackJsonp([0],[
 /* 1327 */,
 /* 1328 */,
 /* 1329 */,
-/* 1330 */,
+/* 1330 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function($) {module.exports = {
+	    preloader: function() { return $('#page-preloader');},
+	    spinner1: function() { return this.preloader().find('.gps_ring');},
+	    spinner2: function() { return this.preloader().find('.gps_ring2');},
+	    fade: function() {
+	        this.preloader().fadeOut('slow');
+	        this.spinner1().fadeOut();
+	        this.spinner2().fadeOut();
+	    }, 
+
+	    show: function() {
+	        this.preloader().fadeIn('slow');
+	        this.spinner1().fadeIn();
+	        this.spinner2().fadeIn();
+	    }
+	}
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1326)))
+
+/***/ },
 /* 1331 */,
 /* 1332 */,
 /* 1333 */,
@@ -75511,6 +75532,7 @@ webpackJsonp([0],[
 	var app_constants_1 = __webpack_require__(357);
 	var utils_1 = __webpack_require__(1320);
 	var angular2_notifications_1 = __webpack_require__(1383);
+	var preloader = __webpack_require__(1330);
 	var SearchDirective = (function () {
 	    function SearchDirective(router, utils, _notify) {
 	        this.router = router;
@@ -75524,6 +75546,7 @@ webpackJsonp([0],[
 	    }
 	    SearchDirective.prototype.submit = function () {
 	        var check = this.utils.validateSearchModel(this.searchModel);
+	        preloader.show();
 	        if (check.isCorrect) {
 	            this.router.navigate(['/search', this.searchModel.q, this.searchModel.schtype, this.searchModel.lga]);
 	        }
@@ -75531,8 +75554,8 @@ webpackJsonp([0],[
 	            this._notify.html(check.errors.join('<br />'), '');
 	        }
 	    };
-	    SearchDirective.prototype.ngOnInit = function () {
-	    };
+	    SearchDirective.prototype.ngAfterContentInit = function () { };
+	    SearchDirective.prototype.ngOnInit = function () { };
 	    return SearchDirective;
 	}());
 	SearchDirective = __decorate([
@@ -76270,7 +76293,7 @@ webpackJsonp([0],[
 /* 1392 */
 /***/ function(module, exports) {
 
-	module.exports = "<form #searchForm='ngForm' name=\"searchForm\" (submit)='submit()'>\n  <div class=\"search\">\n    <div class=\"selector col-md-3  col-sm-12\">\n      <select class=\"selection\" id=\"rent-sale\" name=\"schtype\" [(ngModel)]=\"searchModel.schtype\" >\n        <option value=\"\" default>Type</option>\n        <option *ngFor=\"let type of schoolType\" value=\"{{type.value}}\"> {{type.name}}</option>\n      </select>\n    </div>\n    <div id=\"\" class=\"col-md-3 col-sm-12\">\n      <!-- <i class=\"fa fa-location-arrow\"></i> -->\n      <select class=\"selection\" name=\"q\" [(ngModel)]='searchModel.q'>\n        <option value=\"\" default>STATE</option>\n        <option *ngFor=\"let state of states\" value=\"{{state.value}}\">{{state.name.toUpperCase()}}</option>\n      </select>\n    </div>\n    <div id=\"\" class=\"col-md-3 col-sm-12\">\n      <!-- <i class=\"fa fa-location-arrow\"></i> -->\n      <select class=\"selection\" name=\"state\" [(ngModel)]='searchModel.lga'>\n        <option value=\"\" default>LGA</option>\n        <option *ngFor=\"let lga of lgas\" value=\"{{lga.value}}\">{{lga.name.toUpperCase()}}</option>\n      </select>\n    </div>\n    <span class=\"ffs-bs col-md-2 col-sm-12\"><button type=\"submit\" class=\"btn btn-small btn-primary\">Search</button></span>\n  </div>\n</form>\n\n<simple-notifications [options]=\"options\"></simple-notifications>";
+	module.exports = "<form #searchForm='ngForm' name=\"searchForm\" (submit)='submit()'>\n  <div class=\"search\">\n    <div class=\"selector col-md-3  col-sm-12\">\n      <select class=\"selection\" id=\"rent-sale\" name=\"schtype\" [(ngModel)]=\"searchModel.schtype\" >\n        <option value=\"\" default>Type</option>\n        <option *ngFor=\"let type of schoolType\" value=\"{{type.value}}\"> {{type.name}}</option>\n      </select>\n    </div>\n    <div id=\"\" class=\"col-md-3 col-sm-12\">\n      <!-- <i class=\"fa fa-location-arrow\"></i> -->\n      <select class=\"selection\" name=\"q\" [(ngModel)]='searchModel.q'>\n        <option value=\"\" default>STATE</option>\n        <option *ngFor=\"let state of states\" value=\"{{state.value}}\">{{state.name.toUpperCase()}}</option>\n      </select>\n    </div>\n    <div id=\"\" class=\"col-md-3 col-sm-12\">\n      <!-- <i class=\"fa fa-location-arrow\"></i> -->\n      <select class=\"selection\" name=\"state\" [(ngModel)]='searchModel.lga'>\n        <option value=\"\" default>LGA</option>\n        <option *ngFor=\"let lga of lgas\" value=\"{{lga.value}}\">{{lga.name.toUpperCase()}}</option>\n      </select>\n    </div>\n    <span class=\"ffs-bs col-md-2 col-sm-12\"><button type=\"submit\" class=\"btn btn-small btn-primary\">Search</button></span>\n  </div>\n</form>\n<simple-notifications [options]=\"options\"></simple-notifications>";
 
 /***/ },
 /* 1393 */

@@ -1,12 +1,16 @@
 module.exports = {
-    loader: function() {
-        var $preloader = $('#page-preloader');
-        $preloader.fadeOut('slow');
-        var $spinner = $preloader.find('.gps_ring');
-        var $spinner2 = $preloader.find('.gps_ring2');
-    },
+    preloader: function() { return $('#page-preloader');},
+    spinner1: function() { return this.preloader().find('.gps_ring');},
+    spinner2: function() { return this.preloader().find('.gps_ring2');},
     fade: function() {
-        $spinner.fadeOut();
-        $spinner2.fadeOut();
+        this.preloader().fadeOut('slow');
+        this.spinner1().fadeOut();
+        this.spinner2().fadeOut();
+    }, 
+
+    show: function() {
+        this.preloader().fadeIn('slow');
+        this.spinner1().fadeIn();
+        this.spinner2().fadeIn();
     }
 }
