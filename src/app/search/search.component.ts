@@ -14,7 +14,7 @@ var sliderpoint = require('./input-slider.js');
 })
 
 export class SearchComponent implements AfterContentInit, OnInit {
-  public schools: any[] = [];
+  public schools: any;
 
   constructor(private route: ActivatedRoute, private router: Router) {
 

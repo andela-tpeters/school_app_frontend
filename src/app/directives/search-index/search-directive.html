@@ -1,14 +1,14 @@
 <form #searchForm='ngForm' name="searchForm" (submit)='submit()'>
   <div class="search">
     <div class="selector col-md-3  col-sm-12">
-      <select class="selection" id="rent-sale" name="q" [(ngModel)]="searchModel.q" >
+      <select class="selection" id="rent-sale" name="schtype" [(ngModel)]="searchModel.schtype" >
         <option value="" default>Type</option>
         <option *ngFor="let type of schoolType" value="{{type.value}}"> {{type.name}}</option>
       </select>
     </div>
     <div id="" class="col-md-3 col-sm-12">
       <!-- <i class="fa fa-location-arrow"></i> -->
-      <select class="selection" name="state" [(ngModel)]='searchModel.state'>
+      <select class="selection" name="q" [(ngModel)]='searchModel.q'>
         <option value="" default>STATE</option>
         <option *ngFor="let state of states" value="{{state.value}}">{{state.name.toUpperCase()}}</option>
       </select>
@@ -23,3 +23,5 @@
     <span class="ffs-bs col-md-2 col-sm-12"><button type="submit" class="btn btn-small btn-primary">Search</button></span>
   </div>
 </form>
+
+<simple-notifications [options]="options"></simple-notifications>

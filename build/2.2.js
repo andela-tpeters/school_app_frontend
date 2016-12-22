@@ -632,10 +632,11 @@ webpackJsonp([2],{
 	var core_1 = __webpack_require__(4);
 	var common_1 = __webpack_require__(23);
 	var ng2_pagination_1 = __webpack_require__(1343);
-	var search_routing_module_1 = __webpack_require__(1349);
-	var search_component_1 = __webpack_require__(1350);
-	var search_tabs_component_1 = __webpack_require__(1366);
-	var search_resolver_1 = __webpack_require__(1365);
+	var search_routing_module_1 = __webpack_require__(1350);
+	var search_component_1 = __webpack_require__(1351);
+	var search_tabs_component_1 = __webpack_require__(1367);
+	var search_resolver_1 = __webpack_require__(1366);
+	var pagination_component_1 = __webpack_require__(1371);
 	var SearchModule = (function () {
 	    function SearchModule() {
 	    }
@@ -644,7 +645,7 @@ webpackJsonp([2],{
 	SearchModule = __decorate([
 	    core_1.NgModule({
 	        imports: [common_1.CommonModule, search_routing_module_1.SearchRoutingModule, ng2_pagination_1.Ng2PaginationModule],
-	        declarations: [search_component_1.SearchComponent, search_tabs_component_1.SearchTabs],
+	        declarations: [search_component_1.SearchComponent, search_tabs_component_1.SearchTabs, pagination_component_1.PaginateSearch],
 	        providers: [search_resolver_1.SearchResolver]
 	    }),
 	    __metadata("design:paramtypes", [])
@@ -673,11 +674,14 @@ webpackJsonp([2],{
 	var common_1 = __webpack_require__(23);
 	var paginate_pipe_1 = __webpack_require__(1345);
 	var pagination_service_1 = __webpack_require__(1346);
-	var pagination_controls_cmp_1 = __webpack_require__(1347);
+	var pagination_controls_component_1 = __webpack_require__(1347);
+	var pagination_controls_directive_1 = __webpack_require__(1349);
 	var pagination_service_2 = __webpack_require__(1346);
 	exports.PaginationService = pagination_service_2.PaginationService;
-	var pagination_controls_cmp_2 = __webpack_require__(1347);
-	exports.PaginationControlsCmp = pagination_controls_cmp_2.PaginationControlsCmp;
+	var pagination_controls_component_2 = __webpack_require__(1347);
+	exports.PaginationControlsComponent = pagination_controls_component_2.PaginationControlsComponent;
+	var pagination_controls_directive_2 = __webpack_require__(1349);
+	exports.PaginationControlsDirective = pagination_controls_directive_2.PaginationControlsDirective;
 	var paginate_pipe_2 = __webpack_require__(1345);
 	exports.PaginatePipe = paginate_pipe_2.PaginatePipe;
 	var Ng2PaginationModule = (function () {
@@ -688,10 +692,11 @@ webpackJsonp([2],{
 	                    imports: [common_1.CommonModule],
 	                    declarations: [
 	                        paginate_pipe_1.PaginatePipe,
-	                        pagination_controls_cmp_1.PaginationControlsCmp
+	                        pagination_controls_component_1.PaginationControlsComponent,
+	                        pagination_controls_directive_1.PaginationControlsDirective
 	                    ],
 	                    providers: [pagination_service_1.PaginationService],
-	                    exports: [paginate_pipe_1.PaginatePipe, pagination_controls_cmp_1.PaginationControlsCmp]
+	                    exports: [paginate_pipe_1.PaginatePipe, pagination_controls_component_1.PaginationControlsComponent, pagination_controls_directive_1.PaginationControlsDirective]
 	                },] },
 	    ];
 	    /** @nocollapse */
@@ -761,13 +766,13 @@ webpackJsonp([2],{
 	        return collection;
 	    };
 	    /**
-	     * Create an IPaginationInstance object, using defaults for any optional properties not supplied.
+	     * Create an PaginationInstance object, using defaults for any optional properties not supplied.
 	     */
 	    PaginatePipe.prototype.createInstance = function (collection, args) {
 	        var config = args;
 	        this.checkConfig(config);
 	        return {
-	            id: config.id || this.service.defaultId,
+	            id: config.id || this.service.defaultId(),
 	            itemsPerPage: config.itemsPerPage || 0,
 	            currentPage: config.currentPage || 1,
 	            totalItems: config.totalItems || collection.length
@@ -842,11 +847,7 @@ webpackJsonp([2],{
 	        this.instances = {};
 	        this.DEFAULT_ID = 'DEFAULT_PAGINATION_ID';
 	    }
-	    Object.defineProperty(PaginationService.prototype, "defaultId", {
-	        get: function () { return this.DEFAULT_ID; },
-	        enumerable: true,
-	        configurable: true
-	    });
+	    PaginationService.prototype.defaultId = function () { return this.DEFAULT_ID; };
 	    PaginationService.prototype.register = function (instance) {
 	        if (!instance.id) {
 	            instance.id = this.DEFAULT_ID;
@@ -950,28 +951,18 @@ webpackJsonp([2],{
 
 	"use strict";
 	var core_1 = __webpack_require__(4);
-	var pagination_service_1 = __webpack_require__(1346);
 	var template_1 = __webpack_require__(1348);
-	var PaginationControlsCmp = (function () {
-	    function PaginationControlsCmp(service, changeDetectorRef) {
-	        var _this = this;
-	        this.service = service;
-	        this.changeDetectorRef = changeDetectorRef;
+	/**
+	 * The default pagination controls component. Actually just a default implementation of a custom template.
+	 */
+	var PaginationControlsComponent = (function () {
+	    function PaginationControlsComponent() {
 	        this.maxSize = 7;
 	        this.pageChange = new core_1.EventEmitter();
-	        this.pages = [];
-	        this.hasTemplate = false;
 	        this._directionLinks = true;
 	        this._autoHide = false;
-	        this.changeSub = this.service.change
-	            .subscribe(function (id) {
-	            if (_this.id === id) {
-	                _this.updatePageLinks();
-	                _this.changeDetectorRef.markForCheck();
-	            }
-	        });
 	    }
-	    Object.defineProperty(PaginationControlsCmp.prototype, "directionLinks", {
+	    Object.defineProperty(PaginationControlsComponent.prototype, "directionLinks", {
 	        get: function () {
 	            return this._directionLinks;
 	        },
@@ -981,7 +972,7 @@ webpackJsonp([2],{
 	        enumerable: true,
 	        configurable: true
 	    });
-	    Object.defineProperty(PaginationControlsCmp.prototype, "autoHide", {
+	    Object.defineProperty(PaginationControlsComponent.prototype, "autoHide", {
 	        get: function () {
 	            return this._autoHide;
 	        },
@@ -991,65 +982,124 @@ webpackJsonp([2],{
 	        enumerable: true,
 	        configurable: true
 	    });
-	    PaginationControlsCmp.prototype.ngOnInit = function () {
-	        if (this.id === undefined) {
-	            this.id = this.service.defaultId;
-	        }
-	        this.updatePageLinks();
+	    PaginationControlsComponent.decorators = [
+	        { type: core_1.Component, args: [{
+	                    selector: 'pagination-controls',
+	                    template: template_1.DEFAULT_TEMPLATE,
+	                    styles: [template_1.DEFAULT_STYLES],
+	                    changeDetection: core_1.ChangeDetectionStrategy.OnPush
+	                },] },
+	    ];
+	    /** @nocollapse */
+	    PaginationControlsComponent.ctorParameters = [];
+	    PaginationControlsComponent.propDecorators = {
+	        'id': [{ type: core_1.Input },],
+	        'maxSize': [{ type: core_1.Input },],
+	        'directionLinks': [{ type: core_1.Input },],
+	        'autoHide': [{ type: core_1.Input },],
+	        'pageChange': [{ type: core_1.Output },],
 	    };
-	    PaginationControlsCmp.prototype.ngOnChanges = function (changes) {
-	        this.updatePageLinks();
-	    };
-	    PaginationControlsCmp.prototype.ngAfterViewInit = function () {
+	    return PaginationControlsComponent;
+	}());
+	exports.PaginationControlsComponent = PaginationControlsComponent;
+
+
+/***/ },
+
+/***/ 1348:
+/***/ function(module, exports) {
+
+	/**
+	 * The default template and styles for the pagination links are borrowed directly
+	 * from Zurb Foundation 6: http://foundation.zurb.com/sites/docs/pagination.html
+	 */
+	"use strict";
+	exports.DEFAULT_TEMPLATE = "\n    <pagination-template  #p=\"paginationApi\"\n                         [id]=\"id\"\n                         [maxSize]=\"maxSize\"\n                         (pageChange)=\"pageChange.emit($event)\">\n    <ul class=\"ng2-pagination\" \n        role=\"navigation\" \n        aria-label=\"Pagination\" \n        *ngIf=\"!(autoHide && p.pages.length <= 1)\">\n\n        <li class=\"pagination-previous\" [class.disabled]=\"p.isFirstPage()\" *ngIf=\"directionLinks\"> \n            <a *ngIf=\"1 < p.getCurrent()\" (click)=\"p.previous()\" aria-label=\"Next page\">\n                Previous <span class=\"show-for-sr\">page</span>\n            </a>\n            <span *ngIf=\"p.isFirstPage()\">Previous <span class=\"show-for-sr\">page</span></span>\n        </li>\n\n        <li [class.current]=\"p.getCurrent() === page.value\" *ngFor=\"let page of p.pages\">\n            <a (click)=\"p.setCurrent(page.value)\" *ngIf=\"p.getCurrent() !== page.value\">\n                <span class=\"show-for-sr\">Page</span>\n                <span>{{ page.label }}</span>\n            </a>\n            <div *ngIf=\"p.getCurrent() === page.value\">\n                <span class=\"show-for-sr\">You're on page</span>\n                <span>{{ page.label }}</span> \n            </div>\n        </li>\n\n        <li class=\"pagination-next\" [class.disabled]=\"p.isLastPage()\" *ngIf=\"directionLinks\">\n            <a *ngIf=\"!p.isLastPage()\" (click)=\"p.next()\" aria-label=\"Next page\">\n                Next <span class=\"show-for-sr\">page</span>\n            </a>\n            <span *ngIf=\"p.isLastPage()\">Next <span class=\"show-for-sr\">page</span></span>\n        </li>\n\n    </ul>\n    </pagination-template>\n    ";
+	exports.DEFAULT_STYLES = "\n.ng2-pagination {\n  margin-left: 0;\n  margin-bottom: 1rem; }\n  .ng2-pagination::before, .ng2-pagination::after {\n    content: ' ';\n    display: table; }\n  .ng2-pagination::after {\n    clear: both; }\n  .ng2-pagination li {\n    -moz-user-select: none;\n    -webkit-user-select: none;\n    -ms-user-select: none;\n    font-size: 0.875rem;\n    margin-right: 0.0625rem;\n    border-radius: 0; }\n  .ng2-pagination li {\n    display: inline-block; }\n  .ng2-pagination a,\n  .ng2-pagination button {\n    color: #0a0a0a; \n    display: block;\n    padding: 0.1875rem 0.625rem;\n    border-radius: 0; }\n    .ng2-pagination a:hover,\n    .ng2-pagination button:hover {\n      background: #e6e6e6; }\n  .ng2-pagination .current {\n    padding: 0.1875rem 0.625rem;\n    background: #2199e8;\n    color: #fefefe;\n    cursor: default; }\n  .ng2-pagination .disabled {\n    padding: 0.1875rem 0.625rem;\n    color: #cacaca;\n    cursor: default; } \n    .ng2-pagination .disabled:hover {\n      background: transparent; }\n  .ng2-pagination .ellipsis::after {\n    content: '\u2026';\n    padding: 0.1875rem 0.625rem;\n    color: #0a0a0a; }\n\n.ng2-pagination .pagination-previous a::before,\n.ng2-pagination .pagination-previous.disabled::before { \n  content: '\u00AB';\n  display: inline-block;\n  margin-right: 0.5rem; }\n\n.ng2-pagination .pagination-next a::after,\n.ng2-pagination .pagination-next.disabled::after {\n  content: '\u00BB';\n  display: inline-block;\n  margin-left: 0.5rem; }\n\n.ng2-pagination .show-for-sr {\n  position: absolute !important;\n  width: 1px;\n  height: 1px;\n  overflow: hidden;\n  clip: rect(0, 0, 0, 0); }";
+
+
+/***/ },
+
+/***/ 1349:
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	var core_1 = __webpack_require__(4);
+	var pagination_service_1 = __webpack_require__(1346);
+	/**
+	 * This directive is what powers all pagination controls components, including the default one.
+	 * It exposes an API which is hooked up to the PaginationService to keep the PaginatePipe in sync
+	 * with the pagination controls.
+	 */
+	var PaginationControlsDirective = (function () {
+	    function PaginationControlsDirective(service, changeDetectorRef) {
 	        var _this = this;
-	        if (this.template && 0 < this.template.nativeElement.children.length) {
-	            this.hasTemplate = true;
-	            setTimeout(function () { return _this.changeDetectorRef.markForCheck(); });
+	        this.service = service;
+	        this.changeDetectorRef = changeDetectorRef;
+	        this.maxSize = 7;
+	        this.pageChange = new core_1.EventEmitter();
+	        this.pages = [];
+	        this.changeSub = this.service.change
+	            .subscribe(function (id) {
+	            if (_this.id === id) {
+	                _this.updatePageLinks();
+	                _this.changeDetectorRef.markForCheck();
+	                _this.changeDetectorRef.detectChanges();
+	            }
+	        });
+	    }
+	    PaginationControlsDirective.prototype.ngOnInit = function () {
+	        if (this.id === undefined) {
+	            this.id = this.service.defaultId();
 	        }
+	        this.updatePageLinks();
 	    };
-	    PaginationControlsCmp.prototype.ngOnDestroy = function () {
+	    PaginationControlsDirective.prototype.ngOnChanges = function (changes) {
+	        this.updatePageLinks();
+	    };
+	    PaginationControlsDirective.prototype.ngOnDestroy = function () {
 	        this.changeSub.unsubscribe();
 	    };
 	    /**
 	     * Go to the previous page
 	     */
-	    PaginationControlsCmp.prototype.previous = function () {
+	    PaginationControlsDirective.prototype.previous = function () {
 	        this.setCurrent(this.getCurrent() - 1);
 	    };
 	    /**
 	     * Go to the next page
 	     */
-	    PaginationControlsCmp.prototype.next = function () {
+	    PaginationControlsDirective.prototype.next = function () {
 	        this.setCurrent(this.getCurrent() + 1);
 	    };
 	    /**
 	     * Returns true if current page is first page
 	     */
-	    PaginationControlsCmp.prototype.isFirstPage = function () {
+	    PaginationControlsDirective.prototype.isFirstPage = function () {
 	        return this.getCurrent() === 1;
 	    };
 	    /**
 	     * Returns true if current page is last page
 	     */
-	    PaginationControlsCmp.prototype.isLastPage = function () {
+	    PaginationControlsDirective.prototype.isLastPage = function () {
 	        return this.getLastPage() === this.getCurrent();
 	    };
 	    /**
 	     * Set the current page number.
 	     */
-	    PaginationControlsCmp.prototype.setCurrent = function (page) {
+	    PaginationControlsDirective.prototype.setCurrent = function (page) {
 	        this.pageChange.emit(page);
 	    };
 	    /**
 	     * Get the current page number.
 	     */
-	    PaginationControlsCmp.prototype.getCurrent = function () {
+	    PaginationControlsDirective.prototype.getCurrent = function () {
 	        return this.service.getCurrentPage(this.id);
 	    };
 	    /**
 	     * Returns the last page number
 	     */
-	    PaginationControlsCmp.prototype.getLastPage = function () {
+	    PaginationControlsDirective.prototype.getLastPage = function () {
 	        var inst = this.service.getInstance(this.id);
 	        if (inst.totalItems < 1) {
 	            // when there are 0 or fewer (an error case) items, there are no "pages" as such,
@@ -1063,7 +1113,7 @@ webpackJsonp([2],{
 	     * PaginationService.change stream emits a value matching the current ID, or when any of the
 	     * input values changes.
 	     */
-	    PaginationControlsCmp.prototype.updatePageLinks = function () {
+	    PaginationControlsDirective.prototype.updatePageLinks = function () {
 	        var _this = this;
 	        var inst = this.service.getInstance(this.id);
 	        var correctedCurrentPage = this.outOfBoundCorrection(inst);
@@ -1081,7 +1131,7 @@ webpackJsonp([2],{
 	     * Checks that the instance.currentPage property is within bounds for the current page range.
 	     * If not, return a correct value for currentPage, or the current value if OK.
 	     */
-	    PaginationControlsCmp.prototype.outOfBoundCorrection = function (instance) {
+	    PaginationControlsDirective.prototype.outOfBoundCorrection = function (instance) {
 	        var totalPages = Math.ceil(instance.totalItems / instance.itemsPerPage);
 	        if (totalPages < instance.currentPage && 0 < totalPages) {
 	            return totalPages;
@@ -1092,9 +1142,9 @@ webpackJsonp([2],{
 	        return instance.currentPage;
 	    };
 	    /**
-	     * Returns an array of IPage objects to use in the pagination controls.
+	     * Returns an array of Page objects to use in the pagination controls.
 	     */
-	    PaginationControlsCmp.prototype.createPageArray = function (currentPage, itemsPerPage, totalItems, paginationRange) {
+	    PaginationControlsDirective.prototype.createPageArray = function (currentPage, itemsPerPage, totalItems, paginationRange) {
 	        // paginationRange could be a string if passed from attribute, so cast to number.
 	        paginationRange = +paginationRange;
 	        var pages = [];
@@ -1128,7 +1178,7 @@ webpackJsonp([2],{
 	     * Given the position in the sequence of pagination links [i],
 	     * figure out what page number corresponds to that position.
 	     */
-	    PaginationControlsCmp.prototype.calculatePageNumber = function (i, currentPage, paginationRange, totalPages) {
+	    PaginationControlsDirective.prototype.calculatePageNumber = function (i, currentPage, paginationRange, totalPages) {
 	        var halfWay = Math.ceil(paginationRange / 2);
 	        if (i === paginationRange) {
 	            return totalPages;
@@ -1151,49 +1201,30 @@ webpackJsonp([2],{
 	            return i;
 	        }
 	    };
-	    PaginationControlsCmp.decorators = [
-	        { type: core_1.Component, args: [{
-	                    selector: 'pagination-controls',
-	                    template: template_1.DEFAULT_TEMPLATE,
-	                    styles: [template_1.DEFAULT_STYLES],
-	                    changeDetection: core_1.ChangeDetectionStrategy.OnPush
+	    PaginationControlsDirective.decorators = [
+	        { type: core_1.Directive, args: [{
+	                    selector: 'pagination-template,[pagination-template]',
+	                    exportAs: 'paginationApi'
 	                },] },
 	    ];
 	    /** @nocollapse */
-	    PaginationControlsCmp.ctorParameters = [
+	    PaginationControlsDirective.ctorParameters = [
 	        { type: pagination_service_1.PaginationService, },
 	        { type: core_1.ChangeDetectorRef, },
 	    ];
-	    PaginationControlsCmp.propDecorators = {
+	    PaginationControlsDirective.propDecorators = {
 	        'id': [{ type: core_1.Input },],
 	        'maxSize': [{ type: core_1.Input },],
-	        'directionLinks': [{ type: core_1.Input },],
-	        'autoHide': [{ type: core_1.Input },],
 	        'pageChange': [{ type: core_1.Output },],
-	        'template': [{ type: core_1.ViewChild, args: ['template',] },],
 	    };
-	    return PaginationControlsCmp;
+	    return PaginationControlsDirective;
 	}());
-	exports.PaginationControlsCmp = PaginationControlsCmp;
+	exports.PaginationControlsDirective = PaginationControlsDirective;
 
 
 /***/ },
 
-/***/ 1348:
-/***/ function(module, exports) {
-
-	/**
-	 * The default template and styles for the pagination links are borrowed directly
-	 * from Zurb Foundation 6: http://foundation.zurb.com/sites/docs/pagination.html
-	 */
-	"use strict";
-	exports.DEFAULT_TEMPLATE = "\n    <div #template>\n        <ng-content></ng-content>\n    </div>\n    <ul class=\"ng2-pagination\" \n        role=\"navigation\" \n        aria-label=\"Pagination\" \n        *ngIf=\"!hasTemplate && !(autoHide && pages.length <= 1)\">\n\n        <li class=\"pagination-previous\" [class.disabled]=\"isFirstPage()\" *ngIf=\"directionLinks\"> \n            <a *ngIf=\"1 < getCurrent()\" (click)=\"previous()\" aria-label=\"Next page\">\n                Previous <span class=\"show-for-sr\">page</span>\n            </a>\n            <span *ngIf=\"isFirstPage()\">Previous <span class=\"show-for-sr\">page</span></span>\n        </li>\n\n        <li [class.current]=\"getCurrent() === page.value\" *ngFor=\"let page of pages\">\n            <a (click)=\"setCurrent(page.value)\" *ngIf=\"getCurrent() !== page.value\">\n                <span class=\"show-for-sr\">Page</span>\n                <span>{{ page.label }}</span>\n            </a>\n            <div *ngIf=\"getCurrent() === page.value\">\n                <span class=\"show-for-sr\">You're on page</span>\n                <span>{{ page.label }}</span> \n            </div>\n        </li>\n\n        <li class=\"pagination-next\" [class.disabled]=\"isLastPage()\" *ngIf=\"directionLinks\">\n            <a *ngIf=\"!isLastPage()\" (click)=\"next()\" aria-label=\"Next page\">\n                Next <span class=\"show-for-sr\">page</span>\n            </a>\n            <span *ngIf=\"isLastPage()\">Next <span class=\"show-for-sr\">page</span></span>\n        </li>\n\n    </ul>\n    ";
-	exports.DEFAULT_STYLES = "\n.ng2-pagination {\n  margin-left: 0;\n  margin-bottom: 1rem; }\n  .ng2-pagination::before, .ng2-pagination::after {\n    content: ' ';\n    display: table; }\n  .ng2-pagination::after {\n    clear: both; }\n  .ng2-pagination li {\n    -moz-user-select: none;\n    -webkit-user-select: none;\n    -ms-user-select: none;\n    font-size: 0.875rem;\n    margin-right: 0.0625rem;\n    border-radius: 0; }\n  .ng2-pagination li {\n    display: inline-block; }\n  .ng2-pagination a,\n  .ng2-pagination button {\n    color: #0a0a0a; \n    display: block;\n    padding: 0.1875rem 0.625rem;\n    border-radius: 0; }\n    .ng2-pagination a:hover,\n    .ng2-pagination button:hover {\n      background: #e6e6e6; }\n  .ng2-pagination .current {\n    padding: 0.1875rem 0.625rem;\n    background: #2199e8;\n    color: #fefefe;\n    cursor: default; }\n  .ng2-pagination .disabled {\n    padding: 0.1875rem 0.625rem;\n    color: #cacaca;\n    cursor: default; } \n    .ng2-pagination .disabled:hover {\n      background: transparent; }\n  .ng2-pagination .ellipsis::after {\n    content: '\u2026';\n    padding: 0.1875rem 0.625rem;\n    color: #0a0a0a; }\n\n.ng2-pagination .pagination-previous a::before,\n.ng2-pagination .pagination-previous.disabled::before { \n  content: '\u00AB';\n  display: inline-block;\n  margin-right: 0.5rem; }\n\n.ng2-pagination .pagination-next a::after,\n.ng2-pagination .pagination-next.disabled::after {\n  content: '\u00BB';\n  display: inline-block;\n  margin-left: 0.5rem; }\n\n.ng2-pagination .show-for-sr {\n  position: absolute !important;\n  width: 1px;\n  height: 1px;\n  overflow: hidden;\n  clip: rect(0, 0, 0, 0); }";
-
-
-/***/ },
-
-/***/ 1349:
+/***/ 1350:
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -1208,8 +1239,8 @@ webpackJsonp([2],{
 	};
 	var core_1 = __webpack_require__(4);
 	var router_1 = __webpack_require__(26);
-	var search_component_1 = __webpack_require__(1350);
-	var search_resolver_1 = __webpack_require__(1365);
+	var search_component_1 = __webpack_require__(1351);
+	var search_resolver_1 = __webpack_require__(1366);
 	exports.routes = [
 	    { path: '', component: search_component_1.SearchComponent, resolve: { schools: search_resolver_1.SearchResolver } }
 	];
@@ -1230,7 +1261,7 @@ webpackJsonp([2],{
 
 /***/ },
 
-/***/ 1350:
+/***/ 1351:
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function($) {"use strict";
@@ -1245,14 +1276,13 @@ webpackJsonp([2],{
 	};
 	var core_1 = __webpack_require__(4);
 	var router_1 = __webpack_require__(26);
-	__webpack_require__(1351);
-	var customMap = __webpack_require__(1359);
-	var sliderpoint = __webpack_require__(1360);
+	__webpack_require__(1352);
+	var customMap = __webpack_require__(1360);
+	var sliderpoint = __webpack_require__(1361);
 	var SearchComponent = (function () {
 	    function SearchComponent(route, router) {
 	        this.route = route;
 	        this.router = router;
-	        this.schools = [];
 	    }
 	    SearchComponent.prototype.searchResult = function () {
 	    };
@@ -1275,7 +1305,7 @@ webpackJsonp([2],{
 	}());
 	SearchComponent = __decorate([
 	    core_1.Component({
-	        template: __webpack_require__(1361)
+	        template: __webpack_require__(1362)
 	    }),
 	    __metadata("design:paramtypes", [router_1.ActivatedRoute, router_1.Router])
 	], SearchComponent);
@@ -1285,7 +1315,7 @@ webpackJsonp([2],{
 
 /***/ },
 
-/***/ 1359:
+/***/ 1360:
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function($) {module.exports = function(_latitude, _longitude) {
@@ -1393,7 +1423,7 @@ webpackJsonp([2],{
 
 /***/ },
 
-/***/ 1360:
+/***/ 1361:
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function($) {module.exports = function() {
@@ -1413,35 +1443,35 @@ webpackJsonp([2],{
 
 /***/ },
 
-/***/ 1361:
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = "<div class=\"page-search\" id=\"page-top\">\n  <div id=\"page-content-search\">\n  <div class=\"container\">\n    <div class=\"wide_container_2\">\n      <div class=\"tabs\">\n        <header class=\"col-md-8 col-xs-12 no-pad\">\n          <div class=\"location-map col-sm-4 col-xs-4\">\n            <div class=\"input-group\">\n              <input type=\"text\" class=\"form-control\" id=\"address-map\" name=\"address\" placeholder=\"Manhattan, New York\">\n              <i class=\"fa fa-search\"></i>\n            </div>\n          </div>\n          <div class=\"select-block col-sm-2 col-xs-2\">\n            <select class=\"selection\">\n              <option>Beds</option>\n              <option>1</option>\n              <option>2</option>\n              <option>3</option>\n            </select>\n          </div>\n          <div class=\"select-block col-sm-2 col-xs-2 \">\n            <select class=\"selection\">\n              <option>Type</option>\n              <option>For Sale</option>\n              <option>For Rent</option>\n            </select>\n          </div>\n          <div class=\"select-block col-md-3 col-xs-4 last\">\n            <a class=\"options-button\" id=\"toggle-link\">More Filters</a>\n          </div>\n          <div class=\"options-overlay col-md-offset-4 col-sm-offset-5 col-sm-7\" id=\"hidden_content\" style=\"display: none;\">\n            <div class=\"row\">\n              <div class=\"col-xs-6 top-mrg\">\n                <div class=\"internal-container features\">\n                  <div class=\"form-group\">\n                    <label>Minimum Square Footage:</label>\n                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter an Amount\">\n                  </div>\n                  <label>Building Features:</label>\n                  <section class=\"block\">\n                    <section>\n                      <ul class=\"submit-features\">\n                        <li><div class=\"checkbox\"><label><input type=\"checkbox\">Elevator</label></div></li>\n                        <li><div class=\"checkbox\"><label><input type=\"checkbox\">Gym</label></div></li>\n                        <li><div class=\"checkbox\"><label><input type=\"checkbox\">Pool</label></div></li>\n                        <li><div class=\"checkbox\"><label><input type=\"checkbox\">Lorem Ipsum</label></div></li>\n                      </ul>\n                    </section>\n                  </section>\n                </div>\n              </div>\n              <div class=\"col-xs-6 top-mrg\">\n                <div class=\"internal-container features\">\n                  <label>Property Features:</label>\n                  <section class=\"block\">\n                    <section>\n                      <ul class=\"submit-features\">\n                        <li><div class=\"checkbox\"><label><input type=\"checkbox\">Air conditioning</label></div></li>\n                        <li><div class=\"checkbox\"><label><input type=\"checkbox\">Balcony</label></div></li>\n                        <li><div class=\"checkbox\"><label><input type=\"checkbox\">Garage Internet</label></div></li>\n                        <li><div class=\"checkbox\"><label><input type=\"checkbox\">Dishwasher</label></div></li>\n                        <li><div class=\"checkbox\"><label><input type=\"checkbox\">Washer Mashine</label></div></li>\n                        <li><div class=\"checkbox\"><label><input type=\"checkbox\">Some Lorem Ipsum</label></div></li>\n                      </ul>\n                    </section>\n                  </section>\n                </div>\n              </div>\n            </div>\n            </div><!-- options-overlay -->\n        </header><!-- end header -->\n        <search-tab></search-tab>\n        <!-- tab-links -->\n        <div class=\"tab-content\">\n          <div id=\"tab1\" class=\"tab\" style=\"display: block;\">\n            <div class=\"sidebar col-sm-4 col-xs-12\">\n              <!-- Map -->\n              <div id=\"map\"></div>\n              <!-- end Map -->\n            </div><!-- sidebar -->\n            <div class=\"content col-sm-8 col-xs-12\">\n              <!-- Range slider -->\n              <div class=\"col-xs-12\">\n                <div class=\"row\">\n                  <form method=\"post\">\n                    <div class=\"col-md-3 col-sm-4\">\n                      <div class=\"form-inline\">\n                        <label class=\"top-indent\">Price Range:</label>\n                      </div>\n                    </div>\n                    <div class=\"col-md-9 col-sm-8\">\n                      <div class=\"form-group\">\n                        <div class=\"price-range price-range-wrapper\">\n                          <input class=\"price-input\" type=\"text\" name=\"price\" value=\"0;5000000\">\n                        </div>\n                      </div>\n                    </div>\n                  </form>\n                </div><!-- row -->\n              </div>\t<!-- explore_grid -->\n              <!-- End Range slider -->\n\n              <div class=\"wide-2\">\n                <div class=\"col-xs-12\">\n                  <div class=\"row\">\n                    <div class=\"col-md-4 col-sm-6 col-xs-6 prop\" *ngFor=\" let school of schools | paginate: { itemsPerPage: 9, currentPage: p }\">\n                      <div class=\"wht-cont\">\n                        <!-- <div class=\"exp-img-2\" style=\"background:url({{school.image}}) center;background-size: cover;\"> -->\n                        <!-- 'url(https://res.cloudinary.com/peictt/image/upload/w_175,h_125/'+pic.url+'.jpg)' -->\n                        <div class=\"exp-img-2\" [ngStyle]=\"{'background-image':'url(https://res.cloudinary.com/peictt/image/upload/w_200/'+school.pictures[0].url+'.jpg)','background-position': 'center','background-size': 'cover'}\">\n                          <span class=\"filter\"></span>\n                          <span class=\"ffs-bs\"><label for=\"op\" class=\"btn btn-small btn-primary\">Details</label></span>\n                          <div class=\"overlay\">\n                            <div class=\"img-counter\">&nbsp;</div>\n                          </div>\n                        </div>\n                        <div class=\"item-title\">\n                          <h4><a [routerLink]='[\"/school\", school.id]'>{{school.name}}</a></h4>\n                          <p class=\"team-color\">{{school.address}}</p>\n                          <div class=\"col-md-7 col-sm-7 col-xs-7\">\n                            <p>{{7}} classrooms</p>\n                          </div>\n                        </div>\n                        <hr>\n                        <div class=\"item-title btm-part\">\n                          <div class=\"row\">\n                            <div class=\"col-md-8 col-sm-8 col-xs-8\">\n                              <p>&nbsp;</p>\n                            </div>\n                          </div>\n                        </div>\n                      </div>\n                    </div>\n                  </div><!-- end row -->\n                </div><!-- end container -->\n                <pagination-controls (pageChange)=\"p = $event\"></pagination-controls>\n                <!-- <div class=\"col-xs-12 content_2 top-indent\">\n                  <nav class=\"site-navigation paging-navigation navbar\">\n                    <div class=\"nav-previous\"><a href=\"#\">PREV PAGE</a></div>\n                    <ul class=\"pagination pagination-lg\">\n                      <li><a href=\"#\">1</a></li>\n                      <li><span class=\"active\">2</span></li>\n                      <li><a href=\"#\">3</a></li>\n                      <li><span class=\"nav-dots\">...</span></li>\n                      <li><a href=\"#\">5</a></li>\n                    </ul>\n                    <div class=\"nav-next\"><a href=\"#\">NEXT PAGE</a></div>\n                  </nav>\n                </div> -->\n              </div>\t<!-- end wide-2 -->\n            </div>\t<!-- content -->\n          </div>\n          <div id=\"tab2\" class=\"tab\">\n            <div class=\"col-xs-12 content_2\">\n              <div class=\"col-md-10 col-md-offset-1\">\n                <!-- Range slider -->\n                <div class=\"explore_grid\">\n                  <div class=\"row\">\n                    <div class=\"explore col-xs-12\">\n                      <h2>Properties for rent</h2>\n                      <h5 class=\"team-color col-sm-offset-3 col-sm-6 col-xs-offset-1 col-xs-10\">Lorem Ipsum is simply dummy text of the printing and Lorem Ipsum has been the industry's standard </h5>\n                    </div>\n                    <form method=\"post\">\n                      <div class=\"col-md-2 col-sm-3\">\n                        <div class=\"form-inline\">\n                          <label class=\"top-indent\">Price Range:</label>\n                        </div>\n                      </div>\n                      <div class=\"col-md-8 col-sm-7\">\n                        <div class=\"form-group\">\n                          <div class=\"price-range price-range-wrapper\"></div>\n                        </div>\n                      </div>\n                      <div class=\"select-block no-border pull-right col-sm-2 col-xs-12\">\n                        <select class=\"selection\">\n                          <option>Sort By:</option>\n                          <option>Date</option>\n                          <option>Price</option>\n                          <option>Type</option>\n                        </select>\n                      </div>\t<!-- select-block -->\n                    </form>\n                  </div><!-- row -->\n                </div>\n                <!-- End Range slider -->\n                <div class=\"wide-2\">\n                  <div class=\"row\">\n                    <div class=\"col-md-3 col-sm-3 col-xs-6 prop\" *ngFor=\"let school of schools\">\n                      <div class=\"wht-cont\">\n                        <div class=\"exp-img-2\" [ngStyle]=\"{'background-image':'url(' + school.image + ')','background-position': 'center','background-size': 'cover'}\">\n                          <span class=\"filter\"></span>\n                          <span class=\"ffs-bs\"><label for=\"op\" class=\"btn btn-small btn-primary\">Details</label></span>\n                          <div class=\"overlay\">\n                            <div class=\"img-counter\">&nbsp;</div>\n                          </div>\n                        </div>\n                        <div class=\"item-title\">\n                          <h4><a href=\"property_page.html\">{{school.name}}</a></h4>\n                          <p class=\"team-color\">{{school.address}}</p>\n                          <div class=\"col-md-7 col-sm-7 col-xs-7\">\n                            <p>{{7}} classrooms</p>\n                          </div>\n                          <div class=\"col-md-5 col-sm-5 col-xs-5\">\n                            <p>&nbsp;</p>\n                          </div>\n                        </div>\n                        <hr>\n                        <div class=\"item-title btm-part\">\n                          <div class=\"row\">\n                            <div class=\"col-md-8 col-sm-8 col-xs-8\">\n                              <p>&nbsp;</p>\n                            </div>\n                          </div>\n                        </div>\n                      </div>\n                    </div>\n                  </div>\n                </div>\n                <!-- content_2 -->\n              </div>\n            </div>\n            <div class=\"col-xs-12\">\n              <div class=\"col-md-10 col-md-offset-1 col-xs-12\">\n                <nav class=\"site-navigation paging-navigation navbar\">\n                  <div class=\"nav-previous\"><a href=\"#\">PREV PAGE</a></div>\n                  <ul class=\"pagination pagination-lg\">\n                    <li><a href=\"#\">1</a></li>\n                    <li><span class=\"active\">2</span></li>\n                    <li><a href=\"#\">3</a></li>\n                    <li><span class=\"nav-dots\">...</span></li>\n                    <li><a href=\"#\">5</a></li>\n                  </ul>\n                  <div class=\"nav-next\"><a href=\"#\">NEXT PAGE</a></div>\n                </nav>\n              </div>\n            </div>\n          </div>\n          <div id=\"tab3\" class=\"tab\">\n            <div class=\"col-xs-12 content_2\">\n              <div class=\"col-lg-10 col-lg-offset-1 col-md-12\">\n                <!-- Range slider -->\n                <div class=\"row\">\n                  <div class=\"explore col-xs-12\">\n                    <h2>Properties for sale</h2>\n                    <h5 class=\"team-color col-sm-offset-3 col-sm-6 col-xs-offset-1 col-xs-10\">Lorem Ipsum is simply dummy text of the printing and Lorem Ipsum has been the industry's standard </h5>\n                  </div>\n                  <form method=\"post\">\n                    <div class=\"col-md-2 col-sm-3\">\n                      <div class=\"form-inline\">\n                        <label class=\"top-indent\">Price Range:</label>\n                      </div>\n                    </div>\n                    <div class=\"col-md-8 col-sm-7\">\n                      <div class=\"form-group\">\n                        <div class=\"price-range price-range-wrapper\"></div>\n                      </div>\n                    </div>\n                    <div class=\"select-block no-border pull-right col-sm-2 col-xs-12\">\n                      <select class=\"selection\">\n                        <option>Sort By:</option>\n                        <option>Date</option>\n                        <option>Price</option>\n                        <option>Type</option>\n                      </select>\n                    </div>\t<!-- select-block -->\n                  </form>\n                </div><!-- row -->\n                <!-- End Range slider -->\n                <div class=\"wide-2\">\n                  <div class=\"row white\" *ngFor=\"let school of schools\">\n                    <div class=\"col-md-3 col-sm-3 prp-img\">\n                      <div class=\"exp-img-2\" [ngStyle]=\"{'background-image':'url(' + school.image + ')','background-position': 'center','background-size': 'cover'}\">\n                        <span class=\"filter\"></span>\n                        <span class=\"ffs-bs\"><label for=\"op\" class=\"btn btn-small btn-primary\">Details</label></span>\n                        <div class=\"overlay\">\n                          <div class=\"img-counter\">&nbsp;</div>\n                        </div>\n                      </div>\n                    </div>\n                    <div class=\"item-info col-lg-7 col-md-6 col-sm-6\">\n                      <h4><a href=\"property_page.html\">{{school.name}}</a></h4>\n                      <p class=\"team-color\">{{school.address}}</p>\n                      <div class=\"block\">\n                        <div class=\"col-md-3 col-sm-3 col-xs-3 cat-img\">\n                          <img src=\"" + __webpack_require__(1362) + "\" alt=\"\">\n                          <p class=\"info-line\">{{school.classrooms}} classrooms</p>\n                        </div>\n                        <div class=\"col-md-3 col-sm-3 col-xs-3 cat-img\">\n                          <img src=\"" + __webpack_require__(1363) + "\" alt=\"\">\n                          <p class=\"info-line\">1 Bathroom</p>\n                        </div>\n                        <div class=\"col-md-3 col-sm-3 col-xs-3 cat-img\">\n                          <img src=\"" + __webpack_require__(1333) + "\" alt=\"\">\n                          <p class=\"info-line\">100 m<span class=\"rank\">2</span></p>\n                        </div>\n                        <div class=\"col-md-3 col-sm-3 col-xs-3 cat-img\">\n                          <img src=\"" + __webpack_require__(1364) + "\" alt=\"\">\n                          <p class=\"info-line\">1 Garage</p>\n                        </div>\n                      </div>\n                      <div class=\"col-md-3 col-sm-3 col-xs-3 line\"></div>\n                      <div class=\"col-md-3 col-sm-3 col-xs-3 line\"></div>\n                      <div class=\"col-md-3 col-sm-3 col-xs-3 line\"></div>\n                      <div class=\"col-md-3 col-sm-3 col-xs-3 line\"></div>\n                      <hr>\n                      <p>Aenean quis sem nisi. Aliquam vehicula gravida orci, nec pretium mi ultricies in. Donec fermentum pulvinar mauris neque justo ...</p>\n                    </div>\n                    <div class=\"item-price col-lg-2 col-md-3 col-sm-3 col-xs-12\">\n                      <div class=\"sum col-sm-12 col-xs-6\">\n                        <p>&nbsp;</p>\n                        <!-- <p class=\"team-color\">for rent</p> -->\n                      </div>\n                      <span class=\"ffs-bs col-xs-12 btn-half-wth\"><a href=\"property_page.html\" class=\"btn btn-default btn-small\">Details<i class=\"fa fa-caret-right\"></i></a></span>\n                    </div>\n                  </div>\n                </div>\n                <!-- end wide-2 -->\n              </div>\n            </div>\n            <div class=\"col-xs-12\">\n              <div class=\"col-md-10 col-md-offset-1 col-xs-12\">\n                <nav class=\"site-navigation paging-navigation navbar\">\n                  <div class=\"nav-previous\"><a href=\"#\">PREV PAGE</a></div>\n                  <ul class=\"pagination pagination-lg\">\n                    <li><a href=\"#\">1</a></li>\n                    <li><span class=\"active\">2</span></li>\n                    <li><a href=\"#\">3</a></li>\n                    <li><span class=\"nav-dots\">...</span></li>\n                    <li><a href=\"#\">5</a></li>\n                  </ul>\n                  <div class=\"nav-next\"><a href=\"#\">NEXT PAGE</a></div>\n                </nav>\n              </div>\n            </div>\n          </div>\n        </div><!-- tab-content -->\n      </div><!-- tabs -->\n    </div>\n  </div>\n</div><!-- end Page Content -->\n</div>\n";
-
-/***/ },
-
 /***/ 1362:
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "assets/bedroom.c496321d6377ba6bd6927264661b23c7.png";
+	module.exports = "<div class=\"page-search\" id=\"page-top\">\n  <div id=\"page-content-search\">\n  <div class=\"container\">\n    <div class=\"wide_container_2\">\n      <div class=\"tabs\">\n        <header class=\"col-md-8 col-xs-12 no-pad\">\n          <div class=\"location-map col-sm-6 col-xs-6\">\n            <div class=\"input-group\">\n              <input type=\"text\" class=\"form-control\" id=\"address-map\" name=\"address\" placeholder=\"Manhattan, New York\">\n              <i class=\"fa fa-search\"></i>\n            </div>\n          </div>\n        </header><!-- end header -->\n        <search-tab></search-tab>\n        <!-- tab-links -->\n        <div class=\"tab-content\">\n          <div id=\"tab1\" class=\"tab\" style=\"display: block;\">\n            <div class=\"sidebar col-sm-4 col-xs-12\">\n              <!-- Map -->\n              <div id=\"map\"></div>\n              <!-- end Map -->\n            </div><!-- sidebar -->\n            <div class=\"content col-sm-8 col-xs-12\">\n              <!-- Range slider -->\n              <div class=\"col-xs-12\">\n                <div class=\"row\">\n                  <form method=\"post\">\n                    <div class=\"col-md-3 col-sm-4\">\n                      <div class=\"form-inline\">\n                        <label class=\"top-indent\">Price Range:</label>\n                      </div>\n                    </div>\n                    <div class=\"col-md-9 col-sm-8\">\n                      <div class=\"form-group\">\n                        <div class=\"price-range price-range-wrapper\">\n                          <input class=\"price-input\" type=\"text\" name=\"price\" value=\"0;5000000\">\n                        </div>\n                      </div>\n                    </div>\n                  </form>\n                </div><!-- row -->\n              </div>\t<!-- explore_grid -->\n              <!-- End Range slider -->\n\n              <div class=\"wide-2\">\n                <paginate-search [schools]=\"schools\"></paginate-search>\n              </div>\t<!-- end wide-2 -->\n            </div>\t<!-- content -->\n          </div>\n          <div id=\"tab2\" class=\"tab\">\n            <div class=\"col-xs-12 content_2\">\n              <div class=\"col-md-10 col-md-offset-1\">\n                <!-- Range slider -->\n                <div class=\"explore_grid\">\n                  <div class=\"row\">\n                    <div class=\"explore col-xs-12\">\n                      <h2>Properties for rent</h2>\n                      <h5 class=\"team-color col-sm-offset-3 col-sm-6 col-xs-offset-1 col-xs-10\">Lorem Ipsum is simply dummy text of the printing and Lorem Ipsum has been the industry's standard </h5>\n                    </div>\n                    <form method=\"post\">\n                      <div class=\"col-md-2 col-sm-3\">\n                        <div class=\"form-inline\">\n                          <label class=\"top-indent\">Price Range:</label>\n                        </div>\n                      </div>\n                      <div class=\"col-md-8 col-sm-7\">\n                        <div class=\"form-group\">\n                          <div class=\"price-range price-range-wrapper\"></div>\n                        </div>\n                      </div>\n                      <div class=\"select-block no-border pull-right col-sm-2 col-xs-12\">\n                        <select class=\"selection\">\n                          <option>Sort By:</option>\n                          <option>Date</option>\n                          <option>Price</option>\n                          <option>Type</option>\n                        </select>\n                      </div>\t<!-- select-block -->\n                    </form>\n                  </div><!-- row -->\n                </div>\n                <!-- End Range slider -->\n                <div class=\"wide-2\">\n                  <div class=\"row\">\n                    <div class=\"col-md-3 col-sm-3 col-xs-6 prop\" *ngFor=\"let school of schools\">\n                      <div class=\"wht-cont\">\n                        <div class=\"exp-img-2\" [ngStyle]=\"{'background-image':'url(' + school.image + ')','background-position': 'center','background-size': 'cover'}\">\n                          <span class=\"filter\"></span>\n                          <span class=\"ffs-bs\"><label for=\"op\" class=\"btn btn-small btn-primary\">Details</label></span>\n                          <div class=\"overlay\">\n                            <div class=\"img-counter\">&nbsp;</div>\n                          </div>\n                        </div>\n                        <div class=\"item-title\">\n                          <h4><a href=\"property_page.html\">{{school.name}}</a></h4>\n                          <p class=\"team-color\">{{school.address}}</p>\n                          <div class=\"col-md-7 col-sm-7 col-xs-7\">\n                            <p>{{7}} classrooms</p>\n                          </div>\n                          <div class=\"col-md-5 col-sm-5 col-xs-5\">\n                            <p>&nbsp;</p>\n                          </div>\n                        </div>\n                        <hr>\n                        <div class=\"item-title btm-part\">\n                          <div class=\"row\">\n                            <div class=\"col-md-8 col-sm-8 col-xs-8\">\n                              <p>&nbsp;</p>\n                            </div>\n                          </div>\n                        </div>\n                      </div>\n                    </div>\n                  </div>\n                </div>\n                <!-- content_2 -->\n              </div>\n            </div>\n            <div class=\"col-xs-12\">\n              <div class=\"col-md-10 col-md-offset-1 col-xs-12\">\n                <nav class=\"site-navigation paging-navigation navbar\">\n                  <div class=\"nav-previous\"><a href=\"#\">PREV PAGE</a></div>\n                  <ul class=\"pagination pagination-lg\">\n                    <li><a href=\"#\">1</a></li>\n                    <li><span class=\"active\">2</span></li>\n                    <li><a href=\"#\">3</a></li>\n                    <li><span class=\"nav-dots\">...</span></li>\n                    <li><a href=\"#\">5</a></li>\n                  </ul>\n                  <div class=\"nav-next\"><a href=\"#\">NEXT PAGE</a></div>\n                </nav>\n              </div>\n            </div>\n          </div>\n          <div id=\"tab3\" class=\"tab\">\n            <div class=\"col-xs-12 content_2\">\n              <div class=\"col-lg-10 col-lg-offset-1 col-md-12\">\n                <!-- Range slider -->\n                <div class=\"row\">\n                  <div class=\"explore col-xs-12\">\n                    <h2>Properties for sale</h2>\n                    <h5 class=\"team-color col-sm-offset-3 col-sm-6 col-xs-offset-1 col-xs-10\">Lorem Ipsum is simply dummy text of the printing and Lorem Ipsum has been the industry's standard </h5>\n                  </div>\n                  <form method=\"post\">\n                    <div class=\"col-md-2 col-sm-3\">\n                      <div class=\"form-inline\">\n                        <label class=\"top-indent\">Price Range:</label>\n                      </div>\n                    </div>\n                    <div class=\"col-md-8 col-sm-7\">\n                      <div class=\"form-group\">\n                        <div class=\"price-range price-range-wrapper\"></div>\n                      </div>\n                    </div>\n                    <div class=\"select-block no-border pull-right col-sm-2 col-xs-12\">\n                      <select class=\"selection\">\n                        <option>Sort By:</option>\n                        <option>Date</option>\n                        <option>Price</option>\n                        <option>Type</option>\n                      </select>\n                    </div>\t<!-- select-block -->\n                  </form>\n                </div><!-- row -->\n                <!-- End Range slider -->\n                <div class=\"wide-2\">\n                  <div class=\"row white\" *ngFor=\"let school of schools\">\n                    <div class=\"col-md-3 col-sm-3 prp-img\">\n                      <div class=\"exp-img-2\" [ngStyle]=\"{'background-image':'url(' + school.image + ')','background-position': 'center','background-size': 'cover'}\">\n                        <span class=\"filter\"></span>\n                        <span class=\"ffs-bs\"><label for=\"op\" class=\"btn btn-small btn-primary\">Details</label></span>\n                        <div class=\"overlay\">\n                          <div class=\"img-counter\">&nbsp;</div>\n                        </div>\n                      </div>\n                    </div>\n                    <div class=\"item-info col-lg-7 col-md-6 col-sm-6\">\n                      <h4><a href=\"property_page.html\">{{school.name}}</a></h4>\n                      <p class=\"team-color\">{{school.address}}</p>\n                      <div class=\"block\">\n                        <div class=\"col-md-3 col-sm-3 col-xs-3 cat-img\">\n                          <img src=\"" + __webpack_require__(1363) + "\" alt=\"\">\n                          <p class=\"info-line\">{{school.classrooms}} classrooms</p>\n                        </div>\n                        <div class=\"col-md-3 col-sm-3 col-xs-3 cat-img\">\n                          <img src=\"" + __webpack_require__(1364) + "\" alt=\"\">\n                          <p class=\"info-line\">1 Bathroom</p>\n                        </div>\n                        <div class=\"col-md-3 col-sm-3 col-xs-3 cat-img\">\n                          <img src=\"" + __webpack_require__(1333) + "\" alt=\"\">\n                          <p class=\"info-line\">100 m<span class=\"rank\">2</span></p>\n                        </div>\n                        <div class=\"col-md-3 col-sm-3 col-xs-3 cat-img\">\n                          <img src=\"" + __webpack_require__(1365) + "\" alt=\"\">\n                          <p class=\"info-line\">1 Garage</p>\n                        </div>\n                      </div>\n                      <div class=\"col-md-3 col-sm-3 col-xs-3 line\"></div>\n                      <div class=\"col-md-3 col-sm-3 col-xs-3 line\"></div>\n                      <div class=\"col-md-3 col-sm-3 col-xs-3 line\"></div>\n                      <div class=\"col-md-3 col-sm-3 col-xs-3 line\"></div>\n                      <hr>\n                      <p>Aenean quis sem nisi. Aliquam vehicula gravida orci, nec pretium mi ultricies in. Donec fermentum pulvinar mauris neque justo ...</p>\n                    </div>\n                    <div class=\"item-price col-lg-2 col-md-3 col-sm-3 col-xs-12\">\n                      <div class=\"sum col-sm-12 col-xs-6\">\n                        <p>&nbsp;</p>\n                        <!-- <p class=\"team-color\">for rent</p> -->\n                      </div>\n                      <span class=\"ffs-bs col-xs-12 btn-half-wth\"><a href=\"property_page.html\" class=\"btn btn-default btn-small\">Details<i class=\"fa fa-caret-right\"></i></a></span>\n                    </div>\n                  </div>\n                </div>\n                <!-- end wide-2 -->\n              </div>\n            </div>\n            <div class=\"col-xs-12\">\n              <div class=\"col-md-10 col-md-offset-1 col-xs-12\">\n                <nav class=\"site-navigation paging-navigation navbar\">\n                  <div class=\"nav-previous\"><a href=\"#\">PREV PAGE</a></div>\n                  <ul class=\"pagination pagination-lg\">\n                    <li><a href=\"#\">1</a></li>\n                    <li><span class=\"active\">2</span></li>\n                    <li><a href=\"#\">3</a></li>\n                    <li><span class=\"nav-dots\">...</span></li>\n                    <li><a href=\"#\">5</a></li>\n                  </ul>\n                  <div class=\"nav-next\"><a href=\"#\">NEXT PAGE</a></div>\n                </nav>\n              </div>\n            </div>\n          </div>\n        </div><!-- tab-content -->\n      </div><!-- tabs -->\n    </div>\n  </div>\n</div><!-- end Page Content -->\n</div>\n";
 
 /***/ },
 
 /***/ 1363:
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "assets/bathroom.66307b55d228fe57f9b66b89dcaf186d.png";
+	module.exports = __webpack_require__.p + "assets/bedroom.c496321d6377ba6bd6927264661b23c7.png";
 
 /***/ },
 
 /***/ 1364:
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "assets/garage.29899ae6251b5e282bbf9144627f9a43.png";
+	module.exports = __webpack_require__.p + "assets/bathroom.66307b55d228fe57f9b66b89dcaf186d.png";
 
 /***/ },
 
 /***/ 1365:
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "assets/garage.29899ae6251b5e282bbf9144627f9a43.png";
+
+/***/ },
+
+/***/ 1366:
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -1469,7 +1499,7 @@ webpackJsonp([2],{
 	        for (var p in params) {
 	            processedParams.push(p + "=" + params[p]);
 	        }
-	        // console.log(processedParams.join('&'));
+	        console.log(processedParams.join('&'));
 	        return this.schService.searchSchools(processedParams.join("&")).map(function (res) { return res; }).catch(function (err) { return _this.router.navigate['/404']; });
 	    };
 	    return SearchResolver;
@@ -1483,7 +1513,7 @@ webpackJsonp([2],{
 
 /***/ },
 
-/***/ 1366:
+/***/ 1367:
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -1497,7 +1527,7 @@ webpackJsonp([2],{
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var core_1 = __webpack_require__(4);
-	var chkbox = __webpack_require__(1367);
+	var chkbox = __webpack_require__(1368);
 	var SearchTabs = (function () {
 	    function SearchTabs() {
 	    }
@@ -1509,7 +1539,7 @@ webpackJsonp([2],{
 	SearchTabs = __decorate([
 	    core_1.Component({
 	        selector: 'search-tab',
-	        template: __webpack_require__(1368)
+	        template: __webpack_require__(1369)
 	    }),
 	    __metadata("design:paramtypes", [])
 	], SearchTabs);
@@ -1518,7 +1548,7 @@ webpackJsonp([2],{
 
 /***/ },
 
-/***/ 1367:
+/***/ 1368:
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function($) {module.exports = function() {
@@ -1556,17 +1586,65 @@ webpackJsonp([2],{
 
 /***/ },
 
-/***/ 1368:
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = "<ul class=\"tab-links col-md-4 col-xs-12\">\n\t<li class=\"col-lg-3 col-lg-offset-2 col-md-4 col-xs-4 no-pad active\"><a data-target=\"#tab1\" data-toggle='tab' class=\"map2\"><img src=\"" + __webpack_require__(1340) + "\" alt=\"\"/>Map</a></li>\n\t<li class=\"col-lg-3 col-md-4 col-xs-4 no-pad\"><a data-toggle='tab' data-target=\"#tab2\"><img src=\"" + __webpack_require__(1369) + "\" alt=\"\"/>Grig</a></li>\n\t<li class=\"col-lg-3 col-md-4 col-xs-4 bdr-rgh no-pad\"><a data-target=\"#tab3\" data-toggle=\"tab\"><i class=\"fa fa-th-list\"></i>List</a></li>\n</ul>";
-
-/***/ },
-
 /***/ 1369:
 /***/ function(module, exports, __webpack_require__) {
 
+	module.exports = "<ul class=\"tab-links col-md-4 col-xs-12\">\n\t<li class=\"col-lg-3 col-lg-offset-2 col-md-4 col-xs-4 no-pad active\"><a data-target=\"#tab1\" data-toggle='tab' class=\"map2\"><img src=\"" + __webpack_require__(1340) + "\" alt=\"\"/>Map</a></li>\n\t<li class=\"col-lg-3 col-md-4 col-xs-4 no-pad\"><a data-toggle='tab' data-target=\"#tab2\"><img src=\"" + __webpack_require__(1370) + "\" alt=\"\"/>Grig</a></li>\n\t<li class=\"col-lg-3 col-md-4 col-xs-4 bdr-rgh no-pad\"><a data-target=\"#tab3\" data-toggle=\"tab\"><i class=\"fa fa-th-list\"></i>List</a></li>\n</ul>";
+
+/***/ },
+
+/***/ 1370:
+/***/ function(module, exports, __webpack_require__) {
+
 	module.exports = __webpack_require__.p + "assets/grid.b43601d4224763a1dd43422e95a6dd7a.png";
+
+/***/ },
+
+/***/ 1371:
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	};
+	var __metadata = (this && this.__metadata) || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var core_1 = __webpack_require__(4);
+	var PaginateSearch = (function () {
+	    function PaginateSearch() {
+	        this.config = {
+	            id: 'custom',
+	            itemsPerPage: 1,
+	            currentPage: 1
+	        };
+	    }
+	    return PaginateSearch;
+	}());
+	__decorate([
+	    core_1.Input(),
+	    __metadata("design:type", Array)
+	], PaginateSearch.prototype, "schools", void 0);
+	PaginateSearch = __decorate([
+	    core_1.Component({
+	        selector: 'paginate-search',
+	        template: __webpack_require__(1372),
+	        changeDetection: core_1.ChangeDetectionStrategy.OnPush
+	    }),
+	    __metadata("design:paramtypes", [])
+	], PaginateSearch);
+	exports.PaginateSearch = PaginateSearch;
+
+
+/***/ },
+
+/***/ 1372:
+/***/ function(module, exports) {
+
+	module.exports = "<div class=\"col-xs-12\">\n\t<div class=\"row\">\n\t\t<div class=\"col-md-4 col-sm-6 col-xs-6 prop\" *ngFor=\" let school of schools | paginate: config\">\n\t\t\t<div class=\"wht-cont\">\n\t\t\t\t<!-- <div class=\"exp-img-2\" style=\"background:url({{school.image}}) center;background-size: cover;\"> -->\n\t\t\t\t<!-- 'url(https://res.cloudinary.com/peictt/image/upload/w_175,h_125/'+pic.url+'.jpg)' -->\n\t\t\t\t<div class=\"exp-img-2\" [ngStyle]=\"{'background-image':'url(https://res.cloudinary.com/peictt/image/upload/w_200/'+school.pictures[0].url+'.jpg)','background-position': 'center','background-size': 'cover'}\">\n\t\t\t\t\t<span class=\"filter\"></span>\n\t\t\t\t\t<span class=\"ffs-bs\"><label for=\"op\" class=\"btn btn-small btn-primary\">Details</label></span>\n\t\t\t\t\t<div class=\"overlay\">\n\t\t\t\t\t\t<div class=\"img-counter\">&nbsp;</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"item-title\">\n\t\t\t\t\t<h4><a [routerLink]='[\"/school\", school.id]'>{{school.name}}</a></h4>\n\t\t\t\t\t<p class=\"team-color\">{{school.address}}</p>\n\t\t\t\t\t<div class=\"col-md-7 col-sm-7 col-xs-7\">\n\t\t\t\t\t\t<p>{{7}} classrooms</p>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<hr>\n\t\t\t\t<div class=\"item-title btm-part\">\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-md-8 col-sm-8 col-xs-8\">\n\t\t\t\t\t\t\t<p>&nbsp;</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div><!-- end row -->\n</div><!-- end container -->\n<pagination-template #p=\"paginationApi\" [id]=\"config.id\" (pageChange)=\"config.currentPage = $event\">\n\t<nav class=\"site-navigation paging-navigation navbar\">\n\t\t<div class=\"nav-previous\" [class.disabled]=\"p.isFirstPage()\">\n\t\t\t<a *ngIf=\"!p.isFirstPage()\" (click)=\"p.previous()\">PREV PAGE</a>\n\t\t</div>\n\t\t<ul class=\"pagination pagination-lg\">\n\t\t\t<li *ngFor=\"let page of p.pages\" [class.active]=\"p.getCurrent() === page.value\">\n\t\t\t\t<a (click)=\"p.setCurrent(page.value)\" *ngIf=\"p.getCurrent() !== page.value\">{{page.value}}</a>\n\t\t\t</li>\n\t\t</ul>\n\t\t<div class=\"nav-next\" [class.disabled]=\"p.isLastPage()\">\n\t\t\t<a *ngIf=\"!p.isLastPage()\" (click)=\"p.next()\">NEXT PAGE</a>\n\t\t</div>\n\t</nav>\n</pagination-template>";
 
 /***/ }
 

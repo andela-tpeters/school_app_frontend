@@ -55,7 +55,7 @@
     "microplugin": "0.0.3",
     "morgan": "^1.7.0",
     "ng2-cloudinary-peictt": "^0.1.0",
-    "ng2-pagination": "^0.5.1",
+    "ng2-pagination": "^1.0.1",
     "owl.carousel": "^2.2.0",
     "raty-js": "^2.7.1",
     "reflect-metadata": "^0.1.8",

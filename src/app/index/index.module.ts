@@ -7,9 +7,10 @@ import { IndexComponent } from "./index.component";
 import { SchoolService } from "../services/schools.service";
 import { OwlCarouselDirective } from "../directives/owl-carousel-index/owl-carousel.index";
 import { SearchDirective } from "../directives/search-index/search-directive.component";
+import { SimpleNotificationsModule } from "angular2-notifications";
 
 @NgModule({
-  imports: [ IndexRoutingModule, CommonModule, BrowserModule, FormsModule ],
+  imports: [ IndexRoutingModule, CommonModule, BrowserModule, FormsModule, SimpleNotificationsModule ],
   declarations: [ IndexComponent, OwlCarouselDirective, SearchDirective ],
   providers: [ SchoolService ]
 })

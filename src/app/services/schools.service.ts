@@ -42,6 +42,6 @@ export class SchoolService {
 
   searchSchools(params: any): Observable<any> {
     console.log('Searching!.....');
-    return this.http.get(GetSchoolUrl + "?" + params, this.options).map((res) => console.log(res.json())).catch((err) => this.handleError(err));
+    return this.http.get(GetSchoolUrl + "?" + params, this.options).map((res) => res.json()).catch((err) => this.handleError(err));
   }
 }

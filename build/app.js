@@ -57,21 +57,21 @@ webpackJsonp([0],[
 	var common_2 = __webpack_require__(23);
 	var platform_browser_1 = __webpack_require__(22);
 	var app_routing_module_1 = __webpack_require__(25);
-	var forms_1 = __webpack_require__(1370);
+	var forms_1 = __webpack_require__(1373);
 	var http_1 = __webpack_require__(60);
-	var app_component_1 = __webpack_require__(1371);
-	var index_module_1 = __webpack_require__(1373);
-	var header_component_1 = __webpack_require__(1381);
-	var login_component_1 = __webpack_require__(1386);
-	var registration_component_1 = __webpack_require__(1398);
-	var footer_component_1 = __webpack_require__(1402);
-	var new_school_module_1 = __webpack_require__(1408);
-	var all_school_module_1 = __webpack_require__(1421);
-	var about_module_1 = __webpack_require__(1425);
-	var contact_module_1 = __webpack_require__(1429);
-	var registration_service_1 = __webpack_require__(1400);
-	var _404_module_1 = __webpack_require__(1433);
-	var angular2_notifications_1 = __webpack_require__(1387);
+	var app_component_1 = __webpack_require__(1374);
+	var index_module_1 = __webpack_require__(1376);
+	var header_component_1 = __webpack_require__(1393);
+	var login_component_1 = __webpack_require__(1398);
+	var registration_component_1 = __webpack_require__(1401);
+	var footer_component_1 = __webpack_require__(1405);
+	var new_school_module_1 = __webpack_require__(1411);
+	var all_school_module_1 = __webpack_require__(1424);
+	var about_module_1 = __webpack_require__(1428);
+	var contact_module_1 = __webpack_require__(1432);
+	var registration_service_1 = __webpack_require__(1403);
+	var _404_module_1 = __webpack_require__(1436);
+	var angular2_notifications_1 = __webpack_require__(1383);
 	var AppModule = (function () {
 	    function AppModule() {
 	    }
@@ -124,7 +124,7 @@ webpackJsonp([0],[
 	    { path: "", redirectTo: "index", pathMatch: "full" },
 	    { path: "index", component: index_component_1.IndexComponent },
 	    { path: 'school/:id', loadChildren: function () { return new Promise(function (resolve) { __webpack_require__.e/* nsure */(1, function (require) { resolve(__webpack_require__(1323)['SingleSchoolModule']); }); }); } },
-	    { path: 'search/:q/:state/:lga', loadChildren: function () { return new Promise(function (resolve) { __webpack_require__.e/* nsure */(2, function (require) { resolve(__webpack_require__(1342)['SearchModule']); }); }); } }
+	    { path: 'search/:q/:schtype/:lga', loadChildren: function () { return new Promise(function (resolve) { __webpack_require__.e/* nsure */(2, function (require) { resolve(__webpack_require__(1342)['SearchModule']); }); }); } }
 	];
 	var AppRoutingModule = (function () {
 	    function AppRoutingModule() {
@@ -287,7 +287,7 @@ webpackJsonp([0],[
 	    SchoolService.prototype.searchSchools = function (params) {
 	        var _this = this;
 	        console.log('Searching!.....');
-	        return this.http.get(app_constants_1.GetSchoolUrl + "?" + params, this.options).map(function (res) { return console.log(res.json()); }).catch(function (err) { return _this.handleError(err); });
+	        return this.http.get(app_constants_1.GetSchoolUrl + "?" + params, this.options).map(function (res) { return res.json(); }).catch(function (err) { return _this.handleError(err); });
 	    };
 	    return SchoolService;
 	}());
@@ -70702,6 +70702,18 @@ webpackJsonp([0],[
 	            }
 	        }
 	    };
+	    Utils.prototype.validateSearchModel = function (body) {
+	        var validation = true;
+	        var errors = [];
+	        if (body.q.length <= 0 && body.schtype.length <= 0 && body.lga.length <= 0) {
+	            validation = false;
+	            errors.push("Please provide at least one criterium for search");
+	        }
+	        return {
+	            isCorrect: validation,
+	            errors: errors
+	        };
+	    };
 	    return Utils;
 	}());
 	exports.Utils = Utils;
@@ -70811,7 +70823,10 @@ webpackJsonp([0],[
 /* 1367 */,
 /* 1368 */,
 /* 1369 */,
-/* 1370 */
+/* 1370 */,
+/* 1371 */,
+/* 1372 */,
+/* 1373 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -75254,7 +75269,7 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 1371 */
+/* 1374 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -75281,7 +75296,7 @@ webpackJsonp([0],[
 	AppComponent = __decorate([
 	    core_1.Component({
 	        selector: 'school-index',
-	        template: __webpack_require__(1372)
+	        template: __webpack_require__(1375)
 	    }),
 	    __metadata("design:paramtypes", [])
 	], AppComponent);
@@ -75289,13 +75304,13 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 1372 */
+/* 1375 */
 /***/ function(module, exports) {
 
 	module.exports = "<sheader class=\"menu-wh\"></sheader>\n<router-outlet></router-outlet>\n<sm-footer></sm-footer>\n<sm-login-modal></sm-login-modal>\n<sm-register-modal></sm-register-modal>\n";
 
 /***/ },
-/* 1373 */
+/* 1376 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -75311,12 +75326,13 @@ webpackJsonp([0],[
 	var core_1 = __webpack_require__(4);
 	var common_1 = __webpack_require__(23);
 	var platform_browser_1 = __webpack_require__(22);
-	var forms_1 = __webpack_require__(1370);
-	var index_routing_module_1 = __webpack_require__(1374);
+	var forms_1 = __webpack_require__(1373);
+	var index_routing_module_1 = __webpack_require__(1377);
 	var index_component_1 = __webpack_require__(58);
 	var schools_service_1 = __webpack_require__(59);
-	var owl_carousel_index_1 = __webpack_require__(1375);
-	var search_directive_component_1 = __webpack_require__(1378);
+	var owl_carousel_index_1 = __webpack_require__(1378);
+	var search_directive_component_1 = __webpack_require__(1381);
+	var angular2_notifications_1 = __webpack_require__(1383);
 	var IndexModule = (function () {
 	    function IndexModule() {
 	    }
@@ -75324,7 +75340,7 @@ webpackJsonp([0],[
 	}());
 	IndexModule = __decorate([
 	    core_1.NgModule({
-	        imports: [index_routing_module_1.IndexRoutingModule, common_1.CommonModule, platform_browser_1.BrowserModule, forms_1.FormsModule],
+	        imports: [index_routing_module_1.IndexRoutingModule, common_1.CommonModule, platform_browser_1.BrowserModule, forms_1.FormsModule, angular2_notifications_1.SimpleNotificationsModule],
 	        declarations: [index_component_1.IndexComponent, owl_carousel_index_1.OwlCarouselDirective, search_directive_component_1.SearchDirective],
 	        providers: [schools_service_1.SchoolService]
 	    }),
@@ -75334,7 +75350,7 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 1374 */
+/* 1377 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -75369,7 +75385,7 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 1375 */
+/* 1378 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -75383,7 +75399,7 @@ webpackJsonp([0],[
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var core_1 = __webpack_require__(4);
-	var carousel = __webpack_require__(1376);
+	var carousel = __webpack_require__(1379);
 	var OwlCarouselDirective = (function () {
 	    function OwlCarouselDirective(el) {
 	        this.el = el;
@@ -75397,7 +75413,7 @@ webpackJsonp([0],[
 	OwlCarouselDirective = __decorate([
 	    core_1.Component({
 	        selector: 'school-owl',
-	        template: __webpack_require__(1377)
+	        template: __webpack_require__(1380)
 	    }),
 	    __metadata("design:paramtypes", [core_1.ElementRef])
 	], OwlCarouselDirective);
@@ -75405,7 +75421,7 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 1376 */
+/* 1379 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function($) {module.exports = function() {
@@ -75470,76 +75486,10 @@ webpackJsonp([0],[
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1326)))
 
 /***/ },
-/* 1377 */
-/***/ function(module, exports) {
-
-	module.exports = "<!-- end wide-3 carousel-full-width -->\n  <div class=\"container\">\n    <section class=\"block testimonials\">\n      <header class=\"center\">\n        <h2 class=\"no-border\">We love Schoolmaps</h2>\n      </header>\n      <div class=\"owl-carousel testimonials-carousel\">\n        <blockquote class=\"item\">\n          <aside class=\"cite\">\n            <p class=\"team-color\">\"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled\"</p>\n          </aside>\n          <figure>\n            <div class=\"image\">\n              <img src=\"http://placehold.it/55X55\" alt=\"\">\n            </div>\n            <p>Johan Nordquist</p>\n            <p class=\"team-color\">Someone From Company</p>\n          </figure>\n        </blockquote>\n        <blockquote class=\"item\">\n          <aside class=\"cite\">\n            <p class=\"team-color\">\"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled\"</p>\n          </aside>\n          <figure>\n            <div class=\"image\">\n              <img src=\"http://placehold.it/55X55\" alt=\"\">\n            </div>\n            <p>Sara Genergy</p>\n            <p class=\"team-color\">Someone From Company</p>\n          </figure>\n        </blockquote>\n        <blockquote class=\"item\">\n          <aside class=\"cite\">\n            <p class=\"team-color\">\"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled\"</p>\n          </aside>\n          <figure>\n            <div class=\"image\">\n              <img src=\"http://placehold.it/55X55\" alt=\"\">\n            </div>\n            <p>Sara Strawberry</p>\n            <p class=\"team-color\">Someone From Company</p>\n          </figure>\n        </blockquote>\n      </div>\n    </section>\n  </div>\n  <!-- end container -->";
-
-/***/ },
-/* 1378 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-	    return c > 3 && r && Object.defineProperty(target, key, r), r;
-	};
-	var __metadata = (this && this.__metadata) || function (k, v) {
-	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-	};
-	var core_1 = __webpack_require__(4);
-	var router_1 = __webpack_require__(26);
-	var search_model_1 = __webpack_require__(1379);
-	var app_constants_1 = __webpack_require__(357);
-	var SearchDirective = (function () {
-	    function SearchDirective(router) {
-	        this.router = router;
-	        this.searchModel = new search_model_1.SearchModel('', '', '');
-	        this.schoolType = app_constants_1.TYPE;
-	        this.states = app_constants_1.STATES;
-	        this.lgas = [{ name: 'surulere', value: 'surulere' }];
-	    }
-	    SearchDirective.prototype.submit = function () {
-	        // console.log(this.searchModel);
-	        this.router.navigate(['/search', this.searchModel.q, this.searchModel.state, this.searchModel.lga]);
-	    };
-	    SearchDirective.prototype.ngOnInit = function () {
-	    };
-	    return SearchDirective;
-	}());
-	SearchDirective = __decorate([
-	    core_1.Component({
-	        selector: 'search-directive',
-	        template: __webpack_require__(1380)
-	    }),
-	    __metadata("design:paramtypes", [router_1.Router])
-	], SearchDirective);
-	exports.SearchDirective = SearchDirective;
-
-
-/***/ },
-/* 1379 */
-/***/ function(module, exports) {
-
-	"use strict";
-	var SearchModel = (function () {
-	    function SearchModel(q, state, lga) {
-	        this.q = q;
-	        this.state = state;
-	        this.lga = lga;
-	    }
-	    return SearchModel;
-	}());
-	exports.SearchModel = SearchModel;
-
-
-/***/ },
 /* 1380 */
 /***/ function(module, exports) {
 
-	module.exports = "<form #searchForm='ngForm' name=\"searchForm\" (submit)='submit()'>\n  <div class=\"search\">\n    <div class=\"selector col-md-3  col-sm-12\">\n      <select class=\"selection\" id=\"rent-sale\" name=\"q\" [(ngModel)]=\"searchModel.q\" >\n        <option value=\"\" default>Type</option>\n        <option *ngFor=\"let type of schoolType\" value=\"{{type.value}}\"> {{type.name}}</option>\n      </select>\n    </div>\n    <div id=\"\" class=\"col-md-3 col-sm-12\">\n      <!-- <i class=\"fa fa-location-arrow\"></i> -->\n      <select class=\"selection\" name=\"state\" [(ngModel)]='searchModel.state'>\n        <option value=\"\" default>STATE</option>\n        <option *ngFor=\"let state of states\" value=\"{{state.value}}\">{{state.name.toUpperCase()}}</option>\n      </select>\n    </div>\n    <div id=\"\" class=\"col-md-3 col-sm-12\">\n      <!-- <i class=\"fa fa-location-arrow\"></i> -->\n      <select class=\"selection\" name=\"state\" [(ngModel)]='searchModel.lga'>\n        <option value=\"\" default>LGA</option>\n        <option *ngFor=\"let lga of lgas\" value=\"{{lga.value}}\">{{lga.name.toUpperCase()}}</option>\n      </select>\n    </div>\n    <span class=\"ffs-bs col-md-2 col-sm-12\"><button type=\"submit\" class=\"btn btn-small btn-primary\">Search</button></span>\n  </div>\n</form>";
+	module.exports = "<!-- end wide-3 carousel-full-width -->\n  <div class=\"container\">\n    <section class=\"block testimonials\">\n      <header class=\"center\">\n        <h2 class=\"no-border\">We love Schoolmaps</h2>\n      </header>\n      <div class=\"owl-carousel testimonials-carousel\">\n        <blockquote class=\"item\">\n          <aside class=\"cite\">\n            <p class=\"team-color\">\"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled\"</p>\n          </aside>\n          <figure>\n            <div class=\"image\">\n              <img src=\"http://placehold.it/55X55\" alt=\"\">\n            </div>\n            <p>Johan Nordquist</p>\n            <p class=\"team-color\">Someone From Company</p>\n          </figure>\n        </blockquote>\n        <blockquote class=\"item\">\n          <aside class=\"cite\">\n            <p class=\"team-color\">\"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled\"</p>\n          </aside>\n          <figure>\n            <div class=\"image\">\n              <img src=\"http://placehold.it/55X55\" alt=\"\">\n            </div>\n            <p>Sara Genergy</p>\n            <p class=\"team-color\">Someone From Company</p>\n          </figure>\n        </blockquote>\n        <blockquote class=\"item\">\n          <aside class=\"cite\">\n            <p class=\"team-color\">\"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled\"</p>\n          </aside>\n          <figure>\n            <div class=\"image\">\n              <img src=\"http://placehold.it/55X55\" alt=\"\">\n            </div>\n            <p>Sara Strawberry</p>\n            <p class=\"team-color\">Someone From Company</p>\n          </figure>\n        </blockquote>\n      </div>\n    </section>\n  </div>\n  <!-- end container -->";
 
 /***/ },
 /* 1381 */
@@ -75556,8 +75506,789 @@ webpackJsonp([0],[
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var core_1 = __webpack_require__(4);
+	var router_1 = __webpack_require__(26);
+	var search_model_1 = __webpack_require__(1382);
+	var app_constants_1 = __webpack_require__(357);
+	var utils_1 = __webpack_require__(1320);
+	var angular2_notifications_1 = __webpack_require__(1383);
+	var SearchDirective = (function () {
+	    function SearchDirective(router, utils, _notify) {
+	        this.router = router;
+	        this.utils = utils;
+	        this._notify = _notify;
+	        this.searchModel = new search_model_1.SearchModel('', '', '');
+	        this.schoolType = app_constants_1.TYPE;
+	        this.states = app_constants_1.STATES;
+	        this.lgas = [{ name: 'surulere', value: 'surulere' }];
+	        this.options = { theClass: 'error-alert', timeOut: 2500, maxStack: 1 };
+	    }
+	    SearchDirective.prototype.submit = function () {
+	        var check = this.utils.validateSearchModel(this.searchModel);
+	        if (check.isCorrect) {
+	            this.router.navigate(['/search', this.searchModel.q, this.searchModel.schtype, this.searchModel.lga]);
+	        }
+	        else {
+	            this._notify.html(check.errors.join('<br />'), '');
+	        }
+	    };
+	    SearchDirective.prototype.ngOnInit = function () {
+	    };
+	    return SearchDirective;
+	}());
+	SearchDirective = __decorate([
+	    core_1.Component({
+	        selector: 'search-directive',
+	        template: __webpack_require__(1392),
+	        providers: [utils_1.Utils]
+	    }),
+	    __metadata("design:paramtypes", [router_1.Router, utils_1.Utils, angular2_notifications_1.NotificationsService])
+	], SearchDirective);
+	exports.SearchDirective = SearchDirective;
+
+
+/***/ },
+/* 1382 */
+/***/ function(module, exports) {
+
+	"use strict";
+	var SearchModel = (function () {
+	    function SearchModel(q, schtype, lga) {
+	        this.q = q;
+	        this.schtype = schtype;
+	        this.lga = lga;
+	    }
+	    return SearchModel;
+	}());
+	exports.SearchModel = SearchModel;
+
+
+/***/ },
+/* 1383 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	var simple_notifications_module_1 = __webpack_require__(1384);
+	exports.SimpleNotificationsModule = simple_notifications_module_1.SimpleNotificationsModule;
+	var simple_notifications_component_1 = __webpack_require__(1387);
+	exports.SimpleNotificationsComponent = simple_notifications_component_1.SimpleNotificationsComponent;
+	var notification_component_1 = __webpack_require__(1388);
+	exports.NotificationComponent = notification_component_1.NotificationComponent;
+	var notifications_service_1 = __webpack_require__(1385);
+	exports.NotificationsService = notifications_service_1.NotificationsService;
+	var max_pipe_1 = __webpack_require__(1389);
+	exports.MaxPipe = max_pipe_1.MaxPipe;
+	var push_notifications_module_1 = __webpack_require__(1390);
+	exports.PushNotificationsModule = push_notifications_module_1.PushNotificationsModule;
+	var push_notifications_service_1 = __webpack_require__(1391);
+	exports.PushNotificationsService = push_notifications_service_1.PushNotificationsService;
+	//# sourceMappingURL=components.js.map
+
+/***/ },
+/* 1384 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	const core_1 = __webpack_require__(4);
+	const common_1 = __webpack_require__(23);
+	const notifications_service_1 = __webpack_require__(1385);
+	const simple_notifications_component_1 = __webpack_require__(1387);
+	const notification_component_1 = __webpack_require__(1388);
+	const max_pipe_1 = __webpack_require__(1389);
+	class SimpleNotificationsModule {
+	}
+	SimpleNotificationsModule.decorators = [
+	    { type: core_1.NgModule, args: [{
+	                imports: [common_1.CommonModule],
+	                declarations: [simple_notifications_component_1.SimpleNotificationsComponent, notification_component_1.NotificationComponent, max_pipe_1.MaxPipe],
+	                providers: [notifications_service_1.NotificationsService],
+	                exports: [simple_notifications_component_1.SimpleNotificationsComponent]
+	            },] },
+	];
+	SimpleNotificationsModule.ctorParameters = [];
+	exports.SimpleNotificationsModule = SimpleNotificationsModule;
+	//# sourceMappingURL=simple-notifications.module.js.map
+
+/***/ },
+/* 1385 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	const core_1 = __webpack_require__(4);
+	const Subject_1 = __webpack_require__(5);
+	const icons_1 = __webpack_require__(1386);
+	class NotificationsService {
+	    constructor() {
+	        this.emitter = new Subject_1.Subject();
+	        this.icons = icons_1.defaultIcons;
+	    }
+	    set(notification, to) {
+	        notification.id = notification.override && notification.override.id ? notification.override.id : Math.random().toString(36).substring(3);
+	        notification.click = new core_1.EventEmitter();
+	        this.emitter.next({ command: 'set', notification: notification, add: to });
+	        return notification;
+	    }
+	    ;
+	    getChangeEmitter() {
+	        return this.emitter;
+	    }
+	    success(title, content, override) {
+	        return this.set({
+	            title: title,
+	            content: content,
+	            type: 'success',
+	            icon: this.icons.success,
+	            override: override
+	        }, true);
+	    }
+	    error(title, content, override) {
+	        return this.set({ title: title, content: content, type: 'error', icon: this.icons.error, override: override }, true);
+	    }
+	    alert(title, content, override) {
+	        return this.set({ title: title, content: content, type: 'alert', icon: this.icons.alert, override: override }, true);
+	    }
+	    info(title, content, override) {
+	        return this.set({ title: title, content: content, type: 'info', icon: this.icons.info, override: override }, true);
+	    }
+	    bare(title, content, override) {
+	        return this.set({ title: title, content: content, type: 'bare', icon: 'bare', override: override }, true);
+	    }
+	    create(title, content, type, override) {
+	        return this.set({ title: title, content: content, type: type, icon: 'bare', override: override }, true);
+	    }
+	    html(html, type, override) {
+	        return this.set({ html: html, type: type, icon: 'bare', override: override, title: null, content: null }, true);
+	    }
+	    remove(id) {
+	        if (id)
+	            this.emitter.next({ command: 'clean', id: id });
+	        else
+	            this.emitter.next({ command: 'cleanAll' });
+	    }
+	}
+	NotificationsService.decorators = [
+	    { type: core_1.Injectable },
+	];
+	NotificationsService.ctorParameters = [];
+	exports.NotificationsService = NotificationsService;
+	//# sourceMappingURL=notifications.service.js.map
+
+/***/ },
+/* 1386 */
+/***/ function(module, exports) {
+
+	"use strict";
+	exports.defaultIcons = {
+	    alert: `
+	        <svg class="simple-notification-svg" xmlns="http://www.w3.org/2000/svg" fill="#000000" height="24" viewBox="0 0 24 24" width="24">
+	            <path d="M0 0h24v24H0z" fill="none"/>
+	            <path d="M22 5.72l-4.6-3.86-1.29 1.53 4.6 3.86L22 5.72zM7.88 3.39L6.6 1.86 2 5.71l1.29 1.53 4.59-3.85zM12.5 8H11v6l4.75 2.85.75-1.23-4-2.37V8zM12 4c-4.97 0-9 4.03-9 9s4.02 9 9 9c4.97 0 9-4.03 9-9s-4.03-9-9-9zm0 16c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7z"/>
+	        </svg>`,
+	    error: `
+	        <svg class="simple-notification-svg" xmlns="http://www.w3.org/2000/svg" fill="#000000" height="24" viewBox="0 0 24 24" width="24">
+	            <path d="M0 0h24v24H0V0z" fill="none"/>
+	            <path d="M11 15h2v2h-2zm0-8h2v6h-2zm.99-5C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"/>
+	        </svg>
+	    `,
+	    info: `
+	        <svg class="simple-notification-svg" xmlns="http://www.w3.org/2000/svg" fill="#000000" height="24" viewBox="0 0 24 24" width="24">
+	            <path d="M0 0h24v24H0z" fill="none"/>
+	            <path d="M11 17h2v-6h-2v6zm1-15C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zM11 9h2V7h-2v2z"/>
+	        </svg>
+	    `,
+	    success: `
+	        <svg class="simple-notification-svg" xmlns="http://www.w3.org/2000/svg" fill="#000000" height="24" viewBox="0 0 24 24" width="24">
+	            <path d="M0 0h24v24H0z" fill="none"/>
+	            <path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/>
+	        </svg>
+	    `
+	};
+	//# sourceMappingURL=icons.js.map
+
+/***/ },
+/* 1387 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	const core_1 = __webpack_require__(4);
+	const notifications_service_1 = __webpack_require__(1385);
+	class SimpleNotificationsComponent {
+	    constructor(_service) {
+	        this._service = _service;
+	        this.onCreate = new core_1.EventEmitter();
+	        this.onDestroy = new core_1.EventEmitter();
+	        this.notifications = [];
+	        this.position = ['bottom', 'right'];
+	        this.lastOnBottom = true;
+	        this.maxStack = 8;
+	        this.preventLastDuplicates = false;
+	        this.preventDuplicates = false;
+	        this.timeOut = 0;
+	        this.maxLength = 0;
+	        this.clickToClose = true;
+	        this.showProgressBar = true;
+	        this.pauseOnHover = true;
+	        this.theClass = '';
+	        this.rtl = false;
+	        this.animate = 'fromRight';
+	    }
+	    set options(opt) {
+	        this.attachChanges(opt);
+	    }
+	    ngOnInit() {
+	        this.listener = this._service.getChangeEmitter()
+	            .subscribe(item => {
+	            switch (item.command) {
+	                case 'cleanAll':
+	                    this.notifications = [];
+	                    break;
+	                case 'clean':
+	                    this.cleanSingle(item.id);
+	                    break;
+	                case 'set':
+	                    if (item.add)
+	                        this.add(item.notification);
+	                    else
+	                        this.defaultBehavior(item);
+	                    break;
+	                default:
+	                    this.defaultBehavior(item);
+	                    break;
+	            }
+	        });
+	    }
+	    defaultBehavior(value) {
+	        this.notifications.splice(this.notifications.indexOf(value.notification), 1);
+	        this.onDestroy.emit(this.buildEmit(value.notification, false));
+	    }
+	    add(item) {
+	        item.createdOn = new Date();
+	        let toBlock = this.preventLastDuplicates || this.preventDuplicates ? this.block(item) : false;
+	        this.lastNotificationCreated = item;
+	        if (!toBlock) {
+	            if (this.lastOnBottom) {
+	                if (this.notifications.length >= this.maxStack)
+	                    this.notifications.splice(0, 1);
+	                this.notifications.push(item);
+	            }
+	            else {
+	                if (this.notifications.length >= this.maxStack)
+	                    this.notifications.splice(this.notifications.length - 1, 1);
+	                this.notifications.splice(0, 0, item);
+	            }
+	            this.onCreate.emit(this.buildEmit(item, true));
+	        }
+	    }
+	    block(item) {
+	        let toCheck = item.html ? this.checkHtml : this.checkStandard;
+	        if (this.preventDuplicates && this.notifications.length > 0) {
+	            for (let i = 0; i < this.notifications.length; i++) {
+	                if (toCheck(this.notifications[i], item)) {
+	                    return true;
+	                }
+	            }
+	        }
+	        if (this.preventLastDuplicates) {
+	            let comp;
+	            if (this.preventLastDuplicates === 'visible' && this.notifications.length > 0) {
+	                if (this.lastOnBottom) {
+	                    comp = this.notifications[this.notifications.length - 1];
+	                }
+	                else {
+	                    comp = this.notifications[0];
+	                }
+	            }
+	            else if (this.preventLastDuplicates === 'all' && this.lastNotificationCreated) {
+	                comp = this.lastNotificationCreated;
+	            }
+	            else {
+	                return false;
+	            }
+	            return toCheck(comp, item);
+	        }
+	        return false;
+	    }
+	    checkStandard(checker, item) {
+	        return checker.type === item.type && checker.title === item.title && checker.content === item.content;
+	    }
+	    checkHtml(checker, item) {
+	        return checker.html ? checker.type === item.type && checker.title === item.title && checker.content === item.content && checker.html === item.html : false;
+	    }
+	    attachChanges(options) {
+	        Object.keys(options).forEach(a => {
+	            if (this.hasOwnProperty(a)) {
+	                this[a] = options[a];
+	            }
+	        });
+	    }
+	    buildEmit(notification, to) {
+	        let toEmit = {
+	            createdOn: notification.createdOn,
+	            type: notification.type,
+	            icon: notification.icon,
+	            id: notification.id
+	        };
+	        if (notification.html) {
+	            toEmit.html = notification.html;
+	        }
+	        else {
+	            toEmit.title = notification.title;
+	            toEmit.content = notification.content;
+	        }
+	        if (!to) {
+	            toEmit.destroyedOn = new Date();
+	        }
+	        return toEmit;
+	    }
+	    cleanSingle(id) {
+	        let indexOfDelete = 0;
+	        let doDelete = false;
+	        this.notifications.forEach((notification, idx) => {
+	            if (notification.id === id) {
+	                indexOfDelete = idx;
+	                doDelete = true;
+	            }
+	        });
+	        if (doDelete) {
+	            this.notifications.splice(indexOfDelete, 1);
+	        }
+	    }
+	    ngOnDestroy() {
+	        if (this.listener) {
+	            this.listener.unsubscribe();
+	        }
+	    }
+	}
+	SimpleNotificationsComponent.decorators = [
+	    { type: core_1.Component, args: [{
+	                selector: 'simple-notifications',
+	                encapsulation: core_1.ViewEncapsulation.None,
+	                template: `
+	        <div class="simple-notification-wrapper" [ngClass]="position">
+	            <simple-notification
+	                *ngFor="let a of notifications; let i = index"
+	                [item]="a"
+	                [timeOut]="timeOut"
+	                [clickToClose]="clickToClose"
+	                [maxLength]="maxLength"
+	                [showProgressBar]="showProgressBar"
+	                [pauseOnHover]="pauseOnHover"
+	                [theClass]="theClass"
+	                [rtl]="rtl"
+	                [animate]="animate"
+	                [position]="i"
+	                >
+	            </simple-notification>
+	        </div>
+	    `,
+	                styles: [`
+	        .simple-notification-wrapper {
+	            position: fixed;
+	            width: 300px;
+	            z-index: 1000;
+	        }
+	        
+	        .simple-notification-wrapper.left { left: 20px; }
+	        .simple-notification-wrapper.top { top: 20px; }
+	        .simple-notification-wrapper.right { right: 20px; }
+	        .simple-notification-wrapper.bottom { bottom: 20px; }
+	        
+	        @media (max-width: 340px) {
+	            .simple-notification-wrapper {
+	                width: auto;
+	                left: 20px;
+	                right: 20px;
+	            }
+	        }
+	    `]
+	            },] },
+	];
+	SimpleNotificationsComponent.ctorParameters = [
+	    { type: notifications_service_1.NotificationsService, },
+	];
+	SimpleNotificationsComponent.propDecorators = {
+	    'options': [{ type: core_1.Input },],
+	    'onCreate': [{ type: core_1.Output },],
+	    'onDestroy': [{ type: core_1.Output },],
+	};
+	exports.SimpleNotificationsComponent = SimpleNotificationsComponent;
+	//# sourceMappingURL=simple-notifications.component.js.map
+
+/***/ },
+/* 1388 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	const core_1 = __webpack_require__(4);
+	const platform_browser_1 = __webpack_require__(22);
+	const notifications_service_1 = __webpack_require__(1385);
+	class NotificationComponent {
+	    constructor(notificationService, domSanitizer, zone) {
+	        this.notificationService = notificationService;
+	        this.domSanitizer = domSanitizer;
+	        this.zone = zone;
+	        this.progressWidth = 0;
+	        this.stopTime = false;
+	        this.count = 0;
+	        this.instance = () => {
+	            this.zone.runOutsideAngular(() => {
+	                this.zone.run(() => this.diff = (new Date().getTime() - this.start) - (this.count * this.speed));
+	                if (this.count++ === this.steps)
+	                    this.zone.run(() => this.remove());
+	                else if (!this.stopTime) {
+	                    if (this.showProgressBar)
+	                        this.zone.run(() => this.progressWidth += 100 / this.steps);
+	                    this.timer = setTimeout(this.instance, (this.speed - this.diff));
+	                }
+	            });
+	        };
+	    }
+	    ngOnInit() {
+	        if (this.animate) {
+	            this.item.state = this.animate;
+	        }
+	        if (this.item.override) {
+	            this.attachOverrides();
+	        }
+	        if (this.timeOut !== 0) {
+	            this.startTimeOut();
+	        }
+	        this.safeSvg = this.domSanitizer.bypassSecurityTrustHtml(this.item.icon);
+	    }
+	    startTimeOut() {
+	        this.steps = this.timeOut / 10;
+	        this.speed = this.timeOut / this.steps;
+	        this.start = new Date().getTime();
+	        this.zone.runOutsideAngular(() => this.timer = setTimeout(this.instance, this.speed));
+	    }
+	    onEnter() {
+	        if (this.pauseOnHover) {
+	            this.stopTime = true;
+	        }
+	    }
+	    onLeave() {
+	        if (this.pauseOnHover) {
+	            this.stopTime = false;
+	            setTimeout(this.instance, (this.speed - this.diff));
+	        }
+	    }
+	    setPosition() {
+	        return this.position !== 0 ? this.position * 90 : 0;
+	    }
+	    onClick($e) {
+	        this.item.click.emit($e);
+	        if (this.clickToClose) {
+	            this.remove();
+	        }
+	    }
+	    attachOverrides() {
+	        Object.keys(this.item.override).forEach(a => {
+	            if (this.hasOwnProperty(a)) {
+	                this[a] = this.item.override[a];
+	            }
+	        });
+	    }
+	    ngOnDestroy() {
+	        clearTimeout(this.timer);
+	    }
+	    remove() {
+	        if (this.animate) {
+	            this.item.state = this.animate + 'Out';
+	            this.zone.runOutsideAngular(() => {
+	                setTimeout(() => {
+	                    this.zone.run(() => this.notificationService.set(this.item, false));
+	                }, 310);
+	            });
+	        }
+	        else {
+	            this.notificationService.set(this.item, false);
+	        }
+	    }
+	}
+	NotificationComponent.decorators = [
+	    { type: core_1.Component, args: [{
+	                selector: 'simple-notification',
+	                encapsulation: core_1.ViewEncapsulation.None,
+	                animations: [
+	                    core_1.trigger('enterLeave', [
+	                        core_1.state('fromRight', core_1.style({ opacity: 1, transform: 'translateX(0)' })),
+	                        core_1.transition('* => fromRight', [
+	                            core_1.style({ opacity: 0, transform: 'translateX(5%)' }),
+	                            core_1.animate('400ms ease-in-out')
+	                        ]),
+	                        core_1.state('fromRightOut', core_1.style({ opacity: 0, transform: 'translateX(-5%)' })),
+	                        core_1.transition('fromRight => fromRightOut', [
+	                            core_1.style({ opacity: 1, transform: 'translateX(0)' }),
+	                            core_1.animate('300ms ease-in-out')
+	                        ]),
+	                        core_1.state('fromLeft', core_1.style({ opacity: 1, transform: 'translateX(0)' })),
+	                        core_1.transition('* => fromLeft', [
+	                            core_1.style({ opacity: 0, transform: 'translateX(-5%)' }),
+	                            core_1.animate('400ms ease-in-out')
+	                        ]),
+	                        core_1.state('fromLeftOut', core_1.style({ opacity: 0, transform: 'translateX(5%)' })),
+	                        core_1.transition('fromLeft => fromLeftOut', [
+	                            core_1.style({ opacity: 1, transform: 'translateX(0)' }),
+	                            core_1.animate('300ms ease-in-out')
+	                        ]),
+	                        core_1.state('scale', core_1.style({ opacity: 1, transform: 'scale(1)' })),
+	                        core_1.transition('* => scale', [
+	                            core_1.style({ opacity: 0, transform: 'scale(0)' }),
+	                            core_1.animate('400ms ease-in-out')
+	                        ]),
+	                        core_1.state('scaleOut', core_1.style({ opacity: 0, transform: 'scale(0)' })),
+	                        core_1.transition('scale => scaleOut', [
+	                            core_1.style({ opacity: 1, transform: 'scale(1)' }),
+	                            core_1.animate('400ms ease-in-out')
+	                        ]),
+	                        core_1.state('rotate', core_1.style({ opacity: 1, transform: 'rotate(0deg)' })),
+	                        core_1.transition('* => rotate', [
+	                            core_1.style({ opacity: 0, transform: 'rotate(5deg)' }),
+	                            core_1.animate('400ms ease-in-out')
+	                        ]),
+	                        core_1.state('rotateOut', core_1.style({ opacity: 0, transform: 'rotate(-5deg)' })),
+	                        core_1.transition('rotate => rotateOut', [
+	                            core_1.style({ opacity: 1, transform: 'rotate(0deg)' }),
+	                            core_1.animate('400ms ease-in-out')
+	                        ])
+	                    ])
+	                ],
+	                template: `
+	        <div class="simple-notification"
+	            [@enterLeave]="item.state"
+	            (click)="onClick($e)"
+	            [class]="theClass"
+
+	            [ngClass]="{
+	                'alert': item.type === 'alert',
+	                'error': item.type === 'error',
+	                'success': item.type === 'success',
+	                'info': item.type === 'info',
+	                'bare': item.type === 'bare',
+	                'rtl-mode': rtl
+	            }"
+
+	            (mouseenter)="onEnter()"
+	            (mouseleave)="onLeave()">
+
+	            <div *ngIf="!item.html">
+	                <div class="sn-title">{{item.title}}</div>
+	                <div class="sn-content">{{item.content | max:maxLength}}</div>
+
+	                <div *ngIf="item.type !== 'bare'" [innerHTML]="safeSvg"></div>
+	            </div>
+	            <div *ngIf="item.html" [innerHTML]="item.html"></div>
+
+	            <div class="sn-progress-loader" *ngIf="showProgressBar">
+	                <span [ngStyle]="{'width': progressWidth + '%'}"></span>
+	            </div>
+
+	        </div>
+	    `,
+	                styles: [`
+	        .simple-notification {
+	            width: 100%;
+	            padding: 10px 20px;
+	            box-sizing: border-box;
+	            position: relative;
+	            float: left;
+	            margin-bottom: 10px;
+	            color: #fff;
+	            cursor: pointer;
+	            transition: all 0.5s;
+	        }
+
+	        .simple-notification .sn-title {
+	            margin: 0;
+	            padding: 0 50px 0 0;
+	            line-height: 30px;
+	            font-size: 20px;
+	        }
+
+	        .simple-notification .sn-content {
+	            margin: 0;
+	            font-size: 16px;
+	            padding: 0 50px 0 0;
+	            line-height: 20px;
+	        }
+
+	        .simple-notification svg {
+	            position: absolute;
+	            box-sizing: border-box;
+	            top: 0;
+	            right: 0;
+	            width: 70px;
+	            height: 70px;
+	            padding: 10px;
+	            fill: #fff;
+	        }
+
+	        .simple-notification.rtl-mode {
+	            direction: rtl;
+	        }
+
+	        .simple-notification.rtl-mode .sn-content {
+	            padding: 0 0 0 50px;
+	        }
+
+	        .simple-notification.rtl-mode svg {
+	            left: 0;
+	            right: auto;
+	        }
+
+	        .simple-notification.error { background: #F44336; }
+	        .simple-notification.success { background: #8BC34A; }
+	        .simple-notification.alert { background: #ffdb5b; }
+	        .simple-notification.info { background: #03A9F4; }
+
+	        .simple-notification .sn-progress-loader {
+	            position: absolute;
+	            top: 0;
+	            left: 0;
+	            width: 100%;
+	            height: 5px;
+	        }
+
+	        .simple-notification .sn-progress-loader span {
+	            float: left;
+	            height: 100%;
+	        }
+
+	        .simple-notification.success .sn-progress-loader span { background: #689F38; }
+	        .simple-notification.error .sn-progress-loader span { background: #D32F2F; }
+	        .simple-notification.alert .sn-progress-loader span { background: #edc242; }
+	        .simple-notification.info .sn-progress-loader span { background: #0288D1; }
+	        .simple-notification.bare .sn-progress-loader span { background: #ccc; }
+	    `]
+	            },] },
+	];
+	NotificationComponent.ctorParameters = [
+	    { type: notifications_service_1.NotificationsService, },
+	    { type: platform_browser_1.DomSanitizer, },
+	    { type: core_1.NgZone, },
+	];
+	NotificationComponent.propDecorators = {
+	    'timeOut': [{ type: core_1.Input },],
+	    'showProgressBar': [{ type: core_1.Input },],
+	    'pauseOnHover': [{ type: core_1.Input },],
+	    'clickToClose': [{ type: core_1.Input },],
+	    'maxLength': [{ type: core_1.Input },],
+	    'theClass': [{ type: core_1.Input },],
+	    'rtl': [{ type: core_1.Input },],
+	    'animate': [{ type: core_1.Input },],
+	    'position': [{ type: core_1.Input },],
+	    'item': [{ type: core_1.Input },],
+	};
+	exports.NotificationComponent = NotificationComponent;
+	//# sourceMappingURL=notification.component.js.map
+
+/***/ },
+/* 1389 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	const core_1 = __webpack_require__(4);
+	class MaxPipe {
+	    transform(value, ...args) {
+	        let allowed = args[0];
+	        let received = value.length;
+	        if (received > allowed && allowed !== 0) {
+	            let toCut = allowed - received;
+	            return value.slice(0, toCut);
+	        }
+	        return value;
+	    }
+	}
+	MaxPipe.decorators = [
+	    { type: core_1.Pipe, args: [{ name: 'max' },] },
+	];
+	MaxPipe.ctorParameters = [];
+	exports.MaxPipe = MaxPipe;
+	//# sourceMappingURL=max.pipe.js.map
+
+/***/ },
+/* 1390 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	const core_1 = __webpack_require__(4);
+	const push_notifications_service_1 = __webpack_require__(1391);
+	class PushNotificationsModule {
+	}
+	PushNotificationsModule.decorators = [
+	    { type: core_1.NgModule, args: [{
+	                providers: [push_notifications_service_1.PushNotificationsService]
+	            },] },
+	];
+	PushNotificationsModule.ctorParameters = [];
+	exports.PushNotificationsModule = PushNotificationsModule;
+	//# sourceMappingURL=push-notifications.module.js.map
+
+/***/ },
+/* 1391 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	const core_1 = __webpack_require__(4);
+	const Observable_1 = __webpack_require__(6);
+	class PushNotificationsService {
+	    constructor() {
+	        this.permission = this.isSupported() ? Notification.permission : 'denied';
+	    }
+	    requestPermission() {
+	        if ('Notification' in window)
+	            Notification.requestPermission((status) => this.permission = status);
+	    }
+	    isSupported() {
+	        return 'Notification' in window;
+	    }
+	    create(title, options) {
+	        return new Observable_1.Observable((obs) => {
+	            if (!('Notification' in window)) {
+	                obs.error('Notifications are not available in this environment');
+	                obs.complete();
+	            }
+	            if (this.permission !== 'granted') {
+	                obs.error(`The user hasn't granted you permission to send push notifications`);
+	                obs.complete();
+	            }
+	            const n = new Notification(title, options);
+	            n.onshow = (e) => obs.next({ notification: n, event: e });
+	            n.onclick = (e) => obs.next({ notification: n, event: e });
+	            n.onerror = (e) => obs.error({ notification: n, event: e });
+	            n.onclose = () => obs.complete();
+	        });
+	    }
+	}
+	PushNotificationsService.decorators = [
+	    { type: core_1.Injectable },
+	];
+	PushNotificationsService.ctorParameters = [];
+	exports.PushNotificationsService = PushNotificationsService;
+	//# sourceMappingURL=push-notifications.service.js.map
+
+/***/ },
+/* 1392 */
+/***/ function(module, exports) {
+
+	module.exports = "<form #searchForm='ngForm' name=\"searchForm\" (submit)='submit()'>\n  <div class=\"search\">\n    <div class=\"selector col-md-3  col-sm-12\">\n      <select class=\"selection\" id=\"rent-sale\" name=\"schtype\" [(ngModel)]=\"searchModel.schtype\" >\n        <option value=\"\" default>Type</option>\n        <option *ngFor=\"let type of schoolType\" value=\"{{type.value}}\"> {{type.name}}</option>\n      </select>\n    </div>\n    <div id=\"\" class=\"col-md-3 col-sm-12\">\n      <!-- <i class=\"fa fa-location-arrow\"></i> -->\n      <select class=\"selection\" name=\"q\" [(ngModel)]='searchModel.q'>\n        <option value=\"\" default>STATE</option>\n        <option *ngFor=\"let state of states\" value=\"{{state.value}}\">{{state.name.toUpperCase()}}</option>\n      </select>\n    </div>\n    <div id=\"\" class=\"col-md-3 col-sm-12\">\n      <!-- <i class=\"fa fa-location-arrow\"></i> -->\n      <select class=\"selection\" name=\"state\" [(ngModel)]='searchModel.lga'>\n        <option value=\"\" default>LGA</option>\n        <option *ngFor=\"let lga of lgas\" value=\"{{lga.value}}\">{{lga.name.toUpperCase()}}</option>\n      </select>\n    </div>\n    <span class=\"ffs-bs col-md-2 col-sm-12\"><button type=\"submit\" class=\"btn btn-small btn-primary\">Search</button></span>\n  </div>\n</form>\n\n<simple-notifications [options]=\"options\"></simple-notifications>";
+
+/***/ },
+/* 1393 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	};
+	var __metadata = (this && this.__metadata) || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var core_1 = __webpack_require__(4);
 	var login_service_1 = __webpack_require__(1321);
-	__webpack_require__(1382);
+	__webpack_require__(1394);
 	var HeaderComponent = (function () {
 	    function HeaderComponent(_loginService) {
 	        this._loginService = _loginService;
@@ -75576,7 +76307,7 @@ webpackJsonp([0],[
 	HeaderComponent = __decorate([
 	    core_1.Component({
 	        selector: "sheader",
-	        template: __webpack_require__(1385),
+	        template: __webpack_require__(1397),
 	        providers: [login_service_1.LoginService]
 	    }),
 	    __metadata("design:paramtypes", [login_service_1.LoginService])
@@ -75585,7 +76316,7 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 1382 */
+/* 1394 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -75609,7 +76340,7 @@ webpackJsonp([0],[
 
 	(function(root, factory) {
 		if (true) {
-			!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(1326),__webpack_require__(1383),__webpack_require__(1384)], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory), __WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ? (__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+			!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(1326),__webpack_require__(1395),__webpack_require__(1396)], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory), __WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ? (__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
 		} else if (typeof exports === 'object') {
 			module.exports = factory(require('jquery'), require('sifter'), require('microplugin'));
 		} else {
@@ -78783,7 +79514,7 @@ webpackJsonp([0],[
 	}));
 
 /***/ },
-/* 1383 */
+/* 1395 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/* WEBPACK VAR INJECTION */(function($) {/**
@@ -79288,7 +80019,7 @@ webpackJsonp([0],[
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1326)))
 
 /***/ },
-/* 1384 */
+/* 1396 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -79428,13 +80159,13 @@ webpackJsonp([0],[
 	}));
 
 /***/ },
-/* 1385 */
+/* 1397 */
 /***/ function(module, exports) {
 
 	module.exports = "\t<div class=\"navigation\">\n\t\t<header class=\"navbar\" id=\"top\">\n\t\t\t<div class=\"container\">\n\t\t\t\t<div class=\"navbar-brand nav\">\n\t\t\t\t\t<!-- <a class=\"navbar-brand nav logo\" routerLink=\"/index\" title=\"\" rel=\"home\">\n\t\t\t\t\t\t<object class=\"master-logo\" type=\"image/svg+xml\"></object>&nbsp;\n\t\t\t\t\t</a> -->\n\t\t\t\t\t<a class=\"navbar-brand nav logo retina\" routerLink=\"/index\" title=\"\" rel=\"home\">\n\t\t\t\t\t\t<!-- <object class=\"master-logo\" type=\"image/svg+xml\"></object> --> SCHOOL-MAPS\n\t\t\t\t\t</a>\n\t\t\t\t</div>\n\t\t\t\t<nav class=\"secondary main-menu\">\n\t\t\t\t\t<a href=\"#\" data-toggle=\"dropdown\" class=\"pull-right drop-left\">More\n\t\t\t\t\t\t<div class=\"gamb-button\">\n\t\t\t\t\t\t\t<span class=\"icon-bar\"></span>\n\t\t\t\t\t\t\t<span class=\"icon-bar\"></span>\n\t\t\t\t\t\t\t<span class=\"icon-bar\"></span>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</a>\n\t\t\t\t\t<ul class=\"nav navbar-nav dropdown-menu pull-right slide-left\">\n\t\t\t\t\t\t<li class=\"active has-childn\"><a routerLink=\"/index\">Home</a>\n\t\t\t\t\t\t\t<!-- <ul class=\"child-navigation\">\n\t\t\t\t\t\t\t\t<li><a href=\"index_v_1.html\">Index V1</a></li>\n\t\t\t\t\t\t\t\t<li><a href=\"index_v_2.html\">Index V2</a></li>\n\t\t\t\t\t\t\t\t<li><a href=\"index_v_3.html\">Index V3</a></li>\n\t\t\t\t\t\t\t</ul> -->\n\t\t\t\t\t\t</li>\n\t\t\t\t\t\t<li class=\"has-childn\">\n\t\t\t\t\t\t\t<a routerLink=\"/admin\">Admin Profile</a>\n\t\t\t\t\t\t\t<!-- <a [routerLink]=\"['Index']\">Agents&nbsp;&amp;&nbsp;agencies</a>\n\t\t\t\t\t\t\t<ul class=\"child-navigation\">\n\t\t\t\t\t\t\t\t<li><a href=\"agency_profile.html\">Agency Profile</a></li>\n\t\t\t\t\t\t\t\t<li><a href=\"agent_profile.html\">Agents Profile</a></li>\n\t\t\t\t\t\t\t</ul> -->\n\t\t\t\t\t\t</li>\n\t\t\t\t\t\t<li class=\"has-childn\">\n\t\t\t\t\t\t\t<a routerLink=\"/all_schools\">All Schools</a>\n\t\t\t\t\t\t\t<!-- <a href=\"#\">All Properties</a>\n\t\t\t\t\t\t\t<ul class=\"child-navigation\">\n\t\t\t\t\t\t\t\t<li><a href=\"our_property.html\">For Rent</a></li>\n\t\t\t\t\t\t\t\t<li><a href=\"our_property_list_type.html\">For Sell</a></li>\n\t\t\t\t\t\t\t\t<li><a href=\"add_property.html\">Add Property</a></li>\n\t\t\t\t\t\t\t\t<li><a href=\"property_page.html\">Property Page</a></li>\n\t\t\t\t\t\t\t</ul> -->\n\t\t\t\t\t\t</li>\n\t\t\t\t\t\t<!-- <li class=\"has-child\"><a href=\"#\">Pages</a>\n\t\t\t\t\t\t\t<ul class=\"child-navigation\">\n\t\t\t\t\t\t\t\t<li><a href=\"404_page.html\">404 Page</a></li>\n\t\t\t\t\t\t\t\t<li><a href=\"pricing_page.html\">Pricing Page</a></li>\n\t\t\t\t\t\t\t\t<li><a href=\"compare_page.html\">Compare Page</a></li>\n\t\t\t\t\t\t\t\t<li><a href=\"shotcodes.html\">Shortcodes</a></li>\n\t\t\t\t\t\t\t\t<li><a href=\"search_result.html\">Search</a></li>\n\t\t\t\t\t\t\t\t<li><a href=\"user_profile_(horizontal).html\">user profile (horizontal)</a></li>\n\t\t\t\t\t\t\t\t<li><a href=\"user_profile_(vertical).html\">user profile (vertical)</a></li>\n\t\t\t\t\t\t\t</ul>\n\t\t\t\t\t\t</li> -->\n\t\t\t\t\t\t<!-- <li class=\"has-child\"><a href=\"#\">Blog</a>\n\t\t\t\t\t\t\t<ul class=\"child-navigation\">\n\t\t\t\t\t\t\t\t<li><a href=\"blog_list.html\">Blog List</a></li>\n\t\t\t\t\t\t\t\t<li><a href=\"blog_list_fullwidth.html\">Blog List Fullwidth</a></li>\n\t\t\t\t\t\t\t\t<li><a href=\"blog_article.html\">Blog Article</a></li>\n\t\t\t\t\t\t\t\t<li><a href=\"blog_text_article.html\">Blog Text Article</a></li>\n\t\t\t\t\t\t\t\t<li><a href=\"blog_article_styles.html\">Blog Article Styles</a></li>\n\t\t\t\t\t\t\t\t<li><a href=\"blog_video.html\">Blog Video</a></li>\n\t\t\t\t\t\t\t</ul>\n\t\t\t\t\t\t</li> -->\n\t\t\t\t\t\t<li><a routerLink=\"/about\">About Us</a></li>\n\t\t\t\t\t\t<li><a routerLink=\"/contact\">Contact us</a></li>\n\t\t\t\t\t\t<li>\n\t\t\t\t\t\t\t<a href=\"#\" data-toggle=\"dropdown\" class=\"pull-right drop-close\">Close\n\t\t\t\t\t\t\t\t<span class=\"cross\"></span>\n\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t</li>\n\t\t\t\t\t</ul>\n\t\t\t\t</nav><!-- /.navbar collapse-->\n\t\t\t\t<nav class=\"primary start main-menu\">\n\t\t\t\t\t<ul class=\"nav navbar-nav pull-right\">\n\t\t\t\t\t\t<li *ngIf=\"isLoggedIn\"><a routerLink=\"/new_school\">Add School</a></li>\n\t\t\t\t\t\t<!-- <li>\n\t\t\t\t\t\t\t<select class=\"selection\" id=\"menu-language\" onChange=\"window.location.href=this.value\">\n\t\t\t\t\t\t\t\t<option value=\"index_v_1.html\">Eng</option>\n\t\t\t\t\t\t\t\t<option value=\"rtl.html\">الأرابيسك</option>\n\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t</li> -->\n\t\t\t\t\t\t<li *ngIf=\"!isLoggedIn\"><a href=\"#\" data-toggle=\"modal\" data-target=\"#modal-login\">Log in<i class=\"fa fa-arrow-right\"></i></a></li>\n\t\t\t\t\t\t<li *ngIf=\"!isLoggedIn\"><a href=\"#\" data-toggle=\"modal\" data-target=\"#modal-register\">Registration</a></li>\n\t\t\t\t\t\t<li *ngIf=\"isLoggedIn\"><a routerLink=\"\" (click)=\"logout()\">Logout</a></li>\n\t\t\t\t\t</ul>\n\t\t\t\t</nav>\n\t\t\t</div>\n\t\t\t<div class=\"site-header\">\n\t\t\t\t<a href=\"#\" data-toggle=\"dropdown\" class=\"pull-right drop-left\">Menu\n\t\t\t\t\t<div class=\"gamb-button\">\n\t\t\t\t\t\t<span class=\"icon-bar\"></span>\n\t\t\t\t\t\t<span class=\"icon-bar\"></span>\n\t\t\t\t\t\t<span class=\"icon-bar\"></span>\n\t\t\t\t\t</div>\n\t\t\t\t</a>\n\t\t\t\t<div class=\"navbar-brand nav\">\n\t\t\t\t\t<a class=\"navbar-brand nav logo\" href=\"index_v_1.html\" title=\"\" rel=\"home\">\n\t\t\t\t\t\t<object class=\"master-logo\" type=\"image/svg+xml\"></object>\n\t\t\t\t\t</a>\n\t\t\t\t\t<a class=\"navbar-brand nav logo retina\" href=\"index_v_1.html\" title=\"\" rel=\"home\">\n\t\t\t\t\t\t<object class=\"master-logo\" type=\"image/svg+xml\"></object>\n\t\t\t\t\t</a>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"mob-menu drop-close hidden\">\n\t\t\t\t\t<a href=\"#\" data-toggle=\"dropdown\" class=\"pull-right drop-close hidden black-cross\">Close\n\t\t\t\t\t\t<span class=\"cross\"></span>\n\t\t\t\t\t</a>\n\t\t\t\t\t<nav class=\"secondary\">\n\t\t\t\t\t\t<ul class=\"nav navbar-nav\">\n\t\t\t\t\t\t\t<li><a href=\"#\" data-toggle=\"modal\" data-target=\"#modal-login\">Log in<i class=\"fa fa-arrow-right\"></i></a></li>\n\t\t\t\t\t\t\t<li><a href=\"#\" data-toggle=\"modal\" data-target=\"#modal-register\">Registration</a></li>\n\t\t\t\t\t\t\t<li class=\"active has-childn\">\n\t\t\t\t\t\t\t\t<a [routerLink]=\"['Index']\">Home</a>\n\t\t\t\t\t\t\t\t\t<!-- <ul class=\"child-navigation\">\n\t\t\t\t\t\t\t\t\t\t<li><a href=\"index_v_1.html\">Index V1</a></li>\n\t\t\t\t\t\t\t\t\t\t<li><a href=\"index_v_2.html\">Index V2</a></li>\n\t\t\t\t\t\t\t\t\t\t<li><a href=\"index_v_3.html\">Index V3</a></li>\n\t\t\t\t\t\t\t\t\t</ul> -->\n\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t<li class=\"has-childn\">\n\t\t\t\t\t\t\t\t<a [routerLink]=\"['Index']\">Admin Profile</a>\n\t\t\t\t\t\t\t\t<!-- <a [routerLink]=\"['Index']\">Agents&nbsp;&amp;&nbsp;agencies</a> -->\n\t\t\t\t\t\t\t\t<!-- <ul class=\"child-navigation\">\n\t\t\t\t\t\t\t\t\t<li><a href=\"agency_profile.html\">Agency Profile</a></li>\n\t\t\t\t\t\t\t\t\t<li><a href=\"agent_profile.html\">Agents Profile</a></li>\n\t\t\t\t\t\t\t\t</ul> -->\n\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t<li class=\"has-childn\">\n\t\t\t\t\t\t\t\t<a [routerLink]=\"['AllSchools']\">All Schools</a>\n\t\t\t\t\t\t\t\t<!-- <ul class=\"child-navigation\">\n\t\t\t\t\t\t\t\t\t<li><a href=\"our_property.html\">Our Property</a></li>\n\t\t\t\t\t\t\t\t\t<li><a href=\"our_property_list_type.html\">Our Property List</a></li>\n\t\t\t\t\t\t\t\t\t<li><a href=\"add_property.html\">Add Property</a></li>\n\t\t\t\t\t\t\t\t\t<li><a href=\"property_page.html\">Property Page</a></li>\n\t\t\t\t\t\t\t\t</ul> -->\n\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t<!-- <li class=\"has-child\"><a href=\"#\">Pages</a>\n\t\t\t\t\t\t\t\t<ul class=\"child-navigation\">\n\t\t\t\t\t\t\t\t\t<li><a href=\"404_page.html\">404 Page</a></li>\n\t\t\t\t\t\t\t\t\t<li><a href=\"pricing_page.html\">Pricing Page</a></li>\n\t\t\t\t\t\t\t\t\t<li><a href=\"compare_page.html\">Compare Page</a></li>\n\t\t\t\t\t\t\t\t\t<li><a href=\"shotcodes.html\">Shortcodes</a></li>\n\t\t\t\t\t\t\t\t\t<li><a href=\"search_result.html\">Search</a></li>\n\t\t\t\t\t\t\t\t\t<li><a href=\"user_profile_(horizontal).html\">user profile (horizontal)</a></li>\n\t\t\t\t\t\t\t\t\t<li><a href=\"user_profile_(vertical).html\">user profile (vertical)</a></li>\n\t\t\t\t\t\t\t\t</ul>\n\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t<li class=\"has-child\"><a href=\"#\">Blog</a>\n\t\t\t\t\t\t\t\t<ul class=\"child-navigation\">\n\t\t\t\t\t\t\t\t\t<li><a href=\"blog_list.html\">Blog List</a></li>\n\t\t\t\t\t\t\t\t\t<li><a href=\"blog_list_fullwidth.html\">Blog List Fullwidth</a></li>\n\t\t\t\t\t\t\t\t\t<li><a href=\"blog_article.html\">Blog Article</a></li>\n\t\t\t\t\t\t\t\t\t<li><a href=\"blog_text_article.html\">Blog Text Article</a></li>\n\t\t\t\t\t\t\t\t\t<li><a href=\"blog_article_styles.html\">Blog Article Styles</a></li>\n\t\t\t\t\t\t\t\t\t<li><a href=\"blog_video.html\">Blog Video</a></li>\n\t\t\t\t\t\t\t\t</ul>\n\t\t\t\t\t\t\t</li> -->\n\t\t\t\t\t\t\t<li><a href=\"about_us.html\">About Us</a></li>\n\t\t\t\t\t\t\t<li><a href=\"contact_us.html\">Contact us</a></li>\n\t\t\t\t\t\t\t<!-- <li>\n\t\t\t\t\t\t\t\t<select class=\"selection\" id=\"menu-language-2\" onChange=\"window.location.href=this.value\">\n\t\t\t\t\t\t\t\t\t<option value=\"index_v_1.html\">Eng</option>\n\t\t\t\t\t\t\t\t\t<option value=\"rtl.html\">الأرابيسك</option>\n\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t</li> -->\n\t\t\t\t\t\t</ul>\n\t\t\t\t\t</nav><!-- /.navbar collapse-->\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</header><!-- /.navbar -->\n\t</div>\n";
 
 /***/ },
-/* 1386 */
+/* 1398 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -79448,9 +80179,9 @@ webpackJsonp([0],[
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var core_1 = __webpack_require__(4);
-	var angular2_notifications_1 = __webpack_require__(1387);
+	var angular2_notifications_1 = __webpack_require__(1383);
 	var utils_1 = __webpack_require__(1320);
-	var login_model_1 = __webpack_require__(1396);
+	var login_model_1 = __webpack_require__(1399);
 	var login_service_1 = __webpack_require__(1321);
 	var LoginComponent = (function () {
 	    function LoginComponent(_utils, _notify, _loginService) {
@@ -79483,7 +80214,7 @@ webpackJsonp([0],[
 	LoginComponent = __decorate([
 	    core_1.Component({
 	        selector: "sm-login-modal",
-	        template: __webpack_require__(1397),
+	        template: __webpack_require__(1400),
 	        providers: [utils_1.Utils, angular2_notifications_1.NotificationsService, login_service_1.LoginService]
 	    }),
 	    __metadata("design:paramtypes", [utils_1.Utils,
@@ -79494,711 +80225,7 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 1387 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	var simple_notifications_module_1 = __webpack_require__(1388);
-	exports.SimpleNotificationsModule = simple_notifications_module_1.SimpleNotificationsModule;
-	var simple_notifications_component_1 = __webpack_require__(1391);
-	exports.SimpleNotificationsComponent = simple_notifications_component_1.SimpleNotificationsComponent;
-	var notification_component_1 = __webpack_require__(1392);
-	exports.NotificationComponent = notification_component_1.NotificationComponent;
-	var notifications_service_1 = __webpack_require__(1389);
-	exports.NotificationsService = notifications_service_1.NotificationsService;
-	var max_pipe_1 = __webpack_require__(1393);
-	exports.MaxPipe = max_pipe_1.MaxPipe;
-	var push_notifications_module_1 = __webpack_require__(1394);
-	exports.PushNotificationsModule = push_notifications_module_1.PushNotificationsModule;
-	var push_notifications_service_1 = __webpack_require__(1395);
-	exports.PushNotificationsService = push_notifications_service_1.PushNotificationsService;
-	//# sourceMappingURL=components.js.map
-
-/***/ },
-/* 1388 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	const core_1 = __webpack_require__(4);
-	const common_1 = __webpack_require__(23);
-	const notifications_service_1 = __webpack_require__(1389);
-	const simple_notifications_component_1 = __webpack_require__(1391);
-	const notification_component_1 = __webpack_require__(1392);
-	const max_pipe_1 = __webpack_require__(1393);
-	class SimpleNotificationsModule {
-	}
-	SimpleNotificationsModule.decorators = [
-	    { type: core_1.NgModule, args: [{
-	                imports: [common_1.CommonModule],
-	                declarations: [simple_notifications_component_1.SimpleNotificationsComponent, notification_component_1.NotificationComponent, max_pipe_1.MaxPipe],
-	                providers: [notifications_service_1.NotificationsService],
-	                exports: [simple_notifications_component_1.SimpleNotificationsComponent]
-	            },] },
-	];
-	SimpleNotificationsModule.ctorParameters = [];
-	exports.SimpleNotificationsModule = SimpleNotificationsModule;
-	//# sourceMappingURL=simple-notifications.module.js.map
-
-/***/ },
-/* 1389 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	const core_1 = __webpack_require__(4);
-	const Subject_1 = __webpack_require__(5);
-	const icons_1 = __webpack_require__(1390);
-	class NotificationsService {
-	    constructor() {
-	        this.emitter = new Subject_1.Subject();
-	        this.icons = icons_1.defaultIcons;
-	    }
-	    set(notification, to) {
-	        notification.id = notification.override && notification.override.id ? notification.override.id : Math.random().toString(36).substring(3);
-	        notification.click = new core_1.EventEmitter();
-	        this.emitter.next({ command: 'set', notification: notification, add: to });
-	        return notification;
-	    }
-	    ;
-	    getChangeEmitter() {
-	        return this.emitter;
-	    }
-	    success(title, content, override) {
-	        return this.set({
-	            title: title,
-	            content: content,
-	            type: 'success',
-	            icon: this.icons.success,
-	            override: override
-	        }, true);
-	    }
-	    error(title, content, override) {
-	        return this.set({ title: title, content: content, type: 'error', icon: this.icons.error, override: override }, true);
-	    }
-	    alert(title, content, override) {
-	        return this.set({ title: title, content: content, type: 'alert', icon: this.icons.alert, override: override }, true);
-	    }
-	    info(title, content, override) {
-	        return this.set({ title: title, content: content, type: 'info', icon: this.icons.info, override: override }, true);
-	    }
-	    bare(title, content, override) {
-	        return this.set({ title: title, content: content, type: 'bare', icon: 'bare', override: override }, true);
-	    }
-	    create(title, content, type, override) {
-	        return this.set({ title: title, content: content, type: type, icon: 'bare', override: override }, true);
-	    }
-	    html(html, type, override) {
-	        return this.set({ html: html, type: type, icon: 'bare', override: override, title: null, content: null }, true);
-	    }
-	    remove(id) {
-	        if (id)
-	            this.emitter.next({ command: 'clean', id: id });
-	        else
-	            this.emitter.next({ command: 'cleanAll' });
-	    }
-	}
-	NotificationsService.decorators = [
-	    { type: core_1.Injectable },
-	];
-	NotificationsService.ctorParameters = [];
-	exports.NotificationsService = NotificationsService;
-	//# sourceMappingURL=notifications.service.js.map
-
-/***/ },
-/* 1390 */
-/***/ function(module, exports) {
-
-	"use strict";
-	exports.defaultIcons = {
-	    alert: `
-	        <svg class="simple-notification-svg" xmlns="http://www.w3.org/2000/svg" fill="#000000" height="24" viewBox="0 0 24 24" width="24">
-	            <path d="M0 0h24v24H0z" fill="none"/>
-	            <path d="M22 5.72l-4.6-3.86-1.29 1.53 4.6 3.86L22 5.72zM7.88 3.39L6.6 1.86 2 5.71l1.29 1.53 4.59-3.85zM12.5 8H11v6l4.75 2.85.75-1.23-4-2.37V8zM12 4c-4.97 0-9 4.03-9 9s4.02 9 9 9c4.97 0 9-4.03 9-9s-4.03-9-9-9zm0 16c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7z"/>
-	        </svg>`,
-	    error: `
-	        <svg class="simple-notification-svg" xmlns="http://www.w3.org/2000/svg" fill="#000000" height="24" viewBox="0 0 24 24" width="24">
-	            <path d="M0 0h24v24H0V0z" fill="none"/>
-	            <path d="M11 15h2v2h-2zm0-8h2v6h-2zm.99-5C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"/>
-	        </svg>
-	    `,
-	    info: `
-	        <svg class="simple-notification-svg" xmlns="http://www.w3.org/2000/svg" fill="#000000" height="24" viewBox="0 0 24 24" width="24">
-	            <path d="M0 0h24v24H0z" fill="none"/>
-	            <path d="M11 17h2v-6h-2v6zm1-15C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zM11 9h2V7h-2v2z"/>
-	        </svg>
-	    `,
-	    success: `
-	        <svg class="simple-notification-svg" xmlns="http://www.w3.org/2000/svg" fill="#000000" height="24" viewBox="0 0 24 24" width="24">
-	            <path d="M0 0h24v24H0z" fill="none"/>
-	            <path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/>
-	        </svg>
-	    `
-	};
-	//# sourceMappingURL=icons.js.map
-
-/***/ },
-/* 1391 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	const core_1 = __webpack_require__(4);
-	const notifications_service_1 = __webpack_require__(1389);
-	class SimpleNotificationsComponent {
-	    constructor(_service) {
-	        this._service = _service;
-	        this.onCreate = new core_1.EventEmitter();
-	        this.onDestroy = new core_1.EventEmitter();
-	        this.notifications = [];
-	        this.position = ['bottom', 'right'];
-	        this.lastOnBottom = true;
-	        this.maxStack = 8;
-	        this.preventLastDuplicates = false;
-	        this.preventDuplicates = false;
-	        this.timeOut = 0;
-	        this.maxLength = 0;
-	        this.clickToClose = true;
-	        this.showProgressBar = true;
-	        this.pauseOnHover = true;
-	        this.theClass = '';
-	        this.rtl = false;
-	        this.animate = 'fromRight';
-	    }
-	    set options(opt) {
-	        this.attachChanges(opt);
-	    }
-	    ngOnInit() {
-	        this.listener = this._service.getChangeEmitter()
-	            .subscribe(item => {
-	            switch (item.command) {
-	                case 'cleanAll':
-	                    this.notifications = [];
-	                    break;
-	                case 'clean':
-	                    this.cleanSingle(item.id);
-	                    break;
-	                case 'set':
-	                    if (item.add)
-	                        this.add(item.notification);
-	                    else
-	                        this.defaultBehavior(item);
-	                    break;
-	                default:
-	                    this.defaultBehavior(item);
-	                    break;
-	            }
-	        });
-	    }
-	    defaultBehavior(value) {
-	        this.notifications.splice(this.notifications.indexOf(value.notification), 1);
-	        this.onDestroy.emit(this.buildEmit(value.notification, false));
-	    }
-	    add(item) {
-	        item.createdOn = new Date();
-	        let toBlock = this.preventLastDuplicates || this.preventDuplicates ? this.block(item) : false;
-	        this.lastNotificationCreated = item;
-	        if (!toBlock) {
-	            if (this.lastOnBottom) {
-	                if (this.notifications.length >= this.maxStack)
-	                    this.notifications.splice(0, 1);
-	                this.notifications.push(item);
-	            }
-	            else {
-	                if (this.notifications.length >= this.maxStack)
-	                    this.notifications.splice(this.notifications.length - 1, 1);
-	                this.notifications.splice(0, 0, item);
-	            }
-	            this.onCreate.emit(this.buildEmit(item, true));
-	        }
-	    }
-	    block(item) {
-	        let toCheck = item.html ? this.checkHtml : this.checkStandard;
-	        if (this.preventDuplicates && this.notifications.length > 0) {
-	            for (let i = 0; i < this.notifications.length; i++) {
-	                if (toCheck(this.notifications[i], item)) {
-	                    return true;
-	                }
-	            }
-	        }
-	        if (this.preventLastDuplicates) {
-	            let comp;
-	            if (this.preventLastDuplicates === 'visible' && this.notifications.length > 0) {
-	                if (this.lastOnBottom) {
-	                    comp = this.notifications[this.notifications.length - 1];
-	                }
-	                else {
-	                    comp = this.notifications[0];
-	                }
-	            }
-	            else if (this.preventLastDuplicates === 'all' && this.lastNotificationCreated) {
-	                comp = this.lastNotificationCreated;
-	            }
-	            else {
-	                return false;
-	            }
-	            return toCheck(comp, item);
-	        }
-	        return false;
-	    }
-	    checkStandard(checker, item) {
-	        return checker.type === item.type && checker.title === item.title && checker.content === item.content;
-	    }
-	    checkHtml(checker, item) {
-	        return checker.html ? checker.type === item.type && checker.title === item.title && checker.content === item.content && checker.html === item.html : false;
-	    }
-	    attachChanges(options) {
-	        Object.keys(options).forEach(a => {
-	            if (this.hasOwnProperty(a)) {
-	                this[a] = options[a];
-	            }
-	        });
-	    }
-	    buildEmit(notification, to) {
-	        let toEmit = {
-	            createdOn: notification.createdOn,
-	            type: notification.type,
-	            icon: notification.icon,
-	            id: notification.id
-	        };
-	        if (notification.html) {
-	            toEmit.html = notification.html;
-	        }
-	        else {
-	            toEmit.title = notification.title;
-	            toEmit.content = notification.content;
-	        }
-	        if (!to) {
-	            toEmit.destroyedOn = new Date();
-	        }
-	        return toEmit;
-	    }
-	    cleanSingle(id) {
-	        let indexOfDelete = 0;
-	        let doDelete = false;
-	        this.notifications.forEach((notification, idx) => {
-	            if (notification.id === id) {
-	                indexOfDelete = idx;
-	                doDelete = true;
-	            }
-	        });
-	        if (doDelete) {
-	            this.notifications.splice(indexOfDelete, 1);
-	        }
-	    }
-	    ngOnDestroy() {
-	        if (this.listener) {
-	            this.listener.unsubscribe();
-	        }
-	    }
-	}
-	SimpleNotificationsComponent.decorators = [
-	    { type: core_1.Component, args: [{
-	                selector: 'simple-notifications',
-	                encapsulation: core_1.ViewEncapsulation.None,
-	                template: `
-	        <div class="simple-notification-wrapper" [ngClass]="position">
-	            <simple-notification
-	                *ngFor="let a of notifications; let i = index"
-	                [item]="a"
-	                [timeOut]="timeOut"
-	                [clickToClose]="clickToClose"
-	                [maxLength]="maxLength"
-	                [showProgressBar]="showProgressBar"
-	                [pauseOnHover]="pauseOnHover"
-	                [theClass]="theClass"
-	                [rtl]="rtl"
-	                [animate]="animate"
-	                [position]="i"
-	                >
-	            </simple-notification>
-	        </div>
-	    `,
-	                styles: [`
-	        .simple-notification-wrapper {
-	            position: fixed;
-	            width: 300px;
-	            z-index: 1000;
-	        }
-	        
-	        .simple-notification-wrapper.left { left: 20px; }
-	        .simple-notification-wrapper.top { top: 20px; }
-	        .simple-notification-wrapper.right { right: 20px; }
-	        .simple-notification-wrapper.bottom { bottom: 20px; }
-	        
-	        @media (max-width: 340px) {
-	            .simple-notification-wrapper {
-	                width: auto;
-	                left: 20px;
-	                right: 20px;
-	            }
-	        }
-	    `]
-	            },] },
-	];
-	SimpleNotificationsComponent.ctorParameters = [
-	    { type: notifications_service_1.NotificationsService, },
-	];
-	SimpleNotificationsComponent.propDecorators = {
-	    'options': [{ type: core_1.Input },],
-	    'onCreate': [{ type: core_1.Output },],
-	    'onDestroy': [{ type: core_1.Output },],
-	};
-	exports.SimpleNotificationsComponent = SimpleNotificationsComponent;
-	//# sourceMappingURL=simple-notifications.component.js.map
-
-/***/ },
-/* 1392 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	const core_1 = __webpack_require__(4);
-	const platform_browser_1 = __webpack_require__(22);
-	const notifications_service_1 = __webpack_require__(1389);
-	class NotificationComponent {
-	    constructor(notificationService, domSanitizer, zone) {
-	        this.notificationService = notificationService;
-	        this.domSanitizer = domSanitizer;
-	        this.zone = zone;
-	        this.progressWidth = 0;
-	        this.stopTime = false;
-	        this.count = 0;
-	        this.instance = () => {
-	            this.zone.runOutsideAngular(() => {
-	                this.zone.run(() => this.diff = (new Date().getTime() - this.start) - (this.count * this.speed));
-	                if (this.count++ === this.steps)
-	                    this.zone.run(() => this.remove());
-	                else if (!this.stopTime) {
-	                    if (this.showProgressBar)
-	                        this.zone.run(() => this.progressWidth += 100 / this.steps);
-	                    this.timer = setTimeout(this.instance, (this.speed - this.diff));
-	                }
-	            });
-	        };
-	    }
-	    ngOnInit() {
-	        if (this.animate) {
-	            this.item.state = this.animate;
-	        }
-	        if (this.item.override) {
-	            this.attachOverrides();
-	        }
-	        if (this.timeOut !== 0) {
-	            this.startTimeOut();
-	        }
-	        this.safeSvg = this.domSanitizer.bypassSecurityTrustHtml(this.item.icon);
-	    }
-	    startTimeOut() {
-	        this.steps = this.timeOut / 10;
-	        this.speed = this.timeOut / this.steps;
-	        this.start = new Date().getTime();
-	        this.zone.runOutsideAngular(() => this.timer = setTimeout(this.instance, this.speed));
-	    }
-	    onEnter() {
-	        if (this.pauseOnHover) {
-	            this.stopTime = true;
-	        }
-	    }
-	    onLeave() {
-	        if (this.pauseOnHover) {
-	            this.stopTime = false;
-	            setTimeout(this.instance, (this.speed - this.diff));
-	        }
-	    }
-	    setPosition() {
-	        return this.position !== 0 ? this.position * 90 : 0;
-	    }
-	    onClick($e) {
-	        this.item.click.emit($e);
-	        if (this.clickToClose) {
-	            this.remove();
-	        }
-	    }
-	    attachOverrides() {
-	        Object.keys(this.item.override).forEach(a => {
-	            if (this.hasOwnProperty(a)) {
-	                this[a] = this.item.override[a];
-	            }
-	        });
-	    }
-	    ngOnDestroy() {
-	        clearTimeout(this.timer);
-	    }
-	    remove() {
-	        if (this.animate) {
-	            this.item.state = this.animate + 'Out';
-	            this.zone.runOutsideAngular(() => {
-	                setTimeout(() => {
-	                    this.zone.run(() => this.notificationService.set(this.item, false));
-	                }, 310);
-	            });
-	        }
-	        else {
-	            this.notificationService.set(this.item, false);
-	        }
-	    }
-	}
-	NotificationComponent.decorators = [
-	    { type: core_1.Component, args: [{
-	                selector: 'simple-notification',
-	                encapsulation: core_1.ViewEncapsulation.None,
-	                animations: [
-	                    core_1.trigger('enterLeave', [
-	                        core_1.state('fromRight', core_1.style({ opacity: 1, transform: 'translateX(0)' })),
-	                        core_1.transition('* => fromRight', [
-	                            core_1.style({ opacity: 0, transform: 'translateX(5%)' }),
-	                            core_1.animate('400ms ease-in-out')
-	                        ]),
-	                        core_1.state('fromRightOut', core_1.style({ opacity: 0, transform: 'translateX(-5%)' })),
-	                        core_1.transition('fromRight => fromRightOut', [
-	                            core_1.style({ opacity: 1, transform: 'translateX(0)' }),
-	                            core_1.animate('300ms ease-in-out')
-	                        ]),
-	                        core_1.state('fromLeft', core_1.style({ opacity: 1, transform: 'translateX(0)' })),
-	                        core_1.transition('* => fromLeft', [
-	                            core_1.style({ opacity: 0, transform: 'translateX(-5%)' }),
-	                            core_1.animate('400ms ease-in-out')
-	                        ]),
-	                        core_1.state('fromLeftOut', core_1.style({ opacity: 0, transform: 'translateX(5%)' })),
-	                        core_1.transition('fromLeft => fromLeftOut', [
-	                            core_1.style({ opacity: 1, transform: 'translateX(0)' }),
-	                            core_1.animate('300ms ease-in-out')
-	                        ]),
-	                        core_1.state('scale', core_1.style({ opacity: 1, transform: 'scale(1)' })),
-	                        core_1.transition('* => scale', [
-	                            core_1.style({ opacity: 0, transform: 'scale(0)' }),
-	                            core_1.animate('400ms ease-in-out')
-	                        ]),
-	                        core_1.state('scaleOut', core_1.style({ opacity: 0, transform: 'scale(0)' })),
-	                        core_1.transition('scale => scaleOut', [
-	                            core_1.style({ opacity: 1, transform: 'scale(1)' }),
-	                            core_1.animate('400ms ease-in-out')
-	                        ]),
-	                        core_1.state('rotate', core_1.style({ opacity: 1, transform: 'rotate(0deg)' })),
-	                        core_1.transition('* => rotate', [
-	                            core_1.style({ opacity: 0, transform: 'rotate(5deg)' }),
-	                            core_1.animate('400ms ease-in-out')
-	                        ]),
-	                        core_1.state('rotateOut', core_1.style({ opacity: 0, transform: 'rotate(-5deg)' })),
-	                        core_1.transition('rotate => rotateOut', [
-	                            core_1.style({ opacity: 1, transform: 'rotate(0deg)' }),
-	                            core_1.animate('400ms ease-in-out')
-	                        ])
-	                    ])
-	                ],
-	                template: `
-	        <div class="simple-notification"
-	            [@enterLeave]="item.state"
-	            (click)="onClick($e)"
-	            [class]="theClass"
-
-	            [ngClass]="{
-	                'alert': item.type === 'alert',
-	                'error': item.type === 'error',
-	                'success': item.type === 'success',
-	                'info': item.type === 'info',
-	                'bare': item.type === 'bare',
-	                'rtl-mode': rtl
-	            }"
-
-	            (mouseenter)="onEnter()"
-	            (mouseleave)="onLeave()">
-
-	            <div *ngIf="!item.html">
-	                <div class="sn-title">{{item.title}}</div>
-	                <div class="sn-content">{{item.content | max:maxLength}}</div>
-
-	                <div *ngIf="item.type !== 'bare'" [innerHTML]="safeSvg"></div>
-	            </div>
-	            <div *ngIf="item.html" [innerHTML]="item.html"></div>
-
-	            <div class="sn-progress-loader" *ngIf="showProgressBar">
-	                <span [ngStyle]="{'width': progressWidth + '%'}"></span>
-	            </div>
-
-	        </div>
-	    `,
-	                styles: [`
-	        .simple-notification {
-	            width: 100%;
-	            padding: 10px 20px;
-	            box-sizing: border-box;
-	            position: relative;
-	            float: left;
-	            margin-bottom: 10px;
-	            color: #fff;
-	            cursor: pointer;
-	            transition: all 0.5s;
-	        }
-
-	        .simple-notification .sn-title {
-	            margin: 0;
-	            padding: 0 50px 0 0;
-	            line-height: 30px;
-	            font-size: 20px;
-	        }
-
-	        .simple-notification .sn-content {
-	            margin: 0;
-	            font-size: 16px;
-	            padding: 0 50px 0 0;
-	            line-height: 20px;
-	        }
-
-	        .simple-notification svg {
-	            position: absolute;
-	            box-sizing: border-box;
-	            top: 0;
-	            right: 0;
-	            width: 70px;
-	            height: 70px;
-	            padding: 10px;
-	            fill: #fff;
-	        }
-
-	        .simple-notification.rtl-mode {
-	            direction: rtl;
-	        }
-
-	        .simple-notification.rtl-mode .sn-content {
-	            padding: 0 0 0 50px;
-	        }
-
-	        .simple-notification.rtl-mode svg {
-	            left: 0;
-	            right: auto;
-	        }
-
-	        .simple-notification.error { background: #F44336; }
-	        .simple-notification.success { background: #8BC34A; }
-	        .simple-notification.alert { background: #ffdb5b; }
-	        .simple-notification.info { background: #03A9F4; }
-
-	        .simple-notification .sn-progress-loader {
-	            position: absolute;
-	            top: 0;
-	            left: 0;
-	            width: 100%;
-	            height: 5px;
-	        }
-
-	        .simple-notification .sn-progress-loader span {
-	            float: left;
-	            height: 100%;
-	        }
-
-	        .simple-notification.success .sn-progress-loader span { background: #689F38; }
-	        .simple-notification.error .sn-progress-loader span { background: #D32F2F; }
-	        .simple-notification.alert .sn-progress-loader span { background: #edc242; }
-	        .simple-notification.info .sn-progress-loader span { background: #0288D1; }
-	        .simple-notification.bare .sn-progress-loader span { background: #ccc; }
-	    `]
-	            },] },
-	];
-	NotificationComponent.ctorParameters = [
-	    { type: notifications_service_1.NotificationsService, },
-	    { type: platform_browser_1.DomSanitizer, },
-	    { type: core_1.NgZone, },
-	];
-	NotificationComponent.propDecorators = {
-	    'timeOut': [{ type: core_1.Input },],
-	    'showProgressBar': [{ type: core_1.Input },],
-	    'pauseOnHover': [{ type: core_1.Input },],
-	    'clickToClose': [{ type: core_1.Input },],
-	    'maxLength': [{ type: core_1.Input },],
-	    'theClass': [{ type: core_1.Input },],
-	    'rtl': [{ type: core_1.Input },],
-	    'animate': [{ type: core_1.Input },],
-	    'position': [{ type: core_1.Input },],
-	    'item': [{ type: core_1.Input },],
-	};
-	exports.NotificationComponent = NotificationComponent;
-	//# sourceMappingURL=notification.component.js.map
-
-/***/ },
-/* 1393 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	const core_1 = __webpack_require__(4);
-	class MaxPipe {
-	    transform(value, ...args) {
-	        let allowed = args[0];
-	        let received = value.length;
-	        if (received > allowed && allowed !== 0) {
-	            let toCut = allowed - received;
-	            return value.slice(0, toCut);
-	        }
-	        return value;
-	    }
-	}
-	MaxPipe.decorators = [
-	    { type: core_1.Pipe, args: [{ name: 'max' },] },
-	];
-	MaxPipe.ctorParameters = [];
-	exports.MaxPipe = MaxPipe;
-	//# sourceMappingURL=max.pipe.js.map
-
-/***/ },
-/* 1394 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	const core_1 = __webpack_require__(4);
-	const push_notifications_service_1 = __webpack_require__(1395);
-	class PushNotificationsModule {
-	}
-	PushNotificationsModule.decorators = [
-	    { type: core_1.NgModule, args: [{
-	                providers: [push_notifications_service_1.PushNotificationsService]
-	            },] },
-	];
-	PushNotificationsModule.ctorParameters = [];
-	exports.PushNotificationsModule = PushNotificationsModule;
-	//# sourceMappingURL=push-notifications.module.js.map
-
-/***/ },
-/* 1395 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	const core_1 = __webpack_require__(4);
-	const Observable_1 = __webpack_require__(6);
-	class PushNotificationsService {
-	    constructor() {
-	        this.permission = this.isSupported() ? Notification.permission : 'denied';
-	    }
-	    requestPermission() {
-	        if ('Notification' in window)
-	            Notification.requestPermission((status) => this.permission = status);
-	    }
-	    isSupported() {
-	        return 'Notification' in window;
-	    }
-	    create(title, options) {
-	        return new Observable_1.Observable((obs) => {
-	            if (!('Notification' in window)) {
-	                obs.error('Notifications are not available in this environment');
-	                obs.complete();
-	            }
-	            if (this.permission !== 'granted') {
-	                obs.error(`The user hasn't granted you permission to send push notifications`);
-	                obs.complete();
-	            }
-	            const n = new Notification(title, options);
-	            n.onshow = (e) => obs.next({ notification: n, event: e });
-	            n.onclick = (e) => obs.next({ notification: n, event: e });
-	            n.onerror = (e) => obs.error({ notification: n, event: e });
-	            n.onclose = () => obs.complete();
-	        });
-	    }
-	}
-	PushNotificationsService.decorators = [
-	    { type: core_1.Injectable },
-	];
-	PushNotificationsService.ctorParameters = [];
-	exports.PushNotificationsService = PushNotificationsService;
-	//# sourceMappingURL=push-notifications.service.js.map
-
-/***/ },
-/* 1396 */
+/* 1399 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -80211,13 +80238,13 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 1397 */
+/* 1400 */
 /***/ function(module, exports) {
 
 	module.exports = "<div id=\"modal-login\" class=\"modal\" tabindex=\"-1\">\n  <div class=\"modal-dialog\">\n    <div class=\"modal-content\">\n      <div class=\"modal-header text-center\">\n        <button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>\n        <h2>Sign in to your account:</h2>\n        <span>Welcome to the home!</span>\n      </div>\n      <form #loginForm=\"ngForm\" novalidate (submit)=\"onSubmit(loginForm)\">\n        <div class=\"modal-body\">\n          <div class=\"form-group\">\n            <input type=\"email\" [(ngModel)]=\"user.email\" name=\"email\" placeholder=\"Email:\" required pattern=\"[a-zA-Z]{3,}\\d*_*@[a-z]{3,}\\.[a-z]{2,}\" #email=\"ngModel\">\n            <span class=\"fa fa-at\"></span>\n            <p *ngIf=\"email.invalid && email.touched\" class=\"alert alert-danger\">\n              Email not valid\n            </p>\n          </div>\n          <div class=\"form-group\">\n            <input type=\"password\" [(ngModel)]=\"user.password\" #password=\"ngModel\" name=\"password\" placeholder=\"Password:\" required>\n            <span class=\"fa fa-lock\"></span>\n            <p *ngIf=\"password.invalid && password.touched\" class=\"alert alert-danger\">\n              Password is required\n            </p>\n          </div>\n          <!-- <div class=\"form-group social-login clearfix\">\n            <a href=\"https://www.facebook.com\" class=\"col-md-6 fb-login\" target=\"blank\"><span class=\"fa fa-facebook-square\"></span>Facebook login</a>\n            <a href=\"https://plus.google.com\" class=\"col-md-6 google-login\" target=\"blank\"><span class=\"fa fa-google-plus-square\"></span>Google login</a>\n          </div> -->\n        </div>\n        <div class=\"modal-footer\">\n          <div class=\"form-group clearfix\">\n            <!-- <span>Don't have an account? <a href=\"#\">Sign Up</a></span>\n            <span>Forgot your password? <a href=\"#\">Restore</a></span> -->\n            <button type=\"submit\" class=\"btn btn-primary\" [disabled]=\"loginForm.invalid\">Login</button>\n          </div>\n        </div>\n      </form>\n    </div>\n  </div>\n</div>\n<simple-notifications [options]=\"options\"></simple-notifications>\n";
 
 /***/ },
-/* 1398 */
+/* 1401 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -80231,10 +80258,10 @@ webpackJsonp([0],[
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var core_1 = __webpack_require__(4);
-	var new_user_1 = __webpack_require__(1399);
-	var registration_service_1 = __webpack_require__(1400);
+	var new_user_1 = __webpack_require__(1402);
+	var registration_service_1 = __webpack_require__(1403);
 	var utils_1 = __webpack_require__(1320);
-	var angular2_notifications_1 = __webpack_require__(1387);
+	var angular2_notifications_1 = __webpack_require__(1383);
 	var RegistrationComponent = (function () {
 	    function RegistrationComponent(regService, utils, _notify) {
 	        this.regService = regService;
@@ -80268,7 +80295,7 @@ webpackJsonp([0],[
 	RegistrationComponent = __decorate([
 	    core_1.Component({
 	        selector: 'sm-register-modal',
-	        template: __webpack_require__(1401),
+	        template: __webpack_require__(1404),
 	        providers: [registration_service_1.RegistrationService, utils_1.Utils, angular2_notifications_1.NotificationsService]
 	    }),
 	    __metadata("design:paramtypes", [registration_service_1.RegistrationService,
@@ -80279,7 +80306,7 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 1399 */
+/* 1402 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -80298,7 +80325,7 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 1400 */
+/* 1403 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -80338,13 +80365,13 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 1401 */
+/* 1404 */
 /***/ function(module, exports) {
 
 	module.exports = "<div id=\"modal-register\" class=\"modal fade in modal-open\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"createAccount\">\n  <div class=\"modal-dialog\" role=\"document\">\n    <div class=\"modal-content\">\n      <div class=\"modal-header text-center\">\n        <button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>\n        <h2 id=\"createAccount\" class=\"modal-title\">Create an Account</h2>\n        <!-- <span>It takes few minutes</span> -->\n      </div>\n      <form name=\"RegistrationForm\" #RegistrationForm='ngForm' (ngSubmit)=\"onSubmit(RegistrationForm)\" novalidate>\n        <div class=\"modal-body\">\n          <div class=\"user-type-select\">\n            <div>\n              <input type=\"radio\" id=\"regular-user-radio\" [value]='0' [(ngModel)]=\"user.user_type\" name=\"user-type\" checked=\"checked\"/>\n              <label for=\"regular-user-radio\"><span><span></span></span>Regular User</label>\n            </div>\n            <div>\n              <input type=\"radio\" [value] = '1' id=\"agent-radio\" [(ngModel)]=\"user.user_type\" name=\"user-type\" />\n              <label for=\"agent-radio\"><span><span></span></span>Agent</label>\n            </div>\n          </div>\n          <div class=\"form-group\">\n            <input type=\"text\" name=\"firstname\" [(ngModel)]=\"user.firstname\" placeholder=\"First Name:\" required #firstname='ngModel'>\n            <p *ngIf='firstname.invalid && firstname.touched' class=\"alert alert-danger\">First Name is required</p>\n          </div>\n          <div class=\"form-group\">\n            <input type=\"text\" name=\"lastname\" [(ngModel)]=\"user.lastname\" placeholder=\"Last Name:\" required #lastname=\"ngModel\">\n            <p *ngIf=\"lastname.invalid && lastname.touched\" class=\"alert alert-danger\">\n              Last Name is required\n            </p>\n          </div>\n          <div class=\"form-group\">\n            <input type=\"email\" name=\"email\" [(ngModel)]=\"user.email\" placeholder=\"Email:\" required #email=\"ngModel\" pattern=\"[a-zA-Z]{3,}\\d*_*@[a-z]{3,}\\.[a-z]{2,}\">\n            <p *ngIf=\"email.invalid  && email.touched\" class=\"alert alert-danger\">\n              Email not valid\n            </p>\n          </div>\n          <div class=\"form-group\">\n            <input pattern=\"......+\" type=\"password\" [(ngModel)]=\"user.password\" name=\"password\" placeholder=\"Password:\" required #password=\"ngModel\">\n            {{ password.className }}\n            <p *ngIf=\"password.invalid && password.touched\" class=\"alert alert-danger\">\n              Password required\n            </p>\n          </div>\n          <div class=\"form-group\">\n            <input type=\"password\" [(ngModel)]=\"user.passwordConfirmation\" (change)=\"checkPassword()\" name=\"passwordConfirmation\" placeholder=\"Password Confirmation:\" required #passwordConfirmation='ngModel'>\n          </div>\n          <p *ngIf=\"passwordConfirmation.invalid && passwordConfirmation.touched\" class=\"alert alert-danger\">\n            Password Confirmation is required\n          </p>\n          <p class=\"alert alert-danger\" *ngIf=\"passwordConfirmation.touched && !passwordConfirmed\">\n            Password does not match\n          </p>\n        </div>\n        <div class=\"modal-footer\">\n          <div class=\"form-group clearfix\">\n            <button [disabled]=\"RegistrationForm.form.invalid && !passwordConfirmed\" type=\"submit\" class=\"btn btn-primary\">Join</button>\n          </div>\n          <div>\n            <span class=\"terms\">By clicking JOIN button you agree with our <br> <a href=\"terms_and_conditions.html\" target=\"blank\">Terms and conditions</a></span>\n          </div>\n        </div>\n      </form>\n    </div>\n  </div>\n</div>\n<simple-notifications [options]=\"options\"></simple-notifications>\n";
 
 /***/ },
-/* 1402 */
+/* 1405 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -80366,7 +80393,7 @@ webpackJsonp([0],[
 	FooterComponent = __decorate([
 	    core_1.Component({
 	        selector: "sm-footer",
-	        template: __webpack_require__(1403)
+	        template: __webpack_require__(1406)
 	    }),
 	    __metadata("design:paramtypes", [])
 	], FooterComponent);
@@ -80374,37 +80401,37 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 1403 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = "\t<footer id=\"page-footer\">\n\t\t<div class=\"inner\">\n\t\t\t<section id=\"footer-main\">\n\t\t\t\t<div class=\"container\">\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-md-3 col-sm-3\">\n\t\t\t\t\t\t\t<article>\n\t\t\t\t\t\t\t\t<h3>About Us</h3>\n\t\t\t\t\t\t\t\t<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed\n\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t</article>\n\t\t\t\t\t\t</div><!-- /.col-sm-3 -->\n\t\t\t\t\t\t<div class=\"col-md-3 col-sm-3\">\n\t\t\t\t\t\t\t<article>\n\t\t\t\t\t\t\t\t<h3>Recent Properties For Sale</h3>\n\t\t\t\t\t\t\t\t<div class=\"property small\">\n\t\t\t\t\t\t\t\t\t<a href=\"property-detail.html\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"property-thumbnail\">\n\t\t\t\t\t\t\t\t\t\t\t<img alt=\"\" src=\"http://placehold.it/60X55\">\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t\t<div class=\"info\">\n\t\t\t\t\t\t\t\t\t\t<a href=\"property-detail.html\">2186 Rinehart Road</a>\n\t\t\t\t\t\t\t\t\t\t<figure>Doral, FL 33178 </figure>\n\t\t\t\t\t\t\t\t\t\t<div class=\"tag price\">$ 72,000</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div><!-- /.property -->\n\t\t\t\t\t\t\t\t<div class=\"property small\">\n\t\t\t\t\t\t\t\t\t<a href=\"property-detail.html\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"property-thumbnail\">\n\t\t\t\t\t\t\t\t\t\t\t<img alt=\"\" src=\"http://placehold.it/60X55\">\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t\t<div class=\"info\">\n\t\t\t\t\t\t\t\t\t\t<a href=\"property-detail.html\">2479 Murphy Court</a>\n\t\t\t\t\t\t\t\t\t\t<figure>Minneapolis, MN 55402</figure>\n\t\t\t\t\t\t\t\t\t\t<div class=\"tag price\">$ 36,000</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div><!-- /.property -->\n\t\t\t\t\t\t\t</article>\n\t\t\t\t\t\t</div><!-- /.col-sm-3 -->\n\t\t\t\t\t\t<div class=\"col-md-3 col-sm-3\">\n\t\t\t\t\t\t\t<article class=\"contact-us\">\n\t\t\t\t\t\t\t\t<h3>Contact Us</h3>\n\t\t\t\t\t\t\t\t<address>\n\t\t\t\t\t\t\t\t\tCompany Name<br>\n\t\t\t\t\t\t\t\t\t4877 Spruce Drive<br>\n\t\t\t\t\t\t\t\t\tWest Newton, PA 15089\n\t\t\t\t\t\t\t\t</address>\n\t\t\t\t\t\t\t\t+1 (734) 123-4567<br>\n\t\t\t\t\t\t\t\t<a href=\"mailto=hello@example.com\" class=\"mailto\">hello@example.com</a>\n\t\t\t\t\t\t\t</article>\n\t\t\t\t\t\t</div><!-- /.col-sm-3 -->\n\t\t\t\t\t\t<div class=\"col-md-3 col-sm-3\">\n\t\t\t\t\t\t\t<article>\n\t\t\t\t\t\t\t\t<h3>Useful Links</h3>\n\t\t\t\t\t\t\t\t<ul class=\"list-unstyled list-links\">\n\t\t\t\t\t\t\t\t\t<li><a href=\"our_property.html\">All Properties</a></li>\n\t\t\t\t\t\t\t\t\t<li><a href=\"#\">Privacy Policy</a></li>\n\t\t\t\t\t\t\t\t\t<li><a href=\"terms_and_conditions.html\">Terms and Conditions</a></li>\n\t\t\t\t\t\t\t\t</ul>\n\t\t\t\t\t\t\t</article>\n\t\t\t\t\t\t</div><!-- /.col-sm-3 -->\n\t\t\t\t\t\t<div class=\"col-md-12 col-sm-12\">\n\t\t\t\t\t\t\t<span class=\"pull-right\"><a href=\"#page-top\" class=\"roll\">Go to top</a></span>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div><!-- /.row -->\n\t\t\t\t</div><!-- /.container -->\n\t\t\t</section><!-- /#footer-main -->\n\t\t\t<section id=\"footer-thumbnails\" class=\"footer-thumbnails\"></section><!-- /#footer-thumbnails -->\n\t\t\t<section id=\"footer-copyright\">\n\t\t\t\t<div class=\"container\">\n\t\t\t\t\t<a href=\"http://fruitfulcode.com\" target=\"blank\">© Fruitful Code,</a>\n\t\t\t\t\t<span>Powered by</span>\n\t\t\t\t\t<a href=\"http://getbootstrap.com \" target=\"blank\">Bootstrap</a>\n\t\t\t\t\t<img class=\"pull-right bank-logo\" alt=\"\" src=\"" + __webpack_require__(1404) + "\">\n\t\t\t\t\t<img class=\"pull-right bank-logo\" alt=\"\" src=\"" + __webpack_require__(1405) + "\">\n\t\t\t\t\t<img class=\"pull-right bank-logo\" alt=\"\" src=\"" + __webpack_require__(1406) + "\">\n\t\t\t\t\t<img class=\"pull-right bank-logo\" alt=\"\" src=\"" + __webpack_require__(1407) + "\">\n\t\t\t\t\t<span class=\"pull-right\">We accept:</span>\n\t\t\t\t</div>\n\t\t\t</section>\n\t\t</div><!-- /.inner -->\n\t</footer>\n";
-
-/***/ },
-/* 1404 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__.p + "assets/master-card.8666418efed3e6839e2d657b33a7bfda.png";
-
-/***/ },
-/* 1405 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__.p + "assets/visa.bdcf6841befe7f176c8f122872749227.png";
-
-/***/ },
 /* 1406 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "assets/stripe.f8077e3d45a81e7ce510b0ae43b0ab09.png";
+	module.exports = "\t<footer id=\"page-footer\">\n\t\t<div class=\"inner\">\n\t\t\t<section id=\"footer-main\">\n\t\t\t\t<div class=\"container\">\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-md-3 col-sm-3\">\n\t\t\t\t\t\t\t<article>\n\t\t\t\t\t\t\t\t<h3>About Us</h3>\n\t\t\t\t\t\t\t\t<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed\n\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t</article>\n\t\t\t\t\t\t</div><!-- /.col-sm-3 -->\n\t\t\t\t\t\t<div class=\"col-md-3 col-sm-3\">\n\t\t\t\t\t\t\t<article>\n\t\t\t\t\t\t\t\t<h3>Recent Properties For Sale</h3>\n\t\t\t\t\t\t\t\t<div class=\"property small\">\n\t\t\t\t\t\t\t\t\t<a href=\"property-detail.html\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"property-thumbnail\">\n\t\t\t\t\t\t\t\t\t\t\t<img alt=\"\" src=\"http://placehold.it/60X55\">\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t\t<div class=\"info\">\n\t\t\t\t\t\t\t\t\t\t<a href=\"property-detail.html\">2186 Rinehart Road</a>\n\t\t\t\t\t\t\t\t\t\t<figure>Doral, FL 33178 </figure>\n\t\t\t\t\t\t\t\t\t\t<div class=\"tag price\">$ 72,000</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div><!-- /.property -->\n\t\t\t\t\t\t\t\t<div class=\"property small\">\n\t\t\t\t\t\t\t\t\t<a href=\"property-detail.html\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"property-thumbnail\">\n\t\t\t\t\t\t\t\t\t\t\t<img alt=\"\" src=\"http://placehold.it/60X55\">\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t\t<div class=\"info\">\n\t\t\t\t\t\t\t\t\t\t<a href=\"property-detail.html\">2479 Murphy Court</a>\n\t\t\t\t\t\t\t\t\t\t<figure>Minneapolis, MN 55402</figure>\n\t\t\t\t\t\t\t\t\t\t<div class=\"tag price\">$ 36,000</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div><!-- /.property -->\n\t\t\t\t\t\t\t</article>\n\t\t\t\t\t\t</div><!-- /.col-sm-3 -->\n\t\t\t\t\t\t<div class=\"col-md-3 col-sm-3\">\n\t\t\t\t\t\t\t<article class=\"contact-us\">\n\t\t\t\t\t\t\t\t<h3>Contact Us</h3>\n\t\t\t\t\t\t\t\t<address>\n\t\t\t\t\t\t\t\t\tCompany Name<br>\n\t\t\t\t\t\t\t\t\t4877 Spruce Drive<br>\n\t\t\t\t\t\t\t\t\tWest Newton, PA 15089\n\t\t\t\t\t\t\t\t</address>\n\t\t\t\t\t\t\t\t+1 (734) 123-4567<br>\n\t\t\t\t\t\t\t\t<a href=\"mailto=hello@example.com\" class=\"mailto\">hello@example.com</a>\n\t\t\t\t\t\t\t</article>\n\t\t\t\t\t\t</div><!-- /.col-sm-3 -->\n\t\t\t\t\t\t<div class=\"col-md-3 col-sm-3\">\n\t\t\t\t\t\t\t<article>\n\t\t\t\t\t\t\t\t<h3>Useful Links</h3>\n\t\t\t\t\t\t\t\t<ul class=\"list-unstyled list-links\">\n\t\t\t\t\t\t\t\t\t<li><a href=\"our_property.html\">All Properties</a></li>\n\t\t\t\t\t\t\t\t\t<li><a href=\"#\">Privacy Policy</a></li>\n\t\t\t\t\t\t\t\t\t<li><a href=\"terms_and_conditions.html\">Terms and Conditions</a></li>\n\t\t\t\t\t\t\t\t</ul>\n\t\t\t\t\t\t\t</article>\n\t\t\t\t\t\t</div><!-- /.col-sm-3 -->\n\t\t\t\t\t\t<div class=\"col-md-12 col-sm-12\">\n\t\t\t\t\t\t\t<span class=\"pull-right\"><a href=\"#page-top\" class=\"roll\">Go to top</a></span>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div><!-- /.row -->\n\t\t\t\t</div><!-- /.container -->\n\t\t\t</section><!-- /#footer-main -->\n\t\t\t<section id=\"footer-thumbnails\" class=\"footer-thumbnails\"></section><!-- /#footer-thumbnails -->\n\t\t\t<section id=\"footer-copyright\">\n\t\t\t\t<div class=\"container\">\n\t\t\t\t\t<a href=\"http://fruitfulcode.com\" target=\"blank\">© Fruitful Code,</a>\n\t\t\t\t\t<span>Powered by</span>\n\t\t\t\t\t<a href=\"http://getbootstrap.com \" target=\"blank\">Bootstrap</a>\n\t\t\t\t\t<img class=\"pull-right bank-logo\" alt=\"\" src=\"" + __webpack_require__(1407) + "\">\n\t\t\t\t\t<img class=\"pull-right bank-logo\" alt=\"\" src=\"" + __webpack_require__(1408) + "\">\n\t\t\t\t\t<img class=\"pull-right bank-logo\" alt=\"\" src=\"" + __webpack_require__(1409) + "\">\n\t\t\t\t\t<img class=\"pull-right bank-logo\" alt=\"\" src=\"" + __webpack_require__(1410) + "\">\n\t\t\t\t\t<span class=\"pull-right\">We accept:</span>\n\t\t\t\t</div>\n\t\t\t</section>\n\t\t</div><!-- /.inner -->\n\t</footer>\n";
 
 /***/ },
 /* 1407 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "assets/paypal.35179790ddd22e7f7ebde528a927567e.png";
+	module.exports = __webpack_require__.p + "assets/master-card.8666418efed3e6839e2d657b33a7bfda.png";
 
 /***/ },
 /* 1408 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "assets/visa.bdcf6841befe7f176c8f122872749227.png";
+
+/***/ },
+/* 1409 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "assets/stripe.f8077e3d45a81e7ce510b0ae43b0ab09.png";
+
+/***/ },
+/* 1410 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "assets/paypal.35179790ddd22e7f7ebde528a927567e.png";
+
+/***/ },
+/* 1411 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -80420,11 +80447,11 @@ webpackJsonp([0],[
 	var core_1 = __webpack_require__(4);
 	var common_1 = __webpack_require__(23);
 	var platform_browser_1 = __webpack_require__(22);
-	var forms_1 = __webpack_require__(1370);
-	var ng2_cloudinary_peictt_1 = __webpack_require__(1409);
-	var new_school_component_1 = __webpack_require__(1410);
-	var new_school_routing_module_1 = __webpack_require__(1420);
-	var angular2_notifications_1 = __webpack_require__(1387);
+	var forms_1 = __webpack_require__(1373);
+	var ng2_cloudinary_peictt_1 = __webpack_require__(1412);
+	var new_school_component_1 = __webpack_require__(1413);
+	var new_school_routing_module_1 = __webpack_require__(1423);
+	var angular2_notifications_1 = __webpack_require__(1383);
 	var login_service_1 = __webpack_require__(1321);
 	var NewSchoolModule = (function () {
 	    function NewSchoolModule() {
@@ -80450,7 +80477,7 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 1409 */
+/* 1412 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports =
@@ -82070,7 +82097,7 @@ webpackJsonp([0],[
 	//# sourceMappingURL=ng2-cloudinary.js.map
 
 /***/ },
-/* 1410 */
+/* 1413 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function($) {"use strict";
@@ -82085,11 +82112,11 @@ webpackJsonp([0],[
 	};
 	var core_1 = __webpack_require__(4);
 	var router_1 = __webpack_require__(26);
-	var new_school_model_1 = __webpack_require__(1411);
-	var ng2_cloudinary_peictt_1 = __webpack_require__(1409);
-	var angular2_notifications_1 = __webpack_require__(1387);
+	var new_school_model_1 = __webpack_require__(1414);
+	var ng2_cloudinary_peictt_1 = __webpack_require__(1412);
+	var angular2_notifications_1 = __webpack_require__(1383);
 	var app_constants_1 = __webpack_require__(357);
-	var new_school_service_1 = __webpack_require__(1412);
+	var new_school_service_1 = __webpack_require__(1415);
 	var NewSchoolComponent = (function () {
 	    function NewSchoolComponent(_notify, newSchoolService, router) {
 	        this._notify = _notify;
@@ -82163,7 +82190,7 @@ webpackJsonp([0],[
 	}());
 	NewSchoolComponent = __decorate([
 	    core_1.Component({
-	        template: __webpack_require__(1413),
+	        template: __webpack_require__(1416),
 	        providers: [new_school_service_1.NewSchoolService]
 	    }),
 	    __metadata("design:paramtypes", [angular2_notifications_1.NotificationsService, new_school_service_1.NewSchoolService, router_1.Router])
@@ -82173,7 +82200,7 @@ webpackJsonp([0],[
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1326)))
 
 /***/ },
-/* 1411 */
+/* 1414 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -82209,7 +82236,7 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 1412 */
+/* 1415 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -82251,49 +82278,49 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 1413 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = "<div id=\"page-content\">\n  <div class=\"wide-4\">\n    <div class=\"container\">\n      <ol class=\"breadcrumb\">\n        <li><a routerLink=\"/\">Home</a></li>\n        <li class=\"active\">Add School</li>\n      </ol>\n    </div>\n    <div class=\"container\">\n      <div class=\"explore\">\n        <h2>Create a new School</h2>\n        <h5 class=\"team-color\">It is easy and takes 15 min maximum</h5>\n      </div>\n      <form name=\"newSchoolForm\" #newSchoolForm=\"ngForm\" (submit)=\"registerSchool(newSchoolForm)\">\n        <div class=\"wide-3\">\n          <div class=\"explore\">\n            <div class=\"property-map-marker\"><img src=\"" + __webpack_require__(1414) + "\" alt=\"\" /><span class=\"marker-number\">1</span></div>\n            <div class=\"prt-cont\">\n              <div class=\"property-title\">\n                <h3>Main Information</h3>\n              </div>\n            </div>\n          </div>\n          <div class=\"prt-cont\">\n            <hr>\n            <div class=\"form-group\">\n              <label>School Name:</label>\n              <input type=\"text\" class=\"form-control\" placeholder=\"Enter your title (maximum 250 characters)\" required [(ngModel)]=\"newSchool.name\" name=\"name\" #name=\"ngModel\">\n            </div>\n            <div class=\"row\">\n              <div class=\"col-md-3 col-sm-3 col-xs-12\">\n                <div class=\"form-group\">\n                  <label>Currency</label>\n                  <select class=\"selectin\" name=\"currency\" [(ngModel)]=\"newSchool.currency\">\n                    <option default>None</option>\n                    <option *ngFor=\"let cur of currency\" value=\"{{cur.value}}\">{{cur.name}}</option>\n                  </select>\n                </div>\n              </div>\n              <div class=\"col-md-2 col-sm-2 col-xs-12\">\n                <div class=\"form-group\">\n                  <label>Fees:</label>\n                  <input type=\"text\" class=\"form-control\" placeholder=\"$\" name='fee' pattern=\"\\d*\" required [(ngModel)]='newSchool.fee'>\n                </div>\n              </div>\n              <div class=\"col-md-7 col-sm-7 col-xs-12\">\n                <div class=\"form-group\">\n                  <label>Owned By: </label>\n                  <select class=\"selectin\" name=\"owned_by\" [(ngModel)]=\"newSchool.owned_by\">\n                    <option default>None</option>\n                    <option *ngFor=\"let owner of owners\" value=\"{{owner.value}}\">{{owner.name}}</option>\n                  </select>\n                </div>\n              </div>\n              <div class=\"col-xs-12\">\n                <div class=\"form-group\">\n                  <label for=\"text-area-2\">Description:</label>\n                  <textarea id=\"text-area-2\" rows=\"6\" cols=\"45\" name=\"description\" class=\"form-control\" [(ngModel)]=\"newSchool.description\"></textarea>\n                </div>\n              </div>\n            </div>\n          </div>\n          <div class=\"explore\">\n            <div class=\"property-map-marker\"><img src=\"" + __webpack_require__(1414) + "\" alt=\"\" /><span class=\"marker-number\">2</span></div>\n            <div class=\"prt-cont\">\n              <div class=\"property-title\">\n                <h3>Summary</h3>\n              </div>\n            </div>\n          </div>\n          <div class=\"prt-cont\">\n            <hr>\n            <div class=\"row\">\n              <div class=\" col-md-8 col-sm-8\">\n                <div class=\"row\">\n                  <div class=\"col-md-6 col-sm-6 col-xs-12\">\n                    <div class=\"form-group\">\n                      <label>Conditions</label>\n                      <select class=\"selectin\" name=\"school_condition\" [(ngModel)]=\"newSchool.school_condition\">\n                        <option default>No Conditions</option>\n                        <option *ngFor=\"let condition of conditions\" value=\"{{condition.value}}\">{{condition.name}}</option>\n                      </select>\n                    </div>\n                  </div>\n                  <div class=\"col-md-6 col-sm-6 col-xs-12\">\n                    <div class=\"form-group\">\n                      <label>Interval payment for School Fees</label>\n                      <select class=\"selectin\" name=\"payment_interval\" [(ngModel)]=\"newSchool.payment_interval\">\n                        <option default>No Payment</option>\n                        <option *ngFor=\"let pay_interval of payment_intervals\" value=\"{{pay_interval.value}}\">{{pay_interval.name}}</option>\n                      </select>\n                    </div>\n                  </div>\n                  <div class=\"col-md-6 col-sm-6 col-xs-12\">\n                    <div class=\"form-group\">\n                      <label>School Type</label>\n                      <select class=\"selectin\" name=\"school_type\" [(ngModel)]=\"newSchool.school_type\">\n                        <option value=\"none\" selected>None</option>\n                        <option *ngFor=\"let type of schoolType\" value=\"{{type.value}}\" >{{type.name}}</option>\n                      </select>\n                    </div>\n                  </div>\n                </div>\n                    <hr>\n                <div class=\"row\">\n                  <div class=\"col-md-4 col-sm-4 col-xs-12\">\n                    <div class=\"form-group\">\n                      <label>Class Rooms</label>\n                      <input type=\"number\" class=\"form-control\" pattern=\"\\d*\" name=\"classrooms\" [(ngModel)]=\"newSchool.no_of_classrooms\">\n                    </div>\n                  </div>\n                  <div class=\"col-md-4 col-sm-4 col-xs-12\">\n                    <div class=\"form-group\">\n                      <label>School Bus</label>\n                      <input type=\"number\" class=\"form-control\" name=\"bus-no\" [(ngModel)]=\"newSchool.no_of_bus\">\n                    </div>\n                  </div>\n                  <div class=\"col-md-4 col-sm-4 col-xs-12\">\n                    <div class=\"form-group\">\n                      <label>Student/class</label>\n                      <input type=\"number\" class=\"form-control\" name=\"per-class\" [(ngModel)]=\"newSchool.no_of_students\">\n                  </div>\n                </div>\n                    <hr>\n                <div class=\"row\">\n                  <div class=\"col-md-4 col-sm-4 col-xs-12\">\n                    <div class=\"form-group\">\n                      <label>Buildings</label>\n                      <input type=\"number\" class=\"form-control\" name=\"buildings\" [(ngModel)]=\"newSchool.no_of_buildings\">\n                    </div>\n                  </div>\n                  <div class=\"col-md-4 col-sm-4 col-xs-12\">\n                    <div class=\"form-group\">\n                      <label>Area size of School:</label>\n                      <input type=\"text\" class=\"form-control\" placeholder=\"Enter your area\" name=\"school_size\" [(ngModel)]=\"newSchool.school_size\">\n                    </div>\n                  </div>\n                </div>\n              </div>\n              </div>\n              <div class=\" col-md-4 col-sm-4 summary-image\">\n                <label>Featured Photo</label>\n                <div class=\"featured-image-block\" *ngIf=\"!imageUploaded && !uploader.isUploading\">\n                  <img src=\"" + __webpack_require__(1415) + "\" alt=\"\" class=\"property-icon camera\">\n                  <h3> Add Featured Photo</h3>\n                  <h5 class=\"team-color\">Lorem Ipsum is simply dummy text of the printing and</h5>\n                  <input type=\"file\" class=\"file\" ng2FileSelect [uploader]=\"uploader\">\n                </div>\n                <div *ngIf=\"uploader.isUploading\">\n                  Uploading......\n                </div>\n                <div *ngIf='imageUploaded'>\n                  <cl-image public-id=\"{{image_public_id}}\" [options]='showOptions'></cl-image>\n                  <hr>\n                  <button type=\"button\" class=\"btn btn-small btn-danger\" (click)=\"resetImage()\">Reset Image</button>\n                </div>\n              </div>\n          </div>\n          </div>\n          <div class=\"explore\">\n            <div class=\"property-map-marker\"><img src=\"" + __webpack_require__(1414) + "\" alt=\"\" /><span class=\"marker-number\">3</span></div>\n            <div class=\"prt-cont\">\n              <div class=\"property-title\">\n                <h3>Location Information</h3>\n              </div>\n            </div>\n          </div>\n          <div class=\"prt-cont\">\n            <hr>\n            <div class=\"row\">\n              <div class=\"location-info col-md-6 col-sm-6 col-xs-12\">\n                <div class=\"form-group\">\n                  <label>Country</label>\n                  <input type=\"text\" name=\"country\" class=\"form-control\" [(ngModel)]=\"newSchool.country\" required>\n                </div>\n                <div class=\"form-group\">\n                  <label class=\"\">State</label>\n                  <select class=\"selectin\" name=\"state\" [(ngModel)]=\"newSchool.state\" required>\n                    <option *ngFor=\"let state of states\" value=\"{{state.value}}\">{{state.name}}</option>\n                  </select>\n                </div>\n                <div class=\"input-group\">\n                  <label>Address</label>\n                  <input type=\"text\" class=\"form-control\" name=\"address\" [(ngModel)]=\"newSchool.street_address\" placeholder=\"Enter property address\" required>\n                </div>\n                <div class=\"row\">\n                  <div class=\"col-md-6 col-sm-6 col-xs-12\">\n                    <div class=\"form-group\">\n                      <label>Town/City:</label>\n                      <input type=\"text\" class=\"form-control\" name=\"city\" [(ngModel)]=\"newSchool.city\"  required>\n                    </div>\n                  </div>\n                  <div class=\"col-md-6 col-sm-6 col-xs-12\">\n                    <div class=\"form-group\">\n                      <label>Local Government Area:</label>\n                      <input type=\"text\" class=\"form-control\" name=\"lga\" [(ngModel)]=\"newSchool.lga\"  required>\n                    </div>\n                  </div>\n                  <div class=\"col-md-6 col-sm-6 col-xs-12\">\n                    <div class=\"form-group\">\n                      <label>Post/ZIP Code:</label>\n                      <input type=\"text\" class=\"form-control\" name=\"zip\" [(ngModel)]=\"newSchool.zip\" placeholder=\"_ _ - _ _ _\">\n                    </div>\n                  </div>\n                </div>\n              </div>\n              <div class=\"location-map col-md-6 col-sm-6 col-xs-12\">\n                <!-- <div class=\"input-group\">\n                  <label for=\"address-map\">Place on map</label>\n                  <input type=\"text\" class=\"form-control\" id=\"address-map\" name=\"address\">\n                  <i class=\"fa fa-search\"></i>\n                </div> -->\n                <!-- <div id=\"submit-map\"></div> -->\n                <div class=\"row\">\n                  <div class=\"col-md-6 col-sm-6 col-xs-12\">\n                    <div class=\"form-group\">\n                      <label for=\"latitude\">Coordinates</label>\n                      <input type=\"text\" class=\"form-control\" placeholder=\"Latitude\" id=\"latitude\" name=\"latitude\" [(ngModel)]=\"newSchool.latitude\" pattern=\"\\d*\">\n                    </div>\n                  </div>\n                  <div class=\"col-md-6 col-sm-6 col-xs-12\">\n                    <div class=\"form-group\">\n                      <label for=\"longitude\">&nbsp;</label>\n                      <input type=\"text\" class=\"form-control\" placeholder=\"Longitude\" id=\"longitude\" name=\"longitude\" [(ngModel)]=\"newSchool.longitude\" pattern=\"\\d*\">\n                    </div>\n                  </div>\n                </div>\n              </div>\n            </div>\n          </div>\n          <div class=\"explore\">\n            <div class=\"property-map-marker\"><img src=\"" + __webpack_require__(1414) + "\" alt=\"\" /><span class=\"marker-number\">4</span></div>\n            <div class=\"prt-cont\">\n              <div class=\"property-title\">\n                <h3>Media Files</h3>\n              </div>\n            </div>\n          </div>\n          <div class=\"prt-cont media\">\n            <hr>\n            <!-- <div class=\"row\">\n              <div class=\"col-md-4 col-sm-4 col-xs-12\">\n                <div class=\"featured-image-block\">\n                  <img src=\"" + __webpack_require__(1416) + "\" alt=\"\" class=\"property-icon files\">\n                  <h3> Add Files</h3>\n                  <h5 class=\"team-color\">Lorem Ipsum is simply dummy text of the printing and</h5>\n                  <input id=\"file-upload-2\" type=\"file\" class=\"file\" required multiple data-show-upload=\"false\" data-show-caption=\"false\" data-show-remove=\"false\" accept=\"doc/txt,doc/doc\" data-browse-class=\"btn btn-default\" data-browse-label=\"Add Files\">\n                  <label for=\"file-upload-2\">\n                    <img src=\"" + __webpack_require__(1417) + "\" alt=\"\" class=\"image-upload-icon\">Add Files\n                  </label>\n                </div>\n              </div>\n              <div class=\"col-md-4 col-sm-4 col-xs-12\">\n                <div class=\"featured-image-block\">\n                  <img src=\"" + __webpack_require__(1418) + "\" alt=\"\" class=\"property-icon gallery\">\n                  <h3> Photo Gallery</h3>\n                  <h5 class=\"team-color\">Lorem Ipsum is simply dummy text of the printing and</h5>\n                  <input id=\"file-upload-3\" type=\"file\" class=\"file\" required multiple data-show-upload=\"false\" data-show-caption=\"false\" data-show-remove=\"false\" accept=\"image/jpeg,image/png\" data-browse-class=\"btn btn-default\" data-browse-label=\"Add Files\">\n                  <label for=\"file-upload-3\">\n                    <img src=\"" + __webpack_require__(1417) + "\" alt=\"\" class=\"image-upload-icon\">Add Files\n                  </label>\n                </div>\n              </div>\n              <div class=\"col-md-4 col-sm-4 col-xs-12\">\n                <div class=\"featured-image-block\">\n                  <img src=\"" + __webpack_require__(1419) + "\" alt=\"\" class=\"property-icon plan\">\n                  <h3> Floor Plans</h3>\n                  <h5 class=\"team-color\">Lorem Ipsum is simply dummy text of the printing and</h5>\n                  <input id=\"file-upload-4\" type=\"file\" class=\"file\" required multiple data-show-upload=\"false\" data-show-caption=\"false\" data-show-remove=\"false\" accept=\"image/jpeg,image/png\" data-browse-class=\"btn btn-default\" data-browse-label=\"Add Files\">\n                  <label for=\"file-upload-4\">\n                    <img src=\"" + __webpack_require__(1417) + "\" alt=\"\" class=\"image-upload-icon\">Add Files\n                  </label>\n                </div>\n              </div>\n            </div> -->\n            <div class=\"input-group\">\n              <label>Video Presentation:</label>\n              <input type=\"text\" class=\"form-control\" name=\"video_link\" [(ngModel)]=\"newSchool.video_link\" pattern=\"^(http|https):\\/\\/([a-z]+\\.|)[a-zA-Z]+\\.(com|co|org|ru|net)\" placeholder=\"Add link to your \">\n            </div>\n            <!-- <span class=\"ffs-bs\"><a href=\"#\" class=\"btn btn-small btn-primary\">Add Video</a></span> -->\n          </div>\n          <div class=\"explore\">\n            <div class=\"property-map-marker\"><img src=\"" + __webpack_require__(1414) + "\" alt=\"\" /><span class=\"marker-number\">5</span></div>\n            <div class=\"prt-cont\">\n              <div class=\"property-title\">\n                <h3>Property Features</h3>\n              </div>\n            </div>\n          </div>\n          <div class=\"prt-cont features\">\n            <hr>\n            <div class=\"row\">\n              <div id=\"property-features\" class=\"block\">\n                <div class=\"row\">\n                  <ul class=\"submit-features\">\n                    <li class=\"col-md-4 col-sm-4 col-xs-6\" *ngFor=\"let property of properties\">\n                      <div class=\"checkbox\">\n                        <label>\n                          <input type=\"checkbox\" name=\"{{property.value}}\" class=\"properties\" value=\"{{property.value}}\">{{property.name}}\n                        </label>\n                      </div>\n                    </li>\n                  </ul>\n                </div>\n                <hr>\n              </div>\n              <span class=\"ffs-bs\"><button type=\"submit\" class=\"btn btn-large btn-primary\">create school</button></span>\n            </div>\n          </div>\n        </div>\n      </form>\n    </div>\n  </div>\n</div>\n<simple-notifications [options]=\"notifyOptions\"></simple-notifications>\n";
-
-/***/ },
-/* 1414 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__.p + "assets/marker-full.dcb47c4d3b0eef8ebaf728a7958fcf74.png";
-
-/***/ },
-/* 1415 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__.p + "assets/camera.7ac768b997edfadf39e1aea775481b95.png";
-
-/***/ },
 /* 1416 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "assets/files.fa009da317d5796d79bf4fa6c7e9faa1.png";
+	module.exports = "<div id=\"page-content\">\n  <div class=\"wide-4\">\n    <div class=\"container\">\n      <ol class=\"breadcrumb\">\n        <li><a routerLink=\"/\">Home</a></li>\n        <li class=\"active\">Add School</li>\n      </ol>\n    </div>\n    <div class=\"container\">\n      <div class=\"explore\">\n        <h2>Create a new School</h2>\n        <h5 class=\"team-color\">It is easy and takes 15 min maximum</h5>\n      </div>\n      <form name=\"newSchoolForm\" #newSchoolForm=\"ngForm\" (submit)=\"registerSchool(newSchoolForm)\">\n        <div class=\"wide-3\">\n          <div class=\"explore\">\n            <div class=\"property-map-marker\"><img src=\"" + __webpack_require__(1417) + "\" alt=\"\" /><span class=\"marker-number\">1</span></div>\n            <div class=\"prt-cont\">\n              <div class=\"property-title\">\n                <h3>Main Information</h3>\n              </div>\n            </div>\n          </div>\n          <div class=\"prt-cont\">\n            <hr>\n            <div class=\"form-group\">\n              <label>School Name:</label>\n              <input type=\"text\" class=\"form-control\" placeholder=\"Enter your title (maximum 250 characters)\" required [(ngModel)]=\"newSchool.name\" name=\"name\" #name=\"ngModel\">\n            </div>\n            <div class=\"row\">\n              <div class=\"col-md-3 col-sm-3 col-xs-12\">\n                <div class=\"form-group\">\n                  <label>Currency</label>\n                  <select class=\"selectin\" name=\"currency\" [(ngModel)]=\"newSchool.currency\">\n                    <option default>None</option>\n                    <option *ngFor=\"let cur of currency\" value=\"{{cur.value}}\">{{cur.name}}</option>\n                  </select>\n                </div>\n              </div>\n              <div class=\"col-md-2 col-sm-2 col-xs-12\">\n                <div class=\"form-group\">\n                  <label>Fees:</label>\n                  <input type=\"text\" class=\"form-control\" placeholder=\"$\" name='fee' pattern=\"\\d*\" required [(ngModel)]='newSchool.fee'>\n                </div>\n              </div>\n              <div class=\"col-md-7 col-sm-7 col-xs-12\">\n                <div class=\"form-group\">\n                  <label>Owned By: </label>\n                  <select class=\"selectin\" name=\"owned_by\" [(ngModel)]=\"newSchool.owned_by\">\n                    <option default>None</option>\n                    <option *ngFor=\"let owner of owners\" value=\"{{owner.value}}\">{{owner.name}}</option>\n                  </select>\n                </div>\n              </div>\n              <div class=\"col-xs-12\">\n                <div class=\"form-group\">\n                  <label for=\"text-area-2\">Description:</label>\n                  <textarea id=\"text-area-2\" rows=\"6\" cols=\"45\" name=\"description\" class=\"form-control\" [(ngModel)]=\"newSchool.description\"></textarea>\n                </div>\n              </div>\n            </div>\n          </div>\n          <div class=\"explore\">\n            <div class=\"property-map-marker\"><img src=\"" + __webpack_require__(1417) + "\" alt=\"\" /><span class=\"marker-number\">2</span></div>\n            <div class=\"prt-cont\">\n              <div class=\"property-title\">\n                <h3>Summary</h3>\n              </div>\n            </div>\n          </div>\n          <div class=\"prt-cont\">\n            <hr>\n            <div class=\"row\">\n              <div class=\" col-md-8 col-sm-8\">\n                <div class=\"row\">\n                  <div class=\"col-md-6 col-sm-6 col-xs-12\">\n                    <div class=\"form-group\">\n                      <label>Conditions</label>\n                      <select class=\"selectin\" name=\"school_condition\" [(ngModel)]=\"newSchool.school_condition\">\n                        <option default>No Conditions</option>\n                        <option *ngFor=\"let condition of conditions\" value=\"{{condition.value}}\">{{condition.name}}</option>\n                      </select>\n                    </div>\n                  </div>\n                  <div class=\"col-md-6 col-sm-6 col-xs-12\">\n                    <div class=\"form-group\">\n                      <label>Interval payment for School Fees</label>\n                      <select class=\"selectin\" name=\"payment_interval\" [(ngModel)]=\"newSchool.payment_interval\">\n                        <option default>No Payment</option>\n                        <option *ngFor=\"let pay_interval of payment_intervals\" value=\"{{pay_interval.value}}\">{{pay_interval.name}}</option>\n                      </select>\n                    </div>\n                  </div>\n                  <div class=\"col-md-6 col-sm-6 col-xs-12\">\n                    <div class=\"form-group\">\n                      <label>School Type</label>\n                      <select class=\"selectin\" name=\"school_type\" [(ngModel)]=\"newSchool.school_type\">\n                        <option value=\"none\" selected>None</option>\n                        <option *ngFor=\"let type of schoolType\" value=\"{{type.value}}\" >{{type.name}}</option>\n                      </select>\n                    </div>\n                  </div>\n                </div>\n                    <hr>\n                <div class=\"row\">\n                  <div class=\"col-md-4 col-sm-4 col-xs-12\">\n                    <div class=\"form-group\">\n                      <label>Class Rooms</label>\n                      <input type=\"number\" class=\"form-control\" pattern=\"\\d*\" name=\"classrooms\" [(ngModel)]=\"newSchool.no_of_classrooms\">\n                    </div>\n                  </div>\n                  <div class=\"col-md-4 col-sm-4 col-xs-12\">\n                    <div class=\"form-group\">\n                      <label>School Bus</label>\n                      <input type=\"number\" class=\"form-control\" name=\"bus-no\" [(ngModel)]=\"newSchool.no_of_bus\">\n                    </div>\n                  </div>\n                  <div class=\"col-md-4 col-sm-4 col-xs-12\">\n                    <div class=\"form-group\">\n                      <label>Student/class</label>\n                      <input type=\"number\" class=\"form-control\" name=\"per-class\" [(ngModel)]=\"newSchool.no_of_students\">\n                  </div>\n                </div>\n                    <hr>\n                <div class=\"row\">\n                  <div class=\"col-md-4 col-sm-4 col-xs-12\">\n                    <div class=\"form-group\">\n                      <label>Buildings</label>\n                      <input type=\"number\" class=\"form-control\" name=\"buildings\" [(ngModel)]=\"newSchool.no_of_buildings\">\n                    </div>\n                  </div>\n                  <div class=\"col-md-4 col-sm-4 col-xs-12\">\n                    <div class=\"form-group\">\n                      <label>Area size of School:</label>\n                      <input type=\"text\" class=\"form-control\" placeholder=\"Enter your area\" name=\"school_size\" [(ngModel)]=\"newSchool.school_size\">\n                    </div>\n                  </div>\n                </div>\n              </div>\n              </div>\n              <div class=\" col-md-4 col-sm-4 summary-image\">\n                <label>Featured Photo</label>\n                <div class=\"featured-image-block\" *ngIf=\"!imageUploaded && !uploader.isUploading\">\n                  <img src=\"" + __webpack_require__(1418) + "\" alt=\"\" class=\"property-icon camera\">\n                  <h3> Add Featured Photo</h3>\n                  <h5 class=\"team-color\">Lorem Ipsum is simply dummy text of the printing and</h5>\n                  <input type=\"file\" class=\"file\" ng2FileSelect [uploader]=\"uploader\">\n                </div>\n                <div *ngIf=\"uploader.isUploading\">\n                  Uploading......\n                </div>\n                <div *ngIf='imageUploaded'>\n                  <cl-image public-id=\"{{image_public_id}}\" [options]='showOptions'></cl-image>\n                  <hr>\n                  <button type=\"button\" class=\"btn btn-small btn-danger\" (click)=\"resetImage()\">Reset Image</button>\n                </div>\n              </div>\n          </div>\n          </div>\n          <div class=\"explore\">\n            <div class=\"property-map-marker\"><img src=\"" + __webpack_require__(1417) + "\" alt=\"\" /><span class=\"marker-number\">3</span></div>\n            <div class=\"prt-cont\">\n              <div class=\"property-title\">\n                <h3>Location Information</h3>\n              </div>\n            </div>\n          </div>\n          <div class=\"prt-cont\">\n            <hr>\n            <div class=\"row\">\n              <div class=\"location-info col-md-6 col-sm-6 col-xs-12\">\n                <div class=\"form-group\">\n                  <label>Country</label>\n                  <input type=\"text\" name=\"country\" class=\"form-control\" [(ngModel)]=\"newSchool.country\" required>\n                </div>\n                <div class=\"form-group\">\n                  <label class=\"\">State</label>\n                  <select class=\"selectin\" name=\"state\" [(ngModel)]=\"newSchool.state\" required>\n                    <option *ngFor=\"let state of states\" value=\"{{state.value}}\">{{state.name}}</option>\n                  </select>\n                </div>\n                <div class=\"input-group\">\n                  <label>Address</label>\n                  <input type=\"text\" class=\"form-control\" name=\"address\" [(ngModel)]=\"newSchool.street_address\" placeholder=\"Enter property address\" required>\n                </div>\n                <div class=\"row\">\n                  <div class=\"col-md-6 col-sm-6 col-xs-12\">\n                    <div class=\"form-group\">\n                      <label>Town/City:</label>\n                      <input type=\"text\" class=\"form-control\" name=\"city\" [(ngModel)]=\"newSchool.city\"  required>\n                    </div>\n                  </div>\n                  <div class=\"col-md-6 col-sm-6 col-xs-12\">\n                    <div class=\"form-group\">\n                      <label>Local Government Area:</label>\n                      <input type=\"text\" class=\"form-control\" name=\"lga\" [(ngModel)]=\"newSchool.lga\"  required>\n                    </div>\n                  </div>\n                  <div class=\"col-md-6 col-sm-6 col-xs-12\">\n                    <div class=\"form-group\">\n                      <label>Post/ZIP Code:</label>\n                      <input type=\"text\" class=\"form-control\" name=\"zip\" [(ngModel)]=\"newSchool.zip\" placeholder=\"_ _ - _ _ _\">\n                    </div>\n                  </div>\n                </div>\n              </div>\n              <div class=\"location-map col-md-6 col-sm-6 col-xs-12\">\n                <!-- <div class=\"input-group\">\n                  <label for=\"address-map\">Place on map</label>\n                  <input type=\"text\" class=\"form-control\" id=\"address-map\" name=\"address\">\n                  <i class=\"fa fa-search\"></i>\n                </div> -->\n                <!-- <div id=\"submit-map\"></div> -->\n                <div class=\"row\">\n                  <div class=\"col-md-6 col-sm-6 col-xs-12\">\n                    <div class=\"form-group\">\n                      <label for=\"latitude\">Coordinates</label>\n                      <input type=\"text\" class=\"form-control\" placeholder=\"Latitude\" id=\"latitude\" name=\"latitude\" [(ngModel)]=\"newSchool.latitude\" pattern=\"\\d*\">\n                    </div>\n                  </div>\n                  <div class=\"col-md-6 col-sm-6 col-xs-12\">\n                    <div class=\"form-group\">\n                      <label for=\"longitude\">&nbsp;</label>\n                      <input type=\"text\" class=\"form-control\" placeholder=\"Longitude\" id=\"longitude\" name=\"longitude\" [(ngModel)]=\"newSchool.longitude\" pattern=\"\\d*\">\n                    </div>\n                  </div>\n                </div>\n              </div>\n            </div>\n          </div>\n          <div class=\"explore\">\n            <div class=\"property-map-marker\"><img src=\"" + __webpack_require__(1417) + "\" alt=\"\" /><span class=\"marker-number\">4</span></div>\n            <div class=\"prt-cont\">\n              <div class=\"property-title\">\n                <h3>Media Files</h3>\n              </div>\n            </div>\n          </div>\n          <div class=\"prt-cont media\">\n            <hr>\n            <!-- <div class=\"row\">\n              <div class=\"col-md-4 col-sm-4 col-xs-12\">\n                <div class=\"featured-image-block\">\n                  <img src=\"" + __webpack_require__(1419) + "\" alt=\"\" class=\"property-icon files\">\n                  <h3> Add Files</h3>\n                  <h5 class=\"team-color\">Lorem Ipsum is simply dummy text of the printing and</h5>\n                  <input id=\"file-upload-2\" type=\"file\" class=\"file\" required multiple data-show-upload=\"false\" data-show-caption=\"false\" data-show-remove=\"false\" accept=\"doc/txt,doc/doc\" data-browse-class=\"btn btn-default\" data-browse-label=\"Add Files\">\n                  <label for=\"file-upload-2\">\n                    <img src=\"" + __webpack_require__(1420) + "\" alt=\"\" class=\"image-upload-icon\">Add Files\n                  </label>\n                </div>\n              </div>\n              <div class=\"col-md-4 col-sm-4 col-xs-12\">\n                <div class=\"featured-image-block\">\n                  <img src=\"" + __webpack_require__(1421) + "\" alt=\"\" class=\"property-icon gallery\">\n                  <h3> Photo Gallery</h3>\n                  <h5 class=\"team-color\">Lorem Ipsum is simply dummy text of the printing and</h5>\n                  <input id=\"file-upload-3\" type=\"file\" class=\"file\" required multiple data-show-upload=\"false\" data-show-caption=\"false\" data-show-remove=\"false\" accept=\"image/jpeg,image/png\" data-browse-class=\"btn btn-default\" data-browse-label=\"Add Files\">\n                  <label for=\"file-upload-3\">\n                    <img src=\"" + __webpack_require__(1420) + "\" alt=\"\" class=\"image-upload-icon\">Add Files\n                  </label>\n                </div>\n              </div>\n              <div class=\"col-md-4 col-sm-4 col-xs-12\">\n                <div class=\"featured-image-block\">\n                  <img src=\"" + __webpack_require__(1422) + "\" alt=\"\" class=\"property-icon plan\">\n                  <h3> Floor Plans</h3>\n                  <h5 class=\"team-color\">Lorem Ipsum is simply dummy text of the printing and</h5>\n                  <input id=\"file-upload-4\" type=\"file\" class=\"file\" required multiple data-show-upload=\"false\" data-show-caption=\"false\" data-show-remove=\"false\" accept=\"image/jpeg,image/png\" data-browse-class=\"btn btn-default\" data-browse-label=\"Add Files\">\n                  <label for=\"file-upload-4\">\n                    <img src=\"" + __webpack_require__(1420) + "\" alt=\"\" class=\"image-upload-icon\">Add Files\n                  </label>\n                </div>\n              </div>\n            </div> -->\n            <div class=\"input-group\">\n              <label>Video Presentation:</label>\n              <input type=\"text\" class=\"form-control\" name=\"video_link\" [(ngModel)]=\"newSchool.video_link\" pattern=\"^(http|https):\\/\\/([a-z]+\\.|)[a-zA-Z]+\\.(com|co|org|ru|net)\" placeholder=\"Add link to your \">\n            </div>\n            <!-- <span class=\"ffs-bs\"><a href=\"#\" class=\"btn btn-small btn-primary\">Add Video</a></span> -->\n          </div>\n          <div class=\"explore\">\n            <div class=\"property-map-marker\"><img src=\"" + __webpack_require__(1417) + "\" alt=\"\" /><span class=\"marker-number\">5</span></div>\n            <div class=\"prt-cont\">\n              <div class=\"property-title\">\n                <h3>Property Features</h3>\n              </div>\n            </div>\n          </div>\n          <div class=\"prt-cont features\">\n            <hr>\n            <div class=\"row\">\n              <div id=\"property-features\" class=\"block\">\n                <div class=\"row\">\n                  <ul class=\"submit-features\">\n                    <li class=\"col-md-4 col-sm-4 col-xs-6\" *ngFor=\"let property of properties\">\n                      <div class=\"checkbox\">\n                        <label>\n                          <input type=\"checkbox\" name=\"{{property.value}}\" class=\"properties\" value=\"{{property.value}}\">{{property.name}}\n                        </label>\n                      </div>\n                    </li>\n                  </ul>\n                </div>\n                <hr>\n              </div>\n              <span class=\"ffs-bs\"><button type=\"submit\" class=\"btn btn-large btn-primary\">create school</button></span>\n            </div>\n          </div>\n        </div>\n      </form>\n    </div>\n  </div>\n</div>\n<simple-notifications [options]=\"notifyOptions\"></simple-notifications>\n";
 
 /***/ },
 /* 1417 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "assets/upload.e7ba440ad7c90123600ff7ecf7987599.png";
+	module.exports = __webpack_require__.p + "assets/marker-full.dcb47c4d3b0eef8ebaf728a7958fcf74.png";
 
 /***/ },
 /* 1418 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "assets/gallery.45d8adf9a02a4e900bcf5876f1bffaa8.png";
+	module.exports = __webpack_require__.p + "assets/camera.7ac768b997edfadf39e1aea775481b95.png";
 
 /***/ },
 /* 1419 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "assets/plan.0bd1b6edbf2ebe49c711cbf8dfcaf189.png";
+	module.exports = __webpack_require__.p + "assets/files.fa009da317d5796d79bf4fa6c7e9faa1.png";
 
 /***/ },
 /* 1420 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "assets/upload.e7ba440ad7c90123600ff7ecf7987599.png";
+
+/***/ },
+/* 1421 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "assets/gallery.45d8adf9a02a4e900bcf5876f1bffaa8.png";
+
+/***/ },
+/* 1422 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "assets/plan.0bd1b6edbf2ebe49c711cbf8dfcaf189.png";
+
+/***/ },
+/* 1423 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -82308,7 +82335,7 @@ webpackJsonp([0],[
 	};
 	var core_1 = __webpack_require__(4);
 	var router_1 = __webpack_require__(26);
-	var new_school_component_1 = __webpack_require__(1410);
+	var new_school_component_1 = __webpack_require__(1413);
 	exports.routes = [
 	    { path: 'new_school', component: new_school_component_1.NewSchoolComponent }
 	];
@@ -82328,7 +82355,7 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 1421 */
+/* 1424 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -82343,8 +82370,8 @@ webpackJsonp([0],[
 	};
 	var core_1 = __webpack_require__(4);
 	var common_1 = __webpack_require__(23);
-	var all_schools_routing_module_1 = __webpack_require__(1422);
-	var all_schools_component_1 = __webpack_require__(1423);
+	var all_schools_routing_module_1 = __webpack_require__(1425);
+	var all_schools_component_1 = __webpack_require__(1426);
 	var AllSchoolModule = (function () {
 	    function AllSchoolModule() {
 	    }
@@ -82361,7 +82388,7 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 1422 */
+/* 1425 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -82376,7 +82403,7 @@ webpackJsonp([0],[
 	};
 	var core_1 = __webpack_require__(4);
 	var router_1 = __webpack_require__(26);
-	var all_schools_component_1 = __webpack_require__(1423);
+	var all_schools_component_1 = __webpack_require__(1426);
 	exports.routes = [
 	    { path: "all_schools", component: all_schools_component_1.AllSchoolsComponent }
 	];
@@ -82396,7 +82423,7 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 1423 */
+/* 1426 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -82419,7 +82446,7 @@ webpackJsonp([0],[
 	}());
 	AllSchoolsComponent = __decorate([
 	    core_1.Component({
-	        template: __webpack_require__(1424)
+	        template: __webpack_require__(1427)
 	    }),
 	    __metadata("design:paramtypes", [])
 	], AllSchoolsComponent);
@@ -82427,13 +82454,13 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 1424 */
+/* 1427 */
 /***/ function(module, exports) {
 
 	module.exports = "<div id=\"page-content-search\">\n  <div class=\"container\">\n    <div class=\"wide_container_2\">\n      <div id=\"tab1\" class=\"tab\">\n        <div class=\"col-xs-12 content_2\">\n          <div class=\"col-md-10 col-md-offset-1\">\n            <!-- Range slider -->\n            <div class=\"explore_grid\">\n              <div class=\"row\">\n                <div class=\"explore col-xs-12\">\n                  <h2>Properties for rent</h2>\n                  <h5 class=\"team-color col-sm-offset-3 col-sm-6 col-xs-offset-1 col-xs-10\">Lorem Ipsum is simply dummy text of the printing and Lorem Ipsum has been the industry's standard </h5>\n                </div>\n                <form method=\"post\">\n                  <div class=\"col-md-2 col-sm-3\">\n                    <div class=\"form-inline\">\n                      <label class=\"price-range\">Price Range:</label>\n                    </div>\n                  </div>\n                  <div class=\"col-md-8 col-sm-7\">\n                    <div class=\"form-group\">\n                      <div class=\"price-range\">\n                        <input class=\"price-input\" type=\"text\" name=\"price\" value=\"0;5000000\">\n                      </div>\n                    </div>\n                  </div>\n                  <div class=\"select-block no-border pull-right col-sm-2 col-xs-12\">\n                    <select class=\"selection\">\n                      <option>Sort By:</option>\n                      <option>Date</option>\n                      <option>Price</option>\n                      <option>Type</option>\n                    </select>\n                  </div>\t<!-- select-block -->\n                </form>\n              </div><!-- row -->\n            </div>\n            <!-- End Range slider -->\n            <div class=\"wide-2\">\n              <div class=\"container\">\n                <div class=\"row\">\n                  <div class=\"col-md-3 col-sm-3 col-xs-6 prop\">\n                    <div class=\"wht-cont\">\n                      <div class=\"exp-img-2\" style=\"background:url(http://placehold.it/255x200) center;background-size: cover;\">\n                        <span class=\"filter\"></span>\n                        <span class=\"ffs-bs\"><label for=\"op\" class=\"btn btn-small btn-primary\">browse photos</label></span>\n                        <div class=\"overlay\">\n                          <div class=\"img-counter\">23 Photo</div>\n                        </div>\n                      </div>\n                      <div class=\"item-title\">\n                        <h4><a href=\"property_page.html\">AVA High Line 89 - 916 Apartments</a></h4>\n                        <p class=\"team-color\">525 W 28th St, New York, NY 10001</p>\n                        <div class=\"col-md-7 col-sm-7 col-xs-7\">\n                          <p>Studio - 2 bd</p>\n                        </div>\n                        <div class=\"col-md-5 col-sm-5 col-xs-5\">\n                          <p>86 m<span class=\"rank\">2</span></p>\n                        </div>\n                        <div class=\"col-md-7 col-sm-7 col-xs-7 lft-brd\"></div>\n                        <div class=\"col-md-5 col-sm-5 col-xs-5 lft-brd\"></div>\n                      </div>\n                      <hr>\n                      <div class=\"item-title btm-part\">\n                        <div class=\"row\">\n                          <div class=\"col-md-8 col-sm-8 col-xs-8\">\n                            <p>$5,000,000</p>\n                            <p class=\"team-color\">FOR SALE</p>\n                          </div>\n                          <div class=\"col-md-4 col-sm-4 col-xs-4 favorite\">\n                            <div class=\"bookmark\" data-bookmark-state=\"empty\">\n                              <span class=\"title-add\">Add to bookmark</span>\n                            </div>\n                            <div class=\"compare\" data-compare-state=\"empty\">\n                              <span class=\"plus-add\">Add to compare</span>\n                            </div>\n                          </div>\n                        </div>\n                      </div>\n                    </div>\n                  </div>\n                  <div class=\"col-md-3 col-sm-3 col-xs-6 prop\">\n                    <div class=\"wht-cont\">\n                      <div class=\"exp-img-2\" style=\"background:url(http://placehold.it/255x200) center;background-size: cover;\">\n                        <span class=\"filter\"></span>\n                        <span class=\"ffs-bs\"><label for=\"op\" class=\"btn btn-small btn-primary\">browse photos</label></span>\n                        <div class=\"overlay\">\n                          <div class=\"img-counter\">23 Photo</div>\n                        </div>\n                      </div>\n                      <div class=\"item-title\">\n                        <h4><a href=\"property_page.html\">Prism at Park Avenue South Apar</a></h4>\n                        <p class=\"team-color\">525 W 28th St, New York, NY 10001</p>\n                        <div class=\"col-md-7 col-sm-7 col-xs-7\">\n                          <p>Studio - 2 bd</p>\n                        </div>\n                        <div class=\"col-md-5 col-sm-5 col-xs-5\">\n                          <p>86 m<span class=\"rank\">2</span></p>\n                        </div>\n                        <div class=\"col-md-7 col-sm-7 col-xs-7 lft-brd\"></div>\n                        <div class=\"col-md-5 col-sm-5 col-xs-5 lft-brd\"></div>\n                      </div>\n                      <hr>\n                      <div class=\"item-title btm-part\">\n                        <div class=\"row\">\n                          <div class=\"col-md-8 col-sm-8 col-xs-8\">\n                            <p>$5,000,000</p>\n                            <p class=\"team-color\">FOR SALE</p>\n                          </div>\n                          <div class=\"col-md-4 col-sm-4 col-xs-4 favorite\">\n                            <div class=\"bookmark\" data-bookmark-state=\"empty\">\n                              <span class=\"title-add\">Add to bookmark</span>\n                            </div>\n                            <div class=\"compare\" data-compare-state=\"empty\">\n                              <span class=\"plus-add\">Add to compare</span>\n                            </div>\n                          </div>\n                        </div>\n                      </div>\n                    </div>\n                  </div>\n                  <div class=\"col-md-3 col-sm-3 col-xs-6 prop\">\n                    <div class=\"wht-cont\">\n                      <div class=\"exp-img-2\" style=\"background:url(http://placehold.it/255x200) center;background-size: cover;\">\n                        <span class=\"filter\"></span>\n                        <span class=\"ffs-bs\"><label for=\"op\" class=\"btn btn-small btn-primary\">browse photos</label></span>\n                        <div class=\"overlay\">\n                          <div class=\"img-counter\">23 Photo</div>\n                        </div>\n                      </div>\n                      <div class=\"item-title\">\n                        <h4><a href=\"property_page.html\">Avalon Morningside Park Apartment</a></h4>\n                        <p class=\"team-color\">525 W 28th St, New York, NY 10001</p>\n                        <div class=\"col-md-7 col-sm-7 col-xs-7\">\n                          <p>Studio - 2 bd</p>\n                        </div>\n                        <div class=\"col-md-5 col-sm-5 col-xs-5\">\n                          <p>86 m<span class=\"rank\">2</span></p>\n                        </div>\n                        <div class=\"col-md-7 col-sm-7 col-xs-7 lft-brd\"></div>\n                        <div class=\"col-md-5 col-sm-5 col-xs-5 lft-brd\"></div>\n                      </div>\n                      <hr>\n                      <div class=\"item-title btm-part\">\n                        <div class=\"row\">\n                          <div class=\"col-md-8 col-sm-8 col-xs-8\">\n                            <p>$5,000,000</p>\n                            <p class=\"team-color\">FOR SALE</p>\n                          </div>\n                          <div class=\"col-md-4 col-sm-4 col-xs-4 favorite\">\n                            <div class=\"bookmark\" data-bookmark-state=\"empty\">\n                              <span class=\"title-add\">Add to bookmark</span>\n                            </div>\n                            <div class=\"compare\" data-compare-state=\"empty\">\n                              <span class=\"plus-add\">Add to compare</span>\n                            </div>\n                          </div>\n                        </div>\n                      </div>\n                    </div>\n                  </div>\n                  <div class=\"col-md-3 col-sm-3 col-xs-6 prop\">\n                    <div class=\"wht-cont\">\n                      <div class=\"exp-img-2\" style=\"background:url(http://placehold.it/255x200) center;background-size: cover;\">\n                        <span class=\"filter\"></span>\n                        <span class=\"ffs-bs\"><label for=\"op\" class=\"btn btn-small btn-primary\">browse photos</label></span>\n                        <div class=\"overlay\">\n                          <div class=\"img-counter\">23 Photo</div>\n                        </div>\n                      </div>\n                      <div class=\"item-title\">\n                        <h4><a href=\"property_page.html\">Prism at Park Avenue South Apar</a></h4>\n                        <p class=\"team-color\">525 W 28th St, New York, NY 10001</p>\n                        <div class=\"col-md-7 col-sm-7 col-xs-7\">\n                          <p>Studio - 2 bd</p>\n                        </div>\n                        <div class=\"col-md-5 col-sm-5 col-xs-5\">\n                          <p>86 m<span class=\"rank\">2</span></p>\n                        </div>\n                        <div class=\"col-md-7 col-sm-7 col-xs-7 lft-brd\"></div>\n                        <div class=\"col-md-5 col-sm-5 col-xs-5 lft-brd\"></div>\n                      </div>\n                      <hr>\n                      <div class=\"item-title btm-part\">\n                        <div class=\"row\">\n                          <div class=\"col-md-8 col-sm-8 col-xs-8\">\n                            <p>$5,000,000</p>\n                            <p class=\"team-color\">FOR SALE</p>\n                          </div>\n                          <div class=\"col-md-4 col-sm-4 col-xs-4 favorite\">\n                            <div class=\"bookmark\" data-bookmark-state=\"empty\">\n                              <span class=\"title-add\">Add to bookmark</span>\n                            </div>\n                            <div class=\"compare\" data-compare-state=\"empty\">\n                              <span class=\"plus-add\">Add to compare</span>\n                            </div>\n                          </div>\n                        </div>\n                      </div>\n                    </div>\n                  </div>\n                </div>\n                <div class=\"row\">\n                  <div class=\"col-md-3 col-sm-3 col-xs-6 prop\">\n                    <div class=\"wht-cont\">\n                      <div class=\"exp-img-2\" style=\"background:url(http://placehold.it/255x200) center;background-size: cover;\">\n                        <span class=\"filter\"></span>\n                        <span class=\"ffs-bs\"><label for=\"op\" class=\"btn btn-small btn-primary\">browse photos</label></span>\n                        <div class=\"overlay\">\n                          <div class=\"img-counter\">23 Photo</div>\n                        </div>\n                      </div>\n                      <div class=\"item-title\">\n                        <h4><a href=\"property_page.html\">AVA High Line 89 - 916 Apartments</a></h4>\n                        <p class=\"team-color\">525 W 28th St, New York, NY 10001</p>\n                        <div class=\"col-md-7 col-sm-7 col-xs-7\">\n                          <p>Studio - 2 bd</p>\n                        </div>\n                        <div class=\"col-md-5 col-sm-5 col-xs-5\">\n                          <p>86 m<span class=\"rank\">2</span></p>\n                        </div>\n                        <div class=\"col-md-7 col-sm-7 col-xs-7 lft-brd\"></div>\n                        <div class=\"col-md-5 col-sm-5 col-xs-5 lft-brd\"></div>\n                      </div>\n                      <hr>\n                      <div class=\"item-title btm-part\">\n                        <div class=\"row\">\n                          <div class=\"col-md-8 col-sm-8 col-xs-8\">\n                            <p>$5,000,000</p>\n                            <p class=\"team-color\">FOR SALE</p>\n                          </div>\n                          <div class=\"col-md-4 col-sm-4 col-xs-4 favorite\">\n                            <div class=\"bookmark\" data-bookmark-state=\"empty\">\n                              <span class=\"title-add\">Add to bookmark</span>\n                            </div>\n                            <div class=\"compare\" data-compare-state=\"empty\">\n                              <span class=\"plus-add\">Add to compare</span>\n                            </div>\n                          </div>\n                        </div>\n                      </div>\n                    </div>\n                  </div>\n                  <div class=\"col-md-3 col-sm-3 col-xs-6 prop\">\n                    <div class=\"wht-cont\">\n                      <div class=\"exp-img-2\" style=\"background:url(http://placehold.it/255x200) center;background-size: cover;\">\n                        <span class=\"filter\"></span>\n                        <span class=\"ffs-bs\"><label for=\"op\" class=\"btn btn-small btn-primary\">browse photos</label></span>\n                        <div class=\"overlay\">\n                          <div class=\"img-counter\">23 Photo</div>\n                        </div>\n                      </div>\n                      <div class=\"item-title\">\n                        <h4><a href=\"property_page.html\">Prism at Park Avenue South Apar</a></h4>\n                        <p class=\"team-color\">525 W 28th St, New York, NY 10001</p>\n                        <div class=\"col-md-7 col-sm-7 col-xs-7\">\n                          <p>Studio - 2 bd</p>\n                        </div>\n                        <div class=\"col-md-5 col-sm-5 col-xs-5\">\n                          <p>86 m<span class=\"rank\">2</span></p>\n                        </div>\n                        <div class=\"col-md-7 col-sm-7 col-xs-7 lft-brd\"></div>\n                        <div class=\"col-md-5 col-sm-5 col-xs-5 lft-brd\"></div>\n                      </div>\n                      <hr>\n                      <div class=\"item-title btm-part\">\n                        <div class=\"row\">\n                          <div class=\"col-md-8 col-sm-8 col-xs-8\">\n                            <p>$5,000,000</p>\n                            <p class=\"team-color\">FOR SALE</p>\n                          </div>\n                          <div class=\"col-md-4 col-sm-4 col-xs-4 favorite\">\n                            <div class=\"bookmark\" data-bookmark-state=\"empty\">\n                              <span class=\"title-add\">Add to bookmark</span>\n                            </div>\n                            <div class=\"compare\" data-compare-state=\"empty\">\n                              <span class=\"plus-add\">Add to compare</span>\n                            </div>\n                          </div>\n                        </div>\n                      </div>\n                    </div>\n                  </div>\n                  <div class=\"col-md-3 col-sm-3 col-xs-6 prop\">\n                    <div class=\"wht-cont\">\n                      <div class=\"exp-img-2\" style=\"background:url(http://placehold.it/255x200) center;background-size: cover;\">\n                        <span class=\"filter\"></span>\n                        <span class=\"ffs-bs\"><label for=\"op\" class=\"btn btn-small btn-primary\">browse photos</label></span>\n                        <div class=\"overlay\">\n                          <div class=\"img-counter\">23 Photo</div>\n                        </div>\n                      </div>\n                      <div class=\"item-title\">\n                        <h4><a href=\"property_page.html\">Avalon Morningside Park Apartment</a></h4>\n                        <p class=\"team-color\">525 W 28th St, New York, NY 10001</p>\n                        <div class=\"col-md-7 col-sm-7 col-xs-7\">\n                          <p>Studio - 2 bd</p>\n                        </div>\n                        <div class=\"col-md-5 col-sm-5 col-xs-5\">\n                          <p>86 m<span class=\"rank\">2</span></p>\n                        </div>\n                        <div class=\"col-md-7 col-sm-7 col-xs-7 lft-brd\"></div>\n                        <div class=\"col-md-5 col-sm-5 col-xs-5 lft-brd\"></div>\n                      </div>\n                      <hr>\n                      <div class=\"item-title btm-part\">\n                        <div class=\"row\">\n                          <div class=\"col-md-8 col-sm-8 col-xs-8\">\n                            <p>$5,000,000</p>\n                            <p class=\"team-color\">FOR SALE</p>\n                          </div>\n                          <div class=\"col-md-4 col-sm-4 col-xs-4 favorite\">\n                            <div class=\"bookmark\" data-bookmark-state=\"empty\">\n                              <span class=\"title-add\">Add to bookmark</span>\n                            </div>\n                            <div class=\"compare\" data-compare-state=\"empty\">\n                              <span class=\"plus-add\">Add to compare</span>\n                            </div>\n                          </div>\n                        </div>\n                      </div>\n                    </div>\n                  </div>\n                  <div class=\"col-md-3 col-sm-3 col-xs-6 prop\">\n                    <div class=\"wht-cont\">\n                      <div class=\"exp-img-2\" style=\"background:url(http://placehold.it/255x200) center;background-size: cover;\">\n                        <span class=\"filter\"></span>\n                        <span class=\"ffs-bs\"><label for=\"op\" class=\"btn btn-small btn-primary\">browse photos</label></span>\n                        <div class=\"overlay\">\n                          <div class=\"img-counter\">23 Photo</div>\n                        </div>\n                      </div>\n                      <div class=\"item-title\">\n                        <h4><a href=\"property_page.html\">Prism at Park Avenue South Apar</a></h4>\n                        <p class=\"team-color\">525 W 28th St, New York, NY 10001</p>\n                        <div class=\"col-md-7 col-sm-7 col-xs-7\">\n                          <p>Studio - 2 bd</p>\n                        </div>\n                        <div class=\"col-md-5 col-sm-5 col-xs-5\">\n                          <p>86 m<span class=\"rank\">2</span></p>\n                        </div>\n                        <div class=\"col-md-7 col-sm-7 col-xs-7 lft-brd\"></div>\n                        <div class=\"col-md-5 col-sm-5 col-xs-5 lft-brd\"></div>\n                      </div>\n                      <hr>\n                      <div class=\"item-title btm-part\">\n                        <div class=\"row\">\n                          <div class=\"col-md-8 col-sm-8 col-xs-8\">\n                            <p>$5,000,000</p>\n                            <p class=\"team-color\">FOR SALE</p>\n                          </div>\n                          <div class=\"col-md-4 col-sm-4 col-xs-4 favorite\">\n                            <div class=\"bookmark\" data-bookmark-state=\"empty\">\n                              <span class=\"title-add\">Add to bookmark</span>\n                            </div>\n                            <div class=\"compare\" data-compare-state=\"empty\">\n                              <span class=\"plus-add\">Add to compare</span>\n                            </div>\n                          </div>\n                        </div>\n                      </div>\n                    </div>\n                  </div>\n                </div>\n              </div>\n              <!-- end wide-2 -->\n            </div>\n            <!-- content_2 -->\n          </div>\n        </div>\n        <div class=\"col-xs-12\">\n          <div class=\"col-md-10 col-md-offset-1 col-xs-12\">\n            <nav id=\"nav-below\" class=\"site-navigation paging-navigation navbar\">\n              <div class=\"nav-previous\"><a href=\"#\">PREV PAGE</a></div>\n              <ul class=\"pagination pagination-lg\">\n                <li><a href=\"#\">1</a></li>\n                <li><span class=\"active\">2</span></li>\n                <li><a href=\"#\">3</a></li>\n                <li><span class=\"nav-dots\">...</span></li>\n                <li><a href=\"#\">5</a></li>\n              </ul>\n              <div class=\"nav-next\"><a href=\"#\">NEXT PAGE</a></div>\n            </nav>\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n<!-- </div> -->\n";
 
 /***/ },
-/* 1425 */
+/* 1428 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -82447,8 +82474,8 @@ webpackJsonp([0],[
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var core_1 = __webpack_require__(4);
-	var about_routing_module_1 = __webpack_require__(1426);
-	var about_component_1 = __webpack_require__(1427);
+	var about_routing_module_1 = __webpack_require__(1429);
+	var about_component_1 = __webpack_require__(1430);
 	var AboutModule = (function () {
 	    function AboutModule() {
 	    }
@@ -82465,7 +82492,7 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 1426 */
+/* 1429 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -82480,7 +82507,7 @@ webpackJsonp([0],[
 	};
 	var core_1 = __webpack_require__(4);
 	var router_1 = __webpack_require__(26);
-	var about_component_1 = __webpack_require__(1427);
+	var about_component_1 = __webpack_require__(1430);
 	exports.routes = [
 	    { path: 'about', component: about_component_1.AboutComponent }
 	];
@@ -82500,7 +82527,7 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 1427 */
+/* 1430 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -82521,7 +82548,7 @@ webpackJsonp([0],[
 	}());
 	AboutComponent = __decorate([
 	    core_1.Component({
-	        template: __webpack_require__(1428)
+	        template: __webpack_require__(1431)
 	    }),
 	    __metadata("design:paramtypes", [])
 	], AboutComponent);
@@ -82529,13 +82556,13 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 1428 */
+/* 1431 */
 /***/ function(module, exports) {
 
 	module.exports = "<!-- Page Content -->\n<div id=\"page-content\" class=\"contact-us\">\n  <div class=\"container\">\n    <ol class=\"breadcrumb\">\n      <li><a href=\"index_v_1.html\">Home</a></li>\n      <li class=\"active\">About Us</li>\n    </ol>\n    <h2>We Are Suburb Real Estate</h2>\n    <p>Aenean quis sem nisi. Aliquam vehicula gravida orci, nec pretium mi ultricies in. Donec fermentum pulvinar mauris sed gravida. Pellentesque neque justo, commodo sed varius at, sagittis ut neque. In luctus pellentesque hendrerit. Vivamus congue laoreet urna, sed cursus odio scelerisque id. Curabitur volutpat pretium laoreet. Cras pulvinar vulputate porttitor. Ut sed lorem purus. Morbi posuere mauris odio, quis venenatis nisi viverra eu. Phasellus suscipit sem sapien. Phasellus risus purus, accumsan vel molestie vitae, sagittis sed massa. Sed elementum nisl tellus, at pharetra odio pharetra vel.</p>\n    <div class=\"row\">\n      <div class=\"col-xs-6 txt-block\">\n        <h4>Lorem Ipsum Dolor</h4>\n        <p>Aenean quis sem nisi. Aliquam vehicula gravida orci, nec pretium mi ultricies in. Donec fermentum pulvinar mauris sed gravida. Pellentesque neque justo, commodo sed varius at, sagittis ut neque. In luctus pellentesque hendrerit. Vivamus congue laoreet urna, sed cursus odio scelerisque id. </p>\n      </div>\n      <div class=\"col-xs-6 txt-block\">\n        <h4>Dolor Lorem Ipsum</h4>\n        <p>Aenean quis sem nisi. Aliquam vehicula gravida orci, nec pretium mi ultricies in. Donec fermentum pulvinar mauris sed gravida. Pellentesque neque justo, commodo sed varius at, sagittis ut neque. In luctus pellentesque hendrerit. Vivamus congue laoreet urna, sed cursus odio scelerisque id. </p>\n      </div>\n    </div>\n    <h3>Our Team</h3>\n    <p class=\"team-color\">Lorem Ipsum is simply dummy text of the printing and</p>\n    <div class=\"row\">\n      <div class=\"col-xs-6 txt-block\">\n        <div class=\"circle\">\n          <a href=\"agent_profile.html\">\n            <img src=\"http://placehold.it/162x162\" alt=\"\">\n          </a>\n        </div>\n        <div class=\"team-info col-sm-6 col-xs-12\">\n          <h3>Sara Strawberry</h3>\n          <p class=\"team-color\">4 Property</p>\n          <hr class=\"separate\">\n          <p id=\"phone\"><i class=\"fa fa-phone\"></i><a href=\"tel:+4819228383746\">+48 192 28383746</a></p>\n          <p><i class=\"fa fa-skype\"></i><a href=\"skype:SkypeUser\">sara_straw</a></p>\n        </div>\n      </div>\n      <div class=\"col-xs-6 txt-block\">\n        <div class=\"circle\">\n          <a href=\"agent_profile.html\">\n            <img src=\"http://placehold.it/162x162\" alt=\"\">\n          </a>\n        </div>\n        <div class=\"team-info col-sm-6 col-xs-12\">\n          <h3>Sara Genergy</h3>\n          <p class=\"team-color\">4 Property</p>\n          <hr class=\"separate\">\n          <p id=\"phone2\"><i class=\"fa fa-phone\"></i><a href=\"tel:+4819228383746\">+48 192 28383746</a></p>\n          <p><i class=\"fa fa-skype\"></i><a href=\"skype:SkypeUser\">s_genergy</a></p>\n        </div>\n      </div>\n    </div>\n  </div>\n  <div id=\"fun-facts\" class=\"block counting-numbers\">\n    <div class=\"container\">\n      <div class=\"row\">\n        <div class=\"fun-facts col-md-12\">\n          <div class=\"col-sm-3  underline\">\n            <div class=\"number-wrapper col-sm-12\">\n              <div class=\"number\" data-from=\"1\" data-to=\"136\">136</div>\n              <figure>Properties Listed</figure>\n            </div><!-- /.number-wrapper -->\n          </div><!-- /.col-md-3 col-sm-3 underline -->\n          <div class=\"col-md-3 col-sm-3 underline\">\n            <div class=\"number-wrapper col-sm-12\">\n              <div class=\"number\" data-from=\"1\" data-to=\"2145\">2145</div>\n              <figure>Satisfied Clients</figure>\n            </div><!-- /.number-wrapper -->\n          </div><!-- /.col-md-3 col-sm-3 underline -->\n          <div class=\"col-md-3 col-sm-3 underline\">\n            <div class=\"number-wrapper col-sm-12\">\n              <div class=\"number\" data-from=\"1\" data-to=\"468\">468</div>\n              <figure>Properties Sold</figure>\n            </div><!-- /.number-wrapper -->\n          </div><!-- /.col-md-3 col-sm-3 underline -->\n          <div class=\"col-md-3 col-sm-3 underline\">\n            <div class=\"number-wrapper col-sm-12\">\n              <div class=\"number\" data-from=\"1\" data-to=\"5475\">5475</div>\n              <figure>Day we are here</figure>\n            </div><!-- /.number-wrapper -->\n          </div><!-- /.col-md-3 col-sm-3 underline -->\n        </div><!-- /.fun-facts -->\n      </div><!-- /.row -->\n    </div>\n  </div>\n  <div class=\"container\">\n    <section class=\"block testimonials\">\n      <header class=\"center\">\n        <h2 class=\"no-border\">We love Suburb Work!</h2>\n      </header>\n      <div class=\"owl-carousel testimonials-carousel\">\n        <blockquote class=\"item\">\n          <aside class=\"cite\">\n            <p class=\"team-color\">\"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled\"</p>\n          </aside>\n          <figure>\n            <div class=\"image\">\n              <img src=\"http://placehold.it/55X55\" alt=\"\">\n            </div>\n            <p>Johan Nordquist</p>\n            <p class=\"team-color\">Someone From Company</p>\n          </figure>\n        </blockquote>\n        <blockquote class=\"item\">\n          <aside class=\"cite\">\n            <p class=\"team-color\">\"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled\"</p>\n          </aside>\n          <figure>\n            <div class=\"image\">\n              <img src=\"http://placehold.it/55X55\" alt=\"\">\n            </div>\n            <p>Sara Genergy</p>\n            <p class=\"team-color\">Someone From Company</p>\n          </figure>\n        </blockquote>\n        <blockquote class=\"item\">\n          <aside class=\"cite\">\n            <p class=\"team-color\">\"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled\"</p>\n          </aside>\n          <figure>\n            <div class=\"image\">\n              <img src=\"http://placehold.it/55X55\" alt=\"\">\n            </div>\n            <p>Sara Strawberry</p>\n            <p class=\"team-color\">Someone From Company</p>\n          </figure>\n        </blockquote>\n      </div><!-- /.testimonials-carousel -->\n    </section><!-- /#testimonials -->\n  </div>\n</div>\n<!-- end Page Content -->\n";
 
 /***/ },
-/* 1429 */
+/* 1432 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -82549,8 +82576,8 @@ webpackJsonp([0],[
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var core_1 = __webpack_require__(4);
-	var contact_routing_module_1 = __webpack_require__(1430);
-	var contact_component_1 = __webpack_require__(1431);
+	var contact_routing_module_1 = __webpack_require__(1433);
+	var contact_component_1 = __webpack_require__(1434);
 	var ContactModule = (function () {
 	    function ContactModule() {
 	    }
@@ -82567,7 +82594,7 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 1430 */
+/* 1433 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -82582,7 +82609,7 @@ webpackJsonp([0],[
 	};
 	var core_1 = __webpack_require__(4);
 	var router_1 = __webpack_require__(26);
-	var contact_component_1 = __webpack_require__(1431);
+	var contact_component_1 = __webpack_require__(1434);
 	exports.routes = [
 	    { path: 'contact', component: contact_component_1.ContactComponent }
 	];
@@ -82602,7 +82629,7 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 1431 */
+/* 1434 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -82625,7 +82652,7 @@ webpackJsonp([0],[
 	}());
 	ContactComponent = __decorate([
 	    core_1.Component({
-	        template: __webpack_require__(1432)
+	        template: __webpack_require__(1435)
 	    }),
 	    __metadata("design:paramtypes", [])
 	], ContactComponent);
@@ -82633,13 +82660,13 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 1432 */
+/* 1435 */
 /***/ function(module, exports) {
 
 	module.exports = "<!-- Page Content -->\n<div id=\"page-content\">\n  <div id=\"map2\" class=\"map\"></div>\n  <div class=\"container\">\n    <div class=\"row\">\n      <div class=\"contact-form\">\n        <h2>We're here to help you.</h2>\n        <h6>Have a question? Write Us</h6>\n        <form id=\"form-submit\" class=\"form-submit\" action=\"thank_you_page.html\">\n          <div class=\"col-md-6\">\n            <div class=\"input-group\">\n              <label>Your Name:</label>\n              <input id=\"input-name\" type=\"text\" class=\"form-control\" placeholder=\"Enter your Name\" required>\n            </div>\n          </div>\n          <div class=\"col-md-6\">\n            <div class=\"input-group\">\n              <label>Your Email Address:</label>\n              <input id=\"input-email\" type=\"text\" class=\"form-control\" placeholder=\"Enter your Email\" required>\n            </div>\n          </div>\n          <div class=\"col-md-12\">\n            <div class=\"input-group\">\n              <label>Subject:</label>\n              <input id=\"input-subject\" type=\"text\" class=\"form-control\" placeholder=\"Example: Lorem Ipsum\" required>\n            </div>\n          </div>\n          <div class=\"col-md-12\">\n            <div class=\"input-group\">\n              <label>Your Message:</label>\n              <textarea id=\"text-area-contact\" rows=\"8\" cols=\"45\" class=\"form-control\"></textarea>\n            </div>\n          </div>\n          <div class=\"submit\">\n            <span class=\"ffs-bs\"><button type=\"submit\" class=\"btn btn-large btn-primary\" style=\"color:#fff;\">Send Message</button></span>\n          </div>\n        </form>\n      </div>\n    </div>\n  </div>\n</div>\n<!-- end Page Content -->\n";
 
 /***/ },
-/* 1433 */
+/* 1436 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -82653,8 +82680,8 @@ webpackJsonp([0],[
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var core_1 = __webpack_require__(4);
-	var _404_component_1 = __webpack_require__(1434);
-	var _404_routing_1 = __webpack_require__(1436);
+	var _404_component_1 = __webpack_require__(1437);
+	var _404_routing_1 = __webpack_require__(1439);
 	var NotFoundModule = (function () {
 	    function NotFoundModule() {
 	    }
@@ -82671,7 +82698,7 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 1434 */
+/* 1437 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -82692,7 +82719,7 @@ webpackJsonp([0],[
 	}());
 	NotFoundComponent = __decorate([
 	    core_1.Component({
-	        template: __webpack_require__(1435)
+	        template: __webpack_require__(1438)
 	    }),
 	    __metadata("design:paramtypes", [])
 	], NotFoundComponent);
@@ -82700,13 +82727,13 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 1435 */
+/* 1438 */
 /***/ function(module, exports) {
 
 	module.exports = "\t\t<div id=\"page-content\">\n\t\t\t<div class=\"container-404\">\n\t\t\t\t<div class=\"container\">\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-md-12 col-sm-12\">\n\t\t\t\t\t\t\t<div class=\"text-404\">\n\t\t\t\t\t\t\t\t<div class=\"col-lg-4 col-md-offset-2 col-md-5 col-sm-offset-0 col-sm-6\">\n\t\t\t\t\t\t\t\t\t<h1>404</h1>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-md-4 col-sm-6 no-page\">\n\t\t\t\t\t\t\t\t\t<span class=\"sorry\">Sorry, no page Found!</span>\n\t\t\t\t\t\t\t\t\t<p> <a routerLink='/'>main page</a>.</p>\n\t\t\t\t\t\t\t\t</div>\t\n\t\t\t\t\t\t\t</div>\t\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\t\n\t\t\t\t</div>\t\n\t\t\t</div> \n\t\t</div>\n\t\t<!-- end Page Content -->";
 
 /***/ },
-/* 1436 */
+/* 1439 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -82721,7 +82748,7 @@ webpackJsonp([0],[
 	};
 	var core_1 = __webpack_require__(4);
 	var router_1 = __webpack_require__(26);
-	var _404_component_1 = __webpack_require__(1434);
+	var _404_component_1 = __webpack_require__(1437);
 	exports.routes = [
 	    { path: '404', component: _404_component_1.NotFoundComponent }
 	];

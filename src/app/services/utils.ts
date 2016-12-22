@@ -1,6 +1,7 @@
 import { Http, Headers } from "@angular/http";
 import { LoginService } from "../modals/login/login.service";
 import { TYPE, PROPERTIES, PAYMENT_INTERVAL } from "../app.constants";
+import { SearchModel } from "../directives/search-index/search-model";
 
 export class Utils {
     objToString(obj: {}) {
@@ -28,5 +29,20 @@ export class Utils {
             }
         }
 
+    }
+
+    validateSearchModel(body: SearchModel) {
+        let validation: boolean = true;
+        let errors: string[] = [];
+
+        if(body.q.length <= 0 && body.schtype.length <= 0 && body.lga.length <= 0) {
+            validation = false;
+            errors.push("Please provide at least one criterium for search");
+        }
+
+        return {
+            isCorrect: validation,
+            errors: errors
+        }
     }
 }

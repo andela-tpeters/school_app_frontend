@@ -1,11 +1,11 @@
 .idea
-node_modules
+node_modules/
 jspm_packages
-src
+src/
 index-old.html
 .babelrc
-suburb
-assets
+suburb/
+assets/
 link-checker-results.txt
 **/*npm-debug.log.*
 # *.js
