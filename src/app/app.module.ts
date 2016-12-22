@@ -1,5 +1,5 @@
 import { NgModule, OnInit } from '@angular/core';
-import { CommonModule } from "@angular/common";
+import { CommonModule,APP_BASE_HREF } from "@angular/common";
 import { LocationStrategy, HashLocationStrategy } from "@angular/common";
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from "./app-routing.module";
@@ -36,7 +36,7 @@ import { SimpleNotificationsModule } from "angular2-notifications";
     NotFoundModule
   ],
   declarations: [ AppComponent, HeaderComponent, LoginComponent, RegistrationComponent, FooterComponent ],
-  providers: [RegistrationService, { provide: LocationStrategy, useClass: HashLocationStrategy }],
+  providers: [RegistrationService, { provide: APP_BASE_HREF, useValue: '_' }],
   bootstrap: [ AppComponent ]
 })
 

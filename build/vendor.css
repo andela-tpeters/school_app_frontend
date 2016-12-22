@@ -15416,3 +15416,12 @@ input[type="checkbox"] {
     position: relative;
     overflow: hidden;
 }
+
+.error-alert {
+    background-color: red;
+}
+
+.criteria-container span {
+    text-transform: uppercase;
+    display: inline-block;
+}

@@ -16,15 +16,11 @@ var preloader = require('../index/preloader.js');
 
 export class SearchComponent implements AfterContentInit, OnInit, AfterContentChecked {
   public schools: any;
+  public criteria: {};
 
   constructor(private route: ActivatedRoute, private router: Router) {
 
   }
-
-  searchResult() {
-    
-  }
-
 
   ngAfterContentInit() {
     var _latitude = 40.717857;
@@ -42,6 +38,11 @@ export class SearchComponent implements AfterContentInit, OnInit, AfterContentCh
   }
 
   ngOnInit() {
+
+    this.route.params.subscribe((res) => {
+      this.criteria = res;
+    }, (err) => console.log(err, "Error"));
+
 
     this.route.data.subscribe((data: { schools: NewSchoolModel[]}) => {
       this.schools = data.schools;

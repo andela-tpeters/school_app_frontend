@@ -15,7 +15,7 @@
     </div>
     <div class="row">
       <div class="col-md-4 col-sm-6" *ngIf='countries[0]'>
-        <a routerLink="/search" class="exp-img" [ngStyle]="{'background-image':'url(' + countries[0].image + ')','background-position': 'center','background-size': 'cover'}">
+        <a [routerLink]="['/search',{q: countries[0].name}]" class="exp-img" [ngStyle]="{'background-image':'url(' + countries[0].image + ')','background-position': 'center','background-size': 'cover'}">
           <span class="filter"></span>
           <div class="img-info">
             <h3>{{countries[0].name}}</h3>
@@ -25,7 +25,7 @@
         </a>
       </div>
       <div class="col-md-4 col-sm-6" *ngIf="countries[1]">
-        <a routerLink="/search" class="exp-img" [ngStyle]="{'background-image':'url(' + countries[1].image + ')','background-position': 'center','background-size': 'cover'}">
+        <a [routerLink]="['/search',{q: countries[1].name}]" class="exp-img" [ngStyle]="{'background-image':'url(' + countries[1].image + ')','background-position': 'center','background-size': 'cover'}">
           <span class="filter"></span>
           <div class="img-info">
             <h3>{{countries[1].name}}</h3>
@@ -35,7 +35,7 @@
         </a>
       </div>
       <div class="col-md-4 col-sm-6" *ngIf="countries[2]">
-        <a routerLink="/search" class="exp-img" [ngStyle]="{'background-image':'url(' + countries[2].image + ')','background-position': 'center','background-size': 'cover'}">
+        <a [routerLink]="['/search',{q: countries[2].name}]" class="exp-img" [ngStyle]="{'background-image':'url(' + countries[2].image + ')','background-position': 'center','background-size': 'cover'}">
           <span class="filter"></span>
           <div class="img-info">
             <h3>{{countries[2].name}}</h3>
@@ -45,7 +45,7 @@
         </a>
       </div>
       <div class="col-md-4 col-sm-6" *ngIf="countries[3]">
-        <a routerLink="/search" class="exp-img" [ngStyle]="{'background-image':'url(' + countries[3].image + ')','background-position': 'center','background-size': 'cover'}">
+        <a [routerLink]="['/search',{q: countries[3].name}]" class="exp-img" [ngStyle]="{'background-image':'url(' + countries[3].image + ')','background-position': 'center','background-size': 'cover'}">
           <span class="filter"></span>
           <div class="img-info">
             <h3>{{countries[3].name}}</h3>
@@ -55,7 +55,7 @@
         </a>
       </div>
       <div class="col-md-8" *ngIf="countries[4]">
-        <a routerLink="/search" class="exp-img" [ngStyle]="{'background-image':'url(' + countries[4].image + ')','background-position': 'center','background-size': 'cover'}">
+        <a [routerLink]="['/search',{q: countries[4].name}]" class="exp-img" [ngStyle]="{'background-image':'url(' + countries[4].image + ')','background-position': 'center','background-size': 'cover'}">
           <span class="filter"></span>
           <div class="img-info">
             <h3>{{countries[4].name}}</h3>

@@ -17,17 +17,17 @@ export class SearchDirective implements OnInit, AfterContentInit {
 	public schoolType = TYPE;
 	public states = STATES;
 	public lgas = [{name: 'surulere', value: 'surulere'}]
-	public options = {theClass: 'error-alert', timeOut: 2500, maxStack: 1};
+	public options = {theClass: 'error-alert', timeOut: 5000, maxStack: 1};
 
 	constructor(private router: Router, private utils: Utils, private _notify: NotificationsService) {}
 
 	submit() {
 		let check = this.utils.validateSearchModel(this.searchModel);
-		preloader.show();
 		if(check.isCorrect) {
-			this.router.navigate(['/search', this.searchModel.q, this.searchModel.schtype, this.searchModel.lga]);
+			preloader.show();
+			this.router.navigate(['/search', { q: this.searchModel.q, schtype: this.searchModel.schtype, lga: this.searchModel.lga}]);
 		} else {
-			this._notify.html(check.errors.join('<br />'), '');
+			this._notify.html("<h3>Error: </h3>"+check.errors.join('<br />'), '');
 		}
 	}
 
