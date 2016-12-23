@@ -1,44 +1,46 @@
 <div class="page-search" id="page-top">
-	<div id="page-content-search">
-		<div class="container">
-			<div class="wide_container_2">
-				<div class="tabs">
-					<header class="col-md-8 col-xs-12 no-pad">
-						<div class="search-info-block col-sm-6 col-xs-6 " *ngIf="criteria.q || criteria.schtype || criteria.lga">
-							<div class="criteria-container">
-								<h4>Search Result for: </h4>
-								<span *ngIf="criteria.q">{{criteria.q}} &nbsp;|&nbsp;</span>
-								<span *ngIf="criteria.lga">{{criteria.lga}} &nbsp;|&nbsp;</span>
-								<span *ngIf="criteria.schtype">{{criteria.schtype}} &nbsp;|&nbsp;</span>
-							</div>
-						</div>
-						<div class="location-map col-sm-6 col-xs-6">
-							<div class="input-group">
-								<input type="text" class="form-control" id="address-map" name="address" placeholder="Manhattan, New York">
-								<i class="fa fa-search"></i>
-							</div>
-						</div>
-					</header>
-					<ul class="tab-links col-md-4 col-xs-12">
-						<li class="col-lg-3 col-lg-offset-2 col-md-4 col-xs-4 no-pad active"><a data-target="#tab1" data-toggle='tab' class="map2"><img src="../../../public/assets/img/map.png" alt=""/>Map</a></li>
-						<li class="col-lg-3 col-md-4 col-xs-4 no-pad"><a data-toggle='tab' data-target="#tab2"><img src="../../../public/assets/img/grid.png" alt=""/>Grig</a></li>
-						<li class="col-lg-3 col-md-4 col-xs-4 bdr-rgh no-pad"><a data-target="#tab3" data-toggle="tab"><i class="fa fa-th-list"></i>List</a></li>
-					</ul>
-					<div class="tab-content">
-						<div id="tab1" class="tab active">
-						<paginate-search [schools]="schools"></paginate-search>
-					</div>
-					<div id="tab2" class="tab">
-					<paginate-grid-search [schools]="schools"></paginate-grid-search>
-				</div>
-				<div id="tab3" class="tab">
-				<paginate-list-search [schools]="schools"></paginate-list-search>
-			</div>
-		</div>
-	</div>
+  <div id="page-content-search">
+    <div class="container">
+      <div class="wide_container_2">
+        <div class="tabs">
+          <header class="col-md-8 col-xs-12 no-pad">
+            <div class="search-info-block col-sm-6 col-xs-6 " *ngIf="criteria.q || criteria.schtype || criteria.lga">
+              <div class="criteria-container">
+                <h4>Search Result for: </h4>
+                <span *ngIf="criteria.q">{{criteria.q}} &nbsp;|&nbsp;</span>
+                <span *ngIf="criteria.lga">{{criteria.lga}} &nbsp;|&nbsp;</span>
+                <span *ngIf="criteria.schtype">{{criteria.schtype}} &nbsp;|&nbsp;</span>
+              </div>
+            </div>
+            <div class="location-map col-sm-6 col-xs-6">
+              <div class="input-group">
+                <input type="text" class="form-control" id="address-map" name="address" placeholder="Manhattan, New York">
+                <i class="fa fa-search"></i>
+              </div>
+            </div>
+          </header>
+          <ul class="tab-links col-md-4 col-xs-12">
+            <li class="col-lg-3 col-lg-offset-2 col-md-4 col-xs-4 no-pad active">
+              <a data-target="#tab1" data-toggle='tab' class="map2"><img src="../../../public/assets/img/map.png" alt="" />Map</a>
+            </li>
+            <li class="col-lg-3 col-md-4 col-xs-4 no-pad">
+              <a data-toggle='tab' data-target="#tab2"><img src="../../../public/assets/img/grid.png" alt="" />Grig</a>
+            </li>
+            <li class="col-lg-3 col-md-4 col-xs-4 bdr-rgh no-pad"><a data-target="#tab3" data-toggle="tab"><i class="fa fa-th-list"></i>List</a></li>
+          </ul>
+          <div class="tab-content">
+            <div id="tab1" class="tab active">
+              <paginate-search [schools]="schools"></paginate-search>
+            </div>
+            <div id="tab2" class="tab">
+              <paginate-grid-search [schools]="schools"></paginate-grid-search>
+            </div>
+            <div id="tab3" class="tab">
+              <paginate-list-search [schools]="schools"></paginate-list-search>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-</div>
-</div>
-</div>
-<!-- </div> -->
-<!-- </div> -->

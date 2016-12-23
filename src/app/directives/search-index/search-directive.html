@@ -1,7 +1,7 @@
 <form #searchForm='ngForm' name="searchForm" (submit)='submit()'>
   <div class="search">
     <div class="selector col-md-3  col-sm-12">
-      <select class="selection" id="rent-sale" name="schtype" [(ngModel)]="searchModel.schtype" >
+      <select class="selection" id="rent-sale" name="schtype" [(ngModel)]="searchModel.schtype">
         <option value="" default>Type</option>
         <option *ngFor="let type of schoolType" value="{{type.value}}"> {{type.name}}</option>
       </select>
