@@ -637,6 +637,9 @@ webpackJsonp([2],{
 	var search_tabs_component_1 = __webpack_require__(1367);
 	var search_resolver_1 = __webpack_require__(1366);
 	var pagination_component_1 = __webpack_require__(1371);
+	var price_slider_component_1 = __webpack_require__(1755);
+	var pagination_list_component_1 = __webpack_require__(1757);
+	var pagination_grid_component_1 = __webpack_require__(1759);
 	var SearchModule = (function () {
 	    function SearchModule() {
 	    }
@@ -645,7 +648,7 @@ webpackJsonp([2],{
 	SearchModule = __decorate([
 	    core_1.NgModule({
 	        imports: [common_1.CommonModule, search_routing_module_1.SearchRoutingModule, ng2_pagination_1.Ng2PaginationModule],
-	        declarations: [search_component_1.SearchComponent, search_tabs_component_1.SearchTabs, pagination_component_1.PaginateSearch],
+	        declarations: [search_component_1.SearchComponent, search_tabs_component_1.SearchTabs, pagination_component_1.PaginateSearch, price_slider_component_1.PriceSlider, pagination_list_component_1.PaginateListSearch, pagination_grid_component_1.PaginateGridSearch],
 	        providers: [search_resolver_1.SearchResolver]
 	    }),
 	    __metadata("design:paramtypes", [])
@@ -1431,17 +1434,18 @@ webpackJsonp([2],{
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function($) {module.exports = function() {
-	    if ($(".price-input").length > 0) {
+	    // if ($(".price-input").length > 0) {
 	        $(".price-input").each(function() {
 	            var vSLider = $(this).slider({
 	                from: 0,
 	                to: 9000000,
 	                smooth: true,
 	                round: 0,
+	                range: true,
 	                dimension: ',00&nbsp;$',
 	            });
 	        });
-	    }
+	    // }
 	}
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1326)))
 
@@ -1450,7 +1454,7 @@ webpackJsonp([2],{
 /***/ 1362:
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = "<div class=\"page-search\" id=\"page-top\">\n  <div id=\"page-content-search\">\n    <div class=\"container\">\n      <div class=\"wide_container_2\">\n        <div class=\"tabs\">\n          <header class=\"col-md-8 col-xs-12 no-pad\">\n            <div class=\"search-info-block col-sm-6 col-xs-6 \" *ngIf=\"criteria.q || criteria.schtype || criteria.lga\">\n              <div class=\"criteria-container\">\n                <h4>Search Result for: </h4>\n                <span *ngIf=\"criteria.q\">{{criteria.q}} &nbsp;|&nbsp;</span>\n                <span *ngIf=\"criteria.schtype\">{{criteria.schtype}} &nbsp;|&nbsp;</span>\n                <span *ngIf=\"criteria.lga\">{{criteria.lga}} &nbsp;|&nbsp;</span>\n              </div> \n            </div>\n            <div class=\"location-map col-sm-6 col-xs-6\">\n              <div class=\"input-group\">\n                <input type=\"text\" class=\"form-control\" id=\"address-map\" name=\"address\" placeholder=\"Manhattan, New York\">\n                <i class=\"fa fa-search\"></i>\n              </div>\n            </div>\n            </header><!-- end header -->\n            <search-tab></search-tab><!-- tab-links -->\n            <div class=\"tab-content\">\n              <div id=\"tab1\" class=\"tab\" style=\"display: block;\">\n                <div class=\"sidebar col-sm-4 col-xs-12\">\n                  <!-- Map -->\n                  <div id=\"map\"></div>\n                  <!-- end Map -->\n                  </div><!-- sidebar -->\n                  <div class=\"content col-sm-8 col-xs-12\">\n                    <!-- Range slider -->\n                    <div class=\"col-xs-12\">\n                      <div class=\"row\">\n                        <form method=\"post\">\n                          <div class=\"col-md-3 col-sm-4\">\n                            <div class=\"form-inline\">\n                              <label class=\"top-indent\">Price Range:</label>\n                            </div>\n                          </div>\n                          <div class=\"col-md-9 col-sm-8\">\n                            <div class=\"form-group\">\n                              <div class=\"price-range price-range-wrapper\">\n                                <input class=\"price-input\" type=\"text\" name=\"price\" value=\"0;5000000\">\n                              </div>\n                            </div>\n                          </div>\n                        </form>\n                        </div><!-- row -->\n                        </div>  <!-- explore_grid -->\n                        <!-- End Range slider -->\n                        <div class=\"wide-2\">\n                          <paginate-search [schools]=\"schools\"></paginate-search>\n                        </div>  <!-- end wide-2 -->\n                        </div>  <!-- content -->\n                      </div>\n                      <div id=\"tab2\" class=\"tab\">\n                        <div class=\"col-xs-12 content_2\">\n                          <div class=\"col-md-10 col-md-offset-1\">\n                            <!-- Range slider -->\n                            <div class=\"explore_grid\">\n                              <div class=\"row\">\n                                <div class=\"explore col-xs-12\">\n                                  <h2>Properties for rent</h2>\n                                  <h5 class=\"team-color col-sm-offset-3 col-sm-6 col-xs-offset-1 col-xs-10\">Lorem Ipsum is simply dummy text of the printing and Lorem Ipsum has been the industry's standard </h5>\n                                </div>\n                                <form method=\"post\">\n                                  <div class=\"col-md-2 col-sm-3\">\n                                    <div class=\"form-inline\">\n                                      <label class=\"top-indent\">Price Range:</label>\n                                    </div>\n                                  </div>\n                                  <div class=\"col-md-8 col-sm-7\">\n                                    <div class=\"form-group\">\n                                      <div class=\"price-range price-range-wrapper\"></div>\n                                    </div>\n                                  </div>\n                                  <div class=\"select-block no-border pull-right col-sm-2 col-xs-12\">\n                                    <select class=\"selection\">\n                                      <option>Sort By:</option>\n                                      <option>Date</option>\n                                      <option>Price</option>\n                                      <option>Type</option>\n                                    </select>\n                                    </div>  <!-- select-block -->\n                                  </form>\n                                  </div><!-- row -->\n                                </div>\n                                <!-- End Range slider -->\n                                <div class=\"wide-2\">\n                                  <div class=\"row\">\n                                    <div class=\"col-md-3 col-sm-3 col-xs-6 prop\" *ngFor=\"let school of schools\">\n                                      <div class=\"wht-cont\">\n                                        <div class=\"exp-img-2\" [ngStyle]=\"{'background-image':'url(' + school.image + ')','background-position': 'center','background-size': 'cover'}\">\n                                          <span class=\"filter\"></span>\n                                          <span class=\"ffs-bs\"><label for=\"op\" class=\"btn btn-small btn-primary\">Details</label></span>\n                                          <div class=\"overlay\">\n                                            <div class=\"img-counter\">&nbsp;</div>\n                                          </div>\n                                        </div>\n                                        <div class=\"item-title\">\n                                          <h4><a href=\"property_page.html\">{{school.name}}</a></h4>\n                                          <p class=\"team-color\">{{school.address}}</p>\n                                          <div class=\"col-md-7 col-sm-7 col-xs-7\">\n                                            <p>{{7}} classrooms</p>\n                                          </div>\n                                          <div class=\"col-md-5 col-sm-5 col-xs-5\">\n                                            <p>&nbsp;</p>\n                                          </div>\n                                        </div>\n                                        <hr>\n                                        <div class=\"item-title btm-part\">\n                                          <div class=\"row\">\n                                            <div class=\"col-md-8 col-sm-8 col-xs-8\">\n                                              <p>&nbsp;</p>\n                                            </div>\n                                          </div>\n                                        </div>\n                                      </div>\n                                    </div>\n                                  </div>\n                                </div>\n                                <!-- content_2 -->\n                              </div>\n                            </div>\n                            <div class=\"col-xs-12\">\n                              <div class=\"col-md-10 col-md-offset-1 col-xs-12\">\n                                <nav class=\"site-navigation paging-navigation navbar\">\n                                  <div class=\"nav-previous\"><a href=\"#\">PREV PAGE</a></div>\n                                  <ul class=\"pagination pagination-lg\">\n                                    <li><a href=\"#\">1</a></li>\n                                    <li><span class=\"active\">2</span></li>\n                                    <li><a href=\"#\">3</a></li>\n                                    <li><span class=\"nav-dots\">...</span></li>\n                                    <li><a href=\"#\">5</a></li>\n                                  </ul>\n                                  <div class=\"nav-next\"><a href=\"#\">NEXT PAGE</a></div>\n                                </nav>\n                              </div>\n                            </div>\n                          </div>\n                          <div id=\"tab3\" class=\"tab\">\n                            <div class=\"col-xs-12 content_2\">\n                              <div class=\"col-lg-10 col-lg-offset-1 col-md-12\">\n                                <!-- Range slider -->\n                                <div class=\"row\">\n                                  <div class=\"explore col-xs-12\">\n                                    <h2>Properties for sale</h2>\n                                    <h5 class=\"team-color col-sm-offset-3 col-sm-6 col-xs-offset-1 col-xs-10\">Lorem Ipsum is simply dummy text of the printing and Lorem Ipsum has been the industry's standard </h5>\n                                  </div>\n                                  <form method=\"post\">\n                                    <div class=\"col-md-2 col-sm-3\">\n                                      <div class=\"form-inline\">\n                                        <label class=\"top-indent\">Price Range:</label>\n                                      </div>\n                                    </div>\n                                    <div class=\"col-md-8 col-sm-7\">\n                                      <div class=\"form-group\">\n                                        <div class=\"price-range price-range-wrapper\"></div>\n                                      </div>\n                                    </div>\n                                    <div class=\"select-block no-border pull-right col-sm-2 col-xs-12\">\n                                      <select class=\"selection\">\n                                        <option>Sort By:</option>\n                                        <option>Date</option>\n                                        <option>Price</option>\n                                        <option>Type</option>\n                                      </select>\n                                      </div>  <!-- select-block -->\n                                    </form>\n                                    </div><!-- row -->\n                                    <!-- End Range slider -->\n                                    <div class=\"wide-2\">\n                                      <div class=\"row white\" *ngFor=\"let school of schools\">\n                                        <div class=\"col-md-3 col-sm-3 prp-img\">\n                                          <div class=\"exp-img-2\" [ngStyle]=\"{'background-image':'url(' + school.image + ')','background-position': 'center','background-size': 'cover'}\">\n                                            <span class=\"filter\"></span>\n                                            <span class=\"ffs-bs\"><label for=\"op\" class=\"btn btn-small btn-primary\">Details</label></span>\n                                            <div class=\"overlay\">\n                                              <div class=\"img-counter\">&nbsp;</div>\n                                            </div>\n                                          </div>\n                                        </div>\n                                        <div class=\"item-info col-lg-7 col-md-6 col-sm-6\">\n                                          <h4><a href=\"property_page.html\">{{school.name}}</a></h4>\n                                          <p class=\"team-color\">{{school.address}}</p>\n                                          <div class=\"block\">\n                                            <div class=\"col-md-3 col-sm-3 col-xs-3 cat-img\">\n                                              <img src=\"" + __webpack_require__(1363) + "\" alt=\"\">\n                                              <p class=\"info-line\">{{school.classrooms}} classrooms</p>\n                                            </div>\n                                            <div class=\"col-md-3 col-sm-3 col-xs-3 cat-img\">\n                                              <img src=\"" + __webpack_require__(1364) + "\" alt=\"\">\n                                              <p class=\"info-line\">1 Bathroom</p>\n                                            </div>\n                                            <div class=\"col-md-3 col-sm-3 col-xs-3 cat-img\">\n                                              <img src=\"" + __webpack_require__(1333) + "\" alt=\"\">\n                                              <p class=\"info-line\">100 m<span class=\"rank\">2</span></p>\n                                            </div>\n                                            <div class=\"col-md-3 col-sm-3 col-xs-3 cat-img\">\n                                              <img src=\"" + __webpack_require__(1365) + "\" alt=\"\">\n                                              <p class=\"info-line\">1 Garage</p>\n                                            </div>\n                                          </div>\n                                          <div class=\"col-md-3 col-sm-3 col-xs-3 line\"></div>\n                                          <div class=\"col-md-3 col-sm-3 col-xs-3 line\"></div>\n                                          <div class=\"col-md-3 col-sm-3 col-xs-3 line\"></div>\n                                          <div class=\"col-md-3 col-sm-3 col-xs-3 line\"></div>\n                                          <hr>\n                                          <p>Aenean quis sem nisi. Aliquam vehicula gravida orci, nec pretium mi ultricies in. Donec fermentum pulvinar mauris neque justo ...</p>\n                                        </div>\n                                        <div class=\"item-price col-lg-2 col-md-3 col-sm-3 col-xs-12\">\n                                          <div class=\"sum col-sm-12 col-xs-6\">\n                                            <p>&nbsp;</p>\n                                            <!-- <p class=\"team-color\">for rent</p> -->\n                                          </div>\n                                          <span class=\"ffs-bs col-xs-12 btn-half-wth\"><a href=\"property_page.html\" class=\"btn btn-default btn-small\">Details<i class=\"fa fa-caret-right\"></i></a></span>\n                                        </div>\n                                      </div>\n                                    </div>\n                                    <!-- end wide-2 -->\n                                  </div>\n                                </div>\n                                <div class=\"col-xs-12\">\n                                  <div class=\"col-md-10 col-md-offset-1 col-xs-12\">\n                                    <nav class=\"site-navigation paging-navigation navbar\">\n                                      <div class=\"nav-previous\"><a href=\"#\">PREV PAGE</a></div>\n                                      <ul class=\"pagination pagination-lg\">\n                                        <li><a href=\"#\">1</a></li>\n                                        <li><span class=\"active\">2</span></li>\n                                        <li><a href=\"#\">3</a></li>\n                                        <li><span class=\"nav-dots\">...</span></li>\n                                        <li><a href=\"#\">5</a></li>\n                                      </ul>\n                                      <div class=\"nav-next\"><a href=\"#\">NEXT PAGE</a></div>\n                                    </nav>\n                                  </div>\n                                </div>\n                              </div>\n                              </div><!-- tab-content -->\n                              </div><!-- tabs -->\n                            </div>\n                          </div>\n                          </div><!-- end Page Content -->\n                        </div>";
+	module.exports = "<div class=\"page-search\" id=\"page-top\">\n\t<div id=\"page-content-search\">\n\t\t<div class=\"container\">\n\t\t\t<div class=\"wide_container_2\">\n\t\t\t\t<div class=\"tabs\">\n\t\t\t\t\t<header class=\"col-md-8 col-xs-12 no-pad\">\n\t\t\t\t\t\t<div class=\"search-info-block col-sm-6 col-xs-6 \" *ngIf=\"criteria.q || criteria.schtype || criteria.lga\">\n\t\t\t\t\t\t\t<div class=\"criteria-container\">\n\t\t\t\t\t\t\t\t<h4>Search Result for: </h4>\n\t\t\t\t\t\t\t\t<span *ngIf=\"criteria.q\">{{criteria.q}} &nbsp;|&nbsp;</span>\n\t\t\t\t\t\t\t\t<span *ngIf=\"criteria.lga\">{{criteria.lga}} &nbsp;|&nbsp;</span>\n\t\t\t\t\t\t\t\t<span *ngIf=\"criteria.schtype\">{{criteria.schtype}} &nbsp;|&nbsp;</span>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"location-map col-sm-6 col-xs-6\">\n\t\t\t\t\t\t\t<div class=\"input-group\">\n\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" id=\"address-map\" name=\"address\" placeholder=\"Manhattan, New York\">\n\t\t\t\t\t\t\t\t<i class=\"fa fa-search\"></i>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</header>\n\t\t\t\t\t<ul class=\"tab-links col-md-4 col-xs-12\">\n\t\t\t\t\t\t<li class=\"col-lg-3 col-lg-offset-2 col-md-4 col-xs-4 no-pad active\"><a data-target=\"#tab1\" data-toggle='tab' class=\"map2\"><img src=\"" + __webpack_require__(1340) + "\" alt=\"\"/>Map</a></li>\n\t\t\t\t\t\t<li class=\"col-lg-3 col-md-4 col-xs-4 no-pad\"><a data-toggle='tab' data-target=\"#tab2\"><img src=\"" + __webpack_require__(1370) + "\" alt=\"\"/>Grig</a></li>\n\t\t\t\t\t\t<li class=\"col-lg-3 col-md-4 col-xs-4 bdr-rgh no-pad\"><a data-target=\"#tab3\" data-toggle=\"tab\"><i class=\"fa fa-th-list\"></i>List</a></li>\n\t\t\t\t\t</ul>\n\t\t\t\t\t<div class=\"tab-content\">\n\t\t\t\t\t\t<div id=\"tab1\" class=\"tab active\">\n\t\t\t\t\t\t<paginate-search [schools]=\"schools\"></paginate-search>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div id=\"tab2\" class=\"tab\">\n\t\t\t\t\t<paginate-grid-search [schools]=\"schools\"></paginate-grid-search>\n\t\t\t\t</div>\n\t\t\t\t<div id=\"tab3\" class=\"tab\">\n\t\t\t\t<paginate-list-search [schools]=\"schools\"></paginate-list-search>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</div>\n</div>\n</div>\n</div>\n<!-- </div> -->\n<!-- </div> -->";
 
 /***/ },
 
@@ -1531,13 +1535,10 @@ webpackJsonp([2],{
 	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 	};
 	var core_1 = __webpack_require__(4);
-	var chkbox = __webpack_require__(1368);
 	var SearchTabs = (function () {
 	    function SearchTabs() {
 	    }
-	    SearchTabs.prototype.ngAfterContentInit = function () {
-	        chkbox();
-	    };
+	    SearchTabs.prototype.ngOnInit = function () { };
 	    return SearchTabs;
 	}());
 	SearchTabs = __decorate([
@@ -1549,44 +1550,6 @@ webpackJsonp([2],{
 	], SearchTabs);
 	exports.SearchTabs = SearchTabs;
 
-
-/***/ },
-
-/***/ 1368:
-/***/ function(module, exports, __webpack_require__) {
-
-	/* WEBPACK VAR INJECTION */(function($) {module.exports = function() {
-	    //  iCheck
-
-	    $.getScript('public/assets/js/icheck.js', function() {
-	        console.log("this is Icheck");
-	        if ($('.switch').length > 0) {
-	            $('.switch input').iCheck();
-	        }
-	        if ($('.radio').length > 0) {
-	            $('input').iCheck();
-	        }
-	        if ($('.checkbox').length > 0) {
-	            $('input:not(.no-icheck)').iCheck();
-	        }
-	    });
-	    $('#toggle-link').on('click', function(e) {
-	        var $message = $('#hidden_content');
-	        if ($message.css('display') != 'block') {
-	            $message.show();
-	            var firstClick = true;
-	            $(document).bind('click.myEvent', function(e) {
-	                if (!firstClick && $(e.target).closest('#hidden_content').length == 0) {
-	                    $message.hide();
-	                    $(document).unbind('click.myEvent');
-	                }
-	                firstClick = false;
-	            });
-	        }
-	        e.preventDefault();
-	    });
-	}
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1326)))
 
 /***/ },
 
@@ -1648,7 +1611,145 @@ webpackJsonp([2],{
 /***/ 1372:
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"col-xs-12\">\n\t<div class=\"row\">\n\t\t<div class=\"col-md-4 col-sm-6 col-xs-6 prop\" *ngFor=\" let school of schools | paginate: config\">\n\t\t\t<div class=\"wht-cont\">\n\t\t\t\t<!-- <div class=\"exp-img-2\" style=\"background:url({{school.image}}) center;background-size: cover;\"> -->\n\t\t\t\t<!-- 'url(https://res.cloudinary.com/peictt/image/upload/w_175,h_125/'+pic.url+'.jpg)' -->\n\t\t\t\t<div class=\"exp-img-2\" [ngStyle]=\"{'background-image':'url(https://res.cloudinary.com/peictt/image/upload/w_200/'+school.pictures[0].url+'.jpg)','background-position': 'center','background-size': 'cover'}\">\n\t\t\t\t\t<span class=\"filter\"></span>\n\t\t\t\t\t<span class=\"ffs-bs\"><label for=\"op\" class=\"btn btn-small btn-primary\">Details</label></span>\n\t\t\t\t\t<div class=\"overlay\">\n\t\t\t\t\t\t<div class=\"img-counter\">&nbsp;</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"item-title\">\n\t\t\t\t\t<h4><a [routerLink]='[\"/school\", school.id]'>{{school.name}}</a></h4>\n\t\t\t\t\t<p class=\"team-color\">{{school.address}}</p>\n\t\t\t\t\t<div class=\"col-md-7 col-sm-7 col-xs-7\">\n\t\t\t\t\t\t<p>{{7}} classrooms</p>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<hr>\n\t\t\t\t<div class=\"item-title btm-part\">\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-md-8 col-sm-8 col-xs-8\">\n\t\t\t\t\t\t\t<p>&nbsp;</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div><!-- end row -->\n</div><!-- end container -->\n<pagination-template #p=\"paginationApi\" [id]=\"config.id\" (pageChange)=\"config.currentPage = $event\">\n\t<nav class=\"site-navigation paging-navigation navbar\">\n\t\t<div class=\"nav-previous\" [class.disabled]=\"p.isFirstPage()\">\n\t\t\t<a *ngIf=\"!p.isFirstPage()\" (click)=\"p.previous()\">PREV PAGE</a>\n\t\t</div>\n\t\t<ul class=\"pagination pagination-lg\">\n\t\t\t<li *ngFor=\"let page of p.pages\" [class.active]=\"p.getCurrent() === page.value\">\n\t\t\t\t<a (click)=\"p.setCurrent(page.value)\" *ngIf=\"p.getCurrent() !== page.value\">{{page.value}}</a>\n\t\t\t</li>\n\t\t</ul>\n\t\t<div class=\"nav-next\" [class.disabled]=\"p.isLastPage()\">\n\t\t\t<a *ngIf=\"!p.isLastPage()\" (click)=\"p.next()\">NEXT PAGE</a>\n\t\t</div>\n\t</nav>\n</pagination-template>";
+	module.exports = "<div class=\"col-xs-12\" *ngIf=\"schools.length == 0\">\n\t<div class=\"row\">\n\t\t<div class=\"col-xs-12\">\n\t\t\t<div class=\"no-results-container\">\n\t\t\t\t<span class=\"glyphicon glyphicon-search\"></span>\n\t\t\t\t<h3>No Results found</h3>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</div>\n<div class=\"sidebar col-sm-4 col-xs-12\">\n\t<!-- Map -->\n\t<div id=\"map\"></div>\n\t<!-- end Map -->\n\t</div><!-- sidebar -->\n\t<div class=\"content col-sm-8 col-xs-12\">\n\t\t<!-- Range slider -->\n\t\t<div class=\"col-xs-12\">\n\t\t\t<div class=\"row\">\n\t\t\t\t<price-slider></price-slider>\n\t\t\t\t</div><!-- row -->\n\t\t\t\t</div>\t<!-- explore_grid -->\n\t\t\t\t<!-- End Range slider -->\n\t\t\t\t<div class=\"wide-2\">\n\t\t\t\t\t<div class=\"col-xs-12\" *ngIf=\"schools.length > 0\">\n\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t<div class=\"col-md-4 col-sm-6 col-xs-6 prop\" *ngFor=\" let school of schools | paginate: config\">\n\t\t\t\t\t\t\t\t<div class=\"wht-cont\">\n\t\t\t\t\t\t\t\t\t<!-- <div class=\"exp-img-2\" style=\"background:url({{school.image}}) center;background-size: cover;\"> -->\n\t\t\t\t\t\t\t\t\t<!-- 'url(https://res.cloudinary.com/peictt/image/upload/w_175,h_125/'+pic.url+'.jpg)' -->\n\t\t\t\t\t\t\t\t\t<div class=\"exp-img-2\" [ngStyle]=\"{'background-image':'url(https://res.cloudinary.com/peictt/image/upload/w_200/'+school.pictures[0].url+'.jpg)','background-position': 'center','background-size': 'cover'}\">\n\t\t\t\t\t\t\t\t\t\t<span class=\"filter\"></span>\n\t\t\t\t\t\t\t\t\t\t<span class=\"ffs-bs\"><label for=\"op\" class=\"btn btn-small btn-primary\">Details</label></span>\n\t\t\t\t\t\t\t\t\t\t<div class=\"overlay\">\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"img-counter\">&nbsp;</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"item-title\">\n\t\t\t\t\t\t\t\t\t\t<h4><a [routerLink]='[\"/school\", school.id]'>{{school.name}}</a></h4>\n\t\t\t\t\t\t\t\t\t\t<p class=\"team-color\">{{school.address}}</p>\n\t\t\t\t\t\t\t\t\t\t<div class=\"col-md-7 col-sm-7 col-xs-7\">\n\t\t\t\t\t\t\t\t\t\t\t<p>{{7}} classrooms</p>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<hr>\n\t\t\t\t\t\t\t\t\t<div class=\"item-title btm-part\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-md-8 col-sm-8 col-xs-8\">\n\t\t\t\t\t\t\t\t\t\t\t\t<p>&nbsp;</p>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<!-- end row -->\n\t\t\t\t\t</div>\n\t\t\t\t\t<!-- end container -->\n\t\t\t\t\t<div class=\"col-xs-12 content_2 top-indent\">\n\t\t\t\t\t\t<pagination-template #p=\"paginationApi\" [id]=\"config.id\" (pageChange)=\"config.currentPage = $event\">\n\t\t\t\t\t\t\t<nav class=\"site-navigation paging-navigation navbar\">\n\t\t\t\t\t\t\t\t<div class=\"nav-previous\" [class.disabled]=\"p.isFirstPage()\">\n\t\t\t\t\t\t\t\t\t<a *ngIf=\"!p.isFirstPage()\" (click)=\"p.previous()\">PREV PAGE</a>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<ul class=\"pagination pagination-lg\">\n\t\t\t\t\t\t\t\t\t<li *ngFor=\"let page of p.pages\" [class.active]=\"p.getCurrent() === page.value\">\n\t\t\t\t\t\t\t\t\t\t<a (click)=\"p.setCurrent(page.value)\" *ngIf=\"p.getCurrent() !== page.value\">{{page.value}}</a>\n\t\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t\t</ul>\n\t\t\t\t\t\t\t\t<div class=\"nav-next\" [class.disabled]=\"p.isLastPage()\">\n\t\t\t\t\t\t\t\t\t<a *ngIf=\"!p.isLastPage()\" (click)=\"p.next()\">NEXT PAGE</a>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</nav>\n\t\t\t\t\t\t</pagination-template>\n\t\t\t\t\t</div>\n\t\t\t\t\t</div>\t<!-- end wide-2 -->\n\t\t\t\t\t</div>\t<!-- content -->";
+
+/***/ },
+
+/***/ 1755:
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	};
+	var __metadata = (this && this.__metadata) || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var core_1 = __webpack_require__(4);
+	var priceSlider = __webpack_require__(1361);
+	var PriceSlider = (function () {
+	    function PriceSlider() {
+	    }
+	    PriceSlider.prototype.ngAfterViewInit = function () {
+	        priceSlider();
+	    };
+	    return PriceSlider;
+	}());
+	PriceSlider = __decorate([
+	    core_1.Component({
+	        selector: 'price-slider',
+	        template: __webpack_require__(1756)
+	    }),
+	    __metadata("design:paramtypes", [])
+	], PriceSlider);
+	exports.PriceSlider = PriceSlider;
+
+
+/***/ },
+
+/***/ 1756:
+/***/ function(module, exports) {
+
+	module.exports = "<div class=\"row\">\n  <form method=\"post\">\n    <div class=\"col-md-3 col-sm-4\">\n      <div class=\"form-inline\">\n        <label class=\"top-indent\">Fees Range:</label>\n      </div>\n    </div>\n    <div class=\"col-md-9 col-sm-8\">\n      <div class=\"form-group\">\n        <div class=\"price-range price-range-wrapper\">\n          <input class=\"price-input\" type=\"text\" name=\"price\" value=\"0;5000000\">\n        </div>\n      </div>\n    </div>\n  </form>\n</div>";
+
+/***/ },
+
+/***/ 1757:
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	};
+	var __metadata = (this && this.__metadata) || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var core_1 = __webpack_require__(4);
+	var PaginateListSearch = (function () {
+	    function PaginateListSearch() {
+	        this.config = {
+	            id: 'custom',
+	            itemsPerPage: 10,
+	            currentPage: 1
+	        };
+	    }
+	    return PaginateListSearch;
+	}());
+	__decorate([
+	    core_1.Input(),
+	    __metadata("design:type", Array)
+	], PaginateListSearch.prototype, "schools", void 0);
+	PaginateListSearch = __decorate([
+	    core_1.Component({
+	        selector: 'paginate-list-search',
+	        template: __webpack_require__(1758),
+	        changeDetection: core_1.ChangeDetectionStrategy.OnPush
+	    }),
+	    __metadata("design:paramtypes", [])
+	], PaginateListSearch);
+	exports.PaginateListSearch = PaginateListSearch;
+
+
+/***/ },
+
+/***/ 1758:
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = "<div class=\"col-xs-12 content_2\">\n\t<div class=\"col-lg-10 col-lg-offset-1 col-md-12\">\n\t\t<div class=\"row\">\n\t\t\t<div class=\"explore col-xs-12\">\n\t\t\t\t<h2>Properties for sale</h2>\n\t\t\t\t<h5 class=\"team-color col-sm-offset-3 col-sm-6 col-xs-offset-1 col-xs-10\">Lorem Ipsum is simply dummy text of the printing and Lorem Ipsum has been the industry's standard </h5>\n\t\t\t</div>\n\t\t\t<div class=\"col-md-8 col-sm-7\">\n\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t<div class=\"price-range price-range-wrapper\">\n\t\t\t\t\t<price-slider></price-slider>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t\t<div class=\"select-block no-border pull-right col-sm-2 col-xs-12\">\n\t\t\t<select class=\"selection\">\n\t\t\t\t<option>Sort By:</option>\n\t\t\t\t<option>Date</option>\n\t\t\t\t<option>Price</option>\n\t\t\t\t<option>Type</option>\n\t\t\t</select>\n\t\t</div>\n\t</div>\n\t<div class=\"wide-2\">\n\t\t<div class=\"row white\" *ngFor=\"let school of schools\">\n\t\t\t<div class=\"col-md-3 col-sm-3 prp-img\">\n\t\t\t\t<div class=\"exp-img-2\" [ngStyle]=\"{'background-image':'url(https://res.cloudinary.com/peictt/image/upload/w_200/'+school.pictures[0].url+'.jpg)','background-position': 'center','background-size': 'cover'}\">\n\t\t\t\t\t<span class=\"filter\"></span>\n\t\t\t\t\t<span class=\"ffs-bs\"><label for=\"op\" class=\"btn btn-small btn-primary\">Details</label></span>\n\t\t\t\t\t<div class=\"overlay\">\n\t\t\t\t\t\t<div class=\"img-counter\">&nbsp;</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div class=\"item-info col-lg-7 col-md-6 col-sm-6\">\n\t\t\t\t<h4><a href=\"property_page.html\">{{school.name}}</a></h4>\n\t\t\t\t<p class=\"team-color\">{{school.address}}</p>\n\t\t\t\t<div class=\"block\">\n\t\t\t\t\t<div class=\"col-md-3 col-sm-3 col-xs-3 cat-img\">\n\t\t\t\t\t\t<img src=\"" + __webpack_require__(1363) + "\" alt=\"\">\n\t\t\t\t\t\t<p class=\"info-line\">{{school.classrooms}} classrooms</p>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-md-3 col-sm-3 col-xs-3 cat-img\">\n\t\t\t\t\t\t<img src=\"" + __webpack_require__(1364) + "\" alt=\"\">\n\t\t\t\t\t\t<p class=\"info-line\">1 Bathroom</p>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-md-3 col-sm-3 col-xs-3 cat-img\">\n\t\t\t\t\t\t<img src=\"" + __webpack_require__(1333) + "\" alt=\"\">\n\t\t\t\t\t\t<p class=\"info-line\">100 m<span class=\"rank\">2</span></p>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-md-3 col-sm-3 col-xs-3 cat-img\">\n\t\t\t\t\t\t<img src=\"" + __webpack_require__(1365) + "\" alt=\"\">\n\t\t\t\t\t\t<p class=\"info-line\">1 Garage</p>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-md-3 col-sm-3 col-xs-3 line\"></div>\n\t\t\t\t<div class=\"col-md-3 col-sm-3 col-xs-3 line\"></div>\n\t\t\t\t<div class=\"col-md-3 col-sm-3 col-xs-3 line\"></div>\n\t\t\t\t<div class=\"col-md-3 col-sm-3 col-xs-3 line\"></div>\n\t\t\t\t<hr>\n\t\t\t\t<p>Aenean quis sem nisi. Aliquam vehicula gravida orci, nec pretium mi ultricies in. Donec fermentum pulvinar mauris neque justo ...</p>\n\t\t\t</div>\n\t\t\t<div class=\"item-price col-lg-2 col-md-3 col-sm-3 col-xs-12\">\n\t\t\t\t<div class=\"sum col-sm-12 col-xs-6\">\n\t\t\t\t\t<p>&nbsp;</p>\n\t\t\t\t</div>\n\t\t\t\t<span class=\"ffs-bs col-xs-12 btn-half-wth\"><a href=\"property_page.html\" class=\"btn btn-default btn-small\">Details<i class=\"fa fa-caret-right\"></i></a></span>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</div>\n</div>\n<div class=\"col-xs-12\">\n<div class=\"col-md-10 col-md-offset-1 col-xs-12\">\n\t<pagination-template #p=\"paginationApi\" [id]=\"config.id\" (pageChange)=\"config.currentPage = $event\">\n\t\t<nav class=\"site-navigation paging-navigation navbar\">\n\t\t\t<div class=\"nav-previous\" [class.disabled]=\"p.isFirstPage()\">\n\t\t\t\t<a *ngIf=\"!p.isFirstPage()\" (click)=\"p.previous()\">PREV PAGE</a>\n\t\t\t</div>\n\t\t\t<ul class=\"pagination pagination-lg\">\n\t\t\t\t<li *ngFor=\"let page of p.pages\" [class.active]=\"p.getCurrent() === page.value\">\n\t\t\t\t\t<a (click)=\"p.setCurrent(page.value)\" *ngIf=\"p.getCurrent() !== page.value\">{{page.value}}</a>\n\t\t\t\t</li>\n\t\t\t</ul>\n\t\t\t<div class=\"nav-next\" [class.disabled]=\"p.isLastPage()\">\n\t\t\t\t<a *ngIf=\"!p.isLastPage()\" (click)=\"p.next()\">NEXT PAGE</a>\n\t\t\t</div>\n\t\t</nav>\n\t</pagination-template>\n</div>\n</div>";
+
+/***/ },
+
+/***/ 1759:
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	};
+	var __metadata = (this && this.__metadata) || function (k, v) {
+	    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var core_1 = __webpack_require__(4);
+	var PaginateGridSearch = (function () {
+	    function PaginateGridSearch() {
+	        this.config = {
+	            id: 'custom',
+	            itemsPerPage: 10,
+	            currentPage: 1
+	        };
+	    }
+	    return PaginateGridSearch;
+	}());
+	__decorate([
+	    core_1.Input(),
+	    __metadata("design:type", Array)
+	], PaginateGridSearch.prototype, "schools", void 0);
+	PaginateGridSearch = __decorate([
+	    core_1.Component({
+	        selector: 'paginate-grid-search',
+	        template: __webpack_require__(1760),
+	        changeDetection: core_1.ChangeDetectionStrategy.OnPush
+	    }),
+	    __metadata("design:paramtypes", [])
+	], PaginateGridSearch);
+	exports.PaginateGridSearch = PaginateGridSearch;
+
+
+/***/ },
+
+/***/ 1760:
+/***/ function(module, exports) {
+
+	module.exports = "<div class=\"col-xs-12 content_2\">\n\t<div class=\"col-md-10 col-md-offset-1\">\n\t\t<div class=\"explore_grid\">\n\t\t\t<div class=\"row\">\n\t\t\t\t<div class=\"explore col-xs-12\">\n\t\t\t\t\t<h2>Search Result</h2>\n\t\t\t\t\t<h5 class=\"team-color col-sm-offset-3 col-sm-6 col-xs-offset-1 col-xs-10\">&nbsp;</h5>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-md-8 col-sm-7\">\n\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t<div class=\"price-range price-range-wrapper\">\n\t\t\t\t\t\t<price-slider></price-slider>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div class=\"select-block no-border pull-right col-sm-2 col-xs-12\">\n\t\t\t\t<select class=\"selection\">\n\t\t\t\t\t<option>Sort By:</option>\n\t\t\t\t\t<option>Date</option>\n\t\t\t\t\t<option>Price</option>\n\t\t\t\t\t<option>Type</option>\n\t\t\t\t</select>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\t<div class=\"wide-2\">\n\t\t<div class=\"row\">\n\t\t\t<div class=\"col-md-3 col-sm-3 col-xs-6 prop\" *ngFor=\"let school of schools\">\n\t\t\t\t<div class=\"wht-cont\">\n\t\t\t\t\t<div class=\"exp-img-2\" [ngStyle]=\"{'background-image':'url(https://res.cloudinary.com/peictt/image/upload/w_200/'+school.pictures[0].url+'.jpg)','background-position': 'center','background-size': 'cover'}\">\n\t\t\t\t\t\t<span class=\"filter\"></span>\n\t\t\t\t\t\t<span class=\"ffs-bs\"><label for=\"op\" class=\"btn btn-small btn-primary\">Details</label></span>\n\t\t\t\t\t\t<div class=\"overlay\">\n\t\t\t\t\t\t\t<div class=\"img-counter\">&nbsp;</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"item-title\">\n\t\t\t\t\t\t<h4><a href=\"property_page.html\">{{school.name}}</a></h4>\n\t\t\t\t\t\t<p class=\"team-color\">{{school.address}}</p>\n\t\t\t\t\t\t<div class=\"col-md-7 col-sm-7 col-xs-7\">\n\t\t\t\t\t\t\t<p>{{7}} classrooms</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-md-5 col-sm-5 col-xs-5\">\n\t\t\t\t\t\t\t<p>&nbsp;</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<hr>\n\t\t\t\t\t<div class=\"item-title btm-part\">\n\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t<div class=\"col-md-8 col-sm-8 col-xs-8\">\n\t\t\t\t\t\t\t\t<p>&nbsp;</p>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\t<!-- content_2 -->\n</div>\n</div>\n<div class=\"col-xs-12\">\n<div class=\"col-md-10 col-md-offset-1 col-xs-12\">\n\t<pagination-template #p=\"paginationApi\" [id]=\"config.id\" (pageChange)=\"config.currentPage = $event\">\n\t\t<nav class=\"site-navigation paging-navigation navbar\">\n\t\t\t<div class=\"nav-previous\" [class.disabled]=\"p.isFirstPage()\">\n\t\t\t\t<a *ngIf=\"!p.isFirstPage()\" (click)=\"p.previous()\">PREV PAGE</a>\n\t\t\t</div>\n\t\t\t<ul class=\"pagination pagination-lg\">\n\t\t\t\t<li *ngFor=\"let page of p.pages\" [class.active]=\"p.getCurrent() === page.value\">\n\t\t\t\t\t<a (click)=\"p.setCurrent(page.value)\" *ngIf=\"p.getCurrent() !== page.value\">{{page.value}}</a>\n\t\t\t\t</li>\n\t\t\t</ul>\n\t\t\t<div class=\"nav-next\" [class.disabled]=\"p.isLastPage()\">\n\t\t\t\t<a *ngIf=\"!p.isLastPage()\" (click)=\"p.next()\">NEXT PAGE</a>\n\t\t\t</div>\n\t\t</nav>\n\t</pagination-template>\n</div>\n</div>";
 
 /***/ }
 

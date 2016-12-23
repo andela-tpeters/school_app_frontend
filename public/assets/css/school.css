@@ -35,7 +35,22 @@ input[type="checkbox"] {
     background-color: red;
 }
 
+.search-info-block {
+    border-right: 1px solid #e6e6e6;
+    height: 70px
+}
+
 .criteria-container span {
     text-transform: uppercase;
     display: inline-block;
+}
+
+.no-results-container {
+    margin: 150px 0;
+    text-align: center;
+}
+
+.no-results-container span:nth-child(1) {
+    color: gray;
+    font-size: 68px;
 }

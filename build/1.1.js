@@ -106,11 +106,13 @@ webpackJsonp([1],{
 	    SingleSchoolComponent.prototype.ngAfterContentInit = function () {
 	        initializeMap();
 	        $('embed, iframe').wrap("<div class='video-container'></div>");
+	    };
+	    SingleSchoolComponent.prototype.ngAfterContentChecked = function () {
 	        preLoader.fade();
 	    };
 	    SingleSchoolComponent.prototype.ngOnInit = function () {
 	        var _this = this;
-	        preLoader.loader();
+	        preLoader.show();
 	        this.route.data.subscribe(function (data) {
 	            _this.school = data.school;
 	        });

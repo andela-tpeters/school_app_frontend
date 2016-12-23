@@ -76350,16 +76350,16 @@ webpackJsonp([4],[
 	    }
 	        
 	    // Property page tabs
-	    $('.tabs .tab-links a').on('click', function(e)  {
-	        var currentAttrValue = $(this).attr('href');
-	        var priceSlider = $('.jslider').detach();
-	        $('.tabs ' + currentAttrValue).slideDown(400).siblings().slideUp(400);
-	        $(this).parent('li').addClass('active').siblings().removeClass('active');
+	    // $('.tabs .tab-links a').on('click', function(e)  {
+	    //     var currentAttrValue = $(this).attr('href');
+	    //     var priceSlider = $('.jslider').detach();
+	    //     $('.tabs ' + currentAttrValue).slideDown(400).siblings().slideUp(400);
+	    //     $(this).parent('li').addClass('active').siblings().removeClass('active');
 	        
-	        priceSlider.appendTo($('.tabs ' + currentAttrValue).find('.price-range-wrapper'));
-	        priceSlider = null;
-	        e.preventDefault();
-	    });
+	    //     priceSlider.appendTo($('.tabs ' + currentAttrValue).find('.price-range-wrapper'));
+	    //     priceSlider = null;
+	    //     e.preventDefault();
+	    // });
 
 	    //  Price slider search page 
 	    // if( $(".price-input").length > 0) {

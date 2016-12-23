@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterContentInit } from "@angular/core";
+import { Component, OnInit, AfterContentInit, AfterContentChecked } from "@angular/core";
 import { Router,ActivatedRoute } from "@angular/router";
 import { SingleSchoolService } from "./single-school.service";
 import { NewSchoolModel } from "../new_school/new-school.model";
@@ -12,7 +12,7 @@ var preLoader = require('../index/preloader.js');
 	providers: [SingleSchoolService]
 })
 
-export class SingleSchoolComponent implements OnInit, AfterContentInit {
+export class SingleSchoolComponent implements OnInit, AfterContentInit, AfterContentChecked {
 	public school: any;
 	public utils = new Utils();
 	public properties: {}[] = PROPERTIES;
@@ -44,12 +44,15 @@ export class SingleSchoolComponent implements OnInit, AfterContentInit {
 	ngAfterContentInit() {
 		initializeMap();
 		$( 'embed, iframe' ).wrap( "<div class='video-container'></div>" );
+	}
+
+	ngAfterContentChecked() {
 		preLoader.fade();
 	}
 
 
 	ngOnInit() {
-		preLoader.loader();
+		preLoader.show();
 		this.route.data.subscribe((data: { school: NewSchoolModel}) => {
 			this.school = data.school;
 		})
